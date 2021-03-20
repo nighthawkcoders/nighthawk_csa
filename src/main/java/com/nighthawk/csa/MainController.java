@@ -7,6 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller  // HTTP requests are handled as a controller, using the @Controller annotation
 public class MainController {
 
+    @GetMapping("/course/repos")
+    public String courseRepos(Model model) {
+        return "routes/repos";
+    }
+
     @GetMapping("/course/prep")
     public String coursePrep(Model model) {
         model.addAttribute("url", "https://padlet.com/jmortensen7/csatime");

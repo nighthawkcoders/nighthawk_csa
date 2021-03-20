@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
+
+<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
+<head>
+    <title></title>
+    <div layout:fragment="metadata" th:remove="tag">
+        <title>Class Repositories</title>
+    </div>
+</head>
+
+<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
+<body><div layout:fragment="content" th:remove="tag">
+    <div class="row justify-content-center">
+        <div class="col-10" style="text-align: center;">
+            <h1>GitHub</h1>
+        </div>
+    </div>
+
+    <div id="githubs" class="repo block">
+        <div class="row justify-content-center" style="margin: 2%;">
+            <object type="image/svg+xml" data="https://gh-card.dev/repos/nighthawkcoders/nighthawk_csa.svg?link_target=_blank>"></object>
+            <object type="image/svg+xml" data="https://gh-card.dev/repos/nighthawkcoders/mvc-idea.svg?link_target=_blank>"></object>
+            <object type="image/svg+xml" data="https://gh-card.dev/repos/nighthawkcoders/virussim-idea-events.svg?link_target=_blank"></object>
+            <object type="image/svg+xml" data="https://gh-card.dev/repos/nighthawkcoders/spring-idea.svg?link_target=_blank"></object>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-10" style="text-align: center;">
+            <h1>Repl.it</h1>
+        </div>
+    </div>
+
+    <div id="repls" class="repl block">
+        <div class="row justify-content-center" style="margin: 2%;">
+            <iframe width="80%" height="500px" src="https://repl.it/@jmort1021/Java-Hello-Series?lite=true"></iframe>
+        </div>
+    </div>
+</div></body>
+
+</html>
