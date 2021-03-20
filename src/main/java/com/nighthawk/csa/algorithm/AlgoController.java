@@ -23,14 +23,14 @@ public class AlgoController {
         int nth = Integer.parseInt(fibseq);
 
         //fibonacci objects
-        List<_Fibonacci> fibs = new ArrayList<>();
-        fibs.add(new FibFor(nth));
-        fibs.add(new FibWhile(nth));
-        fibs.add(new FibRecurse(nth));
-        fibs.add(new FibStream(nth));
+        List<_Fibonacci> fibList = new ArrayList<>();
+        fibList.add(new FibFor(nth));
+        fibList.add(new FibWhile(nth));
+        fibList.add(new FibRecurse(nth));
+        fibList.add(new FibStream(nth));
 
         //MODEL attributes are passed back html
-        model.addAttribute("fibList", fibs);
+        model.addAttribute("fibList", fibList);
 
         //render fibonacci results
         return "algorithm/fib";
