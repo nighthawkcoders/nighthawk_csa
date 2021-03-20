@@ -9,31 +9,31 @@ public class MainController {
 
     @GetMapping("/course/repos")
     public String courseRepos(Model model) {
-        return "routes/repos";
+        return "course/repos";
     }
 
     @GetMapping("/course/prep")
     public String coursePrep(Model model) {
         model.addAttribute("url", "https://padlet.com/jmortensen7/csatime");
-        return "routes/course";
+        return "course/timelines";
     }
 
     @GetMapping("/course/tri1")
     public String courseTri1(Model model) {
-        model.addAttribute("url", "https://padlet.com/jmortensen7/jho9v5wc4p9jgyn2");
-        return "routes/course";
+        model.addAttribute("url", "https://padlet.com/jmortensen7/csamvc");
+        return "course/timelines";
     }
 
     @GetMapping("/course/tri2")
     public String courseTri2(Model model) {
-        model.addAttribute("url", "https://padlet.com/jmortensen7/csatime1_2");
-        return "routes/course";
+        model.addAttribute("url", "https://padlet.com/jmortensen7/csaweb");
+        return "course/timelines";
     }
 
     @GetMapping("/course/tri3")
     public String courseTri3(Model model) {
         model.addAttribute("url", "https://padlet.com/jmortensen7/csa2021t3");
-        return "routes/course";
+        return "course/timelines";
     }
 
 }
