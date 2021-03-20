@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
+
+<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
+<head>
+    <title></title>
+    <div layout:fragment="metadata" th:remove="tag">
+        <title>Class Repositories</title>
+    </div>
+</head>
+
+<body>
+    <div layout:fragment="content" th:remove="tag">
+        <div class="row justify-content-center">
+            <h1><strong>4 ways to build a Fibonacci series in Java</strong></h1>
+        </div>
+        <div class="block" style="margin: 2%">
+            <form id="fibForm" action="/fib" method="GET" >
+                <label for="fibseq">Type the nth number in the fibonacci sequence?</label>
+                <input name="fibseq" id="fibseq" type="number" min="2" max="93" >
+                <button>Go!</button>
+            </form>
+        </div>
+        <div class="block" style="margin: 2%">
+            <p th:text="'Fibonacci sequence, ' + ${fibseq}"></p>
+            <p th:text="'For loop time in  nanos: ' + ${fibfortime}"></p>
+            <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fspring-idea%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fexample%2Flessons%2Falgos%2Ffibonacci%2FFibFor.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
+            <p th:text="'Recursion time in  nanos: ' + ${fibrecursetime}"></p>
+            <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fspring-idea%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fexample%2Flessons%2Falgos%2Ffibonacci%2FFibRecurse.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
+            <p th:text="'Stream time in  nanos: ' + ${fibstreamtime}"></p>
+            <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fspring-idea%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fexample%2Flessons%2Falgos%2Ffibonacci%2FFibStream.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
+            <p th:text="'While loop time in  nanos: ' + ${fibwhiletime}"></p>
+            <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fspring-idea%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fexample%2Flessons%2Falgos%2Ffibonacci%2FFibWhile.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
+        </div>
+    </div>
+</body>
+
+</html>

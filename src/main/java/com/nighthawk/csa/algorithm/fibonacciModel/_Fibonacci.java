@@ -1,6 +1,6 @@
-package com.nighthawk.csa.algos.fibonacciModel;
+package com.nighthawk.csa.algorithm.fibonacciModel;
 
-import com.nighthawk.csa.algos.consoleUI.ConsoleMethods;
+import com.nighthawk.csa.algorithm.consoleUI.ConsoleMethods;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-abstract class _Fibonacci {
+public abstract class _Fibonacci {
     int size;
     int hashID;
     Duration timeElapsed;

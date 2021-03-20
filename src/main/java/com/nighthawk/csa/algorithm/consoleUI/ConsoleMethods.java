@@ -1,4 +1,4 @@
-package com.nighthawk.csa.algos.consoleUI;
+package com.nighthawk.csa.algorithm.consoleUI;
 
 public class ConsoleMethods {
 
