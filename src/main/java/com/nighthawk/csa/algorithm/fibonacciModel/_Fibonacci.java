@@ -1,15 +1,18 @@
 package com.nighthawk.csa.algorithm.fibonacciModel;
 
 import com.nighthawk.csa.algorithm.consoleUI.ConsoleMethods;
+import lombok.Getter;
 
 import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
+@Getter
 public abstract class _Fibonacci {
     int size;
+    String name;
+    String source;
     int hashID;
     Duration timeElapsed;
     ArrayList<Long> list;
@@ -58,8 +61,9 @@ public abstract class _Fibonacci {
         return hash;
     }
 
-    public void print(String message) {
-        ConsoleMethods.println("Init method = " + message);
+    public void print() {
+        ConsoleMethods.println("Init method = " + this.name);
+        ConsoleMethods.println("Init time = " + this.getTimeElapsed());
         ConsoleMethods.println("Fibonacci Number " + this.size + " = " + this.getNth());
         ConsoleMethods.println("Fibonacci List = " + this.getList());
         ConsoleMethods.println("Fibonacci Hashmap = " + this.getHash());

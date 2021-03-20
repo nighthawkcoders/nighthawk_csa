@@ -24,16 +24,16 @@
             </form>
         </div>
         <div class="block" style="margin: 2%">
-            <p th:text="'Fibonacci sequence, ' + ${fibseq}"></p>
-            <p th:text="'For loop time in  nanos: ' + ${fibfortime}"></p>
-            <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fspring-idea%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fexample%2Flessons%2Falgos%2Ffibonacci%2FFibFor.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
-            <p th:text="'Recursion time in  nanos: ' + ${fibrecursetime}"></p>
-            <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fspring-idea%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fexample%2Flessons%2Falgos%2Ffibonacci%2FFibRecurse.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
-            <p th:text="'Stream time in  nanos: ' + ${fibstreamtime}"></p>
-            <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fspring-idea%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fexample%2Flessons%2Falgos%2Ffibonacci%2FFibStream.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
-            <p th:text="'While loop time in  nanos: ' + ${fibwhiletime}"></p>
-            <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fspring-idea%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fexample%2Flessons%2Falgos%2Ffibonacci%2FFibWhile.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
-        </div>
+            <th:block th:each="fib : ${fibList}">
+                <p th:text="'Init method  = ' + ${fib.getName()}"></p>
+                <p th:text="'Init time = ' + ${fib.getTimeElapsed()}"></p>
+                <p th:text="'Fibonacci Number = ' + ${fib.getNth()}"></p>
+                <p th:text="'Fibonacci List = ' + ${fib.getList()}"></p>
+                <p th:text="'Fibonacci HashMap = ' + ${fib.getHash()}"></p>
+                <p th:text="'Fibonacci Algorithm = ' + ${fib.getSource()}"></p>
+                <script src=[[${fib.getSource()}]]></script>   <!-- Not working -->
+            </th:block>
+         </div>
     </div>
 </body>
 

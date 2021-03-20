@@ -10,6 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller  // HTTP requests are handled as a controller, using the @Controller annotation
 public class AlgoController {
 
@@ -19,19 +22,15 @@ public class AlgoController {
         //nth is fibonacci request
         int nth = Integer.parseInt(fibseq);
 
-        //fibonacci methods
-        _Fibonacci fibfor = new FibFor(nth);
-        _Fibonacci fibrecurse = new FibRecurse(nth);
-        _Fibonacci fibstream = new FibStream(nth);
-        _Fibonacci fibwhile = new FibWhile(nth);
+        //fibonacci objects
+        List<_Fibonacci> fibs = new ArrayList<>();
+        fibs.add(new FibFor(nth));
+        fibs.add(new FibWhile(nth));
+        fibs.add(new FibRecurse(nth));
+        fibs.add(new FibStream(nth));
 
         //MODEL attributes are passed back html
-        model.addAttribute("fib", fibstream.getNth());
-        model.addAttribute("fibseq", fibstream.getList());
-        model.addAttribute("fibfortime", fibfor.getTimeElapsed());
-        model.addAttribute("fibrecursetime", fibrecurse.getTimeElapsed());
-        model.addAttribute("fibstreamtime", fibstream.getTimeElapsed());
-        model.addAttribute("fibwhiletime", fibwhile.getTimeElapsed());
+        model.addAttribute("fibList", fibs);
 
         //render fibonacci results
         return "algorithm/fib";

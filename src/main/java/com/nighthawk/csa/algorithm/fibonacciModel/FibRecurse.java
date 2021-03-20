@@ -9,6 +9,8 @@ public class FibRecurse extends _Fibonacci {
     @Override
     protected void init() {
         //setup for recursion
+        super.name = "Recursion";
+        super.source = "https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fspring-idea%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fexample%2Flessons%2Falgos%2Ffibonacci%2FFibRecurse.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on";
         long limit = super.size;
         long[] f = new long[]{0, 1};
         initRecurse(limit,f);
@@ -23,6 +25,6 @@ public class FibRecurse extends _Fibonacci {
     public static void main(String[] args) {
         int num = 20;   //number of Fibs, 92 is max for long
         _Fibonacci fibonacci = new FibRecurse(num);
-        fibonacci.print("Recurse");
+        fibonacci.print();
     }
 }
