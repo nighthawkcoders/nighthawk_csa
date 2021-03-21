@@ -12,14 +12,14 @@
 
 <body>
 <div layout:fragment="content" th:remove="tag">
-    `<div class="jumbotron jumbotron-fluid">
+    `<div class="fibonacci">
 
-        <div class="center-block" style="margin: 2% 8% 8%; color: var(--gray); font-family: gilroy,serif;">
+        <div class="center-block" style="margin: 2% 8% 8%; font-family: gilroy,serif;">
             <div class="col-12" style="text-align: center;">
                 <h1><strong>4 ways to build a Fibonacci series in Java</strong></h1>
             </div>
 
-            <div class="col-12" style="text-align: left; ">
+            <div class="jumbotron" style="text-align: left; ">
                 <form id="fibForm" action="/fib" method="GET" >
                     <label for="fibseq">Type the nth number in the fibonacci sequence?</label>
                     <input name="fibseq" id="fibseq" type="number" min="2" max="93" >
