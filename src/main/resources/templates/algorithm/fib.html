@@ -25,13 +25,14 @@
         </div>
         <div class="block" style="margin: 2%">
             <th:block th:each="fib : ${fibList}">
-                <p th:text="'Init method  = ' + ${fib.getName()}"></p>
-                <p th:text="'Init time = ' + ${fib.getTimeElapsed()}"></p>
-                <p th:text="'Fibonacci Number = ' + ${fib.getNth()}"></p>
-                <p th:text="'Fibonacci List = ' + ${fib.getList()}"></p>
-                <p th:text="'Fibonacci HashMap = ' + ${fib.getHash()}"></p>
-                <p th:text="'Fibonacci Algorithm = ' + ${fib.getSource()}"></p>
-                <script src=[[${fib.getSource()}]]></script>   <!-- Not working -->
+                <h2 th:text="'Init method  = ' + ${fib.getName()}"></h2>
+                <h4 th:text="'Fibonacci Sequence = ' + ${fib.getSize()}"></h4>
+                <h4 th:text="'Fibonacci Number = ' + ${fib.getNth()}"></h4>
+                <h4 th:text="'Init time = ' + ${fib.getTimeElapsed()}"></h4>
+                <h6 th:text="'Fibonacci List = ' + ${fib.getList()}"></h6>
+                <h6 th:text="'Fibonacci HashMap = ' + ${fib.getHash()}"></h6>
+                <h6 th:text="'Fibonacci Algorithm = ' + ${fib.getSource()}"></h6>
+                <script src=[[${#fib.getSource()}]]></script>   <!-- Not working -->
             </th:block>
          </div>
     </div>
