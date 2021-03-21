@@ -10,28 +10,39 @@
 
 <!-- layout::fragment="content" is heart of ThymeLeaf layout -->
 <body><div layout:fragment="content" th:remove="tag">
-    <!-- Body of Page, the content details -->
-    <div id="spring_intro" class="articles" style="margin: 30px;">
-        <h1><strong>Java and Spring</strong></h1>
-        <h3><strong>What is Spring?</strong></h3>
-        <ol>
-            <li>Spring Framework is the most popular application development framework of Java. </li>
-            <li>Spring Boot helps to create a stand-alone application with less configuration.</li>
-            <li>Spring MVC is a model view controller-based web framework under the Spring framework.</li>
-            <li>ThymeLeaf is a server-side Java template engine, support HTML5 JVM web development, and provides full integration with Spring Framework.</li>
-        </ol>
-        <h1><strong>What should Java Developers learn?</strong></h1>
-        <ol>
-            <li>Development DevOps. Java programmers should have a passion for managing the environment and learning automation.  Maven or Gradle.</li>
-            <li>Git/GitHub.  Learning to master managing change, branches, pull requests.</li>
-            <li>Java 9-15. Jigsaw, Reactive Streams, Process API, HTTP2 client, JShell, ...</li>
-            <li>Spring Framework. Reactive programming model on Spring 5, adoption of recent Java features, unit testing</li>
-            <li>REST services using Spring.  Mastering creating and consuming RESTful APIs</li>
-            <li>Microservices are nothing but an extension of RESTful Web services with the main objective being to break up your code into small, distributed, and independent services.</li>
-            <li>React JS. This JavaScript framework has completely changed how you develop web applications.</li>
-            <li>Deployment Devops. Things like Docker and Kubernetes.  Understanding Nginix and other tools for managing servers, configuration, and scale.</li>
-        </ol>
+    <div class="jumbotron jumbotron-fluid" style="height: 100vh; background-image: url('/static/assets/home1.svg'); background-repeat: no-repeat; background-size:100% 100%;">
+
+        <div class="center-block" style="margin: 2% 10% 10%; color: var(--gray); font-family: gilroy,serif;">
+            <div class="col-12" style="text-align: center;">
+                <h1><strong>Java and Spring</strong></h1>
+            </div>
+
+            <div class="col-12" style="text-align: left; ">
+                <h3><strong>What is Spring?</strong></h3>
+                <ol>
+                    <li>Spring Framework is the most popular application development framework of Java. </li>
+                    <li>Spring Boot helps to create a stand-alone application with less configuration.</li>
+                    <li>Spring MVC is a model view controller-based web framework under the Spring framework.</li>
+                    <li>ThymeLeaf is a server-side Java template engine, support HTML5 JVM web development, and provides full integration with Spring Framework.</li>
+                </ol>
+            </div>
+            <div class="col-12" style="text-align: left; ">
+                <h3><strong>What should Java Developers learn?</strong></h3>
+                <ol>
+                    <li>Development DevOps. Java programmers should have a passion for managing the environment and learning automation.  Maven or Gradle.</li>
+                    <li>Git/GitHub.  Learning to master managing change, branches, pull requests.</li>
+                    <li>Java 9-15. Jigsaw, Reactive Streams, Process API, HTTP2 client, JShell, ...</li>
+                    <li>Spring Framework. Reactive programming model on Spring 5, adoption of recent Java features, unit testing</li>
+                    <li>REST services using Spring.  Mastering creating and consuming RESTful APIs</li>
+                    <li>Microservices are nothing but an extension of RESTful Web services with the main objective being to break up your code into small, distributed, and independent services.</li>
+                    <li>React JS. This JavaScript framework has completely changed how you develop web applications.</li>
+                    <li>Deployment Devops. Things like Docker and Kubernetes.  Understanding Nginix and other tools for managing servers, configuration, and scale.</li>
+                </ol>
+            </div>
+
+        </div>
     </div>
+
 </div></body>
 
 </html>
