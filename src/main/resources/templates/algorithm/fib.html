@@ -12,33 +12,41 @@
 </head>
 
 <body>
-    <div layout:fragment="content" th:remove="tag">
-        <div class="row justify-content-center">
-            <h1><strong>4 ways to build a Fibonacci series in Java</strong></h1>
-        </div>
-        <div class="block" style="margin: 2%">
-            <form id="fibForm" action="/fib" method="GET" >
-                <label for="fibseq">Type the nth number in the fibonacci sequence?</label>
-                <input name="fibseq" id="fibseq" type="number" min="2" max="93" >
-                <button>Go!</button>
-            </form>
-        </div>
-        <div class="block" style="margin: 2%">
-            <th:block th:each="fib : ${fibList}">
-                <h2 th:text="'Init method  = ' + ${fib.getName()}"></h2>
-                <h4 th:text="'Fibonacci Sequence = ' + ${fib.getSize()}"></h4>
-                <h4 th:text="'Fibonacci Number = ' + ${fib.getNth()}"></h4>
-                <h4 th:text="'Init time = ' + ${fib.getTimeElapsed()}"></h4>
-                <h6 th:text="'Fibonacci List = ' + ${fib.getList()}"></h6>
-                <h6 th:text="'Fibonacci HashMap = ' + ${fib.getHash()}"></h6>
-                <script th:inline="javascript" src="${fib.getSource()}"></script>   <!-- Not working -->
-            </th:block>
-            <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fnighthawk_csa%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fnighthawk%2Fcsa%2Falgorithm%2FfibonacciModel%2FFibFor.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
-            <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fnighthawk_csa%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fnighthawk%2Fcsa%2Falgorithm%2FfibonacciModel%2FFibWhile.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
-            <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fnighthawk_csa%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fnighthawk%2Fcsa%2Falgorithm%2FfibonacciModel%2FFibRecurse.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
-            <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fnighthawk_csa%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fnighthawk%2Fcsa%2Falgorithm%2FfibonacciModel%2FFibStream.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
+<div layout:fragment="content" th:remove="tag">
+    `<div class="jumbotron jumbotron-fluid">
+
+        <div class="center-block" style="margin: 2% 8% 8%; color: var(--gray); font-family: gilroy,serif;">
+            <div class="col-12" style="text-align: center;">
+                <h1><strong>4 ways to build a Fibonacci series in Java</strong></h1>
+            </div>
+
+            <div class="col-12" style="text-align: left; ">
+                <form id="fibForm" action="/fib" method="GET" >
+                    <label for="fibseq">Type the nth number in the fibonacci sequence?</label>
+                    <input name="fibseq" id="fibseq" type="number" min="2" max="93" >
+                    <button>Go!</button>
+                </form>
+            </div>
+
+            <div class="col-12" style="text-align: left; ">
+                <th:block th:each="fib : ${fibList}">
+                    <h2 th:text="'Init method  = ' + ${fib.getName()}"></h2>
+                    <h4 th:text="'Fibonacci Sequence = ' + ${fib.getSize()}"></h4>
+                    <h4 th:text="'Fibonacci Number = ' + ${fib.getNth()}"></h4>
+                    <h4 th:text="'Init time = ' + ${fib.getTimeElapsed()}"></h4>
+                    <h6 th:text="'Fibonacci List = ' + ${fib.getList()}"></h6>
+                    <h6 th:text="'Fibonacci HashMap = ' + ${fib.getHash()}"></h6>
+                    <script th:inline="javascript" src="${fib.getSource()}"></script>   <!-- Not working -->
+                </th:block>
+                <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fnighthawk_csa%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fnighthawk%2Fcsa%2Falgorithm%2FfibonacciModel%2FFibFor.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
+                <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fnighthawk_csa%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fnighthawk%2Fcsa%2Falgorithm%2FfibonacciModel%2FFibWhile.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
+                <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fnighthawk_csa%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fnighthawk%2Fcsa%2Falgorithm%2FfibonacciModel%2FFibRecurse.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
+                <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fnighthawk_csa%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fnighthawk%2Fcsa%2Falgorithm%2FfibonacciModel%2FFibStream.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
+            </div>
+
         </div>
     </div>
+</div>`
 </body>
 
 </html>
