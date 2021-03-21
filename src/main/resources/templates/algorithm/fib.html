@@ -31,10 +31,13 @@
                 <h4 th:text="'Init time = ' + ${fib.getTimeElapsed()}"></h4>
                 <h6 th:text="'Fibonacci List = ' + ${fib.getList()}"></h6>
                 <h6 th:text="'Fibonacci HashMap = ' + ${fib.getHash()}"></h6>
-                <h6 th:text="'Fibonacci Algorithm = ' + ${fib.getSource()}"></h6>
-                <script src=[[${#fib.getSource()}]]></script>   <!-- Not working -->
+                <script th:inline="javascript" src="${fib.getSource()}"></script>   <!-- Not working -->
             </th:block>
-         </div>
+            <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fnighthawk_csa%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fnighthawk%2Fcsa%2Falgorithm%2FfibonacciModel%2FFibFor.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
+            <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fnighthawk_csa%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fnighthawk%2Fcsa%2Falgorithm%2FfibonacciModel%2FFibWhile.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
+            <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fnighthawk_csa%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fnighthawk%2Fcsa%2Falgorithm%2FfibonacciModel%2FFibRecurse.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
+            <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fnighthawk_csa%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fnighthawk%2Fcsa%2Falgorithm%2FfibonacciModel%2FFibStream.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
+        </div>
     </div>
 </body>
 
