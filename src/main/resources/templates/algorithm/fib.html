@@ -14,7 +14,7 @@
 <div layout:fragment="content" th:remove="tag">
     `<div class="fibonacci">
 
-        <div class="center-block" style="margin: 2% 8% 8%; font-family: gilroy,serif;">
+        <div class="center-block" style="margin: 2% 5% 5%; font-family: gilroy,serif;">
             <div class="col-12" style="text-align: center;">
                 <h1><strong>4 ways to build a Fibonacci series in Java</strong></h1>
             </div>
@@ -28,23 +28,40 @@
             </div>
 
             <div class="col-12" style="text-align: left; ">
-                <th:block th:each="fib : ${fibList}">
-                    <h2 th:text="'Init method  = ' + ${fib.getName()}"></h2>
-                    <h4 th:text="'Fibonacci Sequence = ' + ${fib.getSize()}"></h4>
-                    <h4 th:text="'Fibonacci Number = ' + ${fib.getNth()}"></h4>
-                    <h4 th:text="'Init time = ' + ${fib.getTimeElapsed()}"></h4>
-                    <h6 th:text="'Fibonacci List = ' + ${fib.getList()}"></h6>
-                    <h6 th:text="'Fibonacci HashMap = ' + ${fib.getHash()}"></h6>
-                    <script th:inline="javascript" src="${fib.getSource()}"></script>   <!-- Not working -->
-                </th:block>
+                <table>
+                    <tr>
+                        <th scope="col">Method</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Number</th>
+                        <th scope="col">List</th>
+                        <th scope="col">Hash</th>
+                    </tr>
+                    <tr th:each="fib : ${fibList}">
+                        <td th:text="${fib.getName()}"></td>
+                        <td th:text="${fib.getTimeElapsed()}"></td>
+                        <td th:text="${fib.getNth()}"></td>
+                        <td th:text="${fib.getList()}"></td>
+                        <td th:text="${fib.getHash()}"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="col-12" style="text-align: left; ">
                 <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fnighthawk_csa%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fnighthawk%2Fcsa%2Falgorithm%2FfibonacciModel%2FFibFor.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
                 <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fnighthawk_csa%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fnighthawk%2Fcsa%2Falgorithm%2FfibonacciModel%2FFibWhile.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
                 <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fnighthawk_csa%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fnighthawk%2Fcsa%2Falgorithm%2FfibonacciModel%2FFibRecurse.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
                 <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fnighthawk_csa%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fnighthawk%2Fcsa%2Falgorithm%2FfibonacciModel%2FFibStream.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
             </div>
-
         </div>
     </div>
+    <style>
+        table, td, th {
+            border: 1px solid var(--dblue);
+        }
+        td, th {
+            text-align:left;
+        }
+    </style>
 </div>`
 </body>
 

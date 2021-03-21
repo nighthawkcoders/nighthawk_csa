@@ -12,7 +12,6 @@ import java.util.HashMap;
 public abstract class _Fibonacci {
     int size;
     String name;
-    String source;
     int hashID;
     Duration timeElapsed;
     ArrayList<Long> list;

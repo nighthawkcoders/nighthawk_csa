@@ -10,7 +10,6 @@ public class FibStream extends _Fibonacci {
     @Override
     protected void init() {
         super.name = "Stream";
-        super.source = "https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fspring-idea%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fexample%2Flessons%2Falgos%2Ffibonacci%2FFibStream.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on";
         Stream.iterate(new long[]{0, 1}, f -> new long[]{f[1], f[0] + f[1]})
             .limit(super.size)
             .forEach(f -> super.setData(f[0]) );
