@@ -12,38 +12,43 @@
 
 <body>
 <div layout:fragment="content" th:remove="tag">
-    `<div class="fibonacci">
+    `<div class="container">
 
-        <div class="center-block" style="margin: 2% 5% 5%; font-family: gilroy,serif;">
+        <div class="center-block" style="margin: 2% 3% 3%; font-family: gilroy,serif;">
+            <!-- Title -->
             <div class="col-12" style="text-align: center;">
                 <h1><strong>4 ways to build a Fibonacci series in Java</strong></h1>
             </div>
 
-            <div class="jumbotron jumbotron-fluid" style="text-align: left; ">
-                <form id="fibForm" action="/fib" method="GET" >
-                    <label for="fibseq">Type the nth number in the fibonacci sequence?</label>
-                    <input name="fibseq" id="fibseq" type="number" min="2" max="93" >
-                    <button>Go!</button>
-                </form>
-            </div>
-
-            <div class="col-12" style="text-align: left; ">
-                <table>
-                    <tr>
-                        <th scope="col">Method</th>
-                        <th scope="col">Time</th>
-                        <th scope="col">Number</th>
-                        <th scope="col">List</th>
-                        <th scope="col">Hash</th>
-                    </tr>
-                    <tr th:each="fib : ${fibList}">
-                        <td th:text="${fib.getName()}"></td>
-                        <td th:text="${fib.getTimeElapsed()}"></td>
-                        <td th:text="${fib.getNth()}"></td>
-                        <td th:text="${fib.getList()}"></td>
-                        <td th:text="${fib.getHash()}"></td>
-                    </tr>
-                </table>
+            <!-- Form and Action -->
+            <div class="jumbotron text-center row">
+                <!-- Input -->
+                <div class="col-md-6">
+                    <h3>Type the nth number in the fibonacci sequence?</h3>
+                    <img class="img-responsive py-3" th:src="@{/images/Fibonacci_spiral.svg}" alt="" width="50%" height="Auto">
+                    <form id="fibForm" action="/fib" method="GET" >
+                        <input name="fibseq" id="fibseq" type="number" min="2" max="92" >
+                        <button>Go!</button>
+                    </form>
+                </div>
+                <!-- Output/Result -->
+                <div class="col-md-6">
+                    <h3>Algorithm comparison</h3>
+                    <table class="mx-auto">
+                        <tr>
+                            <th scope="col">Method</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">Number</th>
+                            <th scope="col">List</th>
+                        </tr>
+                        <tr th:each="fib : ${fibList}">
+                            <td th:text="${fib.getName()}"></td>
+                            <td th:text="${fib.getTimeElapsed()}"></td>
+                            <td th:text="${fib.getNth()}"></td>
+                            <td th:text="${fib.getList()}"></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
 
             <div class="col-12" style="text-align: left; ">
