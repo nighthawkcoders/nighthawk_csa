@@ -10,16 +10,15 @@
 
 <!-- layout::fragment="content" is heart of ThymeLeaf layout -->
 <body><div layout:fragment="content" th:remove="tag">
-    <div class="index">
-        <div class="center-block" style="margin: 2% 10% 10%; font-family: gilroy,serif;">
-            <div class="col-12" style="text-align: center;">
-                <h1><strong>Java and Spring</strong></h1>
-            </div>
+    <div class="center-block" style="margin: 2% 10% 10%; font-family: gilroy,serif;">
+        <div class="col-12" style="text-align: center;">
+            <h1><strong>Java and Spring</strong></h1>
+        </div>
 
-            <div class="jumbotron jumbotron-fluid" style="text-align: left; ">
+        <div class="jumbotron text-left row">
+            <div class="col-md-12">
+                <img src="/static/images/home1.svg" th:src="@{/images/home1.svg}" style="height: 100px" >
                 <h3><strong>What is Spring?</strong></h3>
-            </div>
-            <div class="col-12" style="text-align: left; ">
                 <ol>
                     <li>Spring Framework is the most popular application development framework of Java. </li>
                     <li>Spring Boot helps to create a stand-alone application with less configuration.</li>
@@ -28,10 +27,9 @@
                 </ol>
             </div>
 
-            <div class="jumbotron  jumbotron-fluid" style="text-align: left; ">
+            <div class="col-md-12">
+                <img src="/static/images/home1.svg" th:src="@{/images/home1.svg}" style="height: 100px" >
                 <h3><strong>What should Java Developers learn?</strong></h3>
-            </div>
-            <div class="col-12" style="text-align: left; ">
                 <ol>
                     <li>Development DevOps. Java programmers should have a passion for managing the environment and learning automation.  Maven or Gradle.</li>
                     <li>Git/GitHub.  Learning to master managing change, branches, pull requests.</li>
@@ -43,9 +41,10 @@
                     <li>Deployment Devops. Things like Docker and Kubernetes.  Understanding Nginix and other tools for managing servers, configuration, and scale.</li>
                 </ol>
             </div>
-
         </div>
+
     </div>
+
 
 </div></body>
 
