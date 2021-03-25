@@ -38,7 +38,7 @@ public class FibonacciController {
 
     // Console UI is run out of the same Controller
     public static void main(String[] args) {
-        int nth = 20;   //number of Fibs, 92 is max for long
+        int nth = 20; //!!!make dynamic using consoleUI inputInt!!! 92 is max for long
 
         List<_Fibonacci> fibList = new FibonacciController().fibInit(nth);
         for (_Fibonacci fibonacci : fibList)
