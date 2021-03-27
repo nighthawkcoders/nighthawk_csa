@@ -1,23 +1,24 @@
-package com.nighthawk.csa.model.linkedlists;
+package com.nighthawk.csa.algorithm;
 
 
 import com.nighthawk.csa.consoleUI.ConsoleMethods;
-import com.nighthawk.csa.model.linkedlists.data.Alphabet;
-import com.nighthawk.csa.model.linkedlists.data.Animal;
-import com.nighthawk.csa.model.linkedlists.data.Cupcakes;
+import com.nighthawk.csa.algorithm.genericDataModel.Alphabet;
+import com.nighthawk.csa.algorithm.genericDataModel.Animal;
+import com.nighthawk.csa.algorithm.genericDataModel.Cupcakes;
+import com.nighthawk.csa.model.linkedlists.Stack;
 
 /**
  * Stack Driver takes a list of Objects and puts them onto the Stack
  * @author johnmortensen
  *
  */
-public class StackDriver {
+public class StackController {
 
     private Stack stack;
     private String dataType="";
     private int count;
 
-    public StackDriver()
+    public StackController()
     {
         count = 0;
         stack = new Stack();
@@ -62,7 +63,7 @@ public class StackDriver {
      */
     public static void main(String[] args)
     {
-        StackDriver trial = new StackDriver();
+        StackController trial = new StackController();
 
         // setup for Animals
         trial.setDataType("Animals");

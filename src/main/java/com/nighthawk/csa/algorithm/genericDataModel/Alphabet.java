@@ -1,4 +1,4 @@
-package com.nighthawk.csa.model.linkedlists.data;
+package com.nighthawk.csa.algorithm.genericDataModel;
 
 
 import com.nighthawk.csa.consoleUI.ConsoleMethods;

@@ -1,24 +1,44 @@
-package com.nighthawk.csa.model.linkedlists;
+package com.nighthawk.csa.algorithm;
 
 import com.nighthawk.csa.consoleUI.ConsoleMethods;
-import com.nighthawk.csa.model.linkedlists.data.Alphabet;
-import com.nighthawk.csa.model.linkedlists.data.Animal;
-import com.nighthawk.csa.model.linkedlists.data.Cupcakes;
+import com.nighthawk.csa.algorithm.genericDataModel.Alphabet;
+import com.nighthawk.csa.algorithm.genericDataModel.Animal;
+import com.nighthawk.csa.algorithm.genericDataModel.Cupcakes;
+import com.nighthawk.csa.model.linkedlists.CircleQueue;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Circle Queue Driver takes a list of Objects and puts them into a Queue
  * @author     John Mortensen
  *
  */
-public class CircleQueueDriver
-{
+@Controller  // HTTP requests are handled as a controller, using the @Controller annotation
+public class CircleQueueController {
     private final CircleQueue cQueue;	// circle queue object
     private int count; // number of objects in circle queue
+
+    // GET request,, parameters are passed within the URI
+    @GetMapping("/data")
+    public String data(@RequestParam(name="all", required=false ) Boolean all, Model model) {
+        if (this.count == 0) {
+            this.addCQueue(Animal.animalData());
+            this.addCQueue(Cupcakes.cupCakeData());
+            this.addCQueue(Alphabet.alphabetData());
+        }
+        model.addAttribute("count", this.count);
+        model.addAttribute("cQueue", this.cQueue);
+
+        return "algorithm/data"; //HTML render fibonacci results
+    }
 
     /*
      * Circle queue constructor
      */
-    public CircleQueueDriver()
+    public CircleQueueController()
     {
         count = 0;
         cQueue = new CircleQueue();
@@ -73,7 +93,7 @@ public class CircleQueueDriver
     public static void main(String[] args)
     {
         //queue
-        CircleQueueDriver trial = new CircleQueueDriver();
+        CircleQueueController trial = new CircleQueueController();
 
         //add different types of objects to the same opaque queue
         trial.addCQueue(Animal.animalData());

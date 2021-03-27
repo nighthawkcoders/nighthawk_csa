@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
+
+<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
+<head>
+    <div layout:fragment="metadata" th:remove="tag">
+        <title>Fibonacci Algo</title>
+    </div>
+</head>
+
+<body>
+<div layout:fragment="content" th:remove="tag">
+    `<div class="container">
+
+    <div class="center-block" style="margin: 2% 3% 3%; font-family: gilroy,serif;">
+        <!-- Title -->
+        <div class="col-12" style="text-align: center;">
+            <h1><strong>Data Filtering and Sorting</strong></h1>
+        </div>
+
+        <!-- Form and Action -->
+        <div class="jumbotron text-center row">
+            <!-- Input -->
+            <div class="col-md-6">
+                <h3>Select options to filter</h3>
+                <img class="img-responsive py-3" th:src="@{/images/java_logo.svg}" alt="" width="50%" height="Auto">
+                <form id="fibForm" action="/data" method="GET" >
+                    <input type="checkbox" id="alpha" name="alpha" value="Alpha">
+                    <label for="alpha">   Alphabet</label><br>
+                    <input type="checkbox" id="animal" name="animal" value="animal">
+                    <label for="animal">   Animals</label><br>
+                    <input type="checkbox" id="cakes" name="cakes" value="cakes">
+                    <label for="cakes">   Cup Cakes</label><br><br>
+                    <button>Go!</button>
+                </form>
+            </div>
+            <!-- Output/Result -->
+            <div class="col-md-6">
+                <h3>Matching Output</h3>
+                <table class="mx-auto">
+                    <tr>
+                        <th scope="col">Size</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                    </tr>
+                        <td th:text="${count}"></td>
+                        <td th:text="${cQueue.getFirstObject()}"></td>
+                        <td th:text="${cQueue.getLastObject()}"></td>
+                    </tr>
+                </table>
+                <div class="jumbotron text-left row">
+                    <p th:text="${cQueue}"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12" style="text-align: left; ">
+            <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fnighthawk_csa%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fnighthawk%2Fcsa%2Falgorithm%2FfibonacciModel%2FFibStream.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
+        </div>
+    </div>
+</div>
+    <style>
+        table, td, th {
+            border: 1px solid var(--dblue);
+        }
+        td, th {
+            text-align:left;
+        }
+    </style>
+</div>`
+</body>
+
+</html>

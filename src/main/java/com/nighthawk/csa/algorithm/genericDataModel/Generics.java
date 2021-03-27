@@ -1,4 +1,4 @@
-package com.nighthawk.csa.model.linkedlists.data;
+package com.nighthawk.csa.algorithm.genericDataModel;
 
 import lombok.Getter;
 import lombok.Setter;
