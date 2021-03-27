@@ -1,6 +1,6 @@
 package com.nighthawk.csa.algorithm.fibonacciModel;
 
-import com.nighthawk.csa.algorithm.consoleUI.ConsoleMethods;
+import com.nighthawk.csa.consoleUI.ConsoleMethods;
 import lombok.Getter;
 
 import java.time.Duration;
