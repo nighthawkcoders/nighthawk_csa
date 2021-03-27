@@ -9,7 +9,6 @@ import com.nighthawk.csa.model.linkedlists.CircleQueue;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Circle Queue Driver takes a list of Objects and puts them into a Queue
@@ -46,18 +45,6 @@ public class CircleQueueController {
     }
 
     /*
-     * Show key objects/properties of circle queue
-     */
-    public void showCQueue()
-    {
-        ConsoleMethods.println("Size: " + count);
-        ConsoleMethods.println("First Element: " + cQueue.getFirstObject());
-        ConsoleMethods.println("Last Element: " + cQueue.getLastObject());
-        ConsoleMethods.println("Full cqueue: " + cQueue);
-        ConsoleMethods.println();
-    }
-
-    /*
      * Delete/Clear all object in circle queue
      */
     public void deleteCQueue()
@@ -88,6 +75,18 @@ public class CircleQueueController {
         model.addAttribute("cQueue", this.cQueue);
 
         return "algorithm/data"; //HTML render default condition
+    }
+
+    /*
+     * Show key objects/properties of circle queue
+     */
+    public void showCQueue()
+    {
+        ConsoleMethods.println("Size: " + count);
+        ConsoleMethods.println("First Element: " + cQueue.getFirstObject());
+        ConsoleMethods.println("Last Element: " + cQueue.getLastObject());
+        ConsoleMethods.println("Full cqueue: " + cQueue);
+        ConsoleMethods.println();
     }
 
     /*
