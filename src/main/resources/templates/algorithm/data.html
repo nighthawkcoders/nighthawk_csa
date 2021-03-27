@@ -38,29 +38,34 @@
             </div>
             <!-- Output/Result -->
             <div class="col-md-6">
-                <h3>Filtered Output</h3>
+                <h3>Filtered Summary</h3>
                 <table class="mx-auto">
                     <tr>
                         <th scope="col">Size</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
+                        <th scope="col">First Row</th>
+                        <th scope="col">Last Row</th>
                     </tr>
                         <td th:text="${count}"></td>
                         <td th:text="${cQueue.getFirstObject()}"></td>
                         <td th:text="${cQueue.getLastObject()}"></td>
                     </tr>
                 </table>
-                <div class="jumbotron text-left row">
-                    <h5>Circle Queue Details</h5>
-                    <p th:text="${cQueue}"></p>
-                </div>
+                <br><h3>Details</h3>
+                <table class="mx-auto">
+                    <tr>
+                        <th scope="col">Row</th>
+                    </tr>
+                    <tr th:each="line: ${cQList}">
+                        <td th:text="${line}" ></td>
+                    </tr>
+                </table>
             </div>
         </div>
 
         <div class="col-12" style="text-align: left; ">
             <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fnighthawk_csa%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fnighthawk%2Fcsa%2Falgorithm%2FCircleQueueController.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>        </div>
+        </div>
     </div>
-</div>
     <style>
         table, td, th {
             border: 1px solid var(--dblue);

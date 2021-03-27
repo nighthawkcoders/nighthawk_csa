@@ -72,13 +72,15 @@ public class CircleQueue
      *  Advances the current node.
      *
      */
-    public void setNext()
+    public Object setNext()
     {
         currentNode = currentNode.getNext();
 
         // never let currentNode be null, wrap to head
         if (currentNode == null)
             currentNode = headNode;
+
+        return currentNode.getObject();
     }
 
     /**

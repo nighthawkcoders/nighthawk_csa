@@ -10,6 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Circle Queue Driver takes a list of Objects and puts them into a Queue
  * @author     John Mortensen
@@ -73,19 +76,32 @@ public class CircleQueueController {
         }
         model.addAttribute("count", this.count);
         model.addAttribute("cQueue", this.cQueue);
+        model.addAttribute("cQList", this.getCQList());
+
 
         return "algorithm/data"; //HTML render default condition
+    }
+
+    public List<String> getCQList() {
+        List<String> log = new ArrayList<String>();
+        Object first = cQueue.getFirstObject();
+        do {
+            log.add(cQueue.getObject().toString());
+        } while (cQueue.setNext() != first);
+        return log;
     }
 
     /*
      * Show key objects/properties of circle queue
      */
-    public void showCQueue()
-    {
+    public void printCQueue() {
         ConsoleMethods.println("Size: " + count);
         ConsoleMethods.println("First Element: " + cQueue.getFirstObject());
         ConsoleMethods.println("Last Element: " + cQueue.getLastObject());
         ConsoleMethods.println("Full cqueue: " + cQueue);
+        for (String line : this.getCQList()) {
+            ConsoleMethods.println(line);
+        }
         ConsoleMethods.println();
     }
 
@@ -103,7 +119,7 @@ public class CircleQueueController {
         trial.addCQueue(Alphabet.alphabetData());
         //display queue objects in queue order
         ConsoleMethods.println("Add order (all data)");
-        trial.showCQueue();
+        trial.printCQueue();
 
         //sort queue objects by specific element within the object and display in sort order
         Animal.key = Animal.KeyType.name;
@@ -111,18 +127,18 @@ public class CircleQueueController {
         Alphabet.key = Alphabet.KeyType.letter;
         trial.cQueue.insertionSort();
         ConsoleMethods.println("Sorted order (key only)");
-        trial.showCQueue();
+        trial.printCQueue();
 
         //display queue objects, changing output but not sort
         Animal.key = Animal.KeyType.combo;
         Cupcakes.key = Cupcakes.KeyType.combo;
         Alphabet.key = Alphabet.KeyType.combo;
         ConsoleMethods.println("Retain sorted order (all data)");
-        trial.showCQueue();
+        trial.printCQueue();
         trial.cQueue.insertionSort();
         //display queue objects, changing sort order
         ConsoleMethods.println("Order by data type (all data)");
-        trial.showCQueue();
+        trial.printCQueue();
 
         //delete queue objects
         ConsoleMethods.println("Delete from front (all data)");
