@@ -21,20 +21,6 @@ public class CircleQueueController {
     private final CircleQueue cQueue;	// circle queue object
     private int count; // number of objects in circle queue
 
-    // GET request,, parameters are passed within the URI
-    @GetMapping("/data")
-    public String data(@RequestParam(name="all", required=false ) Boolean all, Model model) {
-        if (this.count == 0) {
-            this.addCQueue(Animal.animalData());
-            this.addCQueue(Cupcakes.cupCakeData());
-            this.addCQueue(Alphabet.alphabetData());
-        }
-        model.addAttribute("count", this.count);
-        model.addAttribute("cQueue", this.cQueue);
-
-        return "algorithm/data"; //HTML render fibonacci results
-    }
-
     /*
      * Circle queue constructor
      */
@@ -86,6 +72,23 @@ public class CircleQueueController {
         }
     }
 
+    /*
+     GET request,, parameters are passed within the URI
+     */
+    @GetMapping("/data")
+    public String data(Model model) {
+
+        //initialize data from statics in code
+        if (this.count == 0) {
+            this.addCQueue(Animal.animalData());
+            this.addCQueue(Cupcakes.cupCakeData());
+            this.addCQueue(Alphabet.alphabetData());
+        }
+        model.addAttribute("count", this.count);
+        model.addAttribute("cQueue", this.cQueue);
+
+        return "algorithm/data"; //HTML render default condition
+    }
 
     /*
      * Illustrate different Objects that can be placed on same Queue
