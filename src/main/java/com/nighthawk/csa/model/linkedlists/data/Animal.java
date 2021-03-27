@@ -4,32 +4,30 @@ package com.nighthawk.csa.model.linkedlists.data;
 import com.nighthawk.csa.consoleUI.ConsoleMethods;
 
 /*
- * Animal class
+ * Animal class extends Generics and defines abstract methods
  */
 public class Animal extends Generics {
-	/* fields
-	 * 
-	 */
-	public static final String type = "Animal";
+	public static KeyType key = KeyType.combo;  //Static variable: a key that applies to all Objects
 	public enum KeyType {combo, name, age, color}
-	public static KeyType key = KeyType.combo;
+	public final String subType = "Animal";
 	private final String name;
 	private final int age;
 	private final String color;
-	
+
+
 	/* constructor
 	 * 
 	 */
 	public Animal(String name, int age, String color)
 	{
-		this.setType(type);
+		super.setType(this.subType);
 		this.name = name; 
 		this.age = age; 
 		this.color = color; 
 	}
 	
-	/* 
-	 * toString provides output based off of this.key setting
+	/* Generics requires toString override
+	 * toString provides conditional output based off of key
 	 */
 	@Override
 	public String toString()
@@ -48,7 +46,7 @@ public class Animal extends Generics {
 			break;
 		case combo:
 		default:
-			output += type + ": " + this.name  + ", " + this.color + ", " + this.age; 
+			output += this.subType + ": " + this.name  + ", " + this.color + ", " + this.age;
 		}
 		return output;
 		
@@ -73,9 +71,9 @@ public class Animal extends Generics {
 	 */
 	public static void main(String[] args)
 	{
-		Generics[] animData = animalData();
+		Generics[] animData = animalData();	//shows abstract class usage
 		for(Generics a : animData)
-			ConsoleMethods.println("" + a);
+			ConsoleMethods.println("" + a);	//shows polymorphic behavior
 	}
 
 }

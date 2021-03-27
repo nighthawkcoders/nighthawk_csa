@@ -10,8 +10,8 @@ import com.nighthawk.csa.model.linkedlists.data.Cupcakes;
  * @author     John Mortensen
  *
  */
-public class CircleQueueDriver {
-
+public class CircleQueueDriver
+{
     private final CircleQueue cQueue;	// circle queue object
     private int count; // number of objects in circle queue
 
@@ -71,7 +71,6 @@ public class CircleQueueDriver {
      * Illustrate different Objects that can be placed on same Queue
      */
     public static void main(String[] args)
-
     {
         //queue
         CircleQueueDriver trial = new CircleQueueDriver();
@@ -86,17 +85,21 @@ public class CircleQueueDriver {
 
         //sort queue objects by specific element within the object and display in sort order
         Animal.key = Animal.KeyType.name;
-        Cupcakes.key = Cupcakes.KeyType.flavor;
+        Cupcakes.key = Cupcakes.KeyType.frosting;
         Alphabet.key = Alphabet.KeyType.letter;
         trial.cQueue.insertionSort();
         ConsoleMethods.println("Sorted order (key only)");
         trial.showCQueue();
 
-        //display queue objects
+        //display queue objects, changing output but not sort
         Animal.key = Animal.KeyType.combo;
         Cupcakes.key = Cupcakes.KeyType.combo;
         Alphabet.key = Alphabet.KeyType.combo;
-        ConsoleMethods.println("Sorted order (all data)");
+        ConsoleMethods.println("Retain sorted order (all data)");
+        trial.showCQueue();
+        trial.cQueue.insertionSort();
+        //display queue objects, changing sort order
+        ConsoleMethods.println("Order by data type (all data)");
         trial.showCQueue();
 
         //delete queue objects

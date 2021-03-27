@@ -7,9 +7,9 @@ public class Cupcakes extends Generics {
 	public static final String type = "Cupcakes";
 	public enum KeyType {combo, flavor, frosting, sprinkles}
 	public static KeyType key = KeyType.combo;
-	private String frosting;
-	private int sprinkles;
-	private String flavor;
+	private final String frosting;
+	private final int sprinkles;
+	private final String flavor;
 	
 	Cupcakes(String frosting, int sprinkles, String flavor)
 	{
@@ -33,7 +33,8 @@ public class Cupcakes extends Generics {
 			output += this.frosting;
 			break;
 		case sprinkles:
-			output += this.sprinkles;
+			output += "00" + this.sprinkles;
+			output = output.substring(output.length()-2);
 			break;
 		case combo:
 		default:
