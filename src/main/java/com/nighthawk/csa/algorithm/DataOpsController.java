@@ -95,13 +95,16 @@ public class DataOpsController {
     public String data(Model model) {
 
         //initialize data
-        count = 0;
-        queue = new CircleQueue();
+        this.count = 0;
+        this.queue = new CircleQueue();
         //application specific inits
         //title defaults
-        animalKey = Animal.KeyType.title;
-        cakeKey = Cupcakes.KeyType.title;
-        alphaKey = Alphabet.KeyType.title;
+        this.animalKey = Animal.KeyType.title;
+        Animal.key = this.animalKey;
+        this.cakeKey = Cupcakes.KeyType.title;
+        Cupcakes.key = this.cakeKey;
+        this.alphaKey = Alphabet.KeyType.title;
+        Alphabet.key = this.alphaKey;
         //control options
         this.animal = true;
         this.cake = true;
@@ -121,20 +124,21 @@ public class DataOpsController {
     @PostMapping("/data")
     public String dataFilter(
             @RequestParam(value = "animal", required = false) String animal,
-            @RequestParam(value = "animalKey", required = false) String animalKey,
+            @RequestParam(value = "animalKey") Animal.KeyType animalKey,
             @RequestParam(value = "cake", required = false) String cake,
-            @RequestParam(value = "cakeKey", required = false) String cakeKey,
+            @RequestParam(value = "cakeKey") Cupcakes.KeyType cakeKey,
             @RequestParam(value = "alpha", required = false) String alpha,
-            @RequestParam(value = "alphaKey", required = false) String alphaKey,
+            @RequestParam(value = "alphaKey", required = false) Alphabet.KeyType alphaKey,
             Model model)
     {
         //re-init data according to check boxes selected
         count = 0;
         queue = new CircleQueue();
+        //for each category rebuild data, set presentation and data defaults
         if (animal != null) {
             this.addCQueue(Animal.animalData());
             this.animal = true;
-            this.animalKey = Animal.KeyType.valueOf(animalKey);
+            this.animalKey = animalKey;
             Animal.key = this.animalKey;
         } else {
             this.animal = false;
@@ -142,7 +146,7 @@ public class DataOpsController {
         if (cake != null) {
             this.addCQueue(Cupcakes.cupCakeData());
             this.cake = true;
-            this.cakeKey = Cupcakes.KeyType.valueOf(cakeKey);
+            this.cakeKey = cakeKey;
             Cupcakes.key = this.cakeKey;
         } else {
             this.cake = false;
@@ -150,14 +154,16 @@ public class DataOpsController {
         if (alpha != null) {
             this.addCQueue(Alphabet.alphabetData());
             this.alpha = true;
-            this.alphaKey = Alphabet.KeyType.valueOf(alphaKey);
+            this.alphaKey = alphaKey;
             Alphabet.key = this.alphaKey;
         } else {
             this.alpha = false;
         }
+        //sort data according to options
         this.queue.insertionSort();
+        //render with options
         model.addAttribute("ctl", this);
-        return "algorithm/data"; //HTML render default condition
+        return "algorithm/data";
     }
 
     /*
