@@ -26,18 +26,20 @@ import java.util.List;
 public class DataOpsController {
     private CircleQueue queue;	// circle queue object
     private int count; // number of objects in circle queue
-    private boolean animal = true;
-    private Animal.KeyType animalKey = Animal.KeyType.title;
-    private boolean cake = true;
-    private Cupcakes.KeyType cakeKey = Cupcakes.KeyType.title;
-    private boolean alpha = true;
-    private Alphabet.KeyType alphaKey = Alphabet.KeyType.title;
+    //application specific values
+    private boolean animal;
+    private Animal.KeyType animalKey;
+    private boolean cake;
+    private Cupcakes.KeyType cakeKey;
+    private boolean alpha;
+    private Alphabet.KeyType alphaKey;
 
     /*
      * Circle queue constructor
      */
     public DataOpsController()
     {
+        //circle queue inits
         count = 0;
         queue = new CircleQueue();
     }
@@ -92,20 +94,24 @@ public class DataOpsController {
     @GetMapping("/data")
     public String data(Model model) {
 
-        //initialize data from statics in code
-        if (this.count == 0) {
-            this.addCQueue(Animal.animalData());
-            this.animal = true;
-            this.animalKey = Animal.KeyType.title;
-            this.addCQueue(Cupcakes.cupCakeData());
-            this.cake = true;
-            this.cakeKey = Cupcakes.KeyType.title;
-            this.addCQueue(Alphabet.alphabetData());
-            this.alpha = true;
-            this.alphaKey = Alphabet.KeyType.title;
-        }
-        model.addAttribute("ctl", this);
+        //initialize data
+        count = 0;
+        queue = new CircleQueue();
+        //application specific inits
+        //title defaults
+        animalKey = Animal.KeyType.title;
+        cakeKey = Cupcakes.KeyType.title;
+        alphaKey = Alphabet.KeyType.title;
+        //control options
+        this.animal = true;
+        this.cake = true;
+        this.alpha = true;
+        //load data
+        this.addCQueue(Animal.animalData());
+        this.addCQueue(Cupcakes.cupCakeData());
+        this.addCQueue(Alphabet.alphabetData());
 
+        model.addAttribute("ctl", this);
         return "algorithm/data"; //HTML render default condition
     }
 
@@ -115,8 +121,11 @@ public class DataOpsController {
     @PostMapping("/data")
     public String dataFilter(
             @RequestParam(value = "animal", required = false) String animal,
+            @RequestParam(value = "animalKey", required = false) String animalKey,
             @RequestParam(value = "cake", required = false) String cake,
+            @RequestParam(value = "cakeKey", required = false) String cakeKey,
             @RequestParam(value = "alpha", required = false) String alpha,
+            @RequestParam(value = "alphaKey", required = false) String alphaKey,
             Model model)
     {
         //re-init data according to check boxes selected
@@ -125,24 +134,28 @@ public class DataOpsController {
         if (animal != null) {
             this.addCQueue(Animal.animalData());
             this.animal = true;
-            this.animalKey = Animal.KeyType.title;
+            this.animalKey = Animal.KeyType.valueOf(animalKey);
+            Animal.key = this.animalKey;
         } else {
             this.animal = false;
         }
         if (cake != null) {
             this.addCQueue(Cupcakes.cupCakeData());
             this.cake = true;
-            this.cakeKey = Cupcakes.KeyType.title;
+            this.cakeKey = Cupcakes.KeyType.valueOf(cakeKey);
+            Cupcakes.key = this.cakeKey;
         } else {
             this.cake = false;
         }
         if (alpha != null) {
             this.addCQueue(Alphabet.alphabetData());
             this.alpha = true;
-            this.alphaKey = Alphabet.KeyType.title;
+            this.alphaKey = Alphabet.KeyType.valueOf(alphaKey);
+            Alphabet.key = this.alphaKey;
         } else {
             this.alpha = false;
         }
+        this.queue.insertionSort();
         model.addAttribute("ctl", this);
         return "algorithm/data"; //HTML render default condition
     }

@@ -38,8 +38,8 @@ public class Animal extends Generics {
 			output += this.name;
 			break;
 		case age:
-			output += "000" + this.age;
-			output = output.substring(output.length()-3);
+			output += "00" + this.age;
+			output = output.substring(output.length()-2);
 			break;
 		case color:
 			output += this.color;
