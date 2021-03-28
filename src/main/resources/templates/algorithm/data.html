@@ -26,12 +26,18 @@
                 <h3>Select options to filter and sort</h3>
                 <form id="fibForm" action="/data" th:object="${ctl}" method="POST" >
                     <div class="jumbotron text-left row">
-                        <!-- Animal: queue, name, age, color -->
+                        <!-- Animals -->
                         <div class="col-md-4">
+                            <!-- Checkbox on/off works off of @Getter for boolean isAnimal() -->
                             <input type="checkbox" id="animal" name="animal" value="1" th:checked="${ctl.isAnimal()}">
                             <label for="animal">Animals</label>
                             <div class="form-group">
                                 <label>Sort by</label>
+                                <!-- Sort by Radio buttons:
+                                1. option(s) are generated directly from Animal.KeyType
+                                2. animalKey is the result of radio button selection
+                                3. each radio option is provided a unique id, review rendered code to see expansion
+                                -->
                                 <div th:each="option : ${T(com.nighthawk.csa.algorithm.genericDataModel.Animal.KeyType).values()}">
                                     <div class="custom-control custom-radio custom-control-inline">
                                         <input type="radio" th:field="*{animalKey}" th:value="${option}" class="custom-control-input">
@@ -40,7 +46,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Cup Cakes: queue, flavor, frosting, sprinkles -->
+                        <!-- Cupcakes -->
                         <div class="col-md-4">
                             <input type="checkbox" id="cake" name="cake" value="1" th:checked="${ctl.isCake()}">
                             <label for="cake">Cup Cakes</label>
@@ -54,7 +60,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Alphabet: queue, name, age, color -->
+                        <!-- Alphabet -->
                         <div class="col-md-4">
                             <input type="checkbox" id="alpha" name="alpha" value="1" th:checked="${ctl.isAlpha()}">
                             <label for="alpha">Alphabet</label>
