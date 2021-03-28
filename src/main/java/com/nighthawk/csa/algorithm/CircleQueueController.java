@@ -6,6 +6,7 @@ import com.nighthawk.csa.algorithm.genericDataModel.Animal;
 import com.nighthawk.csa.algorithm.genericDataModel.Cupcakes;
 import com.nighthawk.csa.model.linkedlists.CircleQueue;
 
+import lombok.Getter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,9 +19,10 @@ import java.util.List;
  * @author     John Mortensen
  *
  */
+@Getter
 @Controller  // HTTP requests are handled as a controller, using the @Controller annotation
 public class CircleQueueController {
-    private final CircleQueue cQueue;	// circle queue object
+    private final CircleQueue queue;	// circle queue object
     private int count; // number of objects in circle queue
 
     /*
@@ -29,7 +31,7 @@ public class CircleQueueController {
     public CircleQueueController()
     {
         count = 0;
-        cQueue = new CircleQueue();
+        queue = new CircleQueue();
     }
 
     /*
@@ -40,8 +42,8 @@ public class CircleQueueController {
         System.out.println("Add " + objects.length);
         for (Object o : objects)
         {
-            cQueue.add(o);
-            System.out.println("Add: " + cQueue.getObject() + " " + cQueue);
+            queue.add(o);
+            System.out.println("Add: " + queue.getObject() + " " + queue);
             this.count++;
         }
         System.out.println();
@@ -57,9 +59,23 @@ public class CircleQueueController {
 
         for (int i = 0; i<length; i++)
         {
-            System.out.println("Delete: " + cQueue.delete() + " " + cQueue);
+            System.out.println("Delete: " + queue.delete() + " " + queue);
             this.count--;
         }
+    }
+
+    /*
+     * String buffer for each row is created to support Thymeleaf (Interable could be alternative)
+     */
+    public List<String> getCQList()
+    {
+        List<String> log = new ArrayList<>();
+        //travers each row, halting when first is re-encountered (circle queue halt)
+        Object first = queue.getFirstObject();
+        do {
+            log.add(queue.getObject().toString());
+        } while (queue.setNext() != first);
+        return log;
     }
 
     /*
@@ -74,31 +90,21 @@ public class CircleQueueController {
             this.addCQueue(Cupcakes.cupCakeData());
             this.addCQueue(Alphabet.alphabetData());
         }
-        model.addAttribute("count", this.count);
-        model.addAttribute("cQueue", this.cQueue);
-        model.addAttribute("cQList", this.getCQList());
-
+        model.addAttribute("cQC", this);
 
         return "algorithm/data"; //HTML render default condition
-    }
-
-    public List<String> getCQList() {
-        List<String> log = new ArrayList<String>();
-        Object first = cQueue.getFirstObject();
-        do {
-            log.add(cQueue.getObject().toString());
-        } while (cQueue.setNext() != first);
-        return log;
     }
 
     /*
      * Show key objects/properties of circle queue
      */
-    public void printCQueue() {
+    public void printCQueue()
+    {
+        //queue and object of queue all print via toString()
         ConsoleMethods.println("Size: " + count);
-        ConsoleMethods.println("First Element: " + cQueue.getFirstObject());
-        ConsoleMethods.println("Last Element: " + cQueue.getLastObject());
-        ConsoleMethods.println("Full cqueue: " + cQueue);
+        ConsoleMethods.println("First Element: " + queue.getFirstObject());
+        ConsoleMethods.println("Last Element: " + queue.getLastObject());
+        ConsoleMethods.println("Full cqueue: " + queue);
         for (String line : this.getCQList()) {
             ConsoleMethods.println(line);
         }
@@ -125,7 +131,7 @@ public class CircleQueueController {
         Animal.key = Animal.KeyType.name;
         Cupcakes.key = Cupcakes.KeyType.frosting;
         Alphabet.key = Alphabet.KeyType.letter;
-        trial.cQueue.insertionSort();
+        trial.queue.insertionSort();
         ConsoleMethods.println("Sorted order (key only)");
         trial.printCQueue();
 
@@ -135,7 +141,7 @@ public class CircleQueueController {
         Alphabet.key = Alphabet.KeyType.combo;
         ConsoleMethods.println("Retain sorted order (all data)");
         trial.printCQueue();
-        trial.cQueue.insertionSort();
+        trial.queue.insertionSort();
         //display queue objects, changing sort order
         ConsoleMethods.println("Order by data type (all data)");
         trial.printCQueue();

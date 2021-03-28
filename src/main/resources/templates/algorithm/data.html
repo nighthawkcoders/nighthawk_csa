@@ -25,7 +25,7 @@
             <!-- Input -->
             <div class="col-md-6">
                 <h3>Select options to filter</h3>
-                <img class="img-responsive py-3" th:src="@{/images/java_logo.svg}" alt="" width="50%" height="Auto">
+                <img class="img-responsive py-3" src="/images/java_logo.svg" th:src="@{/images/java_logo.svg}" alt="" width="50%" height="Auto">
                 <form id="fibForm" action="/data" method="GET" >
                     <input type="checkbox" id="alpha" name="alpha" value="Alpha">
                     <label for="alpha">   Alphabet</label><br>
@@ -45,17 +45,20 @@
                         <th scope="col">First Row</th>
                         <th scope="col">Last Row</th>
                     </tr>
-                        <td th:text="${count}"></td>
-                        <td th:text="${cQueue.getFirstObject()}"></td>
-                        <td th:text="${cQueue.getLastObject()}"></td>
+                    <tr>
+                        <!-- Circle Queue Highlight data (summary)  -->
+                        <td th:text="${cQC.getCount()}"></td>
+                        <td th:text="${cQC.getQueue().getFirstObject()}"></td>
+                        <td th:text="${cQC.getQueue().getLastObject()}"></td>
                     </tr>
                 </table>
-                <br><h3>Details</h3>
+                <br><h3>Data Details</h3>
                 <table class="mx-auto">
                     <tr>
                         <th scope="col">Row</th>
                     </tr>
-                    <tr th:each="line: ${cQList}">
+                    <!-- Circle Detail data (rows) -->
+                    <tr th:each="line: ${cQC.getCQList()}">
                         <td th:text="${line}" ></td>
                     </tr>
                 </table>
