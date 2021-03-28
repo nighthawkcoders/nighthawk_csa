@@ -4,8 +4,8 @@ import com.nighthawk.csa.consoleUI.ConsoleMethods;
 import com.nighthawk.csa.algorithm.genericDataModel.Alphabet;
 import com.nighthawk.csa.algorithm.genericDataModel.Animal;
 import com.nighthawk.csa.algorithm.genericDataModel.Cupcakes;
-import com.nighthawk.csa.model.linkedlists.CircleQueue;
 
+import com.nighthawk.csa.model.linkedlists.CircleQueue;
 import lombok.Getter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +23,7 @@ import java.util.List;
  */
 @Getter
 @Controller  // HTTP requests are handled as a controller, using the @Controller annotation
-public class CircleQueueController {
+public class DataOpsController {
     private CircleQueue queue;	// circle queue object
     private int count; // number of objects in circle queue
     private boolean animal = true;
@@ -36,7 +36,7 @@ public class CircleQueueController {
     /*
      * Circle queue constructor
      */
-    public CircleQueueController()
+    public DataOpsController()
     {
         count = 0;
         queue = new CircleQueue();
@@ -169,7 +169,7 @@ public class CircleQueueController {
     public static void main(String[] args)
     {
         //queue
-        CircleQueueController trial = new CircleQueueController();
+        DataOpsController trial = new DataOpsController();
 
         //add different types of objects to the same opaque queue
         trial.addCQueue(Animal.animalData());
