@@ -5,9 +5,9 @@ import com.nighthawk.csa.consoleUI.ConsoleMethods;
 
 public class Alphabet extends Generics {
 	public static final String type = "Alphabet";
-	public static KeyType key = KeyType.combo;
+	public static KeyType key = KeyType.title;
 	private static final int size = 26;
-	public enum KeyType {combo, letter}
+	public enum KeyType {title, letter}
 	private final char letter;
 	
 	/*
@@ -31,7 +31,7 @@ public class Alphabet extends Generics {
 		case letter:
 			output += this.letter;
 			break;
-		case combo:
+		case title:
 		default:
 			output += type + ": " + this.letter;
 		}

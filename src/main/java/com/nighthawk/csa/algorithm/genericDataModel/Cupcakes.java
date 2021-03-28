@@ -4,9 +4,9 @@ package com.nighthawk.csa.algorithm.genericDataModel;
 import com.nighthawk.csa.consoleUI.ConsoleMethods;
 
 public class Cupcakes extends Generics {
+	public enum KeyType {title, flavor, frosting, sprinkles}
 	public static final String type = "Cupcakes";
-	public enum KeyType {combo, flavor, frosting, sprinkles}
-	public static KeyType key = KeyType.combo;
+	public static KeyType key = KeyType.title;
 	private final String frosting;
 	private final int sprinkles;
 	private final String flavor;
@@ -36,7 +36,7 @@ public class Cupcakes extends Generics {
 			output += "00" + this.sprinkles;
 			output = output.substring(output.length()-2);
 			break;
-		case combo:
+		case title:
 		default:
 			output = type + ": " + this.flavor + ", " + this.frosting + ", " + this.sprinkles;
 		}

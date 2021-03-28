@@ -7,8 +7,8 @@ import com.nighthawk.csa.consoleUI.ConsoleMethods;
  * Animal class extends Generics and defines abstract methods
  */
 public class Animal extends Generics {
-	public static KeyType key = KeyType.combo;  //Static variable: a key that applies to all Objects
-	public enum KeyType {combo, name, age, color}
+	public enum KeyType {title, name, age, color}
+	public static KeyType key = KeyType.title;  //Static variable: a key that applies to all Objects
 	public final String subType = "Animal";
 	private final String name;
 	private final int age;
@@ -44,7 +44,7 @@ public class Animal extends Generics {
 		case color:
 			output += this.color;
 			break;
-		case combo:
+		case title:
 		default:
 			output += this.subType + ": " + this.name  + ", " + this.color + ", " + this.age;
 		}

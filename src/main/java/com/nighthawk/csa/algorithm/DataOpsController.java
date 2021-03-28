@@ -27,11 +27,11 @@ public class DataOpsController {
     private CircleQueue queue;	// circle queue object
     private int count; // number of objects in circle queue
     private boolean animal = true;
-    private Animal.KeyType animalKey = Animal.KeyType.combo;
+    private Animal.KeyType animalKey = Animal.KeyType.title;
     private boolean cake = true;
-    private Cupcakes.KeyType cakeKey = Cupcakes.KeyType.combo;
+    private Cupcakes.KeyType cakeKey = Cupcakes.KeyType.title;
     private boolean alpha = true;
-    private Alphabet.KeyType alphaKey = Alphabet.KeyType.combo;
+    private Alphabet.KeyType alphaKey = Alphabet.KeyType.title;
 
     /*
      * Circle queue constructor
@@ -96,15 +96,15 @@ public class DataOpsController {
         if (this.count == 0) {
             this.addCQueue(Animal.animalData());
             this.animal = true;
-            this.animalKey = Animal.KeyType.combo;
+            this.animalKey = Animal.KeyType.title;
             this.addCQueue(Cupcakes.cupCakeData());
             this.cake = true;
-            this.cakeKey = Cupcakes.KeyType.combo;
+            this.cakeKey = Cupcakes.KeyType.title;
             this.addCQueue(Alphabet.alphabetData());
             this.alpha = true;
-            this.alphaKey = Alphabet.KeyType.combo;
+            this.alphaKey = Alphabet.KeyType.title;
         }
-        model.addAttribute("cQc", this);
+        model.addAttribute("ctl", this);
 
         return "algorithm/data"; //HTML render default condition
     }
@@ -125,25 +125,25 @@ public class DataOpsController {
         if (animal != null) {
             this.addCQueue(Animal.animalData());
             this.animal = true;
-            this.animalKey = Animal.KeyType.combo;
+            this.animalKey = Animal.KeyType.title;
         } else {
             this.animal = false;
         }
         if (cake != null) {
             this.addCQueue(Cupcakes.cupCakeData());
             this.cake = true;
-            this.cakeKey = Cupcakes.KeyType.combo;
+            this.cakeKey = Cupcakes.KeyType.title;
         } else {
             this.cake = false;
         }
         if (alpha != null) {
             this.addCQueue(Alphabet.alphabetData());
             this.alpha = true;
-            this.alphaKey = Alphabet.KeyType.combo;
+            this.alphaKey = Alphabet.KeyType.title;
         } else {
             this.alpha = false;
         }
-        model.addAttribute("cQc", this);
+        model.addAttribute("ctl", this);
         return "algorithm/data"; //HTML render default condition
     }
 
@@ -188,9 +188,9 @@ public class DataOpsController {
         trial.printCQueue();
 
         //display queue objects, changing output but not sort
-        Animal.key = Animal.KeyType.combo;
-        Cupcakes.key = Cupcakes.KeyType.combo;
-        Alphabet.key = Alphabet.KeyType.combo;
+        Animal.key = Animal.KeyType.title;
+        Cupcakes.key = Cupcakes.KeyType.title;
+        Alphabet.key = Alphabet.KeyType.title;
         ConsoleMethods.println("Retain sorted order (all data)");
         trial.printCQueue();
         trial.queue.insertionSort();
