@@ -28,28 +28,28 @@
                     <div class="jumbotron text-left row">
                         <!-- Animal: queue, name, age, color -->
                         <div class="col-md-4">
-                            <input type="checkbox" id="animal" name="animal" value="1" checked>
-                            <label for="animal">   Animals</label>
+                            <input type="checkbox" id="animal" name="animal" value="1" th:checked="${cQc.isAnimal()}">
+                            <label for="animal">Animals</label>
                             <div>
-                                <input type="radio" name="ani_sort" id="ani_queue" value="1" checked>
-                                <label for="ani_queue">Queue</label>
+                                <input type="radio" name="animalKey" id="animalQueue" value="1" checked>
+                                <label for="animalQueue">Queue</label>
                             </div>
                             <div>
-                                <input type="radio" name="ani_sort" id="ani_name" value="1">
-                                <label for="ani_name">Name</label>
+                                <input type="radio" name="animalKey" id="animalName" value="1">
+                                <label for="animalName">Name</label>
                             </div>
                             <div>
-                                <input type="radio" name="ani_sort" id="ani_age" value="1">
-                                <label for="ani_age">Age</label>
+                                <input type="radio" name="animalKey" id="animalAge" value="1">
+                                <label for="animalAge">Age</label>
                             </div>
                             <div>
-                                <input type="radio" name="ani_sort" id="ani_color" value="1">
+                                <input type="radio" name="animalKey" id="ani_color" value="1">
                                 <label for="ani_color">Color</label>
                             </div>
                         </div>
                         <!-- Cup Cakes: queue, flavor, frosting, sprinkles -->
                         <div class="col-md-4">
-                            <input type="checkbox" id="cake" name="cake" value="1" checked>
+                            <input type="checkbox" id="cake" name="cake" value="1" th:checked="${cQc.isCake()}">
                             <label for="cake">Cup Cakes</label>
                             <div>
                                 <input type="radio" name="cc_sort" id="cc_queue" value="1" checked>
@@ -70,7 +70,7 @@
                         </div>
                         <!-- Alphabet: queue, name, age, color -->
                         <div class="col-md-4">
-                            <input type="checkbox" id="alpha" name="alpha" value="1" checked>
+                            <input type="checkbox" id="alpha" name="alpha" value="1" th:checked="${cQc.isAlpha()}">
                             <label for="alpha">Alphabet</label>
                             <div>
                                 <input type="radio" name="alpha_sort" id="alpha_queue" value="1" checked>
@@ -96,9 +96,9 @@
                     </tr>
                     <tr>
                         <!-- Circle Queue Highlight data (summary)  -->
-                        <td th:text="${cQC.getCount()}"></td>
-                        <td th:text="${cQC.getQueue().getFirstObject()}"></td>
-                        <td th:text="${cQC.getQueue().getLastObject()}"></td>
+                        <td th:text="${cQc.getCount()}"></td>
+                        <td th:text="${cQc.getQueue().getFirstObject()}"></td>
+                        <td th:text="${cQc.getQueue().getLastObject()}"></td>
                     </tr>
                 </table>
                 <br><h3>Data Details</h3>
@@ -107,7 +107,7 @@
                         <th scope="col">Rows</th>
                     </tr>
                     <!-- Circle Detail data (rows) -->
-                    <tr th:each="line: ${cQC.getCQList()}">
+                    <tr th:each="line: ${cQc.getCQList()}">
                         <td th:text="${line}" ></td>
                     </tr>
                 </table>

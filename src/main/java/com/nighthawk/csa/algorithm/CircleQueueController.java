@@ -26,6 +26,12 @@ import java.util.List;
 public class CircleQueueController {
     private CircleQueue queue;	// circle queue object
     private int count; // number of objects in circle queue
+    private boolean animal = true;
+    private Animal.KeyType animalKey = Animal.KeyType.combo;
+    private boolean cake = true;
+    private Cupcakes.KeyType cakeKey = Cupcakes.KeyType.combo;
+    private boolean alpha = true;
+    private Alphabet.KeyType alphaKey = Alphabet.KeyType.combo;
 
     /*
      * Circle queue constructor
@@ -89,10 +95,16 @@ public class CircleQueueController {
         //initialize data from statics in code
         if (this.count == 0) {
             this.addCQueue(Animal.animalData());
+            this.animal = true;
+            this.animalKey = Animal.KeyType.combo;
             this.addCQueue(Cupcakes.cupCakeData());
+            this.cake = true;
+            this.cakeKey = Cupcakes.KeyType.combo;
             this.addCQueue(Alphabet.alphabetData());
+            this.alpha = true;
+            this.alphaKey = Alphabet.KeyType.combo;
         }
-        model.addAttribute("cQC", this);
+        model.addAttribute("cQc", this);
 
         return "algorithm/data"; //HTML render default condition
     }
@@ -110,11 +122,28 @@ public class CircleQueueController {
         //re-init data according to check boxes selected
         count = 0;
         queue = new CircleQueue();
-        if (animal != null) this.addCQueue(Animal.animalData());
-        if (cake != null) this.addCQueue(Cupcakes.cupCakeData());
-        if (alpha != null) this.addCQueue(Alphabet.alphabetData());
-
-        model.addAttribute("cQC", this);
+        if (animal != null) {
+            this.addCQueue(Animal.animalData());
+            this.animal = true;
+            this.animalKey = Animal.KeyType.combo;
+        } else {
+            this.animal = false;
+        }
+        if (cake != null) {
+            this.addCQueue(Cupcakes.cupCakeData());
+            this.cake = true;
+            this.cakeKey = Cupcakes.KeyType.combo;
+        } else {
+            this.cake = false;
+        }
+        if (alpha != null) {
+            this.addCQueue(Alphabet.alphabetData());
+            this.alpha = true;
+            this.alphaKey = Alphabet.KeyType.combo;
+        } else {
+            this.alpha = false;
+        }
+        model.addAttribute("cQc", this);
         return "algorithm/data"; //HTML render default condition
     }
 
