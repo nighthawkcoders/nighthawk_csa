@@ -10,6 +10,8 @@ import lombok.Getter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +24,7 @@ import java.util.List;
 @Getter
 @Controller  // HTTP requests are handled as a controller, using the @Controller annotation
 public class CircleQueueController {
-    private final CircleQueue queue;	// circle queue object
+    private CircleQueue queue;	// circle queue object
     private int count; // number of objects in circle queue
 
     /*
@@ -92,6 +94,27 @@ public class CircleQueueController {
         }
         model.addAttribute("cQC", this);
 
+        return "algorithm/data"; //HTML render default condition
+    }
+
+    /*
+     GET request,, parameters are passed within the URI
+     */
+    @PostMapping("/data")
+    public String dataFilter(
+            @RequestParam(value = "animal", required = false) String animal,
+            @RequestParam(value = "cake", required = false) String cake,
+            @RequestParam(value = "alpha", required = false) String alpha,
+            Model model)
+    {
+        //re-init data according to check boxes selected
+        count = 0;
+        queue = new CircleQueue();
+        if (animal != null) this.addCQueue(Animal.animalData());
+        if (cake != null) this.addCQueue(Cupcakes.cupCakeData());
+        if (alpha != null) this.addCQueue(Alphabet.alphabetData());
+
+        model.addAttribute("cQC", this);
         return "algorithm/data"; //HTML render default condition
     }
 

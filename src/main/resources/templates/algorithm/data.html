@@ -26,13 +26,13 @@
             <div class="col-md-6">
                 <h3>Select options to filter</h3>
                 <img class="img-responsive py-3" src="/images/java_logo.svg" th:src="@{/images/java_logo.svg}" alt="" width="50%" height="Auto">
-                <form id="fibForm" action="/data" method="GET" >
-                    <input type="checkbox" id="alpha" name="alpha" value="Alpha">
-                    <label for="alpha">   Alphabet</label><br>
+                <form id="fibForm" action="/data" method="POST" >
                     <input type="checkbox" id="animal" name="animal" value="animal">
                     <label for="animal">   Animals</label><br>
-                    <input type="checkbox" id="cakes" name="cakes" value="cakes">
-                    <label for="cakes">   Cup Cakes</label><br><br>
+                    <input type="checkbox" id="cake" name="cake" value="cake">
+                    <label for="cake">   Cup Cakes</label><br>
+                    <input type="checkbox" id="alpha" name="alpha" value="Alpha">
+                    <label for="alpha">   Alphabet</label><br><br>
                     <button>Go!</button>
                 </form>
             </div>
