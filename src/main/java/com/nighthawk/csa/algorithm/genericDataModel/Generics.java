@@ -3,6 +3,9 @@ package com.nighthawk.csa.algorithm.genericDataModel;
 import lombok.Getter;
 import lombok.Setter;
 
+/* This is wrapper class...
+ Objective would be to push more functionality into this Class to drive HTML definition
+ */
 @Getter
 @Setter
 public abstract class Generics {
@@ -11,9 +14,4 @@ public abstract class Generics {
 
 	// force toString
 	public abstract String toString();
-	
-	// object comparison
-	public int compareTo(Object o) {
-		return this.toString().compareTo(o.toString());
-	}
 }

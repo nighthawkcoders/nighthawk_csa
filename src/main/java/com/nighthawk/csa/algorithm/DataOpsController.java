@@ -26,7 +26,7 @@ import java.util.List;
 public class DataOpsController {
     private CircleQueue queue;	// circle queue object
     private int count; // number of objects in circle queue
-    //application specific values
+    //data specific values
     private boolean animal;
     private Animal.KeyType animalKey;
     private boolean cake;
@@ -49,14 +49,14 @@ public class DataOpsController {
      */
     public void addCQueue(Object[] objects)
     {
-        System.out.println("Add " + objects.length);
+        ConsoleMethods.println("Add " + objects.length);
         for (Object o : objects)
         {
             queue.add(o);
-            System.out.println("Add: " + queue.getObject() + " " + queue);
+            ConsoleMethods.println("Add: " + queue.getObject() + " " + queue);
             this.count++;
         }
-        System.out.println();
+        ConsoleMethods.println();
     }
 
     /*
@@ -65,11 +65,11 @@ public class DataOpsController {
     public void deleteCQueue()
     {
         int length = this.count;
-        System.out.println("Delete " + length);
+        ConsoleMethods.println("Delete " + length);
 
         for (int i = 0; i<length; i++)
         {
-            System.out.println("Delete: " + queue.delete() + " " + queue);
+            ConsoleMethods.println("Delete: " + queue.delete() + " " + queue);
             this.count--;
         }
     }
@@ -113,7 +113,7 @@ public class DataOpsController {
         this.addCQueue(Animal.animalData());
         this.addCQueue(Cupcakes.cupCakeData());
         this.addCQueue(Alphabet.alphabetData());
-
+        //data is not sorted, queue order (FIFO) is default
         model.addAttribute("ctl", this);
         return "algorithm/data"; //HTML render default condition
     }
@@ -136,10 +136,10 @@ public class DataOpsController {
         queue = new CircleQueue();
         //for each category rebuild data, set presentation and data defaults
         if (animal != null) {
-            this.addCQueue(Animal.animalData());
-            this.animal = true;
-            this.animalKey = animalKey;
-            Animal.key = this.animalKey;
+            this.addCQueue(Animal.animalData());  //adding Animal data to queue
+            this.animal = true;             //persistent selection from check box selection
+            this.animalKey = animalKey;     //persistent enum update from radio button selection
+            Animal.key = this.animalKey;    //toString configure for sort order
         } else {
             this.animal = false;
         }
@@ -159,7 +159,7 @@ public class DataOpsController {
         } else {
             this.alpha = false;
         }
-        //sort data according to options
+        //sort data according to selected options
         this.queue.insertionSort();
         //render with options
         model.addAttribute("ctl", this);

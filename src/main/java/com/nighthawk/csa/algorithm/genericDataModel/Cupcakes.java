@@ -1,11 +1,8 @@
 package com.nighthawk.csa.algorithm.genericDataModel;
-
-
 import com.nighthawk.csa.consoleUI.ConsoleMethods;
 
 public class Cupcakes extends Generics {
 	public enum KeyType {title, flavor, frosting, sprinkles}
-	public static final String type = "Cupcakes";
 	public static KeyType key = KeyType.title;
 	private final String frosting;
 	private final int sprinkles;
@@ -13,7 +10,7 @@ public class Cupcakes extends Generics {
 	
 	Cupcakes(String frosting, int sprinkles, String flavor)
 	{
-		this.setType(type);
+		this.setType("Cupcakes");
 		this.frosting = frosting;
 		this.sprinkles = sprinkles;
 		this.flavor = flavor;
@@ -38,7 +35,7 @@ public class Cupcakes extends Generics {
 			break;
 		case title:
 		default:
-			output = type + ": " + this.flavor + ", " + this.frosting + ", " + this.sprinkles;
+			output = super.getType() + ": " + this.flavor + ", " + this.frosting + ", " + this.sprinkles;
 		}
 		return output;
 	}

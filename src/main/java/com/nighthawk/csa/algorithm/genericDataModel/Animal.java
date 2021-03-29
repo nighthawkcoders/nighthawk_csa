@@ -1,15 +1,12 @@
 package com.nighthawk.csa.algorithm.genericDataModel;
-
-
 import com.nighthawk.csa.consoleUI.ConsoleMethods;
 
 /*
  * Animal class extends Generics and defines abstract methods
  */
 public class Animal extends Generics {
-	public enum KeyType {title, name, age, color}
+	public enum KeyType {title, name, age, color} //Used with radio button selection
 	public static KeyType key = KeyType.title;  //Static variable: a key that applies to all Objects
-	public final String subType = "Animal";
 	private final String name;
 	private final int age;
 	private final String color;
@@ -20,7 +17,7 @@ public class Animal extends Generics {
 	 */
 	public Animal(String name, int age, String color)
 	{
-		super.setType(this.subType);
+		super.setType("Animal");
 		this.name = name; 
 		this.age = age; 
 		this.color = color; 
@@ -46,7 +43,7 @@ public class Animal extends Generics {
 			break;
 		case title:
 		default:
-			output += this.subType + ": " + this.name  + ", " + this.color + ", " + this.age;
+			output += super.getType() + ": " + this.name  + ", " + this.color + ", " + this.age;
 		}
 		return output;
 		

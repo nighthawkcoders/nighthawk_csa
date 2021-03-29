@@ -1,13 +1,10 @@
 package com.nighthawk.csa.algorithm.genericDataModel;
-
-
 import com.nighthawk.csa.consoleUI.ConsoleMethods;
 
 public class Alphabet extends Generics {
-	public static final String type = "Alphabet";
+	public enum KeyType {title, letter}
 	public static KeyType key = KeyType.title;
 	private static final int size = 26;
-	public enum KeyType {title, letter}
 	private final char letter;
 	
 	/*
@@ -15,7 +12,7 @@ public class Alphabet extends Generics {
 	 */
 	public Alphabet(char l)
 	{
-		this.setType(type);
+		this.setType("Alphabet");
 		this.letter = l;
 	}	
 	
@@ -33,7 +30,7 @@ public class Alphabet extends Generics {
 			break;
 		case title:
 		default:
-			output += type + ": " + this.letter;
+			output += super.getType() + ": " + this.letter;
 		}
 		return output;
 	}
