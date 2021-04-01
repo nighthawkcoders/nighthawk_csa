@@ -26,7 +26,7 @@ import java.util.List;
 public class DataOpsController {
     private CircleQueue queue;	// circle queue object
     private int count; // number of objects in circle queue
-    //data specific values
+    //control variables for UI checkboxes and radios
     private boolean animal;
     private Animal.KeyType animalKey;
     private boolean cake;
