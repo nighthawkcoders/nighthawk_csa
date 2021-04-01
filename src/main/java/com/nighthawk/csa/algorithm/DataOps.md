@@ -1,6 +1,6 @@
 # Data Ops with Spring/Java
 
-###Overview
+### Overview
 This lab and future labs can/should be strung together.
 
 1. Pull code and Demo.
