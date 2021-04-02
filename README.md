@@ -32,11 +32,21 @@ $ git clone https://github.com/nighthawkcoders/nighthawk_csa.git
 $ cd nighthawk_csa
 $ ./mvnw package
 ```
-Run and test you java project
+Run your java project, after test ctl-C to stop service
 ```
 $ cd
 $ java -jar java -jar nighthawk_csa/target/csa-0.0.1-SNAPSHOT.jar
 ```
+Test on localhost browser
+```
+localhost:8080
+```
+Test on browser through network
+```
+<your_public_ip>:8080
+```
+
+
 
 ## Java service configuration
 To run and start application automatically it will require a the JAR file from previous step to run from a .service file. 
