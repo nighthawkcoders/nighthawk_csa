@@ -36,6 +36,7 @@ Run and test you java project
 ```
 $ cd
 $ java -jar night_csa/target/serving-web-content-0.0.1-SNAPSHOT.jar
+```
 
 ## Java service configuration
 To run and start application automatically it will require a JAR file from previous step and a .service file that executes java. In this service file we are providing details the service: it should start after “network.target” has been started, ExecStart is the command that executes the service, currently this is running a JAR file. Create a 'service' file like the one below and place it in: /etc/systemd/system/<your_service_file>.service
