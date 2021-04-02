@@ -40,26 +40,29 @@ $ java -jar java -jar nighthawk_csa/target/csa-0.0.1-SNAPSHOT.jar
 
 ## Java service configuration
 To run and start application automatically it will require a the JAR file from previous step to run from a .service file. 
-In this service file we are providing details the service: 
-* Start after “network.target” has been started
-* ExecStart is the command that executes JAR
+In this service file we are providing details of the java runtime service: 
+* start after “network.target” has been started
+* the ExecStart is the same as command you validated to executes JAR
 
-Create a 'service' file like the one below and place it in: /etc/systemd/system/<your_service_file>.service. 
-* Replace nighthawk_csa reference or jar file name as applicable to your project
-* Ubuntu images replace User=pi with User=ubuntu
+Create a 'service' file as administratr: 
+* sudo nano <filename> 
+* change nighthawk_csa reference or jar file name as applicable to your project
+* replace User=pi with User=ubuntu if applicable
 
-    [Unit]
-    Description=Java
-    After=network.target
+File is located at /etc/systemd/system/nighthawk_csa.service. 
+```
+[Unit]
+Description=Java
+After=network.target
 
-    [Service]
-    User=pi
-    Restart=always
-    ExecStart=java -jar /home/pi/nighthawk_csa/target/csa-0.0.1-SNAPSHOT.jar
-    
-    [Install]
-    WantedBy=multi-user.target 
-    
+[Service]
+User=pi
+Restart=always
+ExecStart=java -jar /home/pi/nighthawk_csa/target/csa-0.0.1-SNAPSHOT.jar
+
+[Install]
+WantedBy=multi-user.target 
+```    
 
 Run and enable your service file
 ```
@@ -73,3 +76,24 @@ $ sudo systemctl enable nighthawk_csa
 
 ```
 
+## Nginx service configuration
+File is located at /etc/nginx/sites-available/nighthawk_csa 
+```
+server {
+    listen 80;
+    server_name csa.nighthawkcoders.cf;
+
+    location / {
+        proxy_pass http://localhost:8080;
+    }
+}
+```
+Test the configuration to make sure there are no errors:
+
+    $ sudo ln -s /etc/nginx/sites-available/nighthawk_csa /etc/nginx/sites-enabled
+    $ sudo nginx -t
+
+If there are no errors, restart NGINX so the changes take effect:
+
+    $ sudo systemctl restart nginx
+    
