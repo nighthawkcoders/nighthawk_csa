@@ -18,7 +18,7 @@ $ javac -version
 ```
 
 ## Build and run project
-Prerequisite is Maven install, as well as MongoDB and SQLite (above)
+Prerequisite is Maven install in order to build project
 ```
 $ sudo apt update
 $ sudo apt upgrade
