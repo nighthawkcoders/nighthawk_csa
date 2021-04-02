@@ -1,4 +1,4 @@
-# CSA Ubuntu Deployment Guide
+# CSA Deployment Guide
 
 ## Setting up Java runtime and development
 Java is two pieces, we will need both if you want to run and build 
@@ -44,7 +44,9 @@ In this service file we are providing details the service:
 * Start after “network.target” has been started
 * ExecStart is the command that executes JAR
 
-Create a 'service' file like the one below and place it in: /etc/systemd/system/<your_service_file>.service. Replace nighthawk reference and other content as applicable to your project.
+Create a 'service' file like the one below and place it in: /etc/systemd/system/<your_service_file>.service. 
+* Replace nighthawk_csa reference or jar file name as applicable to your project
+* Ubuntu images replace User=pi with User=ubuntu
 
     [Unit]
     Description=Java
