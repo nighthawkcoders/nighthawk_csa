@@ -1,5 +1,4 @@
-# nighthawk_csa
-CSA Course Guide
+# CSA Ubuntu Deployment Guide
 
 ## Setting up Java runtime and development
 Java is two pieces, we will need both if you want to run and build 
@@ -29,11 +28,11 @@ $ mvn -version
 Clone and build spring-idea repository
 ```
 $ cd
-$ git clone https://github.com/nighthawkcoders/spring-idea.git
-$ cd spring-idea
+$ git clone https://github.com/nighthawkcoders/nighthawk_csa.git
+$ cd nighthawk_csa
 $ ./mvnw package
 ```
 Run and test you java project
 ```
 $ cd
-$ java -jar spring-idea/target/serving-web-content-0.0.1-SNAPSHOT.jar
+$ java -jar night_csa/target/serving-web-content-0.0.1-SNAPSHOT.jar
