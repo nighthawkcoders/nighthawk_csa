@@ -35,7 +35,7 @@ $ ./mvnw package
 Run and test you java project
 ```
 $ cd
-$ java -jar night_csa/target/serving-web-content-0.0.1-SNAPSHOT.jar
+$ java -jar java -jar nighthawk_csa/target/csa-0.0.1-SNAPSHOT.jar
 ```
 
 ## Java service configuration
@@ -48,6 +48,7 @@ To run and start application automatically it will require a JAR file from previ
     [Service]
     User=pi
     Restart=always
-    ExecStart=java -jar /home/pi/nighthawk_csa/target/serving-web-content-0.0.1-SNAPSHOT.jar
+    ExecStart=java -jar /home/pi/nighthawk_csa/nighthawk_csa/target/csa-0.0.1-SNAPSHOT.jar
+    
     [Install]
     WantedBy=multi-user.target 
