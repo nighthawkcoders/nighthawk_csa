@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
+
+<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
+<head>
+    <div layout:fragment="metadata" th:remove="tag">
+        <title>Course Deployment Guide</title>
+    </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" integrity="sha512-Oy18vBnbSJkXTndr2n6lDMO5NN31UljR8e/ICzVPrGpSud4Gkckb8yUpqhKuUNoE+o9gAb4O/rAxxw1ojyUVzg==" crossorigin="anonymous" />
+</head>
+
+<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
+<body><div layout:fragment="content" th:remove="tag">
+    <div class="row justify-content-center">
+        <div class="col-10" style="text-align: center;">
+            <h1>Deployment</h1>
+            <a href="https://github.com//nighthawkcoders/nighthawk_csa" target="_blank" class="standard-link">
+                <p class="lead">View on Github <span class="fa fa-github"></span></p>
+            </a>
+        </div>
+    </div>
+    <div class="jumbotron justify-content-left row">
+        <div class="col-12" id="readme"></div>
+    </div>
+    <script>
+
+        const MARKDOWN_API = "https://api.github.com/markdown/raw";
+        const DATA_URL = "https://raw.githubusercontent.com/nighthawkcoders/nighthawk_csa/master/README.md";
+
+        const main = async()=>{
+
+            const markdownResponse = await fetch(DATA_URL);
+            const markdownData = await markdownResponse.text();
+
+            console.log(markdownData);
+
+            const htmlResponse = await fetch(MARKDOWN_API, {method:"POST", body:markdownData});
+            const htmlData = await htmlResponse.text();
+
+            $("#readme").append(htmlData);
+            console.log(htmlData);
+
+        }
+
+        main();
+
+    </script>
+</div></body>
+
+
+</html>

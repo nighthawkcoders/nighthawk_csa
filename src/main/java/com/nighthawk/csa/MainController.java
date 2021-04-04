@@ -12,6 +12,11 @@ public class MainController {
         return "course/repos";
     }
 
+    @GetMapping("/course/deploy")
+    public String courseDeploy(Model model) {
+        return "course/deploy";
+    }
+
     @GetMapping("/course/prep")
     public String coursePrep(Model model) {
         model.addAttribute("url", "https://padlet.com/jmortensen7/csatime");
