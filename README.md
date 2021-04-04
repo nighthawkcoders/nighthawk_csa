@@ -1,4 +1,4 @@
-# CSA Deployment Guide
+# Deployment Guide
 
 ## Setting up Java runtime and development
 Java is two pieces, we will need both if you want to run and build 
