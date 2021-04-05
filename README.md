@@ -62,9 +62,9 @@ Description=Java
 After=network.target
 
 [Service]
-User=pi
+User=ubuntu
 Restart=always
-ExecStart=java -jar /home/pi/nighthawk_csa/target/csa-0.0.1-SNAPSHOT.jar
+ExecStart=java -jar /home/ubuntu/nighthawk_csa/target/csa-0.0.1-SNAPSHOT.jar
 
 [Install]
 WantedBy=multi-user.target 
