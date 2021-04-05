@@ -41,10 +41,6 @@ Test on localhost browser
 ```
 localhost:8080
 ```
-Test on browser through network
-```
-<your_public_ip>:8080
-```
 
 
 
