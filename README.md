@@ -103,3 +103,24 @@ If there are no errors, restart NGINX so the changes take effect:
 
     $ sudo systemctl restart nginx
     
+
+## Goto freenom.com and register public IP Address to a Domain
+
+```diff
+- Domain and Public IP Address match your nginx configuration files 
++ REPLACE freenom config with your-domain and your-public-ip, make one or more a records for each project
+```
+
+#### This illustration shows configuration of A records within the domain
+<img src="static/assets/freenom.png">
+
+
+## Port Forward your Web application on Internal Host (aka RPi) to the Internet
+```diff
+- Your Public IP Address needs to connect to your host on Private IP network through Port Forwarding 
++ PROCESS will vary on every home network, but basic premis is to Port forward external port 80 to your Private Host (aka RPi) on internal port 80
+```
+
+#### This illustration shows configuration of HTTP, as well as some other common service to access a Private IP host computer through port forwarding.  It is always recommended to minimize access points from internet to your home network.
+<img src="static/assets/portforward.png" width="600">
+    
