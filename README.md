@@ -112,7 +112,7 @@ If there are no errors, restart NGINX so the changes take effect:
 ```
 
 #### This illustration shows configuration of A records within the domain
-<img src="static/assets/freenom.png">
+<img src="https://github.com/nighthawkcoders/nighthawk_csp/blob/master/static/assets/freenom.png">
 
 
 ## Port Forward your Web application on Internal Host (aka RPi) to the Internet
