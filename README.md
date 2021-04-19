@@ -122,5 +122,5 @@ If there are no errors, restart NGINX so the changes take effect:
 ```
 
 #### This illustration shows configuration of HTTP, as well as some other common service to access a Private IP host computer through port forwarding.  It is always recommended to minimize access points from internet to your home network.
-<img src="static/assets/portforward.png" width="600">
+<img src="https://github.com/nighthawkcoders/nighthawk_csp/blob/master/static/assets/portforward.png" width="600">
     
