@@ -32,12 +32,22 @@ public class FunMath {
         // Summation of a series starts a 1 and goes to 6
         System.out.println(sumUp(6));
 
-        // Convert 127 into a list using the specified base
+        // Base 2
         System.out.println(baseConvert(0,2));
+        System.out.println(baseConvert(255,2));
         System.out.println(baseConvert(256,2));
+        // Base 8
+        System.out.println(baseConvert(0,28));
+        System.out.println(baseConvert(255,8));
         System.out.println(baseConvert(256,8));
+        // Base 10
+        System.out.println(baseConvert(0,10));
+        System.out.println(baseConvert(255,10));
         System.out.println(baseConvert(256,10));
+        // Base 16
+        System.out.println(baseConvert(0,16));
         System.out.println(baseConvert(255,16));
+        System.out.println(baseConvert(256,16));
 
     }
 }
