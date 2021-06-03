@@ -1,0 +1,45 @@
+<!-- This page is illustrative and contains ideas about HTML formatting -->
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
+
+<head><div layout:fragment="metadata" th:remove="tag">
+    <title>Person List</title>
+</div></head>
+
+<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
+<body><div layout:fragment="content" th:remove="tag">
+    <div style="margin: 2%;">
+        <div align="center">
+            <h1>SQL Person List</h1>
+            <a href="/sql/personcreate/">Create Person</a>
+            <br/><br/>
+
+            <table border="1" cellpadding="10">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Person</th>
+                    <th>Age</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="person : ${list}">
+                    <td th:text="${person.id}">Person ID</td>
+                    <td th:text="${person.name}">Name</td>
+                    <td th:text="${person.age}">Age</td>
+                    <td>
+                        <a th:href="@{/sql/personupdate/{id}(id = ${person.id})}">Update</a>
+                        <a th:href="@{/sql/persondelete/{id}(id = ${person.id})}">Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div></body>
+
+</html>

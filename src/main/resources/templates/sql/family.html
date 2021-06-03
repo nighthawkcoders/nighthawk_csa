@@ -1,0 +1,54 @@
+<!-- This page is illustrative and contains ideas about HTML formatting -->
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
+
+<head><div layout:fragment="metadata" th:remove="tag">
+    <title>Family List</title>
+</div></head>
+
+<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
+<body><div layout:fragment="content" th:remove="tag">
+    <div style="margin: 2%;">
+        <div align="center">
+            <h1>SQL Family List</h1>
+            <a href="/sql/familycreate/">Create Family</a>
+            <br/><br/>
+
+            <table border="1" cellpadding="10">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Family Name</th>
+                    <th>Contact</th>
+                    <th>Spouse</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--
+                Display listing of Family properties
+                 Reference to POJO details
+                 Objects primary and spouse allow access to details
+                -->
+                <tr th:each="family : ${list}">
+                    <td th:text="${family.id}">Family ID</td>
+                    <td th:text="${family.name}">Family ID</td>
+                    <td th:text="${family.primary.name}">Contacts</td>
+                    <td th:text="${family.spouse.name}">Spouse</td>
+                    <td>
+                        <a th:href="@{/sql/familyupdate/{id}(id = ${family.id})}">Update</a>
+                        <a th:href="@{/sql/familydelete/{id}(id = ${family.id})}">Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <!--
+            <p th:text="'Raw Data: ' + ${list}"></p>
+            -->
+        </div>
+    </div>
+</div></body>
+
+</html>

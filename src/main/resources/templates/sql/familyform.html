@@ -1,0 +1,72 @@
+<!-- This page is illustrative and contains ideas about HTML formatting -->
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
+
+<head><div layout:fragment="metadata" th:remove="tag">
+    <title>Family Form</title>
+</div></head>
+
+<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
+<body><div layout:fragment="content" th:remove="tag">
+    <div style="margin: 2%;">
+        <!--
+        Family Input Form
+        1. Single Form for Create and Update, uses if's and conditionals
+        2. Select is used to associate attributes with Person database
+         .-->
+        <div th:if="${edit_id == null}"><h3>Welcome, Create The Family Details</h3></div>
+        <div th:unless="${edit_id == null}"><h3>Welcome, Edit The Family Details</h3></div>
+        <form action="#" th:action="@{/sql/familysave}" th:object="${family}" method="POST">
+            <!-- edit requires hidden id -->
+            <input type="hidden" name="id" th:field="*{id}" />
+            <table>
+                <!-- edit only table row -->
+                <tr th:if="${edit_id != null}">
+                    <td>Family ID: </td>
+                    <td th:text="${id}">Family ID</td>
+                </tr>
+
+                <tr>
+                    <td>Family Name:</td>
+                    <td><input type="text" th:field="*{name}" /></td>
+                    <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+                </tr>
+                <tr>
+                    <td>Primary:</td>
+                    <td>
+                        <!--
+                        Relationship selection
+                        1. th:each iterates through person rows
+                        2. th:value when selected is the relationship values assigned to primary (person)
+                        3. th:selected tests for default, specifically for edit
+                        -->
+                        <select th:field="*{primary}" class="form-control" required/>
+                        <option th:each="person : ${listPersons}"
+                                th:text="${person.id} + ': ' + ${person.name} + ', ' + ${person.age}"
+                                th:value="${person.id}"
+                                th:selected="${family.primary}!=null and ${person.id}==${family.primary.id}"
+                        </option>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Spouse:</td>
+                    <td>
+                        <select th:field="*{spouse}" class="form-control"/>
+                        <option th:each="person : ${listPersons}"
+                                th:text="${person.id} + ': ' + ${person.name} + ', ' + ${person.age}"
+                                th:value="${person.id}"
+                                th:selected="${family.spouse}!=null and ${person.id}==${family.spouse.id}"
+                        </option>
+                    </td>
+                </tr>
+                <tr>
+                    <td><button type="submit">Save</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div></body>
+
+</html>
