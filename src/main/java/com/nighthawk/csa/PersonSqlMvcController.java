@@ -81,39 +81,51 @@ public class PersonSqlMvcController implements WebMvcConfigurer {
         return "redirect:/sql/person";
     }
 
+    /*#### RESTful API section ####*/
+
+    /*
+    GET List of People
+     */
     @RequestMapping(value = "/sql/people/get")
     public ResponseEntity<List<Person>> getPeople() {
         return new ResponseEntity<>( repository.listAll(), HttpStatus.OK);
     }
 
+    /*
+    GET individual Person using ID
+     */
     @RequestMapping(value = "/sql/person/get/{id}")
     public ResponseEntity<Person> getPerson(@PathVariable long id) {
         return new ResponseEntity<>( repository.get(id), HttpStatus.OK);
     }
 
+    /*
+    DELETE individual Person using ID
+     */
     @RequestMapping(value = "/sql/person/delete/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Object> deletePerson(@PathVariable long id) {
         repository.delete(id);
-        return new ResponseEntity<>( "Deleted", HttpStatus.OK);
+        return new ResponseEntity<>( ""+ id +" deleted", HttpStatus.OK);
     }
 
 
+    /*
+    POST Aa record by Requesting Parameters from URI
+     */
     @RequestMapping(value = "/sql/person/post", method = RequestMethod.POST)
     public ResponseEntity<Object> postPerson(@RequestParam("email") String email,
                                              @RequestParam("name") String name,
                                              @RequestParam("dob") String dobString) {
         Date dob;
         try {
-            DateFormat formatter;
-            formatter = new SimpleDateFormat("MM-dd-yyyy");
-            dob = formatter.parse(dobString);
+            dob = new SimpleDateFormat("MM-dd-yyyy").parse(dobString);
         } catch (Exception e) {
-            return new ResponseEntity<>("Date Error (MM-dd-yyyy)", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(dobString +" error; try MM-dd-yyyy", HttpStatus.BAD_REQUEST);
         }
-
+        // A person object WITHOUT ID will create a new record
         Person person = new Person(email, name, dob);
         repository.save(person);
-        return new ResponseEntity<>("Product is created successfully", HttpStatus.CREATED);
+        return new ResponseEntity<>(email +" is created successfully", HttpStatus.CREATED);
     }
 
 }

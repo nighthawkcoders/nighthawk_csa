@@ -44,18 +44,17 @@ public class Person {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dob;
 
+    /* Initializer used when setting data from an API */
     public Person(String email, String name, Date dob) {
         this.email = email;
         this.name = name;
         this.dob = dob;
     }
 
-    /* A getter to return age from dob calculation */
+    /* A custom getter to return age from dob calculation */
     public int getAge() {
         LocalDate birthDay = this.dob.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         return Period.between(birthDay, LocalDate.now()).getYears();
     }
-
-
 
 }
