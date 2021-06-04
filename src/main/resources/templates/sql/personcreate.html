@@ -24,14 +24,20 @@
         <form action="#" th:action="@{/sql/personcreate}" th:object="${person}" method="POST">
             <table>
                 <tr>
+                    <td>Email:</td>
+                    <td><input type="email" th:field="*{email}" /></td>
+                    <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">EMail Error</td>
+                </tr>
+                <tr>
                     <td>Name:</td>
                     <td><input type="text" th:field="*{name}" /></td>
                     <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
                 </tr>
                 <tr>
-                    <td>Age:</td>
-                    <td><input type="text" th:field="*{age}" /></td>
-                    <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</td>
+                    <td>Birth Date:</td>
+                    <td><input type="date" th:field="*{dob}" /></td>
+                    <td th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}">Birth Date Error</td>
+
                 </tr>
                 <tr>
                     <td><button type="submit">Add</button></td>

@@ -20,16 +20,18 @@
                 <thead>
                 <tr>
                     <th>ID</th>
+                    <th>EMail</th>
                     <th>Person</th>
-                    <th>Age</th>
+                    <th>Birth Date</th>
                     <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="person : ${list}">
                     <td th:text="${person.id}">Person ID</td>
+                    <td th:text="${person.email}">Birth Date</td>
                     <td th:text="${person.name}">Name</td>
-                    <td th:text="${person.age}">Age</td>
+                    <td th:text="${#dates.format(person.dob, 'MM-dd-yyyy')}">Birth Date</td>
                     <td>
                         <a th:href="@{/sql/personupdate/{id}(id = ${person.id})}">Update</a>
                         <a th:href="@{/sql/persondelete/{id}(id = ${person.id})}">Delete</a>

@@ -1,14 +1,11 @@
 package com.nighthawk.csa.model.SQL;
 
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.Size;
+import javax.persistence.*;
+import javax.validation.constraints.*;
+import java.util.Date;
 
 /*
 Person is a POJO, Plain Old Java Object.
@@ -28,6 +25,11 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotEmpty
+    @Size(min=5)
+    @Email
+    private String email;
+
     /*
     @NonNull: Places this in @RequiredArgsConstructor
     @Size(min=2, max=30): Allows names between 2 and 30 characters long.
@@ -36,8 +38,8 @@ public class Person {
     @Size(min = 2, max = 30, message = "Name (2 to 30 chars)")
     private String name;
 
-    // Age is restricted
-    @NonNull
-    @Min(0) @Max(122)
-    private Integer age;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date dob;
+
+
 }
