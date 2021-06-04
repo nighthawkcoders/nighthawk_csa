@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-// Built using article: https://spring.io/guides/gs/validating-form-input/
+// Built using article: https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/mvc.html
 // or similar: https://asbnotebook.com/2020/04/11/spring-boot-thymeleaf-form-validation-example/
 @Controller
 public class PersonSqlMvcController implements WebMvcConfigurer {
@@ -79,7 +79,10 @@ public class PersonSqlMvcController implements WebMvcConfigurer {
         return "redirect:/sql/person";
     }
 
-    /*#### RESTful API section ####*/
+    /*
+    #### RESTful API section ####
+    Resource: https://spring.io/guides/gs/rest-service/
+    */
 
     /*
     GET List of People
