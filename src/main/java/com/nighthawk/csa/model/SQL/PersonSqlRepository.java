@@ -19,7 +19,7 @@ public class PersonSqlRepository {
     @Autowired
     private PersonJpaRepository jpa;
 
-    public List<Person> listAll() {
+    public  List<Person>listAll() {
         return jpa.findAll();
     }
 

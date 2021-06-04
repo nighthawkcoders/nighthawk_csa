@@ -3,15 +3,19 @@ package com.nighthawk.csa;
 
 import com.nighthawk.csa.model.SQL.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Null;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 // Built using article: https://spring.io/guides/gs/validating-form-input/
@@ -75,6 +79,41 @@ public class PersonSqlMvcController implements WebMvcConfigurer {
     public String personDelete(@PathVariable("id") long id) {
         repository.delete(id);
         return "redirect:/sql/person";
+    }
+
+    @RequestMapping(value = "/sql/people/get")
+    public ResponseEntity<List<Person>> getPeople() {
+        return new ResponseEntity<>( repository.listAll(), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/sql/person/get/{id}")
+    public ResponseEntity<Person> getPerson(@PathVariable long id) {
+        return new ResponseEntity<>( repository.get(id), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/sql/person/delete/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<Object> deletePerson(@PathVariable long id) {
+        repository.delete(id);
+        return new ResponseEntity<>( "Deleted", HttpStatus.OK);
+    }
+
+
+    @RequestMapping(value = "/sql/person/post", method = RequestMethod.POST)
+    public ResponseEntity<Object> postPerson(@RequestParam("email") String email,
+                                             @RequestParam("name") String name,
+                                             @RequestParam("dob") String dobString) {
+        Date dob;
+        try {
+            DateFormat formatter;
+            formatter = new SimpleDateFormat("MM-dd-yyyy");
+            dob = formatter.parse(dobString);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Date Error (MM-dd-yyyy)", HttpStatus.BAD_REQUEST);
+        }
+
+        Person person = new Person(email, name, dob);
+        repository.save(person);
+        return new ResponseEntity<>("Product is created successfully", HttpStatus.CREATED);
     }
 
 }
