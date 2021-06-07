@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /*
-This class is an instance of Java Persistence API (JPA)
+This class has an instance of Java Persistence API (JPA)
 -- @Autowired annotation. Allows Spring to resolve and inject collaborating beans into our bean.
 -- Spring Data JPA will generate a proxy instance
 -- Below are the CRUD methods that we can use with our database
