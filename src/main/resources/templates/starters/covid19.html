@@ -6,7 +6,7 @@
 <!-- layout::fragment="content" is heart of ThymeLeaf layout -->
 <head>
     <div layout:fragment="metadata" th:remove="tag">
-        <title>Covid-19 API</title>
+        <title>Covid-19 RapidAPI</title>
         <style>
             table, td, th {
                 border: 1px solid white;
@@ -24,7 +24,7 @@
 <body>
 <div layout:fragment="content" th:remove="tag">
     <div class="row justify-content-left" style="margin: 2%;">
-        <h1><strong>COVID-19 REST api from rapidapi.com ...</strong></h1>
+        <h1><strong>COVID-19 RESTful api from rapidapi.com ...</strong></h1>
         <form action="/covid19" method="GET" id="covidForm">
             <button>Refresh!</button>
         </form>
