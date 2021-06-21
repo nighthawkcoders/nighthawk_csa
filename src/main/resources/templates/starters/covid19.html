@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
+
+<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
+<head>
+    <div layout:fragment="metadata" th:remove="tag">
+        <title>Covid-19 API</title>
+        <style>
+            table, td, th {
+                border: 1px solid white;
+            }
+            td, th {
+                text-align:right;
+            }
+            td:first-child, th:first-child {
+                text-align: left;
+            }
+        </style>
+    </div>
+</head>
+
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <div class="row justify-content-left" style="margin: 2%;">
+        <h1><strong>COVID-19 REST api from rapidapi.com ...</strong></h1>
+        <form action="/covid19" method="GET" id="covidForm">
+            <button>Refresh!</button>
+        </form>
+    </div>
+    <div class="countries" style="height: 35vh;">
+        <table style="margin: 2%">
+            <tr>
+                <th>Time</th>
+                <th>All-time Cases</th>
+                <th>Recorded Deaths</th>
+                <th>Active Cases</th>
+            </tr>
+            <tr>
+                <td th:text="${world.statistic_taken_at}"></td>
+                <td th:text="${world.total_cases}"></td>
+                <td th:text="${world.total_deaths}"></td>
+                <td th:text="${world.active_cases}"></td>
+            </tr>
+        </table>
+        <table style="margin: 2%">
+            <tr>
+                <th>Country</th>
+                <th>All-time Cases</th>
+                <th>Recorded Deaths</th>
+                <th>Active Cases</th>
+            </tr>
+            <tr th:each="country : ${countries}">
+                <!--/*@thymesVar id="country_name" type="java"*/-->
+                <td th:text="${country.country_name}"></td>
+                <!--/*@thymesVar id="cases" type="java"*/-->
+                <td th:text="${country.cases}"></td>
+                <!--/*@thymesVar id="deaths" type="java"*/-->
+                <td th:text="${country.deaths}"></td>
+                <!--/*@thymesVar id="active_cases" type="java"*/-->
+                <td th:text="${country.active_cases}"></td>
+            </tr>
+        </table>
+        <table style="margin: 2%">
+            <tr>
+                <th>Data</th>
+            </tr>
+                <td th:text="${data}"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
+
+<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
+<head>
+    <div layout:fragment="metadata" th:remove="tag">
+        <title>Greetings</title>
+    </div>
+</head>
+
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <div class="contact" style="height: 35vh;">
+        <div class="row justify-content-left" style="margin: 2%;">
+            <form action="/greet" method="GET" id="greetForm">
+                <div>
+                    <label for="greetField">Type a greeting name?</label>
+                    <input name="name" id="greetField">
+                    <button>Greetings!</button>
+                    <p th:text="'Greetings, ' + ${name} + '!'"></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div th:replace="fragments/footer :: footer"></div>
+</div>
+</body>
+</html>
