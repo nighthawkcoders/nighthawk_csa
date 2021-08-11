@@ -1,13 +1,18 @@
 package com.nighthawk.csa;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.nighthawk.csa.model.starters.AsciiImage;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -21,6 +26,15 @@ public class MainController {
         // @RequestParam handles required and default values, name and model are class variables, model looking like JSON
         model.addAttribute("name", name);   // MODEL is passed to html
         return "starters/greet";                     // returns HTML VIEW (greeting)
+    }
+
+    @GetMapping("/image")
+    public String image(Model model) throws IOException {
+        String url = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Abraham_Lincoln_O-77_matte_collodion_print.jpg/1200px-Abraham_Lincoln_O-77_matte_collodion_print.jpg";
+        AsciiImage ai = new AsciiImage(url, 16);
+        String ascii_string = ai.convert_to_ascii();
+        model.addAttribute("str", ascii_string);
+        return "starters/image";
     }
 
     // GET request, no parameters
