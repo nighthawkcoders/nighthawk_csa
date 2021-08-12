@@ -32,8 +32,8 @@ public class MainController {
     public String image(Model model) throws IOException {
         String url = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Abraham_Lincoln_O-77_matte_collodion_print.jpg/1200px-Abraham_Lincoln_O-77_matte_collodion_print.jpg";
         AsciiImage ai = new AsciiImage(url, 16);
-        String ascii_string = ai.convert_to_ascii();
-        model.addAttribute("str", ascii_string);
+        String[] rows = ai.convert_to_ascii();
+        model.addAttribute("rows", rows);
         return "starters/image";
     }
 

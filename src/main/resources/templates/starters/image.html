@@ -16,18 +16,18 @@
         <div class="row justify-content-left" style="margin: 2%;">
             <h1>This is image processing</h1>
 
-            <p th:text="${str}"  style="font-size: 20px; font-family: monospace; letter-spacing: .05rem; line-height: .7rem;" class="str"></p>
+            <p th:each="row: ${rows}" style="font-size: 20px; font-family: monospace; letter-spacing: .05rem; line-height: .7rem;">
+                <span th:text="${row}"></span>
+            </p>
+<!--            <p th:text="${str}"  style="font-size: 20px; font-family: monospace; letter-spacing: .05rem; line-height: .7rem;" class="str"></p>-->
 
         </div>
     </div>
 </div>
 
 <style>
-    .str {
-
-        font-family: monospace;
-        letter-spacing: .15rem;
-        line-height: .7rem;
+    .contact {
+        display: none !important;
     }
 
 </style>

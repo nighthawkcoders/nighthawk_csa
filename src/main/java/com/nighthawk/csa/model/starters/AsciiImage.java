@@ -26,10 +26,10 @@ public class AsciiImage {
         read_image();
     }
 
-    public String convert_to_ascii(){
+    public String[] convert_to_ascii(){
         int[][] gs = this.to_grayscale();
         int[][] scaled_gs = this.scale(gs);
-        return  this.to_ascii_string(scaled_gs);
+        return  this.to_ascii_array(scaled_gs);
     }
 
 
@@ -144,6 +144,28 @@ public class AsciiImage {
         }
 
 
+    }
+
+    public String[] to_ascii_array(int[][] scaled_gs) {
+        String INTENSITY_MAP = "@#$&?^}{><*`'~=+-_,. "; // " .,_-+=~'`*<>{}^?&$#@"
+        int INTENSITY_BIN = (int) 255/INTENSITY_MAP.length();
+
+        String[] rows = new String[scaled_gs.length];
+        for (int i=0; i<scaled_gs.length; i++){
+
+            String im_string = "";
+            for(int v: scaled_gs[i]){
+                int c = (int) v/INTENSITY_BIN -1;
+                if(c >=0 ){
+                    im_string = im_string+INTENSITY_MAP.charAt(c)+INTENSITY_MAP.charAt(c);
+                }else{
+                    im_string = im_string + "  ";
+                }
+            }
+            rows[i] = im_string;
+        }
+
+        return rows;
     }
 
     public String to_ascii_string(int[][] scaled_gs){
