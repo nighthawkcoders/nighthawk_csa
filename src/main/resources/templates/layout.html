@@ -4,14 +4,14 @@
 
 <!-- Head, think of things that are more meta or format oriented -->
 <head>
-    <div th:replace="fragments/headfile :: header"></div>
+    <div th:replace="fragments/head :: header"></div>
     <!-- Head defaults to ellipses, details are added by ThymeLeaf layout fragment -->
     <div layout:fragment="metadata">...</div>
 </head>
 
 <body>
     <!-- Header of Page, includes Navigation -->
-    <div th:replace="fragments/header :: header"></div>
+    <div th:replace="fragments/nav :: header"></div>
 
     <!-- Body defaults to ellipses, details are added by ThymeLeaf layout fragment -->
     <div layout:fragment="content">...</div>

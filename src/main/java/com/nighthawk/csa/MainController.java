@@ -81,19 +81,7 @@ public class MainController {
 
     @GetMapping("/course/tri1")
     public String courseTri1(Model model) {
-        model.addAttribute("url", "https://padlet.com/jmortensen7/csamvc");
-        return "course/timelines";
-    }
-
-    @GetMapping("/course/tri2")
-    public String courseTri2(Model model) {
-        model.addAttribute("url", "https://padlet.com/jmortensen7/csaweb");
-        return "course/timelines";
-    }
-
-    @GetMapping("/course/tri3")
-    public String courseTri3(Model model) {
-        model.addAttribute("url", "https://padlet.com/jmortensen7/csa2021t3");
+        model.addAttribute("url", "https://padlet.com/jmortensen7/csa2022tri1");
         return "course/timelines";
     }
 

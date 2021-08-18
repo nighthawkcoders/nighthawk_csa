@@ -10,47 +10,26 @@
 
 <!-- layout::fragment="content" is heart of ThymeLeaf layout -->
 <body><div layout:fragment="content" th:remove="tag">
-    <div class="center-block" style="margin: 2% 10% 10%; font-family: gilroy,serif;">
-        <div class="col-12" style="text-align: center;">
-            <h1><strong>Java and Spring</strong></h1>
-        </div>
-
-        <div class="jumbotron text-left row">
-            <div class="col-md-4">
-                <img src="/static/images/java_logo.png" th:src="@{/images/java_logo.png}" alt="" style="height: 150px" >
-            </div>
-            <div class="col-md-8">
-                <h3><strong>What is Spring?</strong></h3>
-                <ol>
-                    <li>Spring Framework is the most popular application development framework of Java. </li>
-                    <li>Spring Boot helps to create a stand-alone application with less configuration.</li>
-                    <li>Spring MVC is a model view controller-based web framework under the Spring framework.</li>
-                    <li>ThymeLeaf is a server-side Java template engine, support HTML5 JVM web development, and provides full integration with Spring Framework.</li>
-                </ol>
-            </div>
-        </div>
-        <div class="jumbotron text-left row">
-            <div class="col-md-8">
-                <h3><strong>What should Java Developers learn?</strong></h3>
-                <ol>
-                    <li>Development DevOps. Java programmers should have a passion for managing the environment and learning automation.  Maven or Gradle.</li>
-                    <li>Git/GitHub.  Learning to master managing change, branches, pull requests.</li>
-                    <li>Java 9-15. Jigsaw, Reactive Streams, Process API, HTTP2 client, JShell, ...</li>
-                    <li>Spring Framework. Reactive programming model on Spring 5, adoption of recent Java features, unit testing</li>
-                    <li>REST services using Spring.  Mastering creating and consuming RESTful APIs</li>
-                    <li>Microservices are nothing but an extension of RESTful Web services with the main objective being to break up your code into small, distributed, and independent services.</li>
-                    <li>React JS. This JavaScript framework has completely changed how you develop web applications.</li>
-                    <li>Deployment Devops. Things like Docker and Kubernetes.  Understanding Nginix and other tools for managing servers, configuration, and scale.</li>
-                </ol>
-            </div>
-            <div class="col-md-4">
-                <img src="/static/images/github_logo.png" th:src="@{/images/github_logo.png}" alt ="" style="height: 150px" >
-            </div>
-        </div>
-
+    <!-- Start of body content specific to page -->
+    <div id="spring_intro" class="articles" style="margin: 30px;">
+        <h1><strong>Java and Spring</strong></h1>
+        <h3><strong>What is Spring?</strong></h3>
+        <ol>
+            <li>Spring Framework is the most popular application development framework of Java. </li>
+            <li>Spring Boot helps to create a stand-alone application with less configuration.</li>
+            <li>Spring MVC is a model view controller-based web framework under the Spring framework.</li>
+            <li>ThymeLeaf is a server-side Java template engine, support HTML5 JVM web development, and provides full integration with Spring Framework.</li>
+        </ol>
+        <h3><strong>What should Java Developers learn?</strong></h3>
+        <ol>
+            <li>Development DevOps. Java programmers should have a passion for managing the environment and learning automation (Maven, Gradle, DevOps, Deployment.</li>
+            <li>Git/GitHub.  Learning to master managing change, branches, pull requests.</li>
+            <li>REST services using Spring.  Mastering creating and consuming RESTful APIs</li>
+            <li>Microservices are nothing but an extension of RESTful Web services with the main objective being to break up your code into small, distributed, and independent services.</li>
+            <li>Java 9-15. Java 8 is AP standard.  Things like Jigsaw, Reactive Streams, Process API, HTTP2 client, JShell, React JS are all more recent</li>
+        </ol>
     </div>
-
-
+    <!-- End of body content specific to page -->
 </div></body>
 
 </html>
