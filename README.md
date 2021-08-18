@@ -35,7 +35,7 @@ $ ./mvnw package
 Run your java project, after test ctl-C to stop service
 ```
 $ cd
-$ java -jar java -jar nighthawk_csa/target/csa-0.0.1-SNAPSHOT.jar
+$ java -jar nighthawk_csa/target/csa-0.0.1-SNAPSHOT.jar
 ```
 Test on localhost browser
 ```
