@@ -7,12 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URI;
-import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -35,6 +31,11 @@ public class MainController {
         String[] rows = ai.convert_to_ascii();
         model.addAttribute("rows", rows);
         return "starters/image";
+    }
+
+    @GetMapping("/binary")    // CONTROLLER handles GET request for /greeting, maps it to greeting() and does variable bindings
+    public String binary() {
+        return "starters/binary";
     }
 
     // GET request, no parameters
