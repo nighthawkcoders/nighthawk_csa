@@ -10,6 +10,11 @@
     <script>
       const BITS = /*[[${bits}]]*/ 8;
       const MAX = 2 ** BITS - 1;
+      const MSG_ON = "Turn on";
+      const IMAGE_ON = "/images/bulb_on.gif";
+      const MSG_OFF = "Turn off";
+      const IMAGE_OFF = "/images/bulb_off.png"
+
       // return string with current value of each bit
       function getBits() {
         let bits = "";
@@ -60,14 +65,14 @@
         const image = document.getElementById('bulb' + i);
         const butt = document.getElementById('butt' + i);
         // Change digit and visual
-        if (image.src.match("{{ imgBulbOn }}")) {
+        if (image.src.match(IMAGE_ON)) {
           dig.value = 0;
-          image.src = "{{ imgBulbOff }}";
-          butt.innerHTML = "Turn on";
+          image.src = IMAGE_OFF;
+          butt.innerHTML = MSG_ON;
         } else {
           dig.value = 1;
-          image.src = "{{ imgBulbOn }}";
-          butt.innerHTML = "Turn off";
+          image.src = IMAGE_ON;
+          butt.innerHTML = MSG_OFF;
         }
         // Binary numbers
         const binary = getBits();
@@ -92,11 +97,11 @@
           let digit = binary.substr(i, 1);
           document.getElementById('digit' + i).value = digit;
           if (digit == "1") {
-            document.getElementById('bulb' + i).src = "/static/assets/bulb_on.gif";
-            document.getElementById('butt' + i).innerHTML = "Turn off";
+            document.getElementById('bulb' + i).src = IMAGE_ON;
+            document.getElementById('butt' + i).innerHTML = MSG_OFF;
           } else {
-            document.getElementById('bulb' + i).src = "/static/assets/bulb_off.png";
-            document.getElementById('butt' + i).innerHTML = "Turn on";
+            document.getElementById('bulb' + i).src = IMAGE_OFF;
+            document.getElementById('butt' + i).innerHTML = MSG_ON;
           }
         }
       }
@@ -106,7 +111,6 @@
 
 <body>
 <div layout:fragment="content" th:remove="tag">
-  <div th:with="imgBulbOn='/static/assets/bulb_on.gif', imgBulbOff='/static/assets/bulb_off.png'">
     <h1 class="text-center">Binary Math with Conversions</h1>
     <div class="container">
       <div class="row justify-content-md-center">
@@ -137,15 +141,15 @@
 
             <tr>
               <th:block th:each="i: ${#numbers.sequence(0, 7)}">
-              <td><img class="img-responsive py-3" th:id="'bulb' + ${i}" th:src="${imgBulbOff}" alt="" width="40" height="Auto">
-                <button type="button" th:id="'butt' + ${i}" th:onclick="'javascript:toggleBit(' + ${i} + ')'">Turn on</button>
-              </td>
+                <td><img class="img-responsive py-3" th:id="'bulb' + ${i}" src="" th:src="@{'/images/bulb_off.png'}" alt="" width="40" height="Auto">
+                  <button type="button" th:id="'butt' + ${i}" th:onclick="'javascript:toggleBit(' + ${i} + ')'">Turn on</button>
+                </td>
               </th:block>
             </tr>
 
             <tr>
               <th:block th:each="i: ${#numbers.sequence(0, 7)}">
-              <td><input type='text' th:id="'digit' + ${i}" Value="0" size="1" readonly></td>
+                <td><input type='text' th:id="'digit' + ${i}" Value="0" size="1" readonly></td>
               </th:block>
             </tr>
 
@@ -154,7 +158,6 @@
 
       </div>
     </div>
-  </div>
 </div>
 </body>
 </html>
