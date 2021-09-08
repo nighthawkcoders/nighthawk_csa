@@ -3,114 +3,113 @@
 <html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
       layout:decorate="~{layout}" lang="en">
 
-<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
-<head>
-  <div layout:fragment="metadata" th:remove="tag">
-    <title>Binary page</title>
-    <script>
-      const BITS = /*[[${bits}]]*/ 8;
-      const MAX = 2 ** BITS - 1;
-      const MSG_ON = "Turn on";
-      const IMAGE_ON = "/images/bulb_on.gif";
-      const MSG_OFF = "Turn off";
-      const IMAGE_OFF = "/images/bulb_off.png"
+<!-- Hack 1: variable bits and variables for IMAGE_ON/IMAGE_OFF should come from backend Model -->
+<!-- Hack 2: have input to allow user to customize bits, 8 or 24 are key for remainder -->
+<!-- Hack 3: add a character display to text when 8 bits, determine if printable or not printable -->
+<!-- Hack 4: add a color code and display color when 24 bits, think about display on this one -->
+<!-- Hack 5: do your own thing -->
+<!-- Hack 6: fix all warnings -->
 
-      // return string with current value of each bit
-      function getBits() {
-        let bits = "";
-        for(let i = 0; i < BITS; i++) {
-          bits = bits + document.getElementById('digit' + i).value;
-        }
-        return bits;
-      }
-      // setter for DOM values
-      function setConversions(binary) {
-        //alert("Binary number: " + binary );
-        document.getElementById('binary').innerHTML = binary;
-        // Decimal conversion
-        const octal = parseInt(binary, 2).toString(8);
-        //alert("Decimal number: " + decimal );
-        document.getElementById('octal').innerHTML = octal;
-        // Decimal conversion
-        const hexadecimal = parseInt(binary, 2).toString(16);
-        //alert("Decimal number: " + decimal );
-        document.getElementById('hexadecimal').innerHTML = hexadecimal;
-        // Decimal conversion
-        const decimal = parseInt(binary, 2).toString();
-        //alert("Decimal number: " + decimal );
-        document.getElementById('decimal').innerHTML = decimal;
-      }
-      //
-      function decimal_2_base(decimal, base) {
-        let conversion = "";
-        // loop to convert to base
-        do {
-          let digit = decimal % base;
-          conversion = "" + digit + conversion; // what does this do?
-          decimal = ~~(decimal / base);         // what does this do?
-        } while (decimal > 0);                  // why while at the end? what is ~~?
-        // loop to pad with zeros
-        if (base == 2) {                        // only pad for binary conversions
-          for (let i = 0; conversion.length < BITS; i++) {
-            conversion = "0" + conversion;
-          }
-        }
-        return conversion;
-      }
+<!-- <head> -->
+<div layout:fragment="metadata" th:with="bits=8" th:remove="tag">
+  <title>Binary page</title>
+  <script>
+    const BITS = [[${bits}]];
+    const MAX = 2 ** BITS - 1;
+    const MSG_ON = "Turn on";
+    const IMAGE_ON = "/images/bulb_on.gif";
+    const MSG_OFF = "Turn off";
+    const IMAGE_OFF = "/images/bulb_off.png"
 
-      // toggle selected bit and recalculate
-      function toggleBit(i) {
-        //alert("Digit action: " + i );
-        const dig = document.getElementById('digit' + i);
-        const image = document.getElementById('bulb' + i);
-        const butt = document.getElementById('butt' + i);
-        // Change digit and visual
-        if (image.src.match(IMAGE_ON)) {
-          dig.value = 0;
-          image.src = IMAGE_OFF;
-          butt.innerHTML = MSG_ON;
+    // return string with current value of each bit
+    function getBits() {
+      let bits = "";
+      for(let i = 0; i < BITS; i++) {
+        bits = bits + document.getElementById('digit' + i).value;
+      }
+      return bits;
+    }
+    // setter for DOM values
+    function setConversions(binary) {
+      document.getElementById('binary').innerHTML = binary;
+      // Octal conversion
+      document.getElementById('octal').innerHTML = parseInt(binary, 2).toString(8);
+      // Hexadecimal conversion
+      document.getElementById('hexadecimal').innerHTML = parseInt(binary, 2).toString(16);
+      // Decimal conversion
+      document.getElementById('decimal').innerHTML = parseInt(binary, 2).toString();
+    }
+    //
+    function decimal_2_base(decimal, base) {
+      let conversion = "";
+      // loop to convert to base
+      do {
+        let digit = decimal % base;
+        conversion = "" + digit + conversion; // what does this do?
+        decimal = ~~(decimal / base);         // what does this do?
+      } while (decimal > 0);                  // why while at the end? what is ~~?
+      // loop to pad with zeros
+      if (base === 2) {                        // only pad for binary conversions
+        for (let i = 0; conversion.length < BITS; i++) {
+          conversion = "0" + conversion;
+        }
+      }
+      return conversion;
+    }
+
+    // toggle selected bit and recalculate
+    function toggleBit(i) {
+      //alert("Digit action: " + i );
+      const dig = document.getElementById('digit' + i);
+      const image = document.getElementById('bulb' + i);
+      const butt = document.getElementById('butt' + i);
+      // Change digit and visual
+      if (image.src.match(IMAGE_ON)) {
+        dig.value = 0;
+        image.src = IMAGE_OFF;
+        butt.innerHTML = MSG_ON;
+      } else {
+        dig.value = 1;
+        image.src = IMAGE_ON;
+        butt.innerHTML = MSG_OFF;
+      }
+      // Binary numbers
+      const binary = getBits();
+      setConversions(binary);
+    }
+    // add is positive integer, subtract is negative integer
+    function add(n) {
+      let binary = getBits();
+      // convert to decimal and do math
+      let decimal = parseInt(binary, 2);
+      if (n > 0) {  // PLUS
+        decimal = MAX === decimal ? 0 : decimal += n; // OVERFLOW or PLUS
+      } else  {     // MINUS
+        decimal = 0 === decimal ? MAX : decimal += n; // OVERFLOW or MINUS
+      }
+      // convert the result back to binary
+      binary = decimal_2_base(decimal, 2);
+      // update conversions
+      setConversions(binary);
+      // update bits
+      for (let i = 0; i < binary.length; i++) {
+        let digit = binary.substr(i, 1);
+        document.getElementById('digit' + i).value = digit;
+        if (digit === "1") {
+          document.getElementById('bulb' + i).src = IMAGE_ON;
+          document.getElementById('butt' + i).innerHTML = MSG_OFF;
         } else {
-          dig.value = 1;
-          image.src = IMAGE_ON;
-          butt.innerHTML = MSG_OFF;
-        }
-        // Binary numbers
-        const binary = getBits();
-        setConversions(binary);
-      }
-      // add is positive integer, subtract is negative integer
-      function add(n) {
-        let binary = getBits();
-        // convert to decimal and do math
-        let decimal = parseInt(binary, 2);
-        if (n > 0) {  // PLUS
-          decimal = decimal == MAX ? 0 : decimal += n; // OVERFLOW or PLUS
-        } else  {     // MINUS
-          decimal = decimal == 0 ? MAX : decimal += n; // OVERFLOW or MINUS
-        }
-        // convert the result back to binary
-        binary = decimal_2_base(decimal, 2);
-        // update conversions
-        setConversions(binary);
-        // update bits
-        for (let i = 0; i < binary.length; i++) {
-          let digit = binary.substr(i, 1);
-          document.getElementById('digit' + i).value = digit;
-          if (digit == "1") {
-            document.getElementById('bulb' + i).src = IMAGE_ON;
-            document.getElementById('butt' + i).innerHTML = MSG_OFF;
-          } else {
-            document.getElementById('bulb' + i).src = IMAGE_OFF;
-            document.getElementById('butt' + i).innerHTML = MSG_ON;
-          }
+          document.getElementById('bulb' + i).src = IMAGE_OFF;
+          document.getElementById('butt' + i).innerHTML = MSG_ON;
         }
       }
-    </script>
-  </div>
-</head>
+    }
+  </script>
+</div>
+<!-- </head> -->
 
-<body>
-<div layout:fragment="content" th:remove="tag">
+<!-- <body> -->
+<div layout:fragment="content" th:with="bits=8" th:remove="tag">
     <h1 class="text-center">Binary Math with Conversions</h1>
     <div class="container">
       <div class="row justify-content-md-center">
@@ -140,7 +139,7 @@
           <table class="table">
 
             <tr>
-              <th:block th:each="i: ${#numbers.sequence(0, 7)}">
+              <th:block th:each="i: ${#numbers.sequence(0, bits-1)}">
                 <td><img class="img-responsive py-3" th:id="'bulb' + ${i}" src="" th:src="@{'/images/bulb_off.png'}" alt="" width="40" height="Auto">
                   <button type="button" th:id="'butt' + ${i}" th:onclick="'javascript:toggleBit(' + ${i} + ')'">Turn on</button>
                 </td>
@@ -148,7 +147,7 @@
             </tr>
 
             <tr>
-              <th:block th:each="i: ${#numbers.sequence(0, 7)}">
+              <th:block th:each="i: ${#numbers.sequence(0, bits-1)}">
                 <td><input type='text' th:id="'digit' + ${i}" Value="0" size="1" readonly></td>
               </th:block>
             </tr>
@@ -159,5 +158,5 @@
       </div>
     </div>
 </div>
-</body>
+<!-- </body> -->
 </html>
