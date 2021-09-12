@@ -13,16 +13,52 @@
 <body>
 <div layout:fragment="content" th:remove="tag">
     <div class="container">
+        <h1 class="text-center">RGB values within an Image</h1>
+            <div class="row justify-content-md-center">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Meta Data</th>
+                        <th>Image</th>
+                        <th>Data</th>
+                    </tr>
+                    </thead>
+                    <tbody>
 
-        <!-- Title -->
-        <div class="col-12" style="text-align: center;">
-            <h1><strong>Image Processing</strong></h1>
-        </div>
+                    <tr>
+                        <td th:text="'(' + ${ai.getHeight()} + ',' + ${ai.getWidth()} + ')'">Height,Width</td>
+                        <td>
+                            <!--
+                            <img class="img-responsive py-3" src="${ai.url)" alt="" width="256" height="Auto">
+                            -->
+                        </td>
+                        <td>
+                            <div class="overflow-auto" style="height: 256px">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Row</th>
+                                        <th>Column</th>
+                                        <th>RGB</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <span th:each="row: ${#numbers.sequence(0, ai.getHeight())}">
+                                        <tr th:each="col: ${#numbers.sequence(0, ai.getWidth())}">
+                                            <td th:text="${row}">row</td>
+                                            <td th:text="${col}">column</td>
+                                            <td th:text="xxx">cell</td>
+                                        </tr>
+                                    </span>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
 
-        <p th:each="row: ${rows}" style="font-size: 20px; font-family: monospace; letter-spacing: .05rem;">
-            <span th:text="${row}"></span>
-        </p>
-        </div>
+            </div>
 
 <!--            <p th:text="${str}"  style="font-size: 20px; font-family: monospace; letter-spacing: .05rem; line-height: .7rem;" class="str"></p>-->
 
