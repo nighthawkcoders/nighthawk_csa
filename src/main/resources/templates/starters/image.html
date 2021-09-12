@@ -40,6 +40,8 @@
                                         <th>Row</th>
                                         <th>Column</th>
                                         <th>RGB</th>
+                                        <th>Hex Code</th>
+                                        <th>Binary</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -47,7 +49,9 @@
                                         <tr th:each="col: ${#numbers.sequence(0, ii.getScaled_width()-1)}">
                                             <td th:text="${ii.getScaled_height(row)}">row</td>
                                             <td th:text="${ii.getScaled_width(col)}">column</td>
-                                            <td th:text="${ii.getScaled_rgb(row,col)}">cell</td>
+                                            <td th:text="${ii.getRGB(row,col)}">cell</td>
+                                            <td th:text="${ii.getHexCode(row,col)}">cell</td>
+                                            <td th:text="${ii.getBinary(row,col)}">cell</td>
                                         </tr>
                                     </span>
                                     </tbody>

@@ -58,16 +58,33 @@ public class ImageInfo {
         return col * this.scale_factor;
     }
 
-    public String getScaled_rgb(int row, int col) {
+    public String getRGB(int row, int col) {
         int h = row * this.scale_factor;
         int w = col * this.scale_factor;
-        return get_rgb(h,w);
-    }
-
-    public String get_rgb(int h, int w) {
         return "(" + rgb_matrix[h][w][0] +
                 "," + rgb_matrix[h][w][1] +
-                "," + rgb_matrix[h][w][2] + ")";
+                "," + rgb_matrix[h][w][2] +
+                ")" ;
+    }
+
+    public String getHexCode(int row, int col) {
+        int h = row * this.scale_factor;
+        int w = col * this.scale_factor;
+        // String.format guarantees 0 padding vs Integer.toHexString
+        return "#" +
+                String.format("%02X",rgb_matrix[h][w][0]) +
+                String.format("%02X",rgb_matrix[h][w][1]) +
+                String.format("%02X",rgb_matrix[h][w][2]) ;
+    }
+
+    public String getBinary(int row, int col) {
+        int h = row * this.scale_factor;
+        int w = col * this.scale_factor;
+        // Java does not have binary as string formatter
+        return "0b" +
+                String.format("%8s", Integer.toBinaryString(rgb_matrix[h][w][0])).replace(' ', '0') +
+                String.format("%8s", Integer.toBinaryString(rgb_matrix[h][w][1])).replace(' ', '0') +
+                String.format("%8s", Integer.toBinaryString(rgb_matrix[h][w][2])).replace(' ', '0') ;
     }
 
     public String[] convert_to_ascii(){
