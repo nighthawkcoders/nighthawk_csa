@@ -1,7 +1,7 @@
 package com.nighthawk.csa;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nighthawk.csa.model.starters.AsciiImage;
+import com.nighthawk.csa.model.starters.ImageInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,11 +27,9 @@ public class MainController {
     @GetMapping("/image")
     public String image(Model model) throws IOException {
         String url = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Abraham_Lincoln_O-77_matte_collodion_print.jpg/1200px-Abraham_Lincoln_O-77_matte_collodion_print.jpg";
-        AsciiImage ai = new AsciiImage(url, 16);
+        ImageInfo ai = new ImageInfo(url, 16);
+        ai.read_image();
         model.addAttribute("ai", ai);
-        model.addAttribute("height", ai.getHeight());
-        model.addAttribute("width", ai.getWidth());
-        model.addAttribute("rgb", ai.getRgb());
         return "starters/image";
     }
 

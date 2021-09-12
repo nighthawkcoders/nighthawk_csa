@@ -26,11 +26,12 @@
                     <tbody>
 
                     <tr>
-                        <td th:text="'(' + ${ai.getHeight()} + ',' + ${ai.getWidth()} + ')'">Height,Width</td>
                         <td>
-                            <!--
-                            <img class="img-responsive py-3" src="${ai.url)" alt="" width="256" height="Auto">
-                            -->
+                            <div th:text="'(' + ${ai.getHeight()} + ',' + ${ai.getWidth()} + ')'">Height,Width</div>
+                            <div th:text="${ai.getFile()}">File name</div>
+                        </td>
+                        <td>
+                            <img class="img-responsive py-3" src="${ai.getFile())" alt="" width="256" height="Auto">
                         </td>
                         <td>
                             <div class="overflow-auto" style="height: 256px">
@@ -43,11 +44,11 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <span th:each="row: ${#numbers.sequence(0, ai.getHeight())}">
-                                        <tr th:each="col: ${#numbers.sequence(0, ai.getWidth())}">
-                                            <td th:text="${row}">row</td>
-                                            <td th:text="${col}">column</td>
-                                            <td th:text="xxx">cell</td>
+                                    <span th:each="row: ${#numbers.sequence(0, ai.getScaled_height()-1)}">
+                                        <tr th:each="col: ${#numbers.sequence(0, ai.getScaled_width()-1)}">
+                                            <td th:text="${ai.getScaled_height(row)}">row</td>
+                                            <td th:text="${ai.getScaled_width(col)}">column</td>
+                                            <td th:text="${ai.getScaled_rgb(row,col)}">cell</td>
                                         </tr>
                                     </span>
                                     </tbody>
