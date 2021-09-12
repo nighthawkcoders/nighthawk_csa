@@ -10,26 +10,25 @@ import javax.imageio.ImageIO;
 
 @Getter
 public class ImageInfo {
-    public int SCALE_FACTOR;
-    public String file;
-    public String url;
+    public int scale_factor;
+    public String file, url;
     public int height, scaled_height;
     public int width, scaled_width;
     public int[][][] rgb_matrix;
 
-    public ImageInfo(String file, String url, int SCALE_FACTOR) {
+    public ImageInfo(String file, String url, int scale_factor) {
         this.file = file;
         this.url = url;
-        this.SCALE_FACTOR = SCALE_FACTOR;
+        this.scale_factor = scale_factor;
     }
 
     public Exception read_image() {
         try{
             BufferedImage img = ImageIO.read(new URL(this.url));
             this.height = img.getHeight();
-            this.scaled_height = this.height / SCALE_FACTOR;
+            this.scaled_height = this.height / scale_factor;
             this.width = img.getWidth();
-            this.scaled_width = this.width / SCALE_FACTOR;
+            this.scaled_width = this.width / scale_factor;
             //System.out.println(Integer.toString(this.height) + " " + Integer.toString(this.width));
             this.rgb_matrix = new int[this.height][this.width][3];
 
@@ -52,16 +51,16 @@ public class ImageInfo {
     }
 
     public int getScaled_height(int row) {
-        return row * this.SCALE_FACTOR;
+        return row * this.scale_factor;
     }
 
     public int getScaled_width(int col) {
-        return col * this.SCALE_FACTOR;
+        return col * this.scale_factor;
     }
 
     public String getScaled_rgb(int row, int col) {
-        int h = row * this.SCALE_FACTOR;
-        int w = col * this.SCALE_FACTOR;
+        int h = row * this.scale_factor;
+        int w = col * this.scale_factor;
         return get_rgb(h,w);
     }
 
@@ -94,23 +93,23 @@ public class ImageInfo {
     }
 
     public int[][] scale(int[][] gs){
-        // scale image down by SCALE_FACTOR
-        int w_scaled = width /SCALE_FACTOR;
-        int h_scaled = height /SCALE_FACTOR;
+        // scale image down by scale_factor
+        int w_scaled = width /scale_factor;
+        int h_scaled = height /scale_factor;
 
         int[][] scaled = new int[h_scaled][w_scaled];
         for(int w=0; w<w_scaled; w++){
             for(int h=0; h<h_scaled; h++){ //looping over blocks
 
                 int sum = 0;
-                for(int x=(w)*SCALE_FACTOR; x<(w+1)*SCALE_FACTOR; x++){ //looping over the induvidual coordinates in block
-                    for(int y=(h)*SCALE_FACTOR; y<(h+1)*SCALE_FACTOR; y++){
+                for(int x=(w)*scale_factor; x<(w+1)*scale_factor; x++){ //looping over the induvidual coordinates in block
+                    for(int y=(h)*scale_factor; y<(h+1)*scale_factor; y++){
                         //System.out.println("("+Integer.toString(x)+", "+Integer.toString(y)+")");
                         sum = sum + gs[y][x];
                     }
                 } //end loop 2
 
-                scaled[h][w] = sum /(SCALE_FACTOR*SCALE_FACTOR);
+                scaled[h][w] = sum /(scale_factor*scale_factor);
 
             }
         } //end loop 1

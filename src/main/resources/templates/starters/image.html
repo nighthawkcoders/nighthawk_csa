@@ -20,18 +20,17 @@
                     <tr>
                         <th>Meta Data</th>
                         <th>Image</th>
-                        <th>Data Sample</th>
+                        <th>Scaled Data Sample</th>
                     </tr>
                     </thead>
                     <tbody>
-
-                    <tr>
+                    <tr th:each="ii: ${lii}">
                         <td>
                             <div th:text="${ii.getFile()}">File name</div>
                             <div th:text="'(' + ${ii.getHeight()} + ',' + ${ii.getWidth()} + ')'">Height,Width</div>
                         </td>
                         <td>
-                            <img class="img-responsive py-3" th:src="@{/images/ncs_logo.png}" alt="" width="256" height="Auto">
+                            <img class="img-responsive py-3" th:src="@{${ii.getFile()}}" alt="" src="${ii.getFile()}" width=128 height="Auto">
                         </td>
                         <td>
                             <div class="overflow-auto" style="height: 256px">
@@ -60,8 +59,6 @@
                 </table>
 
             </div>
-
-<!--            <p th:text="${str}"  style="font-size: 20px; font-family: monospace; letter-spacing: .05rem; line-height: .7rem;" class="str"></p>-->
 
     </div>
 </div>
