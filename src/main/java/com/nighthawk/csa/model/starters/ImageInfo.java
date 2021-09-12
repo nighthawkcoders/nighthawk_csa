@@ -12,18 +12,20 @@ import javax.imageio.ImageIO;
 public class ImageInfo {
     public int SCALE_FACTOR;
     public String file;
+    public String url;
     public int height, scaled_height;
     public int width, scaled_width;
     public int[][][] rgb_matrix;
 
-    public ImageInfo(String file, int SCALE_FACTOR) {
+    public ImageInfo(String file, String url, int SCALE_FACTOR) {
         this.file = file;
+        this.url = url;
         this.SCALE_FACTOR = SCALE_FACTOR;
     }
 
     public Exception read_image() {
         try{
-            BufferedImage img = ImageIO.read(new URL(this.file));
+            BufferedImage img = ImageIO.read(new URL(this.url));
             this.height = img.getHeight();
             this.scaled_height = this.height / SCALE_FACTOR;
             this.width = img.getWidth();
@@ -159,23 +161,23 @@ public class ImageInfo {
 
     public String to_ascii_string(int[][] scaled_gs){
         String INTENSITY_MAP = "@#$&?^}{><*`'~=+-_,. "; // " .,_-+=~'`*<>{}^?&$#@"
-        int INTENSITY_BIN = (int) 255/INTENSITY_MAP.length();
+        int INTENSITY_BIN = 255 /INTENSITY_MAP.length();
 
-        String im_string = "";
+        StringBuilder im_string = new StringBuilder();
 
         for (int[] x: scaled_gs){
             for(int v: x){
-                int c = (int) v/INTENSITY_BIN -1;
+                int c = v /INTENSITY_BIN -1;
                 if(c >=0 ){
-                    im_string = im_string+INTENSITY_MAP.charAt(c)+INTENSITY_MAP.charAt(c);
+                    im_string.append(INTENSITY_MAP.charAt(c)).append(INTENSITY_MAP.charAt(c));
                 }else{
-                    im_string = im_string + "  ";
+                    im_string.append("  ");
                 }
             }
-            im_string = im_string + "\n";
+            im_string.append("\n");
         }
 
-        return im_string;
+        return im_string.toString();
     }
 
 }

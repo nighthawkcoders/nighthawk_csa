@@ -25,11 +25,13 @@ public class MainController {
     }
 
     @GetMapping("/image")
-    public String image(Model model) throws IOException {
-        String url = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Abraham_Lincoln_O-77_matte_collodion_print.jpg/1200px-Abraham_Lincoln_O-77_matte_collodion_print.jpg";
-        ImageInfo ai = new ImageInfo(url, 16);
-        ai.read_image();
-        model.addAttribute("ai", ai);
+    public String image(Model model)  {
+        String web_server = "https://csa.nighthawkcodingsociety.com/images/";
+        String file = "ncs_logo.png";
+        String url = web_server + file;
+        ImageInfo ii = new ImageInfo(file, url, 12);
+        ii.read_image();
+        model.addAttribute("ii", ii);
         return "starters/image";
     }
 
@@ -51,7 +53,7 @@ public class MainController {
         //rapidapi call
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
         //convert to java hash map
-        HashMap map = new ObjectMapper().readValue(response.body(), HashMap.class);
+        var map = new ObjectMapper().readValue(response.body(), HashMap.class);
         //pass country stats to view
         model.addAttribute("data", map);
         model.addAttribute("world", map.get("world_total"));

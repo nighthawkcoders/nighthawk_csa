@@ -20,18 +20,18 @@
                     <tr>
                         <th>Meta Data</th>
                         <th>Image</th>
-                        <th>Data</th>
+                        <th>Data Sample</th>
                     </tr>
                     </thead>
                     <tbody>
 
                     <tr>
                         <td>
-                            <div th:text="'(' + ${ai.getHeight()} + ',' + ${ai.getWidth()} + ')'">Height,Width</div>
-                            <div th:text="${ai.getFile()}">File name</div>
+                            <div th:text="${ii.getFile()}">File name</div>
+                            <div th:text="'(' + ${ii.getHeight()} + ',' + ${ii.getWidth()} + ')'">Height,Width</div>
                         </td>
                         <td>
-                            <img class="img-responsive py-3" src="${ai.getFile())" alt="" width="256" height="Auto">
+                            <img class="img-responsive py-3" th:src="@{/images/ncs_logo.png}" alt="" width="256" height="Auto">
                         </td>
                         <td>
                             <div class="overflow-auto" style="height: 256px">
@@ -44,11 +44,11 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <span th:each="row: ${#numbers.sequence(0, ai.getScaled_height()-1)}">
-                                        <tr th:each="col: ${#numbers.sequence(0, ai.getScaled_width()-1)}">
-                                            <td th:text="${ai.getScaled_height(row)}">row</td>
-                                            <td th:text="${ai.getScaled_width(col)}">column</td>
-                                            <td th:text="${ai.getScaled_rgb(row,col)}">cell</td>
+                                    <span th:each="row: ${#numbers.sequence(0, ii.getScaled_height()-1)}">
+                                        <tr th:each="col: ${#numbers.sequence(0, ii.getScaled_width()-1)}">
+                                            <td th:text="${ii.getScaled_height(row)}">row</td>
+                                            <td th:text="${ii.getScaled_width(col)}">column</td>
+                                            <td th:text="${ii.getScaled_rgb(row,col)}">cell</td>
                                         </tr>
                                     </span>
                                     </tbody>
