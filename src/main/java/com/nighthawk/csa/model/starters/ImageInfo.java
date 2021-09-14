@@ -81,9 +81,10 @@ public class ImageInfo {
         int h = row * this.scale_factor;
         int w = col * this.scale_factor;
         // Java does not have binary as string formatter
-        return "0b" +
-                String.format("%8s", Integer.toBinaryString(rgb_matrix[h][w][0])).replace(' ', '0') +
+        return  String.format("%8s", Integer.toBinaryString(rgb_matrix[h][w][0])).replace(' ', '0') +
+                " " +
                 String.format("%8s", Integer.toBinaryString(rgb_matrix[h][w][1])).replace(' ', '0') +
+                " " +
                 String.format("%8s", Integer.toBinaryString(rgb_matrix[h][w][2])).replace(' ', '0') ;
     }
 
