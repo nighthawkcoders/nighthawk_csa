@@ -54,8 +54,8 @@ public class MainController {
 
         String file0 = "/images/ncs_logo.png";
         lii.add(new ImageInfo(file0, web_server+file0, 12));
-        lii.get(0).read_image();
-        String str = lii.get(0).grayscale();
+        String str = lii.get(0).test();
+//        String str = lii.get(0).grayscale();
         model.addAttribute("str", str);
         return "starters/image_grayscale";
     }

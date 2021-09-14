@@ -7,10 +7,7 @@ import org.apache.tomcat.util.codec.binary.StringUtils;
 import java.awt.image.DataBufferByte;
 import java.awt.image.Raster;
 import java.awt.image.WritableRaster;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.awt.Color;
@@ -60,8 +57,40 @@ public class ImageInfo {
         return null;
     }
 
+    public String test() {
+        try {
+            BufferedImage img = ImageIO.read(new URL(this.url));
+            byte[] pixels = ((DataBufferByte) img.getRaster().getDataBuffer()).getData();
+            System.out.println(pixels.length);
+
+            BufferedImage bi2 = new BufferedImage(img.getWidth(), img.getHeight(), BufferedImage.TYPE_INT_ARGB);
+            for(int y=0;y<img.getHeight();y++) {
+                for(int x=0; x<img.getWidth(); x++) {
+                    int a, r, g, b;
+                    int s = (y*img.getWidth() + x)*4;
+                    a=pixels[s+0] & 0xFF;
+                    r=pixels[s+1] & 0xFF;
+                    g=pixels[s+2] & 0xFF;
+                    b=pixels[s+3] & 0xFF;
+                    bi2.setRGB(x,y, new Color(r,g,b,a).getRGB());
+                }
+            }
+
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            ImageIO.write(bi2, "png", bos);
+            byte[] data = bos.toByteArray();
+            System.out.println(data.length);
+            return "data:image/jpg;base64," + Base64.encodeBase64String(data);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+
     public String grayscale() {
-        System.out.println(rgb_matrix);
         BufferedImage image = new BufferedImage(this.width, this.height, BufferedImage.TYPE_BYTE_GRAY);
         WritableRaster raster = image.getRaster();
         DataBufferByte buffer = (DataBufferByte) raster.getDataBuffer();
