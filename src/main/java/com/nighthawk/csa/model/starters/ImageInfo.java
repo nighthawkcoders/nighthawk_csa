@@ -1,11 +1,21 @@
 package com.nighthawk.csa.model.starters;
 
 import lombok.Getter;
+import org.apache.tomcat.util.codec.binary.Base64;
+import org.apache.tomcat.util.codec.binary.StringUtils;
 
+import java.awt.image.DataBufferByte;
+import java.awt.image.Raster;
+import java.awt.image.WritableRaster;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
+import java.util.Arrays;
 import javax.imageio.ImageIO;
 
 @Getter
@@ -49,6 +59,31 @@ public class ImageInfo {
 
         return null;
     }
+
+    public String grayscale() {
+        System.out.println(rgb_matrix);
+        BufferedImage image = new BufferedImage(this.width, this.height, BufferedImage.TYPE_BYTE_GRAY);
+        WritableRaster raster = image.getRaster();
+        DataBufferByte buffer = (DataBufferByte) raster.getDataBuffer();
+        byte[] data = buffer.getData();
+
+        for(int y=0; y<this.height; y++) {
+            for(int x=0; x<this.width; x++) {
+                byte avg = 50;//(byte) ((rgb_matrix[y][x][0]+rgb_matrix[y][x][1]+rgb_matrix[y][x][2])/3);
+                data[(y*this.width) + x] = avg;
+            }
+        }
+
+
+        System.out.println(data.length);
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("data:image/png;base64,");
+        sb.append(StringUtils.newStringUtf8(Base64.encodeBase64(data, false)));
+        return sb.toString();
+    }
+
+
 
     public int getScaled_height(int row) {
         return row * this.scale_factor;
