@@ -57,6 +57,65 @@ public class ImageInfo {
         return null;
     }
 
+
+    public String grayscale() {
+        try {
+            BufferedImage img = ImageIO.read(new URL(url));
+            byte[] pixels = image_to_pixels(img);
+            int[] pixels_int = grayscale(pixels);
+            String base64 = pixels_to_base64(img.getWidth(), img.getHeight(), pixels_int);
+            return "data:image/jpg;base64,"+base64;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+    public int[] grayscale(byte[] pixels){
+        int[] pixels_int = new int[pixels.length];
+        for(int i=0;i<pixels.length;i+=4) {
+            float val = 0;
+            for(int y=1;y<4;y++) {
+                val += (pixels[i+y] & 0xFF)/3.0;
+            }
+            pixels_int[i+0] = pixels[i];
+            pixels_int[i+1] = (int)val;
+            pixels_int[i+2] = (int)val;
+            pixels_int[i+3] = (int)val;
+        }
+        return pixels_int;
+    }
+
+
+    public byte[] image_to_pixels(BufferedImage img) throws IOException {
+            byte[] pixels = ((DataBufferByte) img.getRaster().getDataBuffer()).getData();
+            return pixels; // IMPORTANT:
+    }
+
+    public String pixels_to_base64(int width, int height, int[] pixels) throws IOException {
+        BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        for(int y=0;y<height;y++) {
+            for(int x=0; x<width; x++) {
+                int a,r,g,b;
+                int s = (y*width + x)*4;
+                a=pixels[s+0];
+                r=pixels[s+1];
+                g=pixels[s+2];
+                b=pixels[s+3];
+                img.setRGB(x,y, argb(a,r,g,b));
+            }
+        }
+
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        ImageIO.write(img, "png", bos);
+        byte[] data = bos.toByteArray();
+        return Base64.encodeBase64String(data);
+    }
+
+    public int argb(int a, int r, int g, int b) {
+        return ((a&0x0ff)<<24)|((r&0x0ff)<<16)|((g&0x0ff)<<8)|(b&0x0ff);
+    }
+
     public String test() {
         try {
             BufferedImage img = ImageIO.read(new URL(this.url));
@@ -90,7 +149,7 @@ public class ImageInfo {
     }
 
 
-    public String grayscale() {
+    public String gs() {
         BufferedImage image = new BufferedImage(this.width, this.height, BufferedImage.TYPE_BYTE_GRAY);
         WritableRaster raster = image.getRaster();
         DataBufferByte buffer = (DataBufferByte) raster.getDataBuffer();
