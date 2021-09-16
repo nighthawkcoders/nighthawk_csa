@@ -5,17 +5,15 @@ import org.apache.tomcat.util.codec.binary.Base64;
 import org.apache.tomcat.util.codec.binary.StringUtils;
 
 import java.awt.image.DataBufferByte;
-import java.awt.image.Raster;
 import java.awt.image.WritableRaster;
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
-import java.util.Arrays;
 import javax.imageio.ImageIO;
 
-@Getter
+@Getter  // automatic getter, https://projectlombok.org/features/GetterSetter
 public class ImageInfo {
     public int scale_factor;
     public String file, url;
@@ -23,12 +21,14 @@ public class ImageInfo {
     public int width, scaled_width;
     public int[][][] rgb_matrix;
 
+    // basic constructor
     public ImageInfo(String file, String url, int scale_factor) {
         this.file = file;
         this.url = url;
         this.scale_factor = scale_factor;
     }
 
+    // sets for properties of the image, including pixels and colors
     public Exception read_image() {
         try{
             BufferedImage img = ImageIO.read(new URL(this.url));
@@ -57,7 +57,8 @@ public class ImageInfo {
         return null;
     }
 
-
+    // grayscale method
+    // return: base64 in grayscale
     public String grayscale() {
         try {
             BufferedImage img = ImageIO.read(new URL(url));
@@ -71,6 +72,7 @@ public class ImageInfo {
         return "";
     }
 
+    // grayscale pixel manipulator
     public int[] grayscale(byte[] pixels){
         int[] pixels_int = new int[pixels.length];
         for(int i=0;i<pixels.length;i+=4) {
@@ -86,12 +88,13 @@ public class ImageInfo {
         return pixels_int;
     }
 
-
+    // image to byte array of pixels
     public byte[] image_to_pixels(BufferedImage img) throws IOException {
             byte[] pixels = ((DataBufferByte) img.getRaster().getDataBuffer()).getData();
             return pixels; // IMPORTANT:
     }
 
+    // base64 conversion, support PNG only
     public String pixels_to_base64(int width, int height, int[] pixels) throws IOException {
         BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         for(int y=0;y<height;y++) {
@@ -112,6 +115,7 @@ public class ImageInfo {
         return Base64.encodeBase64String(data);
     }
 
+    // building RGBA data
     public int argb(int a, int r, int g, int b) {
         return ((a&0x0ff)<<24)|((r&0x0ff)<<16)|((g&0x0ff)<<8)|(b&0x0ff);
     }

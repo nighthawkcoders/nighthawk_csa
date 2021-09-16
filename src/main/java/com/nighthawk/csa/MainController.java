@@ -28,10 +28,11 @@ public class MainController {
 
     @GetMapping("/image")
     public String image(Model model)  {
-        String web_server = "https://csa.nighthawkcodingsociety.com";
+        String web_server = "http://localhost:8080/";
+        // String web_server = "https://csa.nighthawkcodingsociety.com";
         List<ImageInfo> lii = new ArrayList<>();
 
-        String file0 = "/images/ncs_logo.png";
+        String file0 = "/images/Mona_Lisa.png";
         lii.add(new ImageInfo(file0, web_server+file0, 12));
         lii.get(0).read_image();
 
@@ -50,9 +51,10 @@ public class MainController {
     @GetMapping("/image/grayscale")
     public String image_grayscale(Model model) {
         String web_server = "http://localhost:8080/";
+        // String web_server = "https://csa.nighthawkcodingsociety.com";
         List<ImageInfo> lii = new ArrayList<>();
 
-        String file0 = "/images/monalisa.png";
+        String file0 = "/images/Mona_Lisa.png";
         lii.add(new ImageInfo(file0, web_server+file0, 12));
         String str = lii.get(0).grayscale();
 //        String str = lii.get(0).grayscale();
