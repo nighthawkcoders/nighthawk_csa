@@ -57,12 +57,13 @@ public class ImageInfo {
         return null;
     }
 
+
     // grayscale method
     // return: base64 in grayscale
     public String grayscale() {
         try {
-            BufferedImage img = ImageIO.read(new URL(url));
-            byte[] pixels = image_to_pixels(img);
+            BufferedImage img = ImageIO.read(new URL(url)); // Saving internet image to BufferedImage
+            byte[] pixels = image_to_pixels(img); // See method definition
             int[] pixels_int = grayscale(pixels);
             String base64 = pixels_to_base64(img.getWidth(), img.getHeight(), pixels_int);
             return "data:image/jpg;base64,"+base64;
@@ -72,15 +73,20 @@ public class ImageInfo {
         return "";
     }
 
-    // grayscale pixel manipulator
+    /**
+        Converts the colored pixel array to 1D INT array of grayscale values
+        Grayscale is simple all rgb values set to the same value, (0,0,0) (100,100,100) (255, 255, 255)
+        Look through the byte values and take the average of the RGB values and set them all equal to that same average
+        Ignore the alpha, it controls transparency
+    */
     public int[] grayscale(byte[] pixels){
         int[] pixels_int = new int[pixels.length];
         for(int i=0;i<pixels.length;i+=4) {
             float val = 0;
             for(int y=1;y<4;y++) {
-                val += (pixels[i+y] & 0xFF)/3.0;
+                val += (pixels[i+y] & 0xFF)/3.0; // The & 0xFF is a "bitwise and" https://www.geeksforgeeks.org/bitwise-operators-in-java/. Just divigin by 3 to get the average
             }
-            pixels_int[i+0] = pixels[i];
+            pixels_int[i+0] = pixels[i]; // keep alpha the same
             pixels_int[i+1] = (int)val;
             pixels_int[i+2] = (int)val;
             pixels_int[i+3] = (int)val;
@@ -88,13 +94,26 @@ public class ImageInfo {
         return pixels_int;
     }
 
-    // image to byte array of pixels
+    /**
+        @param img
+        @returns byte[]
+
+        This method takes the buffered image and converts to a 1D array of byte values.
+        If the image is 100 by 300 pixels the length of array will be":
+        100 x 300 x 4 = 120,000 
+
+        We multiply the total number of pixels by 4 because of ARGB (alpga, red, green, blue)
+     */
     public byte[] image_to_pixels(BufferedImage img) throws IOException {
             byte[] pixels = ((DataBufferByte) img.getRaster().getDataBuffer()).getData();
-            return pixels; // IMPORTANT:
+            return pixels;
     }
 
-    // base64 conversion, support PNG only
+    /**
+        base64 conversion, support PNG only
+        We will iterate through the 1D pixel array and set the rgb values to corresponding locations on image
+        Then Base64 encode
+     */
     public String pixels_to_base64(int width, int height, int[] pixels) throws IOException {
         BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         for(int y=0;y<height;y++) {
@@ -115,65 +134,16 @@ public class ImageInfo {
         return Base64.encodeBase64String(data);
     }
 
-    // building RGBA data
+
+    /**
+        building ARGB data
+        An int is 4 bytes
+        Alpha in byte 4, red in byte 3, green in byte 2, blue in byte 1
+     */
     public int argb(int a, int r, int g, int b) {
         return ((a&0x0ff)<<24)|((r&0x0ff)<<16)|((g&0x0ff)<<8)|(b&0x0ff);
     }
 
-    public String test() {
-        try {
-            BufferedImage img = ImageIO.read(new URL(this.url));
-            byte[] pixels = ((DataBufferByte) img.getRaster().getDataBuffer()).getData();
-            System.out.println(pixels.length);
-
-            BufferedImage bi2 = new BufferedImage(img.getWidth(), img.getHeight(), BufferedImage.TYPE_INT_ARGB);
-            for(int y=0;y<img.getHeight();y++) {
-                for(int x=0; x<img.getWidth(); x++) {
-                    int a, r, g, b;
-                    int s = (y*img.getWidth() + x)*4;
-                    a=pixels[s+0] & 0xFF;
-                    r=pixels[s+1] & 0xFF;
-                    g=pixels[s+2] & 0xFF;
-                    b=pixels[s+3] & 0xFF;
-                    bi2.setRGB(x,y, new Color(r,g,b,a).getRGB());
-                }
-            }
-
-            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            ImageIO.write(bi2, "png", bos);
-            byte[] data = bos.toByteArray();
-            System.out.println(data.length);
-            return "data:image/jpg;base64," + Base64.encodeBase64String(data);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
-
-
-    public String gs() {
-        BufferedImage image = new BufferedImage(this.width, this.height, BufferedImage.TYPE_BYTE_GRAY);
-        WritableRaster raster = image.getRaster();
-        DataBufferByte buffer = (DataBufferByte) raster.getDataBuffer();
-        byte[] data = buffer.getData();
-
-        for(int y=0; y<this.height; y++) {
-            for(int x=0; x<this.width; x++) {
-                byte avg = 50;//(byte) ((rgb_matrix[y][x][0]+rgb_matrix[y][x][1]+rgb_matrix[y][x][2])/3);
-                data[(y*this.width) + x] = avg;
-            }
-        }
-
-
-        System.out.println(data.length);
-
-        StringBuilder sb = new StringBuilder();
-        sb.append("data:image/png;base64,");
-        sb.append(StringUtils.newStringUtf8(Base64.encodeBase64(data, false)));
-        return sb.toString();
-    }
 
 
 
@@ -262,66 +232,5 @@ public class ImageInfo {
         return scaled;
     }
 
-
-    public void to_ascii(int[][] scaled_gs){
-        String INTENSITY_MAP = "@#$&?^}{><*`'~=+-_,. "; // " .,_-+=~'`*<>{}^?&$#@"
-        int INTENSITY_BIN = 255 /INTENSITY_MAP.length();
-
-        for (int[] x: scaled_gs){
-            for(int v: x){
-                int c = v /INTENSITY_BIN -1;
-                if(c >=0 ){
-                    System.out.print(""+INTENSITY_MAP.charAt(c)+INTENSITY_MAP.charAt(c));//+INTENSITY_MAP.charAt(c));
-                }else{
-                    System.out.print("  ");
-                }
-            }
-            System.out.println();
-        }
-
-    }
-
-    public String[] to_ascii_array(int[][] scaled_gs) {
-        String INTENSITY_MAP = "@#$&?^}{><*`'~=+-_,. "; // " .,_-+=~'`*<>{}^?&$#@"
-        int INTENSITY_BIN = 255 /INTENSITY_MAP.length();
-
-        String[] rows = new String[scaled_gs.length];
-        for (int i=0; i<scaled_gs.length; i++){
-
-            StringBuilder im_string = new StringBuilder();
-            for(int v: scaled_gs[i]){
-                int c = v /INTENSITY_BIN -1;
-                if(c >=0 ){
-                    im_string.append(INTENSITY_MAP.charAt(c)).append(INTENSITY_MAP.charAt(c));
-                }else{
-                    im_string.append("  ");
-                }
-            }
-            rows[i] = im_string.toString();
-        }
-
-        return rows;
-    }
-
-    public String to_ascii_string(int[][] scaled_gs){
-        String INTENSITY_MAP = "@#$&?^}{><*`'~=+-_,. "; // " .,_-+=~'`*<>{}^?&$#@"
-        int INTENSITY_BIN = 255 /INTENSITY_MAP.length();
-
-        StringBuilder im_string = new StringBuilder();
-
-        for (int[] x: scaled_gs){
-            for(int v: x){
-                int c = v /INTENSITY_BIN -1;
-                if(c >=0 ){
-                    im_string.append(INTENSITY_MAP.charAt(c)).append(INTENSITY_MAP.charAt(c));
-                }else{
-                    im_string.append("  ");
-                }
-            }
-            im_string.append("\n");
-        }
-
-        return im_string.toString();
-    }
 
 }
