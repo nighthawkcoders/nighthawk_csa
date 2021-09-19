@@ -86,7 +86,7 @@ public class ImageInfo {
             for(int y=1;y<4;y++) {
                 val += (pixels[i+y] & 0xFF)/3.0; // The & 0xFF is a "bitwise and" https://www.geeksforgeeks.org/bitwise-operators-in-java/. Just divigin by 3 to get the average
             }
-            pixels_int[i+0] = pixels[i]; // keep alpha the same
+            pixels_int[i] = pixels[i]; // keep alpha the same
             pixels_int[i+1] = (int)val;
             pixels_int[i+2] = (int)val;
             pixels_int[i+3] = (int)val;
@@ -95,8 +95,8 @@ public class ImageInfo {
     }
 
     /**
-        @param img
-        @returns byte[]
+        param img
+        returns byte[]
 
         This method takes the buffered image and converts to a 1D array of byte values.
         If the image is 100 by 300 pixels the length of array will be":
@@ -105,8 +105,7 @@ public class ImageInfo {
         We multiply the total number of pixels by 4 because of ARGB (alpga, red, green, blue)
      */
     public byte[] image_to_pixels(BufferedImage img) throws IOException {
-            byte[] pixels = ((DataBufferByte) img.getRaster().getDataBuffer()).getData();
-            return pixels;
+        return ((DataBufferByte) img.getRaster().getDataBuffer()).getData();
     }
 
     /**
@@ -120,7 +119,7 @@ public class ImageInfo {
             for(int x=0; x<width; x++) {
                 int a,r,g,b;
                 int s = (y*width + x)*4;
-                a=pixels[s+0];
+                a=pixels[s];
                 r=pixels[s+1];
                 g=pixels[s+2];
                 b=pixels[s+3];
@@ -188,7 +187,8 @@ public class ImageInfo {
     public String[] convert_to_ascii(){
         int[][] gs = this.to_grayscale();
         int[][] scaled_gs = this.scale(gs);
-        return  this.to_ascii_array(scaled_gs);
+        //return  this.to_ascii_array(scaled_gs);
+        return new String[1];
     }
 
     public int[][] to_grayscale(){
