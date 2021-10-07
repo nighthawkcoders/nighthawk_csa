@@ -123,7 +123,7 @@ $ sudo systemctl enable nighthawk_csa
 </details>
 
 <details>
-  <summary>Enable Nginx to retrieve Java Applet on request (Reverse Proxy)!</summary>
+  <summary>Enable Nginx to retrieve Java Web Application on external request (Reverse Proxy)!</summary>
   
 File is located at /etc/nginx/sites-available/nighthawk_csa 
 ```
