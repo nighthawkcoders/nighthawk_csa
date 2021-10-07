@@ -180,15 +180,12 @@ If there are no errors, restart NGINX so the changes take effect:
   
 Login into your AWS IAM user, search for EC2.
 
-To get started, launch an Amazon EC2 instance, which is a virtual server in the cloud.
-
-![Launch EC2 instance](https://github.com/nighthawkcoders/flask-idea-homesite/tree/master/assets/ec2launch.png)
+To get started, launch an Amazon EC2 instance, which is a a computer server in the cloud.
+<img src="https://github.com/nighthawkcoders/flask-idea-homesite/tree/master/assets/ec2launch.png">
 
 ## Step 1: Choose an Amazon Machine Image (AMI)Cancel and Exit
 An AMI is a template that contains the software configuration (operating system, application server, and applications) required to launch your instance. Pick Ubuntu free tier operating system that uses the Linux kernel.  Note, this is very compatible Raspberry Pi's OS.
-
-Select EC2 OS
-<img src="https://github.com/nighthawkcoders/flask-idea-homesite/tree/master/assets/ec2os.png" width="600">
+<img src="https://github.com/nighthawkcoders/flask-idea-homesite/tree/master/assets/ec2os.png">
 
 ## Step 2: Choose an Instance Type
 Amazon EC2 provides a wide selection of instance types optimized to fit different use cases. Instances have varying combinations of CPU, memory, storage, and networking capacity.   Stick with Free Tier options, as of this writing t2.mico with free tier designation is suggested.
