@@ -2,8 +2,9 @@
 
 ## Instruction on purchasing a Raspberry Pi and preparing for Webserver deployment
 <details>
-  <summary>Click for  Raspberry Pi 4 specification!</summary>
+  <summary>Click for  Raspberry Pi 4 info!</summary>
 
+### RPi specs
 <OL> 
 <li> Raspberry Pi 4 4GB Model B with 1.5GHz 64-bit quad-core CPU (4GB RAM) </li>
 <li> 32GB Samsung EVO+ Micro SD Card (Class 10) Pre-loaded with NOOBS, USB MicroSD Card Reader </li>
@@ -13,6 +14,10 @@
 <li> Micro HDMI to HDMI Cable - 6 foot (Supports up to 4K 60p) </li>
 <li> USB-C PiSwitch (On/Off Power Switch for Raspberry Pi 4) </li>
 </OL> 
+</details>
+
+<details>
+  <summary>Click for  Raspberry Pi 4 help!</summary>
 
 Purchase Notes:  Keyboard, Mouse, Monitor are optional.  RPi advantages over AWS: 1. One time cost  2. All kinds of tinker projects in IOT realm can be performed using GPIO pins.  As for purchase options, CanaKit (my prefered) has options on Amazon that meet the bulleted list of requirements. There is a new option on raspberrypi.org that describes RPi as built into a keybaord (could be bulky in my use cases).   
 
@@ -20,6 +25,7 @@ Webserver deployment preparation: RPi with NOOBS installed on SSD is very simple
 
 Runtime Notes: VNC Viewer can connect to the RPi.  This is a full desktop remote display tool.  RealVNC lets you share full desktop with cohorts.  If you reboot RPi, you need a monitor connected at reboot to maintain VNC screen share functionality.  Reboot will cause screen buffer not to be recognized unless HDMI is present.  There may be a dummy (mini) HDMI plug that could overcomee this issue.  Otherwise, after setup your RPi could be headless.
 </details>
+
 
 ## Setting up Java runtime and development
 Java is two pieces (JDK and JRE), both parts are needed in order to run and build 
