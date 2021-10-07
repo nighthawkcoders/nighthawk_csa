@@ -150,7 +150,7 @@ If there are no errors, restart NGINX so the changes take effect:
 
 ## Prepare Internet to route to Nginx server
 <details>
-  <summary>Goto freenom.com and register public IP Address to a Domain!</summary>
+  <summary>Goto freenom.com and register your public IP Address to a Domain!</summary>
 
 ```diff
 - Domain and Public IP Address match your nginx configuration files 
@@ -163,7 +163,7 @@ If there are no errors, restart NGINX so the changes take effect:
 
 
 <details>
-  <summary>Port Forward your internet access to your Nginx/RPi server!</summary>
+  <summary>Port Forward your public IP address access to your Nginx/RPi server!</summary>
 
 ```diff
 - Your Public IP Address needs to connect to your host on Private IP network through Port Forwarding 
