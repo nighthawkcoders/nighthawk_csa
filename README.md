@@ -58,9 +58,9 @@ $ mvn -version
 </details>
 
 <details>
-  <summary>Clone and test run Java projectl!</summary>
+  <summary>Clone, build and test Java Applet!</summary>
   
-Clone and build spring-idea repository
+Clone and build repository
 ```
 $ cd
 $ git clone https://github.com/nighthawkcoders/nighthawk_csa.git
