@@ -173,3 +173,52 @@ If there are no errors, restart NGINX so the changes take effect:
 #### This illustration shows configuration of HTTP, as well as some other common service to access a Private IP host computer through port forwarding.  It is always recommended to minimize access points from internet to your home network.
 <img src="https://github.com/nighthawkcoders/nighthawk_csp/blob/master/static/assets/portforward.png" width="600">
 </details>
+  
+## AWS EC2 Setup
+<details>
+  <summary>Instruction on preparing AWS EC2 instance for Webserver deployment!</summary>
+  
+Login into your AWS IAM user, search for EC2.
+
+To get started, launch an Amazon EC2 instance, which is a virtual server in the cloud.
+
+![Launch EC2 instance](assets/ec2launch.png)
+
+## Step 1: Choose an Amazon Machine Image (AMI)Cancel and Exit
+An AMI is a template that contains the software configuration (operating system, application server, and applications) required to launch your instance. Pick Ubuntu free tier operating system that uses the Linux kernel.  Note, this is very compatible Raspberry Pi's OS.
+
+![Select EC2 OS](https://github.com/nighthawkcoders/nighthawk_csp/blob/master/static/assets/ec2os.png)
+
+## Step 2: Choose an Instance Type
+Amazon EC2 provides a wide selection of instance types optimized to fit different use cases. Instances have varying combinations of CPU, memory, storage, and networking capacity.   Stick with Free Tier options, as of this writing t2.mico with free tier designation is suggested.
+
+## No action on Steps #3 through #4
+Step 3: Configure Instance Details
+Stick with default.  Your will launch a single instance of the AMI by using defaults
+
+Step 4: Add Storage
+Stick with default.  Your instance will be launched with 8gb of storage.
+
+## Step 5: Add Tags
+Tag your Amazon EC2 resources.  This is not required but you could name your volume for future identification.
+
+![Tag EC2](https://github.com/nighthawkcoders/nighthawk_csp/blob/master/static/assets/ec2tags.png)
+
+## Step 6: Configure Security Group
+A security group is a set of firewall rules that control the traffic for your instance. On this page, you can add rules to allow specific traffic to reach your instance. In this example, a web server is setup to allow Internet traffic to reach EC2 instance, this allows unrestricted access to the HTTP and HTTPS ports.  Also, this example restricts SSH from my IP.
+
+![Select EC2 OS](https://github.com/nighthawkcoders/nighthawk_csp/blob/master/static/assets/ec2security.png)
+
+## Step 7: Review Instance Launch
+Review your instance launch details. Click Launch to assign a key pair to your instance and complete the launch process.
+
+![Build EC2 Keypair](https://github.com/nighthawkcoders/nighthawk_csp/blob/master/static/assets/ec2keypair.png)
+
+## Before you leave your ADMIN session on AWS go to EC2 running instances and find your IPV4 address.
+
+![Find EC2 IPv4](https://github.com/nighthawkcoders/nighthawk_csp/blob/master/static/assets/ec2ipv4.png)
+
+# Start a terminal session on you localhost.
+</details>
+
+
