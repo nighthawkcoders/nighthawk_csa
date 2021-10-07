@@ -2,7 +2,7 @@
 
 ## Instruction on purchasing a Raspberry Pi and preparing for Webserver deployment
 <details>
-  <summary>Click for  Raspberry Pi 4 info!</summary>
+  <summary>Click for Raspberry Pi 4 specs!</summary>
 
 ### RPi specs
 <OL> 
@@ -17,7 +17,7 @@
 </details>
 
 <details>
-  <summary>Click for  Raspberry Pi 4 help!</summary>
+  <summary>Click for Raspberry Pi 4 help!</summary>
 
 Purchase Notes:  Keyboard, Mouse, Monitor are optional.  RPi advantages over AWS: 1. One time cost  2. All kinds of tinker projects in IOT realm can be performed using GPIO pins.  As for purchase options, CanaKit (my prefered) has options on Amazon that meet the bulleted list of requirements. There is a new option on raspberrypi.org that describes RPi as built into a keybaord (could be bulky in my use cases).   
 
@@ -28,6 +28,8 @@ Runtime Notes: VNC Viewer can connect to the RPi.  This is a full desktop remote
 
 
 ## Setting up Java runtime and development
+<details>
+  <summary>Java JDK and JRE setup!</summary>
 Java is two pieces (JDK and JRE), both parts are needed in order to run and build 
 ```
 $ sudo apt update
@@ -43,8 +45,11 @@ Install Java Development Kit
 $ sudo apt install default-jdk
 $ javac -version
 ```
+</details>
 
 ## Build and run project
+<details>
+  <summary>Java setup Maven build tool!</summary>
 Prerequisite is Maven install in order to build project
 ```
 $ sudo apt update
@@ -52,6 +57,10 @@ $ sudo apt upgrade
 $ sudo apt install maven
 $ mvn -version
 ```
+</details>
+
+<details>
+  <summary>Clone and test Java projectl!</summary>
 Clone and build spring-idea repository
 ```
 $ cd
@@ -68,7 +77,7 @@ Test on localhost browser
 ```
 localhost:8080
 ```
-
+</details>
 
 
 ## Java service configuration
