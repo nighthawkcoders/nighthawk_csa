@@ -1,6 +1,6 @@
 # Deployment Guide
 
-## Instruction on purchasing a Raspberry Pi and preparing for Webserver deployment
+## Instruction on purchasing and setting up a Raspberry Pi (RPi)
 <details>
   <summary>Click for Raspberry Pi 4 purchase!</summary>
 
