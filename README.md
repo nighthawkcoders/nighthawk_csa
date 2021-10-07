@@ -165,8 +165,6 @@ If there are no errors, restart NGINX so the changes take effect:
 <details>
   <summary>Port Forward your internet access to your Nginx/RPi server!</summary>
 
-<details>
-  <summary>Port Forwarding setup!</summary>
 ```diff
 - Your Public IP Address needs to connect to your host on Private IP network through Port Forwarding 
 + PROCESS will vary on every home network, but basic premis is to Port forward external port 80 to your Private Host (aka RPi) on internal port 80
