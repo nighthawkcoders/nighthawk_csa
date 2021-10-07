@@ -81,9 +81,9 @@ localhost:8080
 </details>
 
 
-## Java service configuration
+## Prepare Java Applet for Internet access
 <details>
-  <summary>Establish a service to enable Java Applet to always run!</summary>
+  <summary>Establish a service to enable Java Applet to always run on Server!</summary>
 To run and start application automatically it will require a the JAR file from previous step to run from a .service file. 
 In this service file we are providing details of the java runtime service: 
 * start after “network.target” has been started
@@ -120,11 +120,8 @@ If succesfull, enable your service file to be persistant on machine
 $ sudo systemctl enable nighthawk_csa
 
 ```
-</details>
   
-## Nginx service configuration
-<details>
-  <summary>Reverse proxy points internet request to enabled Java Applet!</summary>
+## Nginxto enable Java applet to be retrieved on request (Reverse Proxy)
   
 File is located at /etc/nginx/sites-available/nighthawk_csa 
 ```
@@ -216,5 +213,3 @@ Stick with default.  Your instance will be launched with 8gb of storage.
 
 # Start a terminal session on you localhost.
 </details>
-
-
