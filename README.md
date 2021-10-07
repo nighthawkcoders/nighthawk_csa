@@ -48,7 +48,7 @@ $ sudo apt install default-jdk
 $ javac -version
 ```
 
-Prerequisite is Maven install in order to build project
+Maven is required to build project
 ```
 $ sudo apt update
 $ sudo apt upgrade
@@ -59,6 +59,7 @@ $ mvn -version
 
 <details>
   <summary>Clone and test run Java projectl!</summary>
+  
 Clone and build spring-idea repository
 ```
 $ cd
@@ -66,11 +67,13 @@ $ git clone https://github.com/nighthawkcoders/nighthawk_csa.git
 $ cd nighthawk_csa
 $ ./mvnw package
 ```
+  
 Run your java project, after test ctl-C to stop service
 ```
 $ cd
 $ java -jar nighthawk_csa/target/csa-0.0.1-SNAPSHOT.jar
 ```
+  
 Test on localhost browser
 ```
 localhost:8080
