@@ -148,9 +148,9 @@ If there are no errors, restart NGINX so the changes take effect:
 </details>
     
 
-## Goto freenom.com and register public IP Address to a Domain
+## Prepare Internet to route to Nginx server
 <details>
-  <summary>DNS setup!</summary>
+  <summary>Goto freenom.com and register public IP Address to a Domain!</summary>
 
 ```diff
 - Domain and Public IP Address match your nginx configuration files 
@@ -162,7 +162,9 @@ If there are no errors, restart NGINX so the changes take effect:
 </details>
 
 
-## Port Forward your Web application on Internal Host (aka RPi) to the Internet
+<details>
+  <summary>Port Forward your internet access to your Nginx/RPi server!</summary>
+
 <details>
   <summary>Port Forwarding setup!</summary>
 ```diff
@@ -174,7 +176,7 @@ If there are no errors, restart NGINX so the changes take effect:
 <img src="https://github.com/nighthawkcoders/nighthawk_csp/blob/master/static/assets/portforward.png" width="600">
 </details>
   
-## AWS EC2 Setup (alternative to RPi)
+## AWS EC2 Setup (an alternative to RPi)
 <details>
   <summary>Instruction on preparing AWS EC2 instance for Webserver deployment!</summary>
   
