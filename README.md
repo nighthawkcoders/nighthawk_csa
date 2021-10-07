@@ -199,11 +199,10 @@ Stick with default.  Your instance will be launched with 8gb of storage.
 
 ## Step 5: Add Tags
 #### Tag your Amazon EC2 resources.  This is not required but you could name your volume for future identification.
-<img src="https://github.com/nighthawkcoders/flask-idea-homesite/blob/master/assets/ec2tags.png" width="600">
+<img src="https://github.com/nighthawkcoders/flask-idea-homesite/blob/master/assets/ec2tags.png">
 
 ## Step 6: Configure Security Group
 #### A security group is a set of firewall rules that control the traffic for your instance. On this page, you can add rules to allow specific traffic to reach your instance. In this example, a web server is setup to allow Internet traffic to reach EC2 instance, this allows unrestricted access to the HTTP and HTTPS ports.  Also, this example restricts SSH from my IP.
-#### Select EC2 OS
 <img src="https://github.com/nighthawkcoders/flask-idea-homesite/blob/master/assets/ec2security.png">
 
 ## Step 7: Review Instance Launch
