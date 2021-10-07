@@ -19,7 +19,7 @@ Webserver deployment preparation: RPi with NOOBS installed on SSD is very simple
 Runtime Notes: VNC Viewer can connect to the RPi.  This is a full desktop remote display tool.  RealVNC lets you share full desktop with cohorts.  If you reboot RPi, you need a monitor connected at reboot to maintain VNC screen share functionality.  Reboot will cause screen buffer not to be recognized unless HDMI is present.  There may be a dummy (mini) HDMI plug that could overcomee this issue.  Otherwise, after setup your RPi could be headless.
 
 ## Setting up Java runtime and development
-Java is two pieces, we will need both if you want to run and build 
+Java is two pieces (JDK and JRE), both parts are needed in order to run and build 
 ```
 $ sudo apt update
 $ sudo apt upgrade
