@@ -120,8 +120,11 @@ If succesfull, enable your service file to be persistant on machine
 $ sudo systemctl enable nighthawk_csa
 
 ```
+  </details>
   
-## Nginxto enable Java applet to be retrieved on request (Reverse Proxy)
+## Nginx to enable Java applet to be retrieved on request (Reverse Proxy)
+  <details>
+  <summary>Establish a service to enable Java Applet to always run on Server!</summary>
   
 File is located at /etc/nginx/sites-available/nighthawk_csa 
 ```
