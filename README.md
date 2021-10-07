@@ -29,16 +29,19 @@ VNC Viewer can connect to the RPi for desktop display.  This is a full desktop r
 ## Setting up Java Applet
 <details>
   <summary>Java setup, Maven build and Runtime Test!</summary>
+  
 Java is two pieces (JDK and JRE), both parts are needed in order to run and build 
 ```
 $ sudo apt update
 $ sudo apt upgrade
 ```
+  
 Install Java Runtime Environment
 ```
 $ sudo apt install default-jre
 $ java -version
 ```
+  
 Install Java Development Kit
 ```
 $ sudo apt install default-jdk
