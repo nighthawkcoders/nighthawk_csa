@@ -26,7 +26,7 @@ VNC Viewer can connect to the RPi for desktop display.  This is a full desktop r
 </details>
 
 
-## Setting up Java Applet
+## Setting up Java Web Application
 <details>
   <summary>Java setup, Maven build and Runtime Test!</summary>
   
@@ -58,7 +58,7 @@ $ mvn -version
 </details>
 
 <details>
-  <summary>Clone, build and test Java Applet!</summary>
+  <summary>Clone, build and test Java Web Application</summary>
   
 Clone and build repository
 ```
@@ -81,9 +81,9 @@ localhost:8080
 </details>
 
 
-## Prepare Java Applet for Internet access
+## Prepare Java Web Application for Internet access
 <details>
-  <summary>Establish a service to enable Java Applet to always run on Server!</summary>
+  <summary>Establish a service to enable Java Web Application to always run on Server!</summary>
 To run and start application automatically it will require a the JAR file from previous step to run from a .service file. 
 In this service file we are providing details of the java runtime service: 
 * start after “network.target” has been started
