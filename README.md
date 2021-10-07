@@ -174,7 +174,7 @@ If there are no errors, restart NGINX so the changes take effect:
 <img src="https://github.com/nighthawkcoders/nighthawk_csp/blob/master/static/assets/portforward.png" width="600">
 </details>
   
-## AWS EC2 Setup
+## AWS EC2 Setup (alternative to RPi)
 <details>
   <summary>Instruction on preparing AWS EC2 instance for Webserver deployment!</summary>
   
@@ -210,7 +210,7 @@ Stick with default.  Your instance will be launched with 8gb of storage.
 <img src="https://github.com/nighthawkcoders/flask-idea-homesite/blob/master/assets/ec2keypair.png">
 
 ## Before you leave your ADMIN session on AWS go to EC2 running instances and find your IPV4 address.
-#### Find EC2 IPv4
+#### Find IPv4 address and IPv4 DNS
 <img src="https://github.com/nighthawkcoders/flask-idea-homesite/blob/master/assets/ec2ipv4.png">
 
 # Start a terminal session on you localhost.
