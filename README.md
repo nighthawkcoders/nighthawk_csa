@@ -149,6 +149,8 @@ If there are no errors, restart NGINX so the changes take effect:
     
 
 ## Goto freenom.com and register public IP Address to a Domain
+<details>
+  <summary>DNS setup!</summary>
 
 ```diff
 - Domain and Public IP Address match your nginx configuration files 
@@ -157,9 +159,12 @@ If there are no errors, restart NGINX so the changes take effect:
 
 #### This illustration shows configuration of A records within the domain
 <img src="https://github.com/nighthawkcoders/nighthawk_csp/blob/master/static/assets/freenom.png">
+</details>
 
 
 ## Port Forward your Web application on Internal Host (aka RPi) to the Internet
+<details>
+  <summary>Port Forwarding setup!</summary>
 ```diff
 - Your Public IP Address needs to connect to your host on Private IP network through Port Forwarding 
 + PROCESS will vary on every home network, but basic premis is to Port forward external port 80 to your Private Host (aka RPi) on internal port 80
@@ -167,4 +172,4 @@ If there are no errors, restart NGINX so the changes take effect:
 
 #### This illustration shows configuration of HTTP, as well as some other common service to access a Private IP host computer through port forwarding.  It is always recommended to minimize access points from internet to your home network.
 <img src="https://github.com/nighthawkcoders/nighthawk_csp/blob/master/static/assets/portforward.png" width="600">
-    
+</details>
