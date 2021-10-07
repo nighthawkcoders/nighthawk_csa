@@ -60,7 +60,7 @@ $ mvn -version
 </details>
 
 <details>
-  <summary>Clone and test Java projectl!</summary>
+  <summary>Clone and test run Java projectl!</summary>
 Clone and build spring-idea repository
 ```
 $ cd
@@ -81,6 +81,8 @@ localhost:8080
 
 
 ## Java service configuration
+<details>
+  <summary>Establish a service to enable Java Applet to always run!</summary>
 To run and start application automatically it will require a the JAR file from previous step to run from a .service file. 
 In this service file we are providing details of the java runtime service: 
 * start after “network.target” has been started
@@ -117,8 +119,12 @@ If succesfull, enable your service file to be persistant on machine
 $ sudo systemctl enable nighthawk_csa
 
 ```
-
+</details>
+  
 ## Nginx service configuration
+<details>
+  <summary>Reverse proxy points internet request to enabled Java Applet!</summary>
+  
 File is located at /etc/nginx/sites-available/nighthawk_csa 
 ```
 server {
@@ -138,6 +144,8 @@ Test the configuration to make sure there are no errors:
 If there are no errors, restart NGINX so the changes take effect:
 
     $ sudo systemctl restart nginx
+  
+</details>
     
 
 ## Goto freenom.com and register public IP Address to a Domain
