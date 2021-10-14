@@ -15,10 +15,11 @@
         <!-- ThymeLeaf allows person abject of the Class Person to be acted upon by the form
          This is known as a “bean-backed form” or "form-backing bean".
             th:object - the backend form object (bean object)
-         There are two fields in the Person bean,
+         There are fields in the Person bean,  Get started with dialiects in 5 minutes -- https://www.thymeleaf.org/doc/articles/standarddialect5minutes.html
             th:field="*{name}"
-            th:field="*{age}".
-         Each field has supporting line for to show errors in validation
+            th:field="*{age}"
+            th:field="*{dob}"
+         Each field has supporting line to show errors in validation
             th:errors - form input errors added when validation errors occur
          .-->
         <form action="#" th:action="@{/sql/personcreate}" th:object="${person}" method="POST">
