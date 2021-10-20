@@ -1,4 +1,4 @@
-package com.nighthawk.csa.model.SQL;
+package com.nighthawk.csa.data.SQL;
 
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;

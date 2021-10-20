@@ -1,4 +1,4 @@
-package com.nighthawk.csa.model.SQL;
+package com.nighthawk.csa.data.SQL;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

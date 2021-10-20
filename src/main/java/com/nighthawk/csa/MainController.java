@@ -1,7 +1,7 @@
 package com.nighthawk.csa;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nighthawk.csa.model.starters.ImageInfo;
+import com.nighthawk.csa.starters.ImageInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +21,7 @@ public class MainController {
 
     @GetMapping("/greet")    // CONTROLLER handles GET request for /greeting, maps it to greeting() and does variable bindings
     public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
-        // @RequestParam handles required and default values, name and model are class variables, model looking like JSON
+        // @RequestParam handles required and default values, name and data are class variables, data looking like JSON
         model.addAttribute("name", name);   // MODEL is passed to html
         return "starters/greet";                     // returns HTML VIEW (greeting)
     }
@@ -91,7 +91,7 @@ public class MainController {
 
     @GetMapping("/snake")   // GET request
     public String snake() {
-        return "starters/snake";
+        return "algorithm/snake";
     }
 
     @GetMapping("/course/repos")

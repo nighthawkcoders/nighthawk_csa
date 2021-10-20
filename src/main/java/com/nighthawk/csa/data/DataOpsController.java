@@ -1,11 +1,11 @@
-package com.nighthawk.csa.algorithm;
+package com.nighthawk.csa.data;
 
 import com.nighthawk.csa.consoleUI.ConsoleMethods;
-import com.nighthawk.csa.algorithm.genericDataModel.Alphabet;
-import com.nighthawk.csa.algorithm.genericDataModel.Animal;
-import com.nighthawk.csa.algorithm.genericDataModel.Cupcakes;
+import com.nighthawk.csa.data.DataOps.genericDataModel.Alphabet;
+import com.nighthawk.csa.data.DataOps.genericDataModel.Animal;
+import com.nighthawk.csa.data.DataOps.genericDataModel.Cupcakes;
 
-import com.nighthawk.csa.model.linkedlists.CircleQueue;
+import com.nighthawk.csa.data.linkedlists.CircleQueue;
 import lombok.Getter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

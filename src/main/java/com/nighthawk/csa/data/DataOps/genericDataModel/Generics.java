@@ -1,4 +1,4 @@
-package com.nighthawk.csa.algorithm.genericDataModel;
+package com.nighthawk.csa.data.DataOps.genericDataModel;
 
 import lombok.Getter;
 import lombok.Setter;

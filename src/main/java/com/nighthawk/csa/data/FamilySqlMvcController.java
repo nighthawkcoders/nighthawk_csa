@@ -1,6 +1,6 @@
-package com.nighthawk.csa;
+package com.nighthawk.csa.data;
 
-import com.nighthawk.csa.model.SQL.*;
+import com.nighthawk.csa.data.SQL.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

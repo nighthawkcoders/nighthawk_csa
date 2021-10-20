@@ -1,10 +1,10 @@
-package com.nighthawk.csa.model.linkedlists;
+package com.nighthawk.csa.data.linkedlists;
 
 
 import com.nighthawk.csa.consoleUI.ConsoleMethods;
-import com.nighthawk.csa.algorithm.genericDataModel.Alphabet;
-import com.nighthawk.csa.algorithm.genericDataModel.Animal;
-import com.nighthawk.csa.algorithm.genericDataModel.Cupcakes;
+import com.nighthawk.csa.data.DataOps.genericDataModel.Alphabet;
+import com.nighthawk.csa.data.DataOps.genericDataModel.Animal;
+import com.nighthawk.csa.data.DataOps.genericDataModel.Cupcakes;
 
 /**
  * Stack Driver takes a list of Objects and puts them onto the Stack

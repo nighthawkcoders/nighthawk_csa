@@ -1,4 +1,4 @@
-package com.nighthawk.csa.model.linkedlists;
+package com.nighthawk.csa.data.linkedlists;
 /**
  *  Implementation of a Linked List with an Object reference as data;  forward and backward links point to adjacent Nodes.
  *

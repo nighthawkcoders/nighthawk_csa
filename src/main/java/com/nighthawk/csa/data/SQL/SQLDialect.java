@@ -1,4 +1,4 @@
-package com.nighthawk.csa.model.SQL;
+package com.nighthawk.csa.data.SQL;
 
 import org.hibernate.dialect.Dialect;
 import org.hibernate.dialect.function.SQLFunctionTemplate;

@@ -1,6 +1,4 @@
-package com.nighthawk.csa.model.linkedlists;
-
-import java.util.*;
+package com.nighthawk.csa.data.linkedlists;
 
 /**
  *  Implementation of Queue, using LinkedList (previous and next).
