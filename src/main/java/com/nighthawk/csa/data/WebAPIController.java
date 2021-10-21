@@ -31,10 +31,11 @@ public class WebAPIController {
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
         //convert to java hash map (key, value)
         var map = new ObjectMapper().readValue(response.body(), HashMap.class);
-        //pass country stats to view
-        model.addAttribute("data", map);
+        //pass stats to view
         model.addAttribute("world", map.get("world_total"));
         model.addAttribute("countries", map.get("countries_stat"));
+        model.addAttribute("body", response.body());
+
         return "data/covid19";
     }
 
