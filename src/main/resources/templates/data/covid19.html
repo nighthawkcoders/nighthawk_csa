@@ -38,10 +38,11 @@
                 <th>Active Cases</th>
             </tr>
             <tr>
-                <td th:text="${world.statistic_taken_at}"></td>
-                <td th:text="${world.total_cases}"></td>
-                <td th:text="${world.total_deaths}"></td>
-                <td th:text="${world.active_cases}"></td>
+                <!-- Usage of Java HashMap and Thymeleaf -->
+                <td th:text="${map.world_total.statistic_taken_at}"></td>
+                <td th:text="${map.world_total.total_cases}"></td>
+                <td th:text="${map.world_total.total_deaths}"></td>
+                <td th:text="${map.world_total.active_cases}"></td>
             </tr>
         </table>
 
@@ -52,7 +53,8 @@
                 <th>Recorded Deaths</th>
                 <th>Active Cases</th>
             </tr>
-            <tr th:each="country : ${countries}">
+            <!-- Usage of JSON object and Thymeleaf -->
+            <tr th:each="country : ${jo.countries_stat}">
                 <!--/*@thymesVar id="country_name" type="java"*/-->
                 <td th:text="${country.country_name}"></td>
                 <!--/*@thymesVar id="cases" type="java"*/-->
@@ -66,25 +68,33 @@
 
         <table class="table">
             <tr>
-                <th>World</th>
+                <th>World Using map get</th>
             </tr>
-                <td th:text="${world}"></td>
-            </tr>
-        </table>
-
-        <table class="table">
-            <tr>
-                <th>Countries</th>
-            </tr>
-            <td th:text="${countries}"></td>
+            <td th:text="${map.get('world_total')}"></td>
             </tr>
         </table>
 
         <table class="table">
             <tr>
-                <th>Body Text</th>
+                <th>World Using map variable</th>
             </tr>
-            <td th:text="${body}"></td>
+            <td th:text="${world_map}"></td>
+            </tr>
+        </table>
+
+        <table class="table">
+            <tr>
+                <th>World Using JSON object get</th>
+            </tr>
+            <td th:text="${jo.get('world_total')}"></td>
+            </tr>
+        </table>
+
+        <table class="table">
+            <tr>
+                <th>World Using JSON object get</th>
+            </tr>
+            <td th:text="${world_jo}"></td>
             </tr>
         </table>
 
