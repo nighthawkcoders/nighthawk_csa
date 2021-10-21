@@ -18,7 +18,7 @@
          .-->
         <div th:if="${edit_id == null}"><h3>Welcome, Create The Family Details</h3></div>
         <div th:unless="${edit_id == null}"><h3>Welcome, Edit The Family Details</h3></div>
-        <form action="#" th:action="@{/sql/familysave}" th:object="${family}" method="POST">
+        <form action="#" th:action="@{/data/familysave}" th:object="${family}" method="POST">
             <!-- edit requires hidden id -->
             <input type="hidden" name="id" th:field="*{id}" />
             <table>

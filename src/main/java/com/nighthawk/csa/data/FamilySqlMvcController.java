@@ -23,49 +23,49 @@ public class FamilySqlMvcController implements WebMvcConfigurer {
     @Autowired
     private PersonSqlRepository personSqlRepository;
 
-    @GetMapping("/sql/family")
+    @GetMapping("/data/family")
     public String family(Model model) {
         model.addAttribute("list", familySqlRepository.listAll());
-        return "sql/family";
+        return "data/family";
     }
 
     /*  The HTML template Forms and Model attributes are bound
         @return - Template for form
         @param -  Class for form
     */
-    @GetMapping("/sql/familycreate")
+    @GetMapping("/data/familycreate")
     public String familyCreate(Model model) {
         model.addAttribute("family", new Family());
         model.addAttribute("listPersons", personSqlRepository.listAll());
-        return "sql/familyform";
+        return "data/familyform";
     }
 
-    @GetMapping("/sql/familyupdate/{id}")
+    @GetMapping("/data/familyupdate/{id}")
     public String familyUpdate(@PathVariable("id") int id, Model model) {
         model.addAttribute("edit_id", id);  //passed to support using one form
         model.addAttribute("family", familySqlRepository.get(id));
         model.addAttribute("listPersons", personSqlRepository.listAll());
-        return "sql/familyform";
+        return "data/familyform";
     }
 
     /* Gathers the attributes filled out in the form, tests for and retrieves validation error
     @param - object with @Valid
     @param - BindingResult object
      */
-    @PostMapping("/sql/familysave")
+    @PostMapping("/data/familysave")
     public String saveData(@Valid Family family, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
         // Validation of Family attributes, validation of nested object supported
         if (bindingResult.hasErrors()) {
-            return "sql/familyform";
+            return "data/familyform";
         }
         // Redirect to next step
         familySqlRepository.save(family);
-        return "redirect:/sql/family";
+        return "redirect:/data/family";
     }
 
-    @GetMapping("/sql/familydelete/{id}")
+    @GetMapping("/data/familydelete/{id}")
     public String familyDelete(@PathVariable("id") long id) {
         familySqlRepository.delete(id);
-        return "redirect:/sql/family";
+        return "redirect:/data/family";
     }
 }

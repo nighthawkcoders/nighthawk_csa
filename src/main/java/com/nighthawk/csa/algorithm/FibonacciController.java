@@ -1,6 +1,6 @@
 package com.nighthawk.csa.algorithm;
 
-import com.nighthawk.csa.algorithm.fibonacciModel.*;
+import com.nighthawk.csa.algorithm.FibonacciModel.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

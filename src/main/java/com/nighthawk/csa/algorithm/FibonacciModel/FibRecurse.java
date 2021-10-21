@@ -1,4 +1,4 @@
-package com.nighthawk.csa.algorithm.fibonacciModel;
+package com.nighthawk.csa.algorithm.FibonacciModel;
 
 public class FibRecurse extends _Fibonacci {
     public FibRecurse() {

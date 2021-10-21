@@ -13,7 +13,7 @@
     <div style="margin: 2%;">
         <div align="center">
             <h1>SQL Family List</h1>
-            <a href="/sql/familycreate/">Create Family</a>
+            <a href="/data/familycreate/">Create Family</a>
             <br/><br/>
 
             <table border="1" cellpadding="10">
@@ -38,8 +38,8 @@
                     <td th:text="${family.primary.name}">Contacts</td>
                     <td th:text="${family.spouse.name}">Spouse</td>
                     <td>
-                        <a th:href="@{/sql/familyupdate/{id}(id = ${family.id})}">Update</a>
-                        <a th:href="@{/sql/familydelete/{id}(id = ${family.id})}">Delete</a>
+                        <a th:href="@{/data/familyupdate/{id}(id = ${family.id})}">Update</a>
+                        <a th:href="@{/data/familydelete/{id}(id = ${family.id})}">Delete</a>
                     </td>
                 </tr>
                 </tbody>

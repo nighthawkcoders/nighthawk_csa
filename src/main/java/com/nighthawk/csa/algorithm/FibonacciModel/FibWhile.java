@@ -1,4 +1,4 @@
-package com.nighthawk.csa.algorithm.fibonacciModel;
+package com.nighthawk.csa.algorithm.FibonacciModel;
 
 public class FibWhile extends _Fibonacci {
     public FibWhile() {

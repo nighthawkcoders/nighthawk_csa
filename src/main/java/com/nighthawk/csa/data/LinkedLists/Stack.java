@@ -1,4 +1,4 @@
-package com.nighthawk.csa.data.linkedlists;
+package com.nighthawk.csa.data.LinkedLists;
 
 import java.util.*;
 

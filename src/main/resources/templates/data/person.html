@@ -13,7 +13,7 @@
     <div style="margin: 2%;">
         <div align="center">
             <h1>SQL Person List</h1>
-            <a href="/sql/personcreate/">Create Person</a>
+            <a href="/data/personcreate/">Create Person</a>
             <br/><br/>
 
             <table border="1" cellpadding="10">
@@ -33,8 +33,8 @@
                     <td th:text="${person.name}">Name</td>
                     <td th:text="${person.getAge()}">Age</td>
                     <td>
-                        <a th:href="@{/sql/personupdate/{id}(id = ${person.id})}">Update</a>
-                        <a th:href="@{/sql/persondelete/{id}(id = ${person.id})}">Delete</a>
+                        <a th:href="@{/data/personupdate/{id}(id = ${person.id})}">Update</a>
+                        <a th:href="@{/data/persondelete/{id}(id = ${person.id})}">Delete</a>
                     </td>
                 </tr>
                 </tbody>

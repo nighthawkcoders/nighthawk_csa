@@ -5,7 +5,7 @@ import com.nighthawk.csa.data.DataOps.genericDataModel.Alphabet;
 import com.nighthawk.csa.data.DataOps.genericDataModel.Animal;
 import com.nighthawk.csa.data.DataOps.genericDataModel.Cupcakes;
 
-import com.nighthawk.csa.data.linkedlists.CircleQueue;
+import com.nighthawk.csa.data.LinkedLists.CircleQueue;
 import lombok.Getter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -91,7 +91,7 @@ public class DataOpsController {
     /*
      GET request,, parameters are passed within the URI
      */
-    @GetMapping("/data")
+    @GetMapping("/data/dataops")
     public String data(Model model) {
 
         //initialize data
@@ -115,13 +115,13 @@ public class DataOpsController {
         this.addCQueue(Alphabet.alphabetData());
         //data is not sorted, queue order (FIFO) is default
         model.addAttribute("ctl", this);
-        return "algorithm/data"; //HTML render default condition
+        return "data/dataops"; //HTML render default condition
     }
 
     /*
      GET request,, parameters are passed within the URI
      */
-    @PostMapping("/data")
+    @PostMapping("/data/dataops")
     public String dataFilter(
             @RequestParam(value = "animal", required = false) String animal,
             @RequestParam(value = "animalKey") Animal.KeyType animalKey,
@@ -163,7 +163,7 @@ public class DataOpsController {
         this.queue.insertionSort();
         //render with options
         model.addAttribute("ctl", this);
-        return "algorithm/data";
+        return "data/dataops";
     }
 
     /*

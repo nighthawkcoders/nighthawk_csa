@@ -1,4 +1,4 @@
-package com.nighthawk.csa.algorithm.fibonacciModel;
+package com.nighthawk.csa.algorithm.FibonacciModel;
 
 import java.util.stream.Stream;
 

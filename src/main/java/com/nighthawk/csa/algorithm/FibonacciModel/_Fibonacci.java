@@ -1,4 +1,4 @@
-package com.nighthawk.csa.algorithm.fibonacciModel;
+package com.nighthawk.csa.algorithm.FibonacciModel;
 
 import com.nighthawk.csa.consoleUI.ConsoleMethods;
 

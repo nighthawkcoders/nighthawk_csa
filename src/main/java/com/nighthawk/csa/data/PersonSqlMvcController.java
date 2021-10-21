@@ -25,58 +25,58 @@ public class PersonSqlMvcController implements WebMvcConfigurer {
     @Autowired
     private PersonSqlRepository repository;
 
-    @GetMapping("/sql/person")
+    @GetMapping("/data/person")
     public String person(Model model) {
         List<Person> list = repository.listAll();
         model.addAttribute("list", list);
-        return "sql/person";
+        return "data/person";
     }
 
     /*  The HTML template Forms and PersonForm attributes are bound
         @return - template for person form
         @param - Person Class
     */
-    @GetMapping("/sql/personcreate")
+    @GetMapping("/data/personcreate")
     public String personAdd(Person person) {
-        return "sql/personcreate";
+        return "data/personcreate";
     }
 
     /* Gathers the attributes filled out in the form, tests for and retrieves validation error
     @param - Person object with @Valid
     @param - BindingResult object
      */
-    @PostMapping("/sql/personcreate")
+    @PostMapping("/data/personcreate")
     public String personSave(@Valid Person person, BindingResult bindingResult) {
         // Validation of Decorated PersonForm attributes
         if (bindingResult.hasErrors()) {
-            return "sql/personcreate";
+            return "data/personcreate";
         }
         repository.save(person);
         // Redirect to next step
-        return "redirect:/sql/person";
+        return "redirect:/data/person";
     }
 
-    @GetMapping("/sql/personupdate/{id}")
+    @GetMapping("/data/personupdate/{id}")
     public String personUpdate(@PathVariable("id") int id, Model model) {
         model.addAttribute("person", repository.get(id));
-        return "sql/personupdate";
+        return "data/personupdate";
     }
 
-    @PostMapping("/sql/personupdate")
+    @PostMapping("/data/personupdate")
     public String personUpdateSave(@Valid Person person, BindingResult bindingResult) {
         // Validation of Decorated PersonForm attributes
         if (bindingResult.hasErrors()) {
-            return "sql/personupdate";
+            return "data/personupdate";
         }
         repository.save(person);
         // Redirect to next step
-        return "redirect:/sql/person";
+        return "redirect:/data/person";
     }
 
-    @GetMapping("/sql/persondelete/{id}")
+    @GetMapping("/data/persondelete/{id}")
     public String personDelete(@PathVariable("id") long id) {
         repository.delete(id);
-        return "redirect:/sql/person";
+        return "redirect:/data/person";
     }
 
     /*
@@ -87,7 +87,7 @@ public class PersonSqlMvcController implements WebMvcConfigurer {
     /*
     GET List of People
      */
-    @RequestMapping(value = "/sql/people/get")
+    @RequestMapping(value = "/api/people/get")
     public ResponseEntity<List<Person>> getPeople() {
         return new ResponseEntity<>( repository.listAll(), HttpStatus.OK);
     }
@@ -95,7 +95,7 @@ public class PersonSqlMvcController implements WebMvcConfigurer {
     /*
     GET individual Person using ID
      */
-    @RequestMapping(value = "/sql/person/get/{id}")
+    @RequestMapping(value = "/api/person/get/{id}")
     public ResponseEntity<Person> getPerson(@PathVariable long id) {
         return new ResponseEntity<>( repository.get(id), HttpStatus.OK);
     }
@@ -103,7 +103,7 @@ public class PersonSqlMvcController implements WebMvcConfigurer {
     /*
     DELETE individual Person using ID
      */
-    @RequestMapping(value = "/sql/person/delete/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/api/person/delete/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Object> deletePerson(@PathVariable long id) {
         repository.delete(id);
         return new ResponseEntity<>( ""+ id +" deleted", HttpStatus.OK);
@@ -113,7 +113,7 @@ public class PersonSqlMvcController implements WebMvcConfigurer {
     /*
     POST Aa record by Requesting Parameters from URI
      */
-    @RequestMapping(value = "/sql/person/post", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/person/post", method = RequestMethod.POST)
     public ResponseEntity<Object> postPerson(@RequestParam("email") String email,
                                              @RequestParam("name") String name,
                                              @RequestParam("dob") String dobString) {
