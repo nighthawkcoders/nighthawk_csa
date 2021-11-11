@@ -11,7 +11,7 @@
 <!-- Hack 6: fix all warnings -->
 
 <!-- <head> -->
-<div layout:fragment="metadata" th:with="bits=8" th:remove="tag">
+<div layout:fragment="head" th:with="bits=8" th:remove="tag">
   <title>Binary page</title>
   <script>
     const BITS = [[${bits}]];
@@ -109,7 +109,7 @@
 <!-- </head> -->
 
 <!-- <body> -->
-<div layout:fragment="content" th:with="bits=8" th:remove="tag">
+<div layout:fragment="body" th:with="bits=8" th:remove="tag">
     <h1 class="text-center">Binary Math with Conversions</h1>
     <div class="container">
       <div class="row justify-content-md-center">

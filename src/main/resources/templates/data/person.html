@@ -9,12 +9,12 @@
     <title>Person List</title>
 </div>
 
-<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
-<body><div layout:fragment="content" th:remove="tag">
+<!-- <body> -->
+<div layout:fragment="body" th:remove="tag">
     <div style="margin: 2%;">
         <div align="center">
             <h1>SQL Person List</h1>
-            <a href="/data/personcreate/">Create Person</a>
+            <a th:href="@{/data/personcreate/}">Create Person</a>
             <br/><br/>
 
             <table border="1" cellpadding="10">
@@ -43,6 +43,6 @@
 
         </div>
     </div>
-</div></body>
+</div>
 
 </html>

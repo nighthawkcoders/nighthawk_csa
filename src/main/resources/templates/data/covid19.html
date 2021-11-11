@@ -9,12 +9,12 @@
 </div>
 
 <!-- <body> -->
-<div layout:fragment="content" th:remove="tag">
+<div layout:fragment="body" th:remove="tag">
     <div class="container">
 
         <div class="row justify-content-md-center">
             <h1><strong>COVID-19 rapidapi.com </strong></h1>
-            <form action="/data/covid19" method="GET" id="covidForm">
+            <form th:action="@{/data/covid19}" method="GET" id="covidForm">
                 <button>Refresh!</button>
             </form>
         </div>
@@ -59,7 +59,8 @@
             <tr>
                 <th>World Using map get</th>
             </tr>
-            <td th:text="${map.get('world_total')}"></td>
+            <tr>
+                <td th:text="${map.get('world_total')}"></td>
             </tr>
         </table>
 
@@ -67,7 +68,8 @@
             <tr>
                 <th>World Using map variable</th>
             </tr>
-            <td th:text="${world_map}"></td>
+            <tr>
+                <td th:text="${world_map}"></td>
             </tr>
         </table>
 
@@ -75,7 +77,8 @@
             <tr>
                 <th>World Using JSON object get</th>
             </tr>
-            <td th:text="${jo.get('world_total')}"></td>
+            <tr>
+                <td th:text="${jo.get('world_total')}"></td>
             </tr>
         </table>
 
@@ -83,7 +86,8 @@
             <tr>
                 <th>World Using JSON object get</th>
             </tr>
-            <td th:text="${world_jo}"></td>
+            <tr>
+                <td th:text="${world_jo}"></td>
             </tr>
         </table>
 

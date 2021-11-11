@@ -9,12 +9,12 @@
     <title>Family List</title>
 </div>
 
-<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
-<body><div layout:fragment="content" th:remove="tag">
+<!-- <body> -->
+<div layout:fragment="body" th:remove="tag">
     <div style="margin: 2%;">
         <div align="center">
             <h1>SQL Family List</h1>
-            <a href="/data/familycreate/">Create Family</a>
+            <a th:href="@{/data/familycreate/}">Create Family</a>
             <br/><br/>
 
             <table border="1" cellpadding="10">
@@ -50,6 +50,6 @@
             -->
         </div>
     </div>
-</div></body>
+</div>
 
 </html>

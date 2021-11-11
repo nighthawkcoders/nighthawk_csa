@@ -4,19 +4,17 @@
       layout:decorate="~{layout}" lang="en">
 
 <!-- layout::fragment="content" is heart of ThymeLeaf layout -->
-<head>
-    <div layout:fragment="metadata" th:remove="tag">
+<!-- <body> -->
+<div layout:fragment="body" th:with="bits=8" th:remove="tag">
         <title>Grayscale - Image Processing </title>
-    </div>
-</head>
+</div>
 
-<body>
-<div layout:fragment="content" th:remove="tag">
+<!-- <body> -->
+<div layout:fragment="body" th:with="bits=8" th:remove="tag">
     <div class="container">
         <h1 class="text-center">Grayscale Images</h1>
-        <img th:src="${str}">
+        <img src="#" th:src="${str}" alt="">
     </div>
 </div>
-</body>
 
 </html>

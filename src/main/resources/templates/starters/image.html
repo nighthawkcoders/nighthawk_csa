@@ -4,17 +4,16 @@
       layout:decorate="~{layout}" lang="en">
 
 <!-- layout::fragment="content" is heart of ThymeLeaf layout -->
-<head>
-    <div layout:fragment="metadata" th:remove="tag">
+<!-- <body> -->
+<div layout:fragment="body" th:with="bits=8" th:remove="tag">
         <title>Image Processing</title>
-    </div>
-</head>
+</div>
 
-<body>
-<div layout:fragment="content" th:remove="tag">
+<!-- <body> -->
+<div layout:fragment="body" th:with="bits=8" th:remove="tag">
     <div class="container">
         <h1 class="text-center">RGB values within an Image</h1>
-            <p><small><a href="/image/grayscale">Grayscale</a></small></p>
+            <p><small><a th:href="@{/image/grayscale}">Grayscale</a></small></p>
 
             <div class="row justify-content-md-center">
                 <table class="table">
@@ -32,7 +31,7 @@
                             <div th:text="'(' + ${ii.getHeight()} + ',' + ${ii.getWidth()} + ')'">Height,Width</div>
                         </td>
                         <td>
-                            <img class="img-responsive py-3" th:src="@{${ii.getFile()}}" alt="" src="${ii.getFile()}" width=128 height="Auto">
+                            <img class="img-responsive py-3" th:src="@{${ii.getFile()}}" alt="" src="#" width=128 height="Auto">
                         </td>
                         <td>
                             <div class="overflow-auto" style="height: 256px">
@@ -68,6 +67,5 @@
 
     </div>
 </div>
-</body>
 
 </html>
