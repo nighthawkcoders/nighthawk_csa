@@ -86,4 +86,10 @@ public class MainController {
         return "course/timelines";
     }
 
+    @GetMapping("/course/tri2")
+    public String courseTri2(Model model) {
+        model.addAttribute("url", "https://padlet.com/jmortensen7/csa2022tri2");
+        return "course/timelines";
+    }
+
 }

@@ -4,11 +4,10 @@
       layout:decorate="~{layout}" lang="en">
 
 <!-- layout::fragment="content" is heart of ThymeLeaf layout -->
-<head>
-    <div layout:fragment="metadata" th:remove="tag">
-        <title>Course Repositories</title>
-    </div>
-</head>
+<!-- <head> -->
+<div layout:fragment="head" th:remove="tag">
+    <title>Course Repositories</title>
+</div>
 
 <!-- layout::fragment="content" is heart of ThymeLeaf layout -->
 <body><div layout:fragment="content" th:remove="tag">

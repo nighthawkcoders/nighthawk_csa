@@ -3,12 +3,10 @@
 <html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
       layout:decorate="~{layout}" lang="en">
 
-<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
-<head>
-    <div layout:fragment="metadata" th:remove="tag">
-        <title>Fibonacci Algo</title>
-    </div>
-</head>
+<!-- <head> -->
+<div layout:fragment="head" th:remove="tag">
+    <title>Fibonacci Algo</title>
+</div>
 
 <body>
 <div layout:fragment="content" th:remove="tag">
@@ -50,7 +48,7 @@
                     </table>
                 </div>
             </div>
-
+            <!--
             <div class="col-12" style="text-align: left; ">
                 <a href="https://github.com/nighthawkcoders/nighthawk_csa/tree/master/src/main/java/com/nighthawk/csa/algorithm/fibonacciModel">Fibonacci Package</a>
                 <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fnighthawk_csa%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fnighthawk%2Fcsa%2Falgorithm%2FfibonacciModel%2FFibFor.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
@@ -58,16 +56,9 @@
                 <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fnighthawk_csa%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fnighthawk%2Fcsa%2Falgorithm%2FfibonacciModel%2FFibRecurse.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
                 <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fnighthawk_csa%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fnighthawk%2Fcsa%2Falgorithm%2FfibonacciModel%2FFibStream.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
             </div>
+            -->
         </div>
     </div>
-    <style>
-        table, td, th {
-            border: 1px solid var(--dblue);
-        }
-        td, th {
-            text-align:left;
-        }
-    </style>
 </div>`
 </body>
 

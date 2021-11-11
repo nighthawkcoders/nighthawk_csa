@@ -3,157 +3,156 @@
 <html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
       layout:decorate="~{layout}" lang="en">
 
-<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
-<head>
-    <div layout:fragment="metadata" th:remove="tag">
-        <title>Snake Game</title>
-        <style type="text/css">
+<!-- <head> -->
+<div layout:fragment="head" th:remove="tag">
+    <title>Snake Game</title>
+    <style type="text/css">
 
-            ::selection {color:#FFFFFF; background:transparent;}
-            ::-moz-selection {color:#FFFFFF; background:transparent;}
+        ::selection {color:#FFFFFF; background:transparent;}
+        ::-moz-selection {color:#FFFFFF; background:transparent;}
 
-            body{
-            }
-            .wrap{
-                margin-left: auto;
-                margin-right: auto;
-            }
-            header{
-                width: 340px;
-                font-size: 0;
-            }
-            canvas{
-                display: none;
-                border-style: solid;
-                border-width: 10px;
-                border-color: #FFFFFF;
-            }
-            canvas:focus{
-                outline: none;
-            }
+        body{
+        }
+        .wrap{
+            margin-left: auto;
+            margin-right: auto;
+        }
+        header{
+            width: 340px;
+            font-size: 0;
+        }
+        canvas{
+            display: none;
+            border-style: solid;
+            border-width: 10px;
+            border-color: #FFFFFF;
+        }
+        canvas:focus{
+            outline: none;
+        }
 
-            /* Top Styles */
-            h1{
-                display: inline-block;
-                width: 100px;
-                font-size: 32px;
-                color: #FFFFFF;
-            }
-            .score{
-                display: inline-block;
-                width: 240px;
-                font-size: 20px;
-                color: #FFFFFF;
-                text-align: right;
-            }
-            .score_value{
-                font-size: inherit;
-            }
+        /* Top Styles */
+        h1{
+            display: inline-block;
+            width: 100px;
+            font-size: 32px;
+            color: #FFFFFF;
+        }
+        .score{
+            display: inline-block;
+            width: 240px;
+            font-size: 20px;
+            color: #FFFFFF;
+            text-align: right;
+        }
+        .score_value{
+            font-size: inherit;
+        }
 
-            /* All screens style */
-            #gameover a, #setting a, #menu a{
-                display: block;
-            }
+        /* All screens style */
+        #gameover a, #setting a, #menu a{
+            display: block;
+        }
 
-            #gameover a, #setting a:hover, #menu a:hover{
-                cursor: pointer;
-            }
+        #gameover a, #setting a:hover, #menu a:hover{
+            cursor: pointer;
+        }
 
-            #gameover a:hover::before, #setting a:hover::before, #menu a:hover::before{
-                content: ">";
-                margin-right: 10px;
-            }
+        #gameover a:hover::before, #setting a:hover::before, #menu a:hover::before{
+            content: ">";
+            margin-right: 10px;
+        }
 
-            /* Menu Screen Style */
-            #menu{
-                display: block;
-                width: 340px;
-                padding-top: 95px;
-                padding-bottom: 95px;
-                font-size: 40px;
-                margin-left: auto;
-                margin-right: auto;
-                text-align: center;
-                color: #FFF;
-            }
+        /* Menu Screen Style */
+        #menu{
+            display: block;
+            width: 340px;
+            padding-top: 95px;
+            padding-bottom: 95px;
+            font-size: 40px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            color: #FFF;
+        }
 
-            #menu h2{
-                -webkit-animation: logo-ani 1000ms linear infinite;
-                animation: logo-ani 1000ms linear infinite;
-                margin-bottom: 30px;
+        #menu h2{
+            -webkit-animation: logo-ani 1000ms linear infinite;
+            animation: logo-ani 1000ms linear infinite;
+            margin-bottom: 30px;
 
-            }
+        }
 
-            #menu a{
-                font-size: 30px;
-            }
+        #menu a{
+            font-size: 30px;
+        }
 
-            @-webkit-keyframes logo-ani{
-                50%{-webkit-transform: scale(1.3,1.3);}
-                100%{-webkit-transform: scale(1.0,1.0);}
-            }
+        @-webkit-keyframes logo-ani{
+            50%{-webkit-transform: scale(1.3,1.3);}
+            100%{-webkit-transform: scale(1.0,1.0);}
+        }
 
-            @keyframes logo-ani{
-                50%{transform: scale(1.3,1.3);}
-                100%{transform: scale(1.0,1.0);}
-            }
+        @keyframes logo-ani{
+            50%{transform: scale(1.3,1.3);}
+            100%{transform: scale(1.0,1.0);}
+        }
 
 
-            /* Game Over Screen Style */
+        /* Game Over Screen Style */
 
-            #gameover{
-                display: none;
-                width: 340px;
-                padding-top: 95px;
-                padding-bottom: 95px;
-                margin-left: auto;
-                margin-right: auto;
-                text-align: center;
-                font-size: 30px;
-                color: #FFF;
-            }
+        #gameover{
+            display: none;
+            width: 340px;
+            padding-top: 95px;
+            padding-bottom: 95px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            font-size: 30px;
+            color: #FFF;
+        }
 
-            #gameover p{
-                margin-top: 25px;
-                font-size: 20px;
-            }
+        #gameover p{
+            margin-top: 25px;
+            font-size: 20px;
+        }
 
-            /* Settings Screen Style */
-            #setting{
-                display: none;
-                width: 340px;
-                margin-left: auto;
-                margin-right: auto;
-                padding-top: 85px;
-                padding-bottom: 85px;
-                font-size: 30px;
-                color: #FFF;
-                text-align: center;
-            }
+        /* Settings Screen Style */
+        #setting{
+            display: none;
+            width: 340px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 85px;
+            padding-bottom: 85px;
+            font-size: 30px;
+            color: #FFF;
+            text-align: center;
+        }
 
-            #setting h2{
-                margin-bottom: 15px;
-            }
+        #setting h2{
+            margin-bottom: 15px;
+        }
 
-            #setting p{
-                margin-top: 10px;
-            }
+        #setting p{
+            margin-top: 10px;
+        }
 
-            #setting input{
-                display:none;
-            }
+        #setting input{
+            display:none;
+        }
 
-            #setting label{
-                cursor: pointer;
-            }
+        #setting label{
+            cursor: pointer;
+        }
 
-            #setting input:checked + label{
-                background-color: #FFF;
-                color: #000;
-            }
-        </style>
-    </div>
-</head>
+        #setting input:checked + label{
+            background-color: #FFF;
+            color: #000;
+        }
+    </style>
+</div>
+
 
 <body>
 <div layout:fragment="content" th:remove="tag">

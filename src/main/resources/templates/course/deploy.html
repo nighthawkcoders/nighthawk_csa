@@ -3,13 +3,11 @@
 <html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
       layout:decorate="~{layout}" lang="en">
 
-<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
-<head>
-    <div layout:fragment="metadata" th:remove="tag">
-        <title>Course Deployment Guide</title>
-    </div>
+<!-- <head> -->
+<div layout:fragment="head" th:remove="tag">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" integrity="sha512-Oy18vBnbSJkXTndr2n6lDMO5NN31UljR8e/ICzVPrGpSud4Gkckb8yUpqhKuUNoE+o9gAb4O/rAxxw1ojyUVzg==" crossorigin="anonymous" />
-</head>
+    <title>Course Deployment Guide</title>
+</div>
 
 <!-- layout::fragment="content" is heart of ThymeLeaf layout -->
 <body><div layout:fragment="content" th:remove="tag">

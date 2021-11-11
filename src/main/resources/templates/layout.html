@@ -4,19 +4,21 @@
 
 <!-- Head, think of things that are more meta or format oriented -->
 <head>
-    <div th:replace="fragments/head :: header"></div>
-    <!-- Head defaults to ellipses, details are added by ThymeLeaf layout fragment -->
-    <div layout:fragment="metadata">...</div>
+    <!-- Standard head for all pages -->
+    <div th:replace="fragments/head :: headfile"></div>
+    <!-- Custom style for this layout -->
+    <link th:href="@{/css/palette.css}" rel="stylesheet">
+    <link th:href="@{/css/styles.css}" rel="stylesheet">
+    <!-- Head defaults to ellipses, details are added by ThymeLeaf layout consumer -->
+    <div layout:fragment="head">...</div>
 </head>
 
 <body>
-    <!-- Header of Page, includes Navigation -->
+    <!-- Standard header for all Pages, includes Navigation -->
     <div th:replace="fragments/nav :: header"></div>
-
-    <!-- Body defaults to ellipses, details are added by ThymeLeaf layout fragment -->
+    <!-- Body defaults to ellipses, details are added by ThymeLeaf layout consumer -->
     <div layout:fragment="content">...</div>
-
-    <!-- Footer of Page, includes things like contacts or copywrite -->
+    <!-- Standard footer for all pages, includes things like contacts or copywrite -->
     <div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>
