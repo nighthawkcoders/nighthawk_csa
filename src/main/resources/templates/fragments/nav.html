@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      xmlns:th="http://www.w3.org/1999/xhtml">
+
 <head>
     <title>...</title>
 </head>
 <body>
-    <!-- Bootstrap Navigation Code -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="header">
-        <a class="navbar-brand" href="http://nighthawkcodingsociety.com/">
+<!-- Bootstrap Navigation Code -->
+<th:block th:fragment="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" th:href="@{https://nighthawkcodingsociety.com/}">
             <img src="/static/images/ncs_logo.png" th:src="@{/images/ncs_logo.png}" width="50" height="50" class="d-inline-block align-center" alt="">
             Nighthawk Coders
         </a>
@@ -26,9 +29,9 @@
                         Starters
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/greet">Spring Greeting</a>
-                        <a class="dropdown-item" href="/binary">Binary Math</a>
-                        <a class="dropdown-item" href="/image">Images</a>
+                        <a class="dropdown-item" th:href="@{/greet}">Spring Greeting</a>
+                        <a class="dropdown-item" th:href="@{/binary}">Binary Math</a>
+                        <a class="dropdown-item" th:href="@{/image}">Images</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -36,10 +39,10 @@
                         Data
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/data/person">SQL Person</a>
-                        <a class="dropdown-item" href="/data/family">SQL Family</a>
-                        <a class="dropdown-item" href="/data/covid19">RapidAPI Covid19</a>
-                        <a class="dropdown-item" href="/data/dataops">Data Ops</a>
+                        <a class="dropdown-item" th:href="@{/data/person}">SQL Person</a>
+                        <a class="dropdown-item" th:href="@{/data/family}">SQL Family</a>
+                        <a class="dropdown-item" th:href="@{/data/covid19}">RapidAPI Covid19</a>
+                        <a class="dropdown-item" th:href="@{/data/dataops}">Data Ops</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -47,38 +50,38 @@
                         Algorithms
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/fib">Fibonacci</a>
-                        <a class="dropdown-item" href="/pali">Palindrome</a>
-                        <a class="dropdown-item" href="/snake">JavaScript Snake</a>
+                        <a class="dropdown-item" th:href="@{/fib}">Fibonacci</a>
+                        <a class="dropdown-item" th:href="@{/pali}">Palindrome</a>
+                        <a class="dropdown-item" th:href="@{/snake}">JavaScript Snake</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdowno" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Course-materials
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/course/repos">Repos</a>
-                        <a class="dropdown-item" href="/course/deploy">Deployment</a>
+                        <a class="dropdown-item" th:href="@{/course/repos}">Repos</a>
+                        <a class="dropdown-item" th:href="@{/course/deploy}">Deployment</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" th:href="@{/pdf/sanvipal_javaref.pdf}">Traditional Journal</a>
                         <!--
                         <a class="dropdown-item" href="https://freekashmir.nighthawkcodingsociety.com/" target="_blank" rel="noopener noreferrer">PBL Journal</a>
                         -->
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/course/tri1">Tri 1</a>
-                        <a class="dropdown-item" href="/course/tri2">Tri 2</a>
+                        <a class="dropdown-item" th:href="@{/course/tri1}">Tri 1</a>
+                        <a class="dropdown-item" th:href="@{/course/tri2}">Tri 2</a>
                     </div>
                 </li>
             </ul>
-                <!-- Clock display -->
-                <div class="px-3">
-                    <span id="clock"></span>
-                </div>
-                <!-- Dark mode action -->
-                <div class="custom-control custom-switch">
-                    <input type="checkbox" onclick="darkFunction()" class="custom-control-input" id="darkSwitch">
-                    <label class="custom-control-label" for="darkSwitch"></label>
-                </div>
+            <!-- Clock display -->
+            <div class="px-3">
+                <span id="clock"></span>
+            </div>
+            <!-- Dark mode action -->
+            <div class="custom-control custom-switch">
+                <input type="checkbox" onclick="darkFunction()" class="custom-control-input" id="darkSwitch">
+                <label class="custom-control-label" for="darkSwitch"></label>
+            </div>
             <!-- Navigation bar JavaScript support -->
             <script>
                 // Dark Mode Toggle
@@ -97,5 +100,6 @@
             </script>
         </div>
     </nav>
+</th:block>
 </body>
 </html>

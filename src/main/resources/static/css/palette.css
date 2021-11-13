@@ -1,11 +1,19 @@
 :root{
-    --yellow: #f1d483;
+    /* color palette */
+    --red: #cc0000;
     --green: #9daf9b;
-    --purple: #a59aaf;
+    --blue: #1da1f2;
     --lblue: #6084a3;
-    --dblue: #2b425b;
-    --gray: #363d47;
+    --dblue: #0b227b;
+    --yellow: #f1d483;
+    --purple: #a59aaf;
+    --gray: #b6bdc7;
+    --grey: var(--gray);
     --white: whitesmoke;
     --black: black;
-    --grey: grey;
+    /* element colors */
+    --youtube: var(--red);
+    --twitter: var(--blue);
+    --github: var(--black);
+    --atag: var(--dblue);
 }
