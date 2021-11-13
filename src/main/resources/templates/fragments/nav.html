@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 
-<html lang="en"
-      xmlns:th="http://www.w3.org/1999/xhtml">
-
-<head>
-    <title>...</title>
-</head>
 <body>
 <!-- Bootstrap Navigation Code -->
-<th:block th:fragment="header">
+<th:block xmlns:th="http://www.w3.org/1999/xhtml" th:fragment="header">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" th:href="@{https://nighthawkcodingsociety.com/}">
-            <img src="/static/images/ncs_logo.png" th:src="@{/images/ncs_logo.png}" width="50" height="50" class="d-inline-block align-center" alt="">
+            <img alt="" class="d-inline-block align-center"
+                 src=""
+                 th:src="@{/images/ncs_logo.png}"
+                 height="50"
+                 width="auto">
             Nighthawk Coders
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -102,4 +100,3 @@
     </nav>
 </th:block>
 </body>
-</html>
