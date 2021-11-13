@@ -12,47 +12,51 @@
 
 <!-- <body> -->
 <div layout:fragment="body" th:remove="tag">
-    <div style="margin: 2%;">
-        <h3>Welcome, Update The Persons Details</h3>
-        <!-- ThymeLeaf allows person abject of the Class Person to be acted upon by the form
-         This is known as a “bean-backed form” or "form-backing bean".
-            th:object - the backend form object (bean object)
-         There are two fields in the Person bean,
-            th:field="*{name}"
-            th:field="*{age}".
-         Each field has supporting line for to show errors in validation
-            th:errors - form input errors added when validation errors occur
-         Reference
-            https://www.baeldung.com/spring-boot-crud-thymeleaf
-         .-->
-        <form action="#" th:action="@{/data/personupdate}" th:object="${person}" method="POST">
-            <table>
-                <tr>
-                    <td>ID:</td>
-                    <td th:text="${person.id}">Person ID</td>
-                    <!-- hidden field is CRITICAL else id will be null on action -->
-                    <td><input type="hidden" th:field="*{id}" readonly="readonly" /></td>
-                </tr>
-                <tr>
-                    <td>Email:</td>
-                    <td th:text="${person.email}">EMail</td>
-                    <td><input type="hidden" th:field="*{email}" readonly="readonly" /></td>
-                </tr>
-                <tr>
-                    <td>Name:</td>
-                    <td><input type="text" th:field="*{name}" /></td>
-                    <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
-                </tr>
-                <tr>
-                    <td>Birth Date:</td>
-                    <td th:text="${#dates.format(person.dob, 'MM-dd-yyyy')}">Birth Date</td>
-                    <td><input type="hidden" th:field="*{dob}" readonly="readonly" /></td>
-                </tr>
-                <tr>
-                    <td><button type="submit">Save</button></td>
-                </tr>
-            </table>
-        </form>
+    <div class="container">
+
+        <div class="row justify-content-md-center">
+            <h2>Welcome, Update The Persons Details</h2>
+        </div>
+
+        <div class="row justify-content-md-center">
+            <div class="col8">
+                <div class="jumbotron">
+                    <h3>Update Person</h3>
+                    <!-- ThymeLeaf allows person abject of the Class Person to be acted upon by the form
+                         This is known as a “bean-backed form” or "form-backing bean".
+                            th:object - the backend form object (bean object)
+                         There are two fields in the Person bean,
+                            th:field="*{name}"
+                            th:field="*{age}".
+                         Each field has supporting line for to show errors in validation
+                            th:errors - form input errors added when validation errors occur
+                         Reference
+                            https://www.baeldung.com/spring-boot-crud-thymeleaf
+                     -->
+                    <form class="form-inline" action="#" th:action="@{/data/personupdate}" th:object="${person}" method="POST">
+                        <div class="form-group">
+                            <label for="id">ID:</label>
+                            <input type="text" th:field="*{id}" id="id" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" th:field="*{email}" id="email" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" th:field="*{name}" id="name">
+                            <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="dob">Birth Date:</label>
+                            <input type="date" th:field="*{dob}" id="dob">
+                            <small th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}">Birth Date Error</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
