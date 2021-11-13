@@ -12,38 +12,41 @@
 
 <!-- <body> -->
 <div layout:fragment="body" th:remove="tag">
-    <div style="margin: 2%;">
-        <div align="center">
+    <div class="container">
+
+        <div class="row justify-content-md-center">
             <h1>SQL Person List</h1>
-            <a th:href="@{/data/personcreate/}">Create Person</a>
-            <br/><br/>
-
-            <table border="1" cellpadding="10">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>EMail</th>
-                    <th>Person</th>
-                    <th>Age</th>
-                    <th>Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="person : ${list}">
-                    <td th:text="${person.id}">Person ID</td>
-                    <td th:text="${person.email}">Birth Date</td>
-                    <td th:text="${person.name}">Name</td>
-                    <td th:text="${person.getAge()}">Age</td>
-                    <td>
-                        <a th:href="@{/data/personupdate/{id}(id = ${person.id})}">Update</a>
-                        <a th:href="@{/data/persondelete/{id}(id = ${person.id})}">Delete</a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-
         </div>
+        <div class="row justify-content-md-center">
+            <a th:href="@{/data/personcreate/}">Create Person</a>
+        </div>
+
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>EMail</th>
+                <th>Person</th>
+                <th>Age</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="person : ${list}">
+                <td th:text="${person.id}">Person ID</td>
+                <td th:text="${person.email}">Birth Date</td>
+                <td th:text="${person.name}">Name</td>
+                <td th:text="${person.getAge()}">Age</td>
+                <td>
+                    <a th:href="@{/data/personupdate/{id}(id = ${person.id})}">Update</a>
+                    <a th:href="@{/data/persondelete/{id}(id = ${person.id})}">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
     </div>
+
 </div>
 
 </html>
