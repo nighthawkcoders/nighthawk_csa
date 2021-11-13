@@ -2,18 +2,14 @@
     /* color palette */
     --red: #cc0000;
     --green: #9daf9b;
+    --lgreen: #dae4da;
     --blue: #1da1f2;
     --lblue: #6084a3;
     --dblue: #0b227b;
     --yellow: #f1d483;
     --purple: #a59aaf;
-    --gray: #b6bdc7;
+    --gray: #c3d6e0;
     --grey: var(--gray);
     --white: whitesmoke;
     --black: black;
-    /* element colors */
-    --youtube: var(--red);
-    --twitter: var(--blue);
-    --github: var(--black);
-    --atag: var(--dblue);
 }

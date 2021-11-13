@@ -4,11 +4,12 @@
 
 <head>
     <div th:replace="fragments/head :: headfile" th:remove="tag">Standard head for all pages</div>
-    <div layout:fragment="css" th:remove="tag">
-    <!-- Master style for project -->
     <link th:href="@{/css/palette.css}" rel="stylesheet">
-    <link th:href="@{/css/styles.css}" rel="stylesheet">
+    <div layout:fragment="colors" th:remove="tag">
+        <!-- standard colors -->
+        <link th:href="@{/css/colors.css}" rel="stylesheet">
     </div>
+    <link th:href="@{/css/styles.css}" rel="stylesheet">
     <div layout:fragment="head" th:remove="tag">Details are added by ThymeLeaf layout consume</div>
     <title></title>
 </head>

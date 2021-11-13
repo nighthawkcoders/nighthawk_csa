@@ -1,0 +1,12 @@
+/* element colors */
+:root {
+    --light_text: var(--black);
+    --light_background: var(--gray);
+    --dark_text: var(--black);
+    --dark_background: var(--lblue);
+    --atag: var(--dblue);
+    --fa: var(--green);
+    --youtube: var(--red);
+    --twitter: var(--blue);
+    --github: var(--black);
+}
