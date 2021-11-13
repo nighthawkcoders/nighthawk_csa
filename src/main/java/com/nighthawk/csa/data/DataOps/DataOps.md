@@ -17,7 +17,8 @@ This lab and future labs can/should be strung together.
 * Enums
 ### Other Topics
 * Inheritance
-* Abstract Class (My code)
+* Abstract Class
+* Linked Lists
 
 ### Mini-lab Ideas
 1. Build  section into your Scrum Team project or individual section for execution.
