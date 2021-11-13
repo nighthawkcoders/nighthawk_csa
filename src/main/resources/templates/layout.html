@@ -1,24 +1,21 @@
-<!-- This page is illustrative and contains ideas about HTML formatting -->
+<!-- This page is illustrative and contains ideas about HTML layouts -->
 <!DOCTYPE HTML>
 <html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
 
-<!-- Head, think of things that are more meta or format oriented -->
 <head>
-    <!-- Standard head for all pages -->
-    <div th:replace="fragments/head :: headfile"></div>
-    <!-- Custom style for this layout -->
+    <div th:replace="fragments/head :: headfile" th:remove="tag">Standard head for all pages</div>
+    <div layout:fragment="css" th:remove="tag">
+    <!-- Master style for project -->
     <link th:href="@{/css/palette.css}" rel="stylesheet">
     <link th:href="@{/css/styles.css}" rel="stylesheet">
-    <!-- Head defaults to ellipses, details are added by ThymeLeaf layout consumer -->
-    <div layout:fragment="head">...</div>
+    </div>
+    <div layout:fragment="head" th:remove="tag">Details are added by ThymeLeaf layout consume</div>
+    <title></title>
 </head>
 
 <body>
-    <!-- Standard header for all Pages, includes Navigation -->
-    <div th:replace="fragments/nav :: header"></div>
-    <!-- Body defaults to ellipses, details are added by ThymeLeaf layout consumer -->
-    <div layout:fragment="body">...</div>
-    <!-- Standard footer for all pages, includes things like contacts or copywrite -->
-    <div th:replace="fragments/footer :: footer"></div>
+    <div th:replace="fragments/nav :: header" th:remove="tag">Standard header</div>
+    <div layout:fragment="body" th:remove="tag">Body details are added by ThymeLeaft layout consumer</div>
+    <div th:replace="fragments/footer :: footer" th:remove="tag">Standard footer</div>
 </body>
 </html>

@@ -4,16 +4,22 @@
       xmlns:th="http://www.w3.org/1999/xhtml"
       layout:decorate="~{layout}" lang="en">
 
-<!-- <head> -->
+<!-- <head section> -->
 <div layout:fragment="head" th:remove="tag">
     <title>Fibonacci Algo</title>
 </div>
+<div layout:fragment="css" th:remove="tag">
+    <!- Custom Style for Fibonacci Page -->
+    <link th:href="@{/css/palette_fib.css}" rel="stylesheet">
+    <link th:href="@{/css/styles.css}" rel="stylesheet">
+</div>
+
 
 <!-- <body> -->
 <div layout:fragment="body" th:remove="tag">
     `<div class="container">
 
-        <div class="center-block" style="margin: 2% 3% 3%; font-family: gilroy,serif;">
+        <div class="center-block">
             <!-- Title -->
             <div class="col-12" style="text-align: center;">
                 <h1><strong>4 ways to build a Fibonacci series in Java</strong></h1>
