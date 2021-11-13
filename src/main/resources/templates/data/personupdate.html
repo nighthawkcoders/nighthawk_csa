@@ -34,20 +34,21 @@
                             https://www.baeldung.com/spring-boot-crud-thymeleaf
                      -->
                     <form class="form-inline" action="#" th:action="@{/data/personupdate}" th:object="${person}" method="POST">
-                        <div class="form-group">
+                        <div class="form-group mb-2 mr-sm-2">
                             <label for="id">ID:</label>
-                            <input type="text" th:field="*{id}" id="id" readonly>
+                            <input type="text" th:field="*{id}" id="id" readonly class="form-control-plaintext" >
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mb-2 mr-sm-2">
                             <label for="email">Email:</label>
-                            <input type="email" th:field="*{email}" id="email" readonly>
+                            <input type="email" th:field="*{email}" id="email" >
+                            <small th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</small>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mb-2 mr-sm-2">
                             <label for="name">Name:</label>
                             <input type="text" th:field="*{name}" id="name">
                             <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</small>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mb-2 mr-sm-2">
                             <label for="dob">Birth Date:</label>
                             <input type="date" th:field="*{dob}" id="dob">
                             <small th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}">Birth Date Error</small>
