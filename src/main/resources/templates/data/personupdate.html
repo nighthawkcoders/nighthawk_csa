@@ -30,8 +30,12 @@
                             th:field="*{age}".
                          Each field has supporting line for to show errors in validation
                             th:errors - form input errors added when validation errors occur
-                         Reference
+                         Reference for CRUD
                             https://www.baeldung.com/spring-boot-crud-thymeleaf
+                         Get started with dialects in 5 minutes
+                            https://www.thymeleaf.org/doc/articles/standarddialect5minutes.html
+                         Reference Bootstrap Form
+                            https://getbootstrap.com/docs/4.0/components/forms/#readonly-plain-text
                      -->
                     <form class="form-inline" action="#" th:action="@{/data/personupdate}" th:object="${person}" method="POST">
                         <div class="form-group mb-2 mr-sm-2">
