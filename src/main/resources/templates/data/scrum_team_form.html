@@ -40,17 +40,17 @@
                          Reference Bootstrap Form
                             https://getbootstrap.com/docs/4.0/components/forms/#readonly-plain-text
                      -->
-                    <form class="form-inline" action="#" th:action="@{/data/scrum_team_save}" th:object="${scrumTeam}" method="POST">
-                        <div class="form-group mb-2 mr-sm-2" th:if="${id != null}" >
-                            <label for="id">ID:</label>
-                            <input type="text" th:field="*{id}" id="id" readonly class="form-control-plaintext" >
+                    <form class="form" action="#" th:action="@{/data/scrum_team_save}" th:object="${scrumTeam}" method="POST">
+                        <div class="form-group" th:if="${id != null}" >
+                            <label for="id"></label>
+                            <input type="text" th:value="'ID: ' + *{id}" id="id" readonly class="form-control-plaintext" >
                         </div>
-                        <div class="form-group mb-2 mr-sm-2">
+                        <div class="form-group">
                             <label for="name">Name:</label>
                             <input type="text" th:field="*{name}" id="name">
                             <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</small>
                         </div>
-                        <div class="form-group mb-2 mr-sm-2">
+                        <div class="form-group">
                             <label for="primary">Scrum Master:</label>
                             <select th:field="*{primary}" id="primary" class="form-control" required>
                             <option th:each="person : ${listPersons}"
@@ -59,7 +59,7 @@
                                     th:selected="*{primary}!=null and ${person.id}==*{primary}"></option>
                             </select>
                         </div>
-                        <div class="form-group mb-2 mr-sm-2">
+                        <div class="form-group">
                             <label for="member1">Member 1:</label>
                             <select th:field="*{member1}" id="member1" class="form-control" required>
                                 <option th:each="person : ${listPersons}"
@@ -68,7 +68,7 @@
                                         th:selected="*{member1}!=null and ${person.id}==*{member1}"></option>
                             </select>
                         </div>
-                        <div class="form-group mb-2 mr-sm-2">
+                        <div class="form-group">
                             <label for="member2">Member 2:</label>
                             <select th:field="*{member2}" id="member2" class="form-control" required>
                                 <option th:each="person : ${listPersons}"
@@ -77,7 +77,7 @@
                                         th:selected="*{member2}!=null and ${person.id}==*{member2}"></option>
                             </select>
                         </div>
-                        <div class="form-group mb-2 mr-sm-2">
+                        <div class="form-group">
                             <label for="member3">Member 3:</label>
                             <select th:field="*{member3}" id="member3" class="form-control" required>
                                 <option th:each="person : ${listPersons}"
@@ -86,7 +86,7 @@
                                         th:selected="*{member3}!=null and ${person.id}==*{member3}"></option>
                             </select>
                         </div>
-                        <div class="form-group mb-2 mr-sm-2">
+                        <div class="form-group">
                             <label for="member4">Member 4:</label>
                             <select th:field="*{member4}" id="member4" class="form-control" required>
                                 <option th:each="person : ${listPersons}"
@@ -94,6 +94,10 @@
                                         th:value="${person.id}"
                                         th:selected="*{member4}!=null and ${person.id}==*{member4}"></option>
                             </select>
+                        </div>
+                        <div class="form-group" th:if="${id != null}" >
+                            <label for="id_hidden"></label>
+                            <input type="text" th:field="*{id}" id="id_hidden" hidden>
                         </div>
                         <button type="submit" class="btn btn-primary">Save</button>
                     </form>

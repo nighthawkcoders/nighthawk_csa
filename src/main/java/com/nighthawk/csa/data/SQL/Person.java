@@ -53,8 +53,10 @@ public class Person {
 
     /* A custom getter to return age from dob calculation */
     public int getAge() {
-        LocalDate birthDay = this.dob.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        return Period.between(birthDay, LocalDate.now()).getYears();
+        if (this.dob != null) {
+            LocalDate birthDay = this.dob.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            return Period.between(birthDay, LocalDate.now()).getYears(); }
+        return -1;
     }
 
 }
