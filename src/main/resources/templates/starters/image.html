@@ -4,14 +4,15 @@
       xmlns:th="http://www.w3.org/1999/xhtml"
       layout:decorate="~{layout}" lang="en">
 
-<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
 <!-- <body> -->
-<div layout:fragment="body" th:with="bits=8" th:remove="tag">
-        <title>Image Processing</title>
+<div layout:fragment="head" th:remove="tag">
+    <!-- Page specific head additions -->
+    <title>Image Processing</title>
 </div>
 
 <!-- <body> -->
-<div layout:fragment="body" th:with="bits=8" th:remove="tag">
+<div layout:fragment="body" th:remove="tag">
+    <!-- Page specific body additions -->
     <div class="container">
         <h1 class="text-center">RGB values within an Image</h1>
             <p><small><a th:href="@{/image/grayscale}">Grayscale</a></small></p>

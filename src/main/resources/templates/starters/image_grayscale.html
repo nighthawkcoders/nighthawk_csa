@@ -6,12 +6,14 @@
 
 <!-- layout::fragment="content" is heart of ThymeLeaf layout -->
 <!-- <body> -->
-<div layout:fragment="body" th:with="bits=8" th:remove="tag">
-        <title>Grayscale - Image Processing </title>
+<div layout:fragment="head" th:remove="tag">
+    <!-- Page specific head additions -->
+    <title>Grayscale - Image Processing </title>
 </div>
 
 <!-- <body> -->
-<div layout:fragment="body" th:with="bits=8" th:remove="tag">
+<div layout:fragment="body" th:remove="tag">
+    <!-- Page specific body additions -->
     <div class="container">
         <h1 class="text-center">Grayscale Images</h1>
         <img src="#" th:src="${str}" alt="">

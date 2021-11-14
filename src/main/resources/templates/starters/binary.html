@@ -13,6 +13,7 @@
 
 <!-- <head> -->
 <div layout:fragment="head" th:with="bits=8" th:remove="tag">
+  <!-- Page specific head additions -->
   <title>Binary page</title>
   <script>
     const BITS = [[${bits}]];
@@ -107,11 +108,11 @@
     }
   </script>
 </div>
-<!-- </head> -->
 
 <!-- <body> -->
 <div layout:fragment="body" th:with="bits=8" th:remove="tag">
-    <h1 class="text-center">Binary Math with Conversions</h1>
+  <!-- Page specific body additions -->
+  <h1 class="text-center">Binary Math with Conversions</h1>
     <div class="container">
       <div class="row justify-content-md-center">
 

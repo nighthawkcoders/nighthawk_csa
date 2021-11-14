@@ -6,6 +6,7 @@
 
 <!-- <head> -->
 <div layout:fragment="head" th:remove="tag">
+    <!-- Page specific head additions -->
     <title>Snake Game</title>
     <style type="text/css">
 
@@ -157,7 +158,7 @@
 
 <<!-- <body> -->
 <div layout:fragment="body" th:remove="tag">
-
+    <!-- Page specific body additions -->
     <header class="wrap">
         <h1>Snake</h1>
         <p class="score">Score: <span id="score_value">0</span></p>
