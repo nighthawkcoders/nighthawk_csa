@@ -1,0 +1,73 @@
+<!-- This page is illustrative and contains ideas about HTML formatting -->
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
+
+<!-- <head> -->
+<div layout:fragment="head" th:remove="tag">
+    <!-- Page specific head additions -->
+    <title>Scrum Team List</title>
+</div>
+
+<!-- <body> -->
+<div layout:fragment="body" th:remove="tag">
+    <!-- Page specific body additions -->
+    <div style="margin: 2%;">
+        <div align="center">
+            <h1>SQL Scrum Team List</h1>
+            <a th:href="@{/data/scrum_team_create/}">Create Scrum Team</a>
+            <br/><br/>
+
+            <table border="1" cellpadding="10">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Scrum Team Name</th>
+                    <th>Scrum Master</th>
+                    <th>Member 1</th>
+                    <th>Member 2</th>
+                    <th>Member 3</th>
+                    <th>Member 4</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <!--
+                    Display listing of Family properties
+                     Reference to POJO details
+                     Objects primary and spouse allow access to details
+                    -->
+                    <tr th:each="item : ${list}">
+                        <td th:text="${item.id}">Scrum Team ID</td>
+                        <td th:text="${item.name}">Scrum Team Name</td>
+                        <td th:text="${item.primary.name}">Scrum Master</td>
+
+                        <div th:if="${item.member1 == null}"><td th:text="null">Member 1</td></div>
+                        <div th:unless="${item.member1 == null}"><td th:text="${item.member1.name}">Member 1</td></div>
+
+                        <div th:if="${item.member2 == null}"><td th:text="null">Member 2</td></div>
+                        <div th:unless="${item.member2 == null}"><td th:text="${item.member2.name}">Member 2</td></div>
+
+                        <div th:if="${item.member3 == null}"><td th:text="null">Member 3</td></div>
+                        <div th:unless="${item.member3 == null}"><td th:text="${item.member3.name}">Member 3</td></div>
+
+                        <div th:if="${item.member4 == null}"><td th:text="null">Member 4</td></div>
+                        <div th:unless="${item.member4 == null}"><td th:text="${item.member4.name}">Member 4</td></div>
+
+                        <td>
+                            <a th:href="@{/data/scrum_team_update/{id}(id = ${item.id})}">Update</a>
+                            <a th:href="@{/data/scrum_team_delete/{id}(id = ${item.id})}">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--
+            <p th:text="'Raw Data: ' + ${list}"></p>
+            -->
+        </div>
+    </div>
+</div>
+
+</html>
