@@ -42,7 +42,9 @@
                     <tr th:each="item : ${list}">
                         <td th:text="${item.id}">Scrum Team ID</td>
                         <td th:text="${item.name}">Scrum Team Name</td>
-                        <td th:text="${item.primary.name}">Scrum Master</td>
+
+                        <div th:if="${item.primary == null}"><td th:text="null">Primary</td></div>
+                        <div th:unless="${item.primary == null}"><td th:text="${item.primary.name}">Primary</td></div>
 
                         <div th:if="${item.member1 == null}"><td th:text="null">Member 1</td></div>
                         <div th:unless="${item.member1 == null}"><td th:text="${item.member1.name}">Member 1</td></div>
