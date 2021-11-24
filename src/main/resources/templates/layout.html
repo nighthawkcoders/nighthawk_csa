@@ -3,15 +3,38 @@
 <html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
 
 <head>
-    <div th:replace="fragments/head :: headfile" th:remove="tag">Standard head for all pages</div>
-    <div layout:fragment="head" th:remove="tag">Head details are added by ThymeLeaf layout consumer</div>
-    <!-- layout contains title to avoid warnings -->
-    <title>...</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- JQuery CSS -->
+    <script th:src="@{https://code.jquery.com/jquery-3.3.1.slim.min.js}" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css}" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Project CSS -->
+    <link th:href="@{/scss/custom.css}" rel="stylesheet">
+    <link th:href="@{/css/styles.css}" rel="stylesheet">
+
+    <th:block layout:fragment="head" th:remove="tag">Head details are added by ThymeLeaf layout consumer</th:block>
+
+    <!-- Layout contains title to avoid warnings -->
+    <title>Nighthawk Coding Society</title>
 </head>
 
 <body>
-    <div th:replace="fragments/nav :: header" th:remove="tag">Standard header</div>
-    <div layout:fragment="body" th:remove="tag">Body details are added by ThymeLeaft layout consumer</div>
+    <div th:replace="fragments/nav :: header" th:remove="tag">Standard header and Navigation</div>
+
+    <div layout:fragment="body" th:remove="tag">Body details are added by ThymeLeaf layout consumer</div>
+
     <div th:replace="fragments/footer :: footer" th:remove="tag">Standard footer</div>
+
+    <!-- Bootstrap 5.0 Bundle with Popper -->
+    <script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js}" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
