@@ -14,23 +14,31 @@
 <!-- <body> -->
 <div layout:fragment="body" th:remove="tag">
     <!-- Page specific body additions -->
-    <div id="spring_intro" class="articles" style="margin: 30px;">
-        <h1><strong>Java and Spring</strong></h1>
-        <h3><strong>What is Spring?</strong></h3>
-        <ol>
-            <li>Spring Framework is the most popular application development framework of Java. </li>
-            <li>Spring Boot helps to create a stand-alone application with less configuration.</li>
-            <li>Spring MVC is a model view controller-based web framework under the Spring framework.</li>
-            <li>ThymeLeaf is a server-side Java template engine, support HTML5 JVM web development, and provides full integration with Spring Framework.</li>
-        </ol>
-        <h3><strong>What should Java Developers learn?</strong></h3>
-        <ol>
-            <li>Development DevOps. Java programmers should have a passion for managing the environment and learning automation (Maven, Gradle, DevOps, Deployment).</li>
-            <li>Git/GitHub.  Learning to master managing change, forks or branches, pull requests.</li>
-            <li>REST services using Spring.  Mastering creating and consuming RESTful APIs</li>
-            <li>Microservices are nothing but an extension of RESTful Web services with the main objective being to break up your code into small, distributed, and independent services.</li>
-            <li>Java 9-15. Java 8 is AP standard.  Things like Jigsaw, Reactive Streams, Process API, HTTP2 client, JShell, React JS are all more recent</li>
-        </ol>
+    <div class="container py-4">
+        <header class="pb-3 mb-4 border-bottom border-primary">
+            <div class="d-flex align-items-center text-dark text-decoration-none">
+                <span class="fs-4">Home Page</span>
+            </div>
+        </header>
+
+        <div class="container-fluid py-5">
+            <h1><strong>Java and Spring</strong></h1>
+            <h3><strong>What is Spring?</strong></h3>
+            <ol>
+                <li>Spring Framework is the most popular application development framework of Java. </li>
+                <li>Spring Boot helps to create a stand-alone application with less configuration.</li>
+                <li>Spring MVC is a model view controller-based web framework under the Spring framework.</li>
+                <li>ThymeLeaf is a server-side Java template engine, support HTML5 JVM web development, and provides full integration with Spring Framework.</li>
+            </ol>
+            <h3><strong>What should Java Developers learn?</strong></h3>
+            <ol>
+                <li>Development DevOps. Java programmers should have a passion for managing the environment and learning automation (Maven, Gradle, DevOps, Deployment).</li>
+                <li>Git/GitHub.  Learning to master managing change, forks or branches, pull requests.</li>
+                <li>REST services using Spring.  Mastering creating and consuming RESTful APIs</li>
+                <li>Microservices are nothing but an extension of RESTful Web services with the main objective being to break up your code into small, distributed, and independent services.</li>
+                <li>Java 9-15. Java 8 is AP standard.  Things like Jigsaw, Reactive Streams, Process API, HTTP2 client, JShell, React JS are all more recent</li>
+            </ol>
+        </div>
     </div>
     <!-- End of body content specific to page -->
 </div>
