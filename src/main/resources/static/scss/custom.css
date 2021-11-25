@@ -11180,29 +11180,6 @@ html, body {
   background-color: var(--bs-body-bg);
 }
 
-.fa {
-  font-size: 3em;
-  letter-spacing: 1em;
-  transition: all 0.2s;
-  color: var(--fa);
-}
-
-.fa:hover {
-  transform: translateY(10px);
-}
-
-.fa-youtube-play:hover {
-  color: var(--youtube);
-}
-
-.fa-twitter:hover {
-  color: var(--twitter);
-}
-
-.fa-github:hover {
-  color: var(--github);
-}
-
 .dark-mode {
   /* redefine body background */
   /* set background values */
