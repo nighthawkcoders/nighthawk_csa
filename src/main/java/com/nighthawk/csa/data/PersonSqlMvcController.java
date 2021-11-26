@@ -1,9 +1,13 @@
 package com.nighthawk.csa.data;
 
+import javax.servlet.http.HttpServletRequest;
 
 import com.nighthawk.csa.data.SQL.*;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,8 +17,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.validation.Valid;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 // Built using article: https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/mvc.html
 // or similar: https://asbnotebook.com/2020/04/11/spring-boot-thymeleaf-form-validation-example/
@@ -127,6 +130,24 @@ public class PersonSqlMvcController implements WebMvcConfigurer {
         Person person = new Person(email, name, dob);
         repository.save(person);
         return new ResponseEntity<>(email +" is created successfully", HttpStatus.CREATED);
+    }
+
+    @GetMapping("/data/person_search")
+    public String person() {
+        return "data/person_search";
+    }
+
+    /*
+    POST Search from
+     */
+    @RequestMapping(value = "/api/person_search", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Object> personSearch() {
+
+        // Stub to return all in List
+        List<Person> list = repository.listAll();
+
+        // A person object WITHOUT ID will create a new record
+        return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
 }

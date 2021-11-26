@@ -20,7 +20,7 @@
                     <label for="greetField">Type a greeting name?</label>
                     <input name="name" id="greetField">
                     <button>Greetings!</button>
-                    <p th:text="'Greetings, ' + ${name} + '!'"></p>
+                    <p id="greetMessage" th:text="'Greetings, ' + ${name} + '!'"></p>
                 </div>
             </form>
         </div>
