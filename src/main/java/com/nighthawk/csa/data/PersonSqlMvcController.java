@@ -164,7 +164,7 @@ public class PersonSqlMvcController implements WebMvcConfigurer {
         String term = map.get("term");
 
         // custom JPA query
-        List<Person> list = repository.listLike(term);
+        List<Person> list = repository.listLikeNative(term);
 
         // A person object WITHOUT ID will create a new record
         return new ResponseEntity<>(list, HttpStatus.OK);

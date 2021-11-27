@@ -28,6 +28,12 @@ public class PersonSqlRepository {
         return jpa.findByNameContainingIgnoreCaseOrEmailContainingIgnoreCase(term, term);
     }
 
+    // custom query to find anything containing term in name or email ignoring case
+    public  List<Person>listLikeNative(String term) {
+        String like_term = String.format("%%%s%%",term);  // Like required % rappers
+        return jpa.findByLikeTermNative(like_term);
+    }
+
     public void save(Person person) {
         jpa.save(person);
     }
