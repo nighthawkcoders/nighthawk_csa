@@ -142,7 +142,7 @@ public class PersonSqlMvcController implements WebMvcConfigurer {
     personSearch has the intention to search across database for partial string match
      */
     @RequestMapping(value = "/api/person_search", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Object> personSearch(HttpEntity request) {
+    public ResponseEntity<Object> personSearch(RequestEntity<Object> request) {
 
         // This stub to calculate term as I can't figure out simple solution
         Pattern p = Pattern.compile("[^{}=,]+");
