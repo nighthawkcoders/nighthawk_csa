@@ -145,16 +145,19 @@ public class PersonSqlMvcController implements WebMvcConfigurer {
     public ResponseEntity<Object> personSearch(HttpEntity request) {
 
         // This stub to calculate term as I can't figure out simple solution
-        Pattern p = Pattern.compile("[^{}=]+");
+        Pattern p = Pattern.compile("[^{}=,]+");
         Matcher m1 = p.matcher(Objects.requireNonNull(request.getBody()).toString());
         Map<String, String> map = new HashMap<>();
-        String key, value;
+        String key="", value;
+        int toggle = 0;
         while (m1.find()) {
-            key = m1.group();
-            while (m1.find()) {
+            if ((toggle % 2) == 0) {
+                key = m1.group();
+            } else {
                 value = m1.group();
                 map.put(key, value);
             }
+            toggle++;
         }
 
         // "term" is input from form
