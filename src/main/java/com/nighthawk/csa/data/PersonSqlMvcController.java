@@ -1,11 +1,7 @@
 package com.nighthawk.csa.data;
 
-import javax.servlet.http.HttpServletRequest;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nighthawk.csa.data.SQL.*;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
@@ -17,8 +13,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 // Built using article: https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/mvc.html
 // or similar: https://asbnotebook.com/2020/04/11/spring-boot-thymeleaf-form-validation-example/
@@ -139,34 +133,19 @@ public class PersonSqlMvcController implements WebMvcConfigurer {
     }
 
     /*
-    personSearch has the intention to search across database for partial string match
+    The personSearch API looks across database for partial match to term (k,v) passed by RequestEntity body
      */
     @RequestMapping(value = "/api/person_search", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> personSearch(RequestEntity<Object> request) {
 
-        // This stub to calculate term as I can't figure out simple solution
-        Pattern p = Pattern.compile("[^{}=,]+");
-        Matcher m1 = p.matcher(Objects.requireNonNull(request.getBody()).toString());
-        Map<String, String> map = new HashMap<>();
-        String key="", value;
-        int toggle = 0;
-        while (m1.find()) {
-            if ((toggle % 2) == 0) {
-                key = m1.group();
-            } else {
-                value = m1.group();
-                map.put(key, value);
-            }
-            toggle++;
-        }
+        // extract term from RequestEntity
+        JSONObject json = new JSONObject((Map) Objects.requireNonNull(request.getBody()));
+        String term = (String) json.get("term");
 
-        // "term" is input from form
-        String term = map.get("term");
-
-        // custom JPA query
+        // custom JPA query to filter on term
         List<Person> list = repository.listLikeNative(term);
 
-        // A person object WITHOUT ID will create a new record
+        // return resulting list and status, error checking should be added
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
