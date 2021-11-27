@@ -163,21 +163,11 @@ public class PersonSqlMvcController implements WebMvcConfigurer {
         // "term" is input from form
         String term = map.get("term");
 
-        // jpa returns complete list of persons, a custom query is desired, these look interesting:
-        // https://springframework.guru/spring-data-jpa-query/
-        // https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods
-        // https://www.baeldung.com/spring-data-jpa-query
-        List<Person> list = repository.listAll();
-
-        // this was quick as JPA stuff needs some study
-        List<Person> list_filtered = new ArrayList<>();
-        for (Person person : list) {
-            if (person.getName().toLowerCase().contains(term.toLowerCase()) || person.getEmail().toLowerCase().contains(term.toLowerCase()))
-                list_filtered.add(person);
-        }
+        // custom JPA query
+        List<Person> list = repository.listLike(term);
 
         // A person object WITHOUT ID will create a new record
-        return new ResponseEntity<>(list_filtered, HttpStatus.OK);
+        return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
 }
