@@ -2,13 +2,12 @@ package com.nighthawk.csa.data;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nighthawk.csa.data.SQL.*;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,6 +17,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 // Built using article: https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/mvc.html
 // or similar: https://asbnotebook.com/2020/04/11/spring-boot-thymeleaf-form-validation-example/
@@ -138,16 +139,42 @@ public class PersonSqlMvcController implements WebMvcConfigurer {
     }
 
     /*
-    POST Search from
+    personSearch has the intention to search across database for partial string match
      */
     @RequestMapping(value = "/api/person_search", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Object> personSearch() {
+    public ResponseEntity<Object> personSearch(HttpEntity request) {
 
-        // Stub to return all in List
+        // This stub to calculate term as I can't figure out simple solution
+        Pattern p = Pattern.compile("[^{}=]+");
+        Matcher m1 = p.matcher(Objects.requireNonNull(request.getBody()).toString());
+        Map<String, String> map = new HashMap<>();
+        String key, value;
+        while (m1.find()) {
+            key = m1.group();
+            while (m1.find()) {
+                value = m1.group();
+                map.put(key, value);
+            }
+        }
+
+        // "term" is input from form
+        String term = map.get("term");
+
+        // jpa returns complete list of persons, a custom query is desired, these look interesting:
+        // https://springframework.guru/spring-data-jpa-query/
+        // https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods
+        // https://www.baeldung.com/spring-data-jpa-query
         List<Person> list = repository.listAll();
 
+        // this was quick as JPA stuff needs some study
+        List<Person> list_filtered = new ArrayList<>();
+        for (Person person : list) {
+            if (person.getName().toLowerCase().contains(term.toLowerCase()) || person.getEmail().toLowerCase().contains(term.toLowerCase()))
+                list_filtered.add(person);
+        }
+
         // A person object WITHOUT ID will create a new record
-        return new ResponseEntity<>(list, HttpStatus.OK);
+        return new ResponseEntity<>(list_filtered, HttpStatus.OK);
     }
 
 }
