@@ -21,6 +21,9 @@
 | Sarah | [@sarahwxie](https://github.com/sarahwxie)  | 
 
 ## Table of Contents
-  - [Week 0]()
-  - [Week 1]()
+  - [Week 0](https://github.com/ridhimainukurti/valid#week-0)
+  - [Week 1](https://github.com/ridhimainukurti/valid#week-1)
   
+## Week 1
+
+## Week 0
