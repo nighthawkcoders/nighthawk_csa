@@ -25,5 +25,7 @@
   - [Week 1](https://github.com/ridhimainukurti/valid#week-1)
   
 ## Week 1
-
+| Requirment | Evidence |
+| ---        | ---      |
+| Week 1 Requirements| [Week 1 Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-73931852) |
 ## Week 0
