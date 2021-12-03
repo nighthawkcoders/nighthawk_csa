@@ -17,7 +17,7 @@
 | Natasha | [@mistylavender](https://github.com/mistylavender) | Scrum Master | 
 | Ridhima | [@ridhimainukurti](https://github.com/ridhimainukurti)  | Github Admin |
 | Risa | [@risaiwazaki](https://github.com/risaiwazaki) | Deployment Manager |
-| Ava | [@avabrooks](https://github.com/avabrooks)  | Design | 
+| Ava | [@avabrooks](https://github.com/avabrooks)  | Design Manager | 
 | Sarah | [@sarahwxie](https://github.com/sarahwxie)  | Technical Officer|
 
 ## Table of Contents
