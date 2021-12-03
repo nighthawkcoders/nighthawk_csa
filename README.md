@@ -13,7 +13,7 @@
 
 ## Contributors 
 | Name | Github Profile | Role | Tasks | Scrum Board | Commits |
-|  --- |  ---           | ---   | ---         | ---     |
+|  --- |  ---           | --- | ---   | ---         | ---     |
 | Natasha | [@mistylavender](https://github.com/mistylavender) | Scrum Master | 
 | Ridhima | [@ridhimainukurti](https://github.com/ridhimainukurti)  | Github Admin |
 | Risa | [@risaiwazaki](https://github.com/risaiwazaki) | Deployment Manager |
