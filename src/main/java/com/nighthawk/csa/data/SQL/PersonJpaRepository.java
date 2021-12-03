@@ -20,6 +20,7 @@ public interface PersonJpaRepository extends JpaRepository<Person, Long> {
      */
 
     // Custom JPA query
+    // contains the searching for the name
     @Query(
             value = "SELECT * FROM Person p WHERE p.name LIKE ?1 or p.email LIKE ?1",
             nativeQuery = true)
@@ -27,4 +28,5 @@ public interface PersonJpaRepository extends JpaRepository<Person, Long> {
     /*
         https://www.baeldung.com/spring-data-jpa-query
      */
+
 }
