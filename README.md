@@ -1,7 +1,7 @@
 # Period 1 Valid  
 
 ## Scrum Board
-[Scrum Board](https://github.com/ridhimainukurti/valid/projects/1)
+[Scrum Board](https://github.com/ridhimainukurti/p1-Valid/projects/1)
 
 [Contributors](https://github.com/ridhimainukurti/valid/graphs/contributors)
 
