@@ -14,7 +14,7 @@
 
 ### Pair Journals
 
-[Ava, Risa, & Sarah's Journal]()
+[Ava, Risa, & Sarah's Journal](https://docs.google.com/document/d/1-V9Kr_vp2QZeSPeBJ6LhttOzwXwQC6s99JLfzU1OMBw/edit#)
 
 [Natasha & Ridhima's Journal](https://docs.google.com/document/d/14XjNanKRCJLlYLtn_Kr3sNewlQnIewDAhDZlCxQXr7s/edit?usp=sharing)
 
