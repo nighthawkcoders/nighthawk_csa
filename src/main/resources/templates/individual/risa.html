@@ -5,7 +5,7 @@
 
 <head><div layout:fragment="metadata" th:remove="tag">
     <!-- Start of head content specific to page -->
-    <title>StudentVue</title>
+    <title>TutorVue</title>
 
     <!-- End of head content specific to page -->
 </div>
@@ -18,13 +18,62 @@
 
 <head><div layout:fragment="metadata" th:remove="tag">
     <!-- Start of head content specific to page -->
-    <title>StudentVue</title>
+    <title>Tutor</title>
 
     <!-- End of head content specific to page -->
 </div>
 
 </head>
 
+<body><div layout:fragment="content" th:remove="tag">
+    <!-- Start of body content specific to page -->
+    <div style="padding: 60px; margin-left: 50px;">
+        <div>
+            <!-- Input -->
+            <h1></h1>
+
+            <form action="/risa" method="GET" id="padform">
+
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">E</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row"></th>
+                        <td>22</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"></th>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <label for="greetField"></label>
+                    <input name="name" id="greetfiled">
+                    <button>Go!</button>
+                </div>
+                <h1></h1>
+
+            </form>
+
+            <form action="/risa" method="GET" id="palindrome">
+                <div>
+                    <label for="greetField"></label>
+                    <input name="name" id="greetField">
+                    <button>Go!</button>
+                </div>
+                <h1></h1>
+
+            </form>
+        </div>
+    </div>
+    <!-- End of body content specific to page -->
+</div></body>
 
 </div></body>
 
