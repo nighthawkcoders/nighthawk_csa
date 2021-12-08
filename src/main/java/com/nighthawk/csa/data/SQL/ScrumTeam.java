@@ -28,23 +28,23 @@ public class ScrumTeam {
      a ManyToOne always contains a foreign key from the source object's table
      a OneToOne relationship the foreign key may either be in the source object's table or the target object's table.
      */
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "primary_id")    //foreign key is stored in table
     private Person primary;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "member1_id")
     private Person member1;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "member2_id")
     private Person member2;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "member3_id")
     private Person member3;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "member4_id")
     public Person member4;
 }
