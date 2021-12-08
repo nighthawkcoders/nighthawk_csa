@@ -1,6 +1,6 @@
 # Deployment Guide
 
-## Instruction on purchasing and setting up a Raspberry Pi (RPi)
+## Raspberry Pi (RPi) Purchase and Setup
 <details>
   <summary>Click for Raspberry Pi 4 purchase!</summary>
 
@@ -25,6 +25,47 @@ RPi OS deployment preparation: RPi with NOOBS installed on SSD is very simple.  
 VNC Viewer can connect to the RPi for desktop display.  This is a full desktop remote display tool, SSH is a terminal only option.  RealVNC lets you share full desktop with cohorts.  If you reboot RPi, you need a monitor connected at reboot to maintain VNC screen share functionality.  Reboot will cause screen buffer not to be recognized unless HDMI is present.  There may be a dummy (mini) HDMI plug that could overcomee this issue.  Otherwise, after setup your RPi could be headless.
 </details>
 
+## AWS EC2 Setup (an alternative to RPi)
+<details>
+  <summary>Instruction on preparing AWS EC2 instance for Webserver deployment!</summary>
+  
+Login into your AWS IAM user, search for EC2.
+
+#### To get started, launch an Amazon EC2 instance, which is a a computer server in the cloud.
+<img src="https://github.com/nighthawkcoders/flask-idea-homesite/blob/master/assets/ec2launch.png">
+
+## Step 1: Choose an Amazon Machine Image (AMI)Cancel and Exit
+#### An AMI is a template that contains the software configuration (operating system, application server, and applications) required to launch your instance. Pick Ubuntu free tier operating system that uses the Linux kernel.  Note, this is very compatible Raspberry Pi's OS.
+<img src="https://github.com/nighthawkcoders/flask-idea-homesite/blob/master/assets/ec2os.png">
+
+## Step 2: Choose an Instance Type
+Amazon EC2 provides a wide selection of instance types optimized to fit different use cases. Instances have varying combinations of CPU, memory, storage, and networking capacity.   Stick with Free Tier options, as of this writing t2.mico with free tier designation is suggested.
+
+## No action on Steps #3 through #4
+Step 3: Configure Instance Details
+Stick with default.  Your will launch a single instance of the AMI by using defaults
+
+Step 4: Add Storage
+Stick with default.  Your instance will be launched with 8gb of storage.
+
+## Step 5: Add Tags
+#### Tag your Amazon EC2 resources.  This is not required but you could name your volume for future identification.
+<img src="https://github.com/nighthawkcoders/flask-idea-homesite/blob/master/assets/ec2tags.png">
+
+## Step 6: Configure Security Group
+#### A security group is a set of firewall rules that control the traffic for your instance. On this page, you can add rules to allow specific traffic to reach your instance. In this example, a web server is setup to allow Internet traffic to reach EC2 instance, this allows unrestricted access to the HTTP and HTTPS ports.  Also, this example restricts SSH from my IP.
+<img src="https://github.com/nighthawkcoders/flask-idea-homesite/blob/master/assets/ec2security.png">
+
+## Step 7: Review Instance Launch
+#### Review your instance launch details. Click Launch to assign a key pair to your instance and complete the launch process.
+<img src="https://github.com/nighthawkcoders/flask-idea-homesite/blob/master/assets/ec2keypair.png">
+
+## Before you leave your ADMIN session on AWS go to EC2 running instances and find your IPV4 address.
+#### Find IPv4 address and IPv4 DNS
+<img src="https://github.com/nighthawkcoders/flask-idea-homesite/blob/master/assets/ec2ipv4.png">
+
+# Start a terminal session on you localhost.
+</details>
 
 ## Setting up Java Web Application
 <details>
@@ -92,7 +133,7 @@ In this service file we are providing details of the java runtime service:
 Create a 'service' file as administratr: 
 * sudo nano <filename> 
 * change nighthawk_csa reference or jar file name as applicable to your project
-* replace User=pi with User=ubuntu if applicable
+* replace User=pi with User=ubuntu if on AWS
 
 File is located at /etc/systemd/system/nighthawk_csa.service. 
 ```
@@ -125,18 +166,19 @@ $ sudo systemctl enable nighthawk_csa
 <details>
   <summary>Enable Nginx to retrieve Java Web Application on external request (Reverse Proxy)!</summary>
   
-File is located at /etc/nginx/sites-available/nighthawk_csa 
+File is located at /etc/nginx/sites-available/nighthawk 
 ```
 server {
     listen 80;
-    server_name csa.nighthawkcoders.cf;
+    listen [::]:80;
+    server_name nighthawkcodingsociety.com;
 
     location / {
         proxy_pass http://localhost:8080;
     }
 }
 ```
-Test the configuration to make sure there are no errors:
+Link configuration to enabled location and test to make sure there are no errors:
 
     $ sudo ln -s /etc/nginx/sites-available/nighthawk_csa /etc/nginx/sites-enabled
     $ sudo nginx -t
@@ -144,6 +186,19 @@ Test the configuration to make sure there are no errors:
 If there are no errors, restart NGINX so the changes take effect:
 
     $ sudo systemctl restart nginx
+
+Advanced, if you setup a second application, you will need a subdomain (csa) and alter runtime port (8081).  File is located at /etc/nginx/sites-available/nighthawk_csa 
+```
+server {
+    listen 80;
+    listen [::]:80;
+    server_name csa.nighthawkcodingsociety.com;
+
+    location / {
+        proxy_pass http://localhost:8081;
+    }
+}
+```
   
 </details>
     
@@ -157,8 +212,8 @@ If there are no errors, restart NGINX so the changes take effect:
 + REPLACE freenom config with your-domain and your-public-ip, make one or more a records for each project
 ```
 
-#### This illustration shows configuration of A records within the domain
-<img src="https://github.com/nighthawkcoders/nighthawk_csp/blob/master/static/assets/freenom.png">
+#### This illustration shows configuration of A records within the domain.  As an advanced configuration, it shows configurations of CNAME records which are used for setting up subdomains.  All records resolve to the same IP address.
+<img src="https://github.com/nighthawkcoders/flask-idea-homesite/blob/master/assets/dns.png" width="600">
 </details>
 
 
@@ -167,51 +222,165 @@ If there are no errors, restart NGINX so the changes take effect:
 
 ```diff
 - Your Public IP Address needs to connect to your host on Private IP network through Port Forwarding 
-+ PROCESS will vary on every home network, but basic premis is to Port forward external port 80 to your Private Host (aka RPi) on internal port 80
++ PROCESS will vary on every home network, but basic premiss is to Port forward HTTP external port 80 to your Private Host (aka RPi) on internal port 80.  Also HTTPS external port 443 to Private HOST internal port 443
 ```
 
 #### This illustration shows configuration of HTTP, as well as some other common service to access a Private IP host computer through port forwarding.  It is always recommended to minimize access points from internet to your home network.
 <img src="https://github.com/nighthawkcoders/nighthawk_csp/blob/master/static/assets/portforward.png" width="600">
+
+#### This illustration shows configuration of HTTPS, required for SSL
+<img src="https://github.com/nighthawkcoders/flask-idea-homesite/blob/master/assets/SSLPortForward.png" width="600">
+
 </details>
-  
-## AWS EC2 Setup (an alternative to RPi)
+
+## Prepare Nginx configurations for HTTPS
+
 <details>
-  <summary>Instruction on preparing AWS EC2 instance for Webserver deployment!</summary>
+  <summary>Use Certbot on Nginx to support HTTPS</summary>
   
-Login into your AWS IAM user, search for EC2.
+There is a process using the tool "certbot --nginx" that will turn your original nginx configuration file into a https supported configuration.  To install certbot, you first need to install snap.
 
-#### To get started, launch an Amazon EC2 instance, which is a a computer server in the cloud.
-<img src="https://github.com/nighthawkcoders/flask-idea-homesite/blob/master/assets/ec2launch.png">
+Installing snap on Raspberry Pi OS requires reboot.
+```
+$ sudo apt update
+$ sudo apt install snapd
+$ sudo reboot
+```
 
-## Step 1: Choose an Amazon Machine Image (AMI)Cancel and Exit
-#### An AMI is a template that contains the software configuration (operating system, application server, and applications) required to launch your instance. Pick Ubuntu free tier operating system that uses the Linux kernel.  Note, this is very compatible Raspberry Pi's OS.
-<img src="https://github.com/nighthawkcoders/flask-idea-homesite/blob/master/assets/ec2os.png">
+After this, install the core snap and refresh in order to get the latest snapd.
+```
+$ sudo snap install core; sudo snap refresh core
+```
 
-## Step 2: Choose an Instance Type
-Amazon EC2 provides a wide selection of instance types optimized to fit different use cases. Instances have varying combinations of CPU, memory, storage, and networking capacity.   Stick with Free Tier options, as of this writing t2.mico with free tier designation is suggested.
+Run this command on the command line on the machine to install Certbot.
+```
+$ sudo snap install --classic certbot
+$ sudo ln -s /snap/bin/certbot /usr/bin/certbot
+```
 
-## No action on Steps #3 through #4
-Step 3: Configure Instance Details
-Stick with default.  Your will launch a single instance of the AMI by using defaults
+Run this command to get a certificate and have Certbot edit your nginx configuration automatically to serve it, turning on HTTPS access in a single step.  Sample dialog and prompt responses follow.
 
-Step 4: Add Storage
-Stick with default.  Your instance will be launched with 8gb of storage.
+```
+$ sudo certbot --nginx
+```
+```
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Plugins selected: Authenticator nginx, Installer nginx
 
-## Step 5: Add Tags
-#### Tag your Amazon EC2 resources.  This is not required but you could name your volume for future identification.
-<img src="https://github.com/nighthawkcoders/flask-idea-homesite/blob/master/assets/ec2tags.png">
+Which names would you like to activate HTTPS for?
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+1: nighthawkcodingsociety.com
+2: csa.nighthawkcodingsociety.com
+3: csp.nighthawkcodingsociety.com
+4: flm.nighthawkcodingsociety.com
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Select the appropriate numbers separated by commas and/or spaces, or leave input
+blank to select all options shown (Enter 'c' to cancel):    
+Cert not yet due for renewal
 
-## Step 6: Configure Security Group
-#### A security group is a set of firewall rules that control the traffic for your instance. On this page, you can add rules to allow specific traffic to reach your instance. In this example, a web server is setup to allow Internet traffic to reach EC2 instance, this allows unrestricted access to the HTTP and HTTPS ports.  Also, this example restricts SSH from my IP.
-<img src="https://github.com/nighthawkcoders/flask-idea-homesite/blob/master/assets/ec2security.png">
+You have an existing certificate that has exactly the same domains or certificate name you requested and isn't close to expiry.
+(ref: /etc/letsencrypt/renewal/nighthawkcodingsociety.com-0001.conf)
 
-## Step 7: Review Instance Launch
-#### Review your instance launch details. Click Launch to assign a key pair to your instance and complete the launch process.
-<img src="https://github.com/nighthawkcoders/flask-idea-homesite/blob/master/assets/ec2keypair.png">
+What would you like to do?
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+1: Attempt to reinstall this existing certificate
+2: Renew & replace the cert (limit ~5 per 7 days)
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Select the appropriate number [1-2] then [enter] (press 'c' to cancel): 2
+Renewing an existing certificate
+Performing the following challenges:
+http-01 challenge for nighthawkcodingsociety.com
+http-01 challenge for csa.nighthawkcodingsociety.com
+http-01 challenge for cso.nighthawkcodingsociety.com
+http-01 challenge for flm.nighthawkcodingsociety.com
+Waiting for verification...
+Cleaning up challenges
+Deploying Certificate to VirtualHost /etc/nginx/sites-enabled/nighthawk_society
+Deploying Certificate to VirtualHost /etc/nginx/sites-enabled/nighthawk_csa
+Deploying Certificate to VirtualHost /etc/nginx/sites-enabled/nighthawk_csp
+Deploying Certificate to VirtualHost /etc/nginx/sites-enabled/nighthawk_flm
 
-## Before you leave your ADMIN session on AWS go to EC2 running instances and find your IPV4 address.
-#### Find IPv4 address and IPv4 DNS
-<img src="https://github.com/nighthawkcoders/flask-idea-homesite/blob/master/assets/ec2ipv4.png">
+Please choose whether or not to redirect HTTP traffic to HTTPS, removing HTTP access.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+1: No redirect - Make no further changes to the webserver configuration.
+2: Redirect - Make all requests redirect to secure HTTPS access. Choose this for
+new sites, or if you're confident your site works on HTTPS. You can undo this
+change by editing your web server's configuration.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Select the appropriate number [1-2] then [enter] (press 'c' to cancel): 2
+Traffic on port 80 already redirecting to ssl in /etc/nginx/sites-enabled/nighthawk_society
+Traffic on port 80 already redirecting to ssl in /etc/nginx/sites-enabled/nighthawk_csa
+Traffic on port 80 already redirecting to ssl in /etc/nginx/sites-enabled/nighthawk_csp
+Traffic on port 80 already redirecting to ssl in /etc/nginx/sites-enabled/nighthawk_flm
 
-# Start a terminal session on you localhost.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Your existing certificate has been successfully renewed, and the new certificate
+has been installed.
+
+The new certificate covers the following domains:
+https://nighthawkcodingsociety.com, 
+https://csa.nighthawkcodingsociety.com, 
+https://csp.nighthawkcodingsociety.com, and
+https://flm.nighthawkcodingsociety.com,
+
+You should test your configuration at:
+https://www.ssllabs.com/ssltest/analyze.html?d=nighthawkcodingsociety.com
+https://www.ssllabs.com/ssltest/analyze.html?d=csa.nighthawkcodingsociety.com
+https://www.ssllabs.com/ssltest/analyze.html?d=csp.nighthawkcodingsociety.com
+https://www.ssllabs.com/ssltest/analyze.html?d=flm.nighthawkcodingsociety.com
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+IMPORTANT NOTES:
+ - Congratulations! Your certificate and chain have been saved at:
+   /etc/letsencrypt/live/nighthawkcodingsociety.com-0001/fullchain.pem
+   Your key file has been saved at:
+   /etc/letsencrypt/live/nighthawkcodingsociety.com-0001/privkey.pem
+   Your cert will expire on 2022-03-06. To obtain a new or tweaked
+   version of this certificate in the future, simply run certbot again
+   with the "certonly" option. To non-interactively renew *all* of
+   your certificates, run "certbot renew"
+ - If you like Certbot, please consider supporting our work by:
+
+   Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+   Donating to EFF:                    https://eff.org/donate-le
+
+```
+</details>
+
+<details>
+  <summary>Illustration of Nginx configuration after Certbot additions for HTTPS</summary>
+  
+This configuration is not typed.  It is provided here to illustrate how SSL is incorporated.   This file is changed by certbot from our  originally typed nginx configuration.  Pure magic!!!
+
+```
+server { 
+
+    server_name csa.nighthawkcodingsociety.com;
+
+    location / {
+        include proxy_params;
+        proxy_pass http://localhost:8081;
+    }
+
+
+    listen [::]:443 ssl; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/nighthawkcodingsociety.com-0001/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/nighthawkcodingsociety.com-0001/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+}
+
+server {
+    if ($host = csa.nighthawkcodingsociety.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+    listen 80;
+    listen [::]:80; 
+
+    server_name csa.nighthawkcodingsociety.com;
+    return 404; # managed by Certbot
+
+```
 </details>
