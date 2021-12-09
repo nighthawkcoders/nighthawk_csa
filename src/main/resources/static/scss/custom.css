@@ -121,7 +121,7 @@ body {
   line-height: var(--bs-body-line-height);
   color: var(--bs-body-color);
   text-align: var(--bs-body-text-align);
-  background-color: var(--bs-body-bg);
+  background-color: #002654;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -270,11 +270,11 @@ sup {
 }
 
 a {
-  color: #0d6efd;
+  color: #04a062;
   text-decoration: underline;
 }
 a:hover {
-  color: #0a58ca;
+  color: #04a062;
 }
 
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
@@ -318,7 +318,7 @@ kbd {
   padding: 0.2rem 0.4rem;
   font-size: 0.875em;
   color: #fff;
-  background-color: #212529;
+  background-color: #002654;
   border-radius: 0.2rem;
 }
 kbd kbd {
@@ -11183,7 +11183,7 @@ html, body {
 .dark-mode {
   /* redefine body background */
   /* set background values */
-  --bs-body-bg: #455a64;
+  --bs-body-bg: #002654;
   /* redefine theme colors */
   /* redefine theme color variables */
   --bs-primary: #6f42c1;
@@ -11408,7 +11408,7 @@ html, body {
   color: #0a58ca;
 }
 .dark-mode a:not([href]):not([class]), .dark-mode a:not([href]):not([class]):hover {
-  color: inherit;
+  color: #FFFFFF;
   text-decoration: none;
 }
 .dark-mode pre,
