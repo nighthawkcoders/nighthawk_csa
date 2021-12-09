@@ -79,7 +79,7 @@ public class MainController {
         return "individual/risa";
     }
 
-    @GetMapping("/Ridhima")   // GET request
+    @GetMapping("/ridhima")   // GET request
     public String Ridhima() {
         return "individual/ridhima";
     }
