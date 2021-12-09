@@ -38,34 +38,19 @@ public class ScrumTeamSqlRepository {
         jpa.deleteById(id);
     }
 
-    public void scrum_team_delete_refs(long id) {
+    private boolean is_deleted(Person p, long id) {
+        return (p != null && p.getId() == id );
+    }
+
+    public void member_deleted(long id) {
         List<ScrumTeam> stl = jpa.findAll();
         for (ScrumTeam st: stl) {
             boolean changed = false;
-            if (st.getPrimary() != null && st.getPrimary().getId() == id) {
-                st.setPrimary(null);
-                changed = true;
-            }
-            if (st.getMember1() != null && st.getMember1().getId() == id) {
-                st.setMember1(null);
-                changed = true;
-
-            }
-            if (st.getMember2() != null && st.getMember2().getId() == id) {
-                st.setMember2(null);
-                changed = true;
-
-            }
-            if (st.getMember3() != null && st.getMember3().getId() == id) {
-                st.setMember3(null);
-                changed = true;
-
-            }
-            if (st.getMember4() != null && st.getMember4().getId() == id) {
-                st.setMember4(null);
-                changed = true;
-
-            }
+            if (is_deleted(st.getPrimary(), id)) {st.setPrimary(null); changed = true;}
+            if (is_deleted(st.getMember1(), id)) {st.setMember1(null); changed = true;}
+            if (is_deleted(st.getMember2(), id)) {st.setMember2(null); changed = true;}
+            if (is_deleted(st.getMember3(), id)) {st.setMember3(null); changed = true;}
+            if (is_deleted(st.getMember4(), id)) {st.setMember4(null); changed = true;}
             if (changed) {jpa.save(st);}
         }
 

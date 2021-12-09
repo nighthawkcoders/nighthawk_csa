@@ -20,7 +20,7 @@ public class PersonSqlRepository {
     private PersonJpaRepository jpa;
 
     @Autowired
-    private ScrumTeamSqlRepository st_jpa;
+    private ScrumTeamSqlRepository scrum_team_jpa;
 
     public  List<Person>listAll() {
         return jpa.findAll();
@@ -48,7 +48,7 @@ public class PersonSqlRepository {
     }
 
     public void delete(long id) {
-        st_jpa.scrum_team_delete_refs(id);
+        scrum_team_jpa.member_deleted(id);
         jpa.deleteById(id);
     }
 }
