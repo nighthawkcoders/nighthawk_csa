@@ -19,6 +19,9 @@ public class PersonSqlRepository {
     @Autowired
     private PersonJpaRepository jpa;
 
+    @Autowired
+    private ScrumTeamSqlRepository st_jpa;
+
     public  List<Person>listAll() {
         return jpa.findAll();
     }
@@ -39,10 +42,13 @@ public class PersonSqlRepository {
     }
 
     public Person get(long id) {
-        return jpa.findById(id).get();
+        return (jpa.findById(id).isPresent())
+                ? jpa.findById(id).get()
+                : null;
     }
 
     public void delete(long id) {
+        st_jpa.scrum_team_delete_refs(id);
         jpa.deleteById(id);
     }
 }
