@@ -13,7 +13,7 @@ Individual
 | Natasha |  |  | 
 | Ridhima |  |  |
 | Risa | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74543599) |  |
-| Ava |  |  | 
+| Ava | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74549540) | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=avabrooks) | 
 | Sarah |  | |
 
 ## Week 3
