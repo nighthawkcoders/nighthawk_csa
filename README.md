@@ -26,8 +26,8 @@
 | Updates once a week on Friday 9pm | Team members must push code 24 hours before deployment to ensure their code throughout the week is on the updated site. |
 
 ## Contributors 
-| Name | Github Profile | Role | Tasks | Scrum Board | Commits |
-|  --- |  ---           | --- | ---   | ---         | ---     |
+| Name | Github Profile | Role |
+|  --- |  ---           | --- |
 | Natasha | [@mistylavender](https://github.com/mistylavender) | Scrum Master | 
 | Ridhima | [@ridhimainukurti](https://github.com/ridhimainukurti)  | Github Admin |
 | Risa | [@risaiwazaki](https://github.com/risaiwazaki) | Deployment Manager |
