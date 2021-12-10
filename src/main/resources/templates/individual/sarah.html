@@ -8,12 +8,33 @@
 <div layout:fragment="head" th:remove="tag">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" integrity="sha512-Oy18vBnbSJkXTndr2n6lDMO5NN31UljR8e/ICzVPrGpSud4Gkckb8yUpqhKuUNoE+o9gAb4O/rAxxw1ojyUVzg==" crossorigin="anonymous" />
     <title>Sarah</title>
+
+    <style>
+    .card {
+        width:60vw;
+        height:60vh;
+        background: url("images/mask1.jpg") no-repeat;
+        display: inline-block;
+    }
+    .card:hover {
+        background: url("images/mask2.jpg") no-repeat;
+    }
+</style>
 </div>
 
 <!-- <body> -->
 <div layout:fragment="body" th:remove="tag">
 
+    <h1>Sarah</h1>
 
+    <h2>Masks</h2>
+    <div class="card"></div>
+
+    <h2>API Pull</h2>
+
+    <h2>Journal Links</h2>
+
+    <h2>TPT</h2>
 
 </div>
 

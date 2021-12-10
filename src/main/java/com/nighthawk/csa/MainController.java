@@ -84,8 +84,16 @@ public class MainController {
     @GetMapping("/risa")   // GET request
     public String coronavirus(Model model) throws IOException, InterruptedException, ParseException {
 
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("https://quotes15.p.rapidapi.com/quotes/random/"))
+                .header("x-rapidapi-host", "quotes15.p.rapidapi.com")
+                .header("x-rapidapi-key", "e25c6452c9msh8ae4033709e74bbp16b06cjsnb8c921a2f043")
+                .method("GET", HttpRequest.BodyPublishers.noBody())
+                .build();
+        HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
         var coronavirus = new ObjectMapper().readValue(response.body(), HashMap.class);
         model.addAttribute("coronavirus", coronavirus);
+        return "individual/risa";
     }
 
     @GetMapping("/ridhima")   // GET request
