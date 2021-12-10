@@ -1,13 +1,13 @@
 # Period 1 Valid  
 
 ## Week 4
-| Name | Ticket | Commits |
+| Name | Tasks | Commits |
 |  --- |  ---           | --- | 
-| Natasha |  | Scrum Master | 
-| Ridhima |  | Github Admin |
-| Risa | | Deployment Manager |
-| Ava |  | Design Manager | 
-| Sarah |  | Technical Officer|
+| Natasha |  |  | 
+| Ridhima |  |  |
+| Risa | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74543599) |  |
+| Ava |  |  | 
+| Sarah |  | |
 
 ## Week 3
 | Name | Ticket | Role | Tasks | Scrum Board | Commits |
