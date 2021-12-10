@@ -10,13 +10,13 @@
 | Sarah |  | |
 
 ## Week 3
-| Name | Ticket | Role | Tasks | Scrum Board | Commits |
-|  --- |  ---           | --- | ---   | ---         | ---     |
-| Natasha | [@mistylavender](https://github.com/mistylavender) | Scrum Master | 
-| Ridhima | [@ridhimainukurti](https://github.com/ridhimainukurti)  | Github Admin |
-| Risa | [@risaiwazaki](https://github.com/risaiwazaki) | Deployment Manager |
-| Ava | [@avabrooks](https://github.com/avabrooks)  | Design Manager | 
-| Sarah | [@sarahwxie](https://github.com/sarahwxie)  | Technical Officer|
+| Name | Tasks | Commits |
+|  --- |  ---           | --- | 
+| Natasha |  |  | 
+| Ridhima |  |  |
+| Risa | [Ticket]https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74287890) |  |
+| Ava |  |  | 
+| Sarah |  | |
 
 ## Week 2
 | Requirment | Evidence |
