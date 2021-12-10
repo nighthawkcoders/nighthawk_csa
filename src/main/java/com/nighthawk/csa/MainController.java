@@ -2,6 +2,9 @@ package com.nighthawk.csa;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nighthawk.csa.starters.ImageInfo;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -72,8 +75,40 @@ public class MainController {
         return "algorithm/snake";
     }
 
-    @GetMapping("/ava")   // GET request
-    public String Ava() {
+    @GetMapping("/ava")
+    public String Ava(Model model) throws IOException, InterruptedException, org.json.simple.parser.ParseException {
+
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("https://www.balldontlie.io/api/v1/season_averages?season=2021&player_ids[]=246"))
+                .GET()
+                .build();
+        //rapidapi call
+
+        System.out.println("hello");
+        HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+        System.out.println(response.statusCode());
+        System.out.println(response.body());
+
+        //alternative #1: convert response.body() to java hash map
+        //var map = new ObjectMapper().readValue(response.body(), HashMap.class);
+
+        //alternative #2: convert response.body() to JSON object
+        Object obj = new JSONParser().parse(response.body());
+        JSONObject jo = (JSONObject) obj;
+        JSONArray data = (JSONArray) jo.get("data");
+        JSONObject firstRow = (JSONObject) data.get(0);
+
+        System.out.println(firstRow.get("games_played"));
+
+        //pass stats to view
+        model.addAttribute("row", firstRow);
+        model.addAttribute("games_played", firstRow.get("games_played"));  //illustrative of jo get
+        model.addAttribute("min", firstRow.get("min"));
+        model.addAttribute("reb", firstRow.get("reb"));
+        model.addAttribute("ast", firstRow.get("ast"));
+        model.addAttribute("stl", firstRow.get("stl"));
+        model.addAttribute("blk", firstRow.get("blk"));
+
         return "individual/ava";
     }
 
@@ -83,17 +118,17 @@ public class MainController {
     }
 
     @GetMapping("/risa")   // GET request
-    public String coronavirus(Model model) throws IOException, InterruptedException, ParseException {
+    public String news(Model model) throws IOException, InterruptedException, ParseException {
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://coronavirus-smartable.p.rapidapi.com/news/v1/US/"))
-                .header("x-rapidapi-host", "coronavirus-smartable.p.rapidapi.com")
+                .uri(URI.create("https://free-news.p.rapidapi.com/v1/search?q=Elon%20Musk&lang=en"))
+                .header("x-rapidapi-host", "free-news.p.rapidapi.com")
                 .header("x-rapidapi-key", "a917dcdd11msh8cb88225ac662ebp143616jsn13600ff2f660")
                 .method("GET", HttpRequest.BodyPublishers.noBody())
                 .build();
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
         System.out.println(response.body());
-        var coronavirus = new ObjectMapper().readValue(response.body(), HashMap.class);
-        model.addAttribute("coronavirus", coronavirus);
+        var news = new ObjectMapper().readValue(response.body(), HashMap.class);
+        model.addAttribute("news", news);
 
         return "individual/risa";
     }
