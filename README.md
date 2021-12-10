@@ -1,6 +1,24 @@
 # Period 1 Valid  
 
-## Week 1
+## Week 4
+| Name | Ticket | Commits |
+|  --- |  ---           | --- | 
+| Natasha |  | Scrum Master | 
+| Ridhima |  | Github Admin |
+| Risa | | Deployment Manager |
+| Ava |  | Design Manager | 
+| Sarah |  | Technical Officer|
+
+## Week 3
+| Name | Ticket | Role | Tasks | Scrum Board | Commits |
+|  --- |  ---           | --- | ---   | ---         | ---     |
+| Natasha | [@mistylavender](https://github.com/mistylavender) | Scrum Master | 
+| Ridhima | [@ridhimainukurti](https://github.com/ridhimainukurti)  | Github Admin |
+| Risa | [@risaiwazaki](https://github.com/risaiwazaki) | Deployment Manager |
+| Ava | [@avabrooks](https://github.com/avabrooks)  | Design Manager | 
+| Sarah | [@sarahwxie](https://github.com/sarahwxie)  | Technical Officer|
+
+## Week 2
 | Requirment | Evidence |
 | ---        | ---      |
 | Week 1 Requirements| [Week 1 Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-73931852) |
