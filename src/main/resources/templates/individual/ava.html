@@ -12,11 +12,16 @@
 
 <!-- <body> -->
 <div layout:fragment="body" th:remove="tag">
+    <h1 style="text-align: center">Ava's Individual Page</h1>
+    <br>
+    <br>
 
     <div class="container">
         <div class="row">
             <div class="col-sm">
-                <h2><b><u>Mask Image Hover</u></b></h2>
+                <br>
+                <br>
+                <h3><u>Mask Image Hover</u></h3>
                 <style>
                     .sudo {
                         width: 260px;
@@ -35,24 +40,54 @@
                 <div class="sudo"></div>
             </div>
             <div class="col-sm">
-                One of three columns
-            </div>
+                <br>
+                <br>
+                <h3><u>Web API of Interest: Jokic</u></h3>
+                <table class="table">
+                    <tr>
+                        <th>Games Played</th>
+                        <th>Average Time/Game</th>
+                        <th>Rebounds</th>
+                        <th>Assists</th>
+                        <th>Steals</th>
+                        <th>Blocks</th>
+
+                    </tr>
+                    <!-- Usage of JSON object and Thymeleaf -->
+                    <tr>
+                        <td th:text="${games_played}"></td>
+                        <td th:text="${min}"></td>
+                        <td th:text="${reb}"></td>
+                        <td th:text="${ast}"></td>
+                        <td th:text="${stl}"></td>
+                        <td th:text="${blk}"></td>
+                    </tr>
+                </table>
+                </div>
             <div class="col-sm">
-                One of three columns
+                <br>
+                <br>
+                <h3><u>Important Links:</u></h3>
+                <a class="button" href='https://docs.google.com/document/d/1-V9Kr_vp2QZeSPeBJ6LhttOzwXwQC6s99JLfzU1OMBw/edit#heading=h.acord7dg5fto'>Journal</a>
+                <a class="button" href='https://github.com/ridhimainukurti/p1-Valid'>Github</a>
+                <br>
+                <a class="button" href='https://docs.google.com/document/d/1-V9Kr_vp2QZeSPeBJ6LhttOzwXwQC6s99JLfzU1OMBw/edit#heading=h.ul8tlrr58tpf'>Unit 2 FRQ</a>
+
             </div>
-        </div>
-    </div>
-
-
-
 </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
 <style>
     /*
       Rollover Image
      */
     .figure {
         position: relative;
-        width: 360px; /* can be omitted for a regular non-lazy image */
+        width: 100px; /* can be omitted for a regular non-lazy image */
         max-width: 100%;
     }
     .figure img.image-hover {
@@ -67,6 +102,45 @@
     }
     .figure:hover img.image-hover {
         opacity: 1;
+    }
+    .button {
+        display: inline-block;
+        border-radius: 4px;
+        background-color: #04a062;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 15px;
+        padding: 20px;
+        width: 100px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+    }
+
+    .button span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+    .button span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+    }
+
+    .button:hover span {
+        padding-right: 25px;
+    }
+
+    .button:hover span:after {
+        opacity: 1;
+        right: 0;
     }
 </style>
 

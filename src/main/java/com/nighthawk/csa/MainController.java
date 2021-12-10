@@ -64,11 +64,6 @@ public class MainController {
         return "algorithm/snake";
     }
 
-    @GetMapping("/ava")   // GET request
-    public String Ava() {
-        return "individual/ava";
-    }
-
     @GetMapping("/sarah")   // GET request
     public String Sarah() {
         return "individual/sarah";
