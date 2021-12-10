@@ -1,4 +1,5 @@
 # Period 1 Valid  
+## TutorVue is a tutoring site where students from Del Norte can seek help amd guidance from upperclassmen in any class subject! Vue the new you!
 
 ## Week 4
 Team Review Ticket:
@@ -44,6 +45,12 @@ Individual:
 | Risa | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74287890) |  |
 | Ava |  |  | 
 | Sarah |  | |
+
+## Week 1
+Team Review Ticket:
+| Requirment | Evidence |
+| ---        | ---      |
+| Week 1 Requirements| [Week 1 Ticket](https://github.com/ridhimainukurti/valid#week-1) |
 
 ## Week 0
 
