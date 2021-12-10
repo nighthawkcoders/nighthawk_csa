@@ -12,21 +12,137 @@
 
 <!-- <body> -->
 <div layout:fragment="body" th:remove="tag">
+    <br>
+    <h1 style="text-align: center">Ava's Individual Page</h1>
+    <br>
+    <br>
 
-    <div class="center-block" style="margin: 2% 3% 3%; font-family: gilroy,serif;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <br>
+                <br>
+                <h3><u>Mask Image Hover</u></h3>
+                <style>
+                    .sudo {
+                        width: 260px;
+                        height: 195px;
+                        margin: 50px;
+                        background-image: url(
+                        "https://i.postimg.cc/CMRP6Z6p/avamask.jpg");
+                    }
 
-        <div class="col-12" style="text-align: center;">
-            <a href="https://github.com//nighthawkcoders/nighthawk_csa" target="_blank" class="standard-link">
-                <p class="lead">View on Github <span class="fa fa-github"></span></p>
-            </a>
-        </div>
+                    .sudo:hover {
+                        background-image: url(
+                        "https://i.postimg.cc/PqFbmyHp/mortensen.png");
+                    }
+                </style>
 
-        <div class="jumbotron justify-content-left row">
-            <div class="col-12" id="readme"></div>
-        </div>
+                <div class="sudo"></div>
+            </div>
+            <div class="col-sm">
+                <br>
+                <br>
+                <h3><u>Web API of Interest: Jokic</u></h3>
+                <table class="table">
+                    <tr>
+                        <th>Games Played</th>
+                        <th>Average Time/Game</th>
+                        <th>Rebounds</th>
+                        <th>Assists</th>
+                        <th>Steals</th>
+                        <th>Blocks</th>
 
-    </div>
+                    </tr>
+                    <!-- Usage of JSON object and Thymeleaf -->
+                    <tr>
+                        <td th:text="${games_played}"></td>
+                        <td th:text="${min}"></td>
+                        <td th:text="${reb}"></td>
+                        <td th:text="${ast}"></td>
+                        <td th:text="${stl}"></td>
+                        <td th:text="${blk}"></td>
+                    </tr>
+                </table>
+                </div>
+            <div class="col-sm">
+                <br>
+                <br>
+                <h3><u>Important Links:</u></h3>
+                <a class="button" href='https://docs.google.com/document/d/1-V9Kr_vp2QZeSPeBJ6LhttOzwXwQC6s99JLfzU1OMBw/edit#heading=h.acord7dg5fto'>Journal</a>
+                <a class="button" href='https://github.com/ridhimainukurti/p1-Valid'>Github</a>
+                <br>
+                <a class="button" href='https://docs.google.com/document/d/1-V9Kr_vp2QZeSPeBJ6LhttOzwXwQC6s99JLfzU1OMBw/edit#heading=h.ul8tlrr58tpf'>Unit 2 FRQ</a>
 
+            </div>
 </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+<style>
+    /*
+      Rollover Image
+     */
+    .figure {
+        position: relative;
+        width: 100px; /* can be omitted for a regular non-lazy image */
+        max-width: 100%;
+    }
+    .figure img.image-hover {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        object-fit: contain;
+        opacity: 0;
+        transition: opacity .2s;
+    }
+    .figure:hover img.image-hover {
+        opacity: 1;
+    }
+    .button {
+        display: inline-block;
+        border-radius: 4px;
+        background-color: #04a062;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 15px;
+        padding: 20px;
+        width: 100px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+    }
+
+    .button span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+    .button span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+    }
+
+    .button:hover span {
+        padding-right: 25px;
+    }
+
+    .button:hover span:after {
+        opacity: 1;
+        right: 0;
+    }
+</style>
 
 </html>
