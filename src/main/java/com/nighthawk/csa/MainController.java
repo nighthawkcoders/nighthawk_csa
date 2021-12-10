@@ -8,18 +8,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.ui.Model;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.text.ParseException;
-import java.util.HashMap;
-
-
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 
 @Controller  // HTTP requests are handled as a controller, using the @Controller annotation
 public class MainController {
@@ -76,6 +64,11 @@ public class MainController {
         return "algorithm/snake";
     }
 
+    @GetMapping("/ava")   // GET request
+    public String Ava() {
+        return "individual/ava";
+    }
+
     @GetMapping("/sarah")   // GET request
     public String Sarah() {
         return "individual/sarah";
@@ -83,37 +76,22 @@ public class MainController {
 
     @GetMapping("/risa")   // GET request
     public String coronavirus(Model model) throws IOException, InterruptedException, ParseException {
-
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://quotes15.p.rapidapi.com/quotes/random/"))
-                .header("x-rapidapi-host", "quotes15.p.rapidapi.com")
-                .header("x-rapidapi-key", "e25c6452c9msh8ae4033709e74bbp16b06cjsnb8c921a2f043")
-                .method("GET", HttpRequest.BodyPublishers.noBody())
-                .build();
-        HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-        var coronavirus = new ObjectMapper().readValue(response.body(), HashMap.class);
-        model.addAttribute("coronavirus", coronavirus);
-        return "individual/risa";
-    }
-
-    @GetMapping("/ridhima")   // GET request
-    public String space(Model model) throws IOException, InterruptedException, ParseException {
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://quotes15.p.rapidapi.com/quotes/random/"))
-                .header("x-rapidapi-host", "quotes15.p.rapidapi.com")
-                .header("x-rapidapi-key", "e25c6452c9msh8ae4033709e74bbp16b06cjsnb8c921a2f043")
+                .uri(URI.create("https://coronavirus-smartable.p.rapidapi.com/news/v1/US/"))
+                .header("x-rapidapi-host", "coronavirus-smartable.p.rapidapi.com")
+                .header("x-rapidapi-key", "a917dcdd11msh8cb88225ac662ebp143616jsn13600ff2f660")
                 .method("GET", HttpRequest.BodyPublishers.noBody())
                 .build();
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
         System.out.println(response.body());
+        var coronavirus = new ObjectMapper().readValue(response.body(), HashMap.class);
+        model.addAttribute("coronavirus", coronavirus);
 
-        //convert response.body() to java hash map
-        var quotes = new ObjectMapper().readValue(response.body(), HashMap.class);
+        return "individual/risa";
+    }
 
-
-        //pass stats to view
-        model.addAttribute("quotes", quotes);
-
+    @GetMapping("/ridhima")   // GET request
+    public String Ridhima() {
         return "individual/ridhima";
     }
 
