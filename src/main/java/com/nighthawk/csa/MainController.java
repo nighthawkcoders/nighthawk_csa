@@ -82,8 +82,10 @@ public class MainController {
     }
 
     @GetMapping("/risa")   // GET request
-    public String Risa() {
-        return "individual/risa";
+    public String coronavirus(Model model) throws IOException, InterruptedException, ParseException {
+
+        var coronavirus = new ObjectMapper().readValue(response.body(), HashMap.class);
+        model.addAttribute("coronavirus", coronavirus);
     }
 
     @GetMapping("/ridhima")   // GET request
