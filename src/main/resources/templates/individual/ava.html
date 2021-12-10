@@ -13,20 +13,61 @@
 <!-- <body> -->
 <div layout:fragment="body" th:remove="tag">
 
-    <div class="center-block" style="margin: 2% 3% 3%; font-family: gilroy,serif;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <h2><b><u>Mask Image Hover</u></b></h2>
+                <style>
+                    .sudo {
+                        width: 260px;
+                        height: 195px;
+                        margin: 50px;
+                        background-image: url(
+                        "https://i.postimg.cc/CMRP6Z6p/avamask.jpg");
+                    }
 
-        <div class="col-12" style="text-align: center;">
-            <a href="https://github.com//nighthawkcoders/nighthawk_csa" target="_blank" class="standard-link">
-                <p class="lead">View on Github <span class="fa fa-github"></span></p>
-            </a>
+                    .sudo:hover {
+                        background-image: url(
+                        "https://i.postimg.cc/PqFbmyHp/mortensen.png");
+                    }
+                </style>
+
+                <div class="sudo"></div>
+            </div>
+            <div class="col-sm">
+                One of three columns
+            </div>
+            <div class="col-sm">
+                One of three columns
+            </div>
         </div>
-
-        <div class="jumbotron justify-content-left row">
-            <div class="col-12" id="readme"></div>
-        </div>
-
     </div>
 
+
+
 </div>
+<style>
+    /*
+      Rollover Image
+     */
+    .figure {
+        position: relative;
+        width: 360px; /* can be omitted for a regular non-lazy image */
+        max-width: 100%;
+    }
+    .figure img.image-hover {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        object-fit: contain;
+        opacity: 0;
+        transition: opacity .2s;
+    }
+    .figure:hover img.image-hover {
+        opacity: 1;
+    }
+</style>
 
 </html>
