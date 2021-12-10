@@ -74,7 +74,7 @@ Individual:
 | Name | Tasks | Commits |
 |  --- |  ---           | --- | 
 | Natasha |  |  | 
-| Ridhima |  |  |
+| Ridhima | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74567398) | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=ridhimainukurti) |
 | Risa | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74287890) | [Commits](https://github.com/ridhimainukurti/p1-Valid/blob/a4e1596ed2427c32233d3f1932875ee81ada7879/src/main/resources/templates/individual/risa.html#L1-L63) |
 | Ava | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74544407) | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=avabrooks) | 
 | Sarah |  | |
