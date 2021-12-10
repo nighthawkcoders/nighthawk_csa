@@ -19,6 +19,10 @@
 [Natasha & Ridhima's Journal](https://docs.google.com/document/d/14XjNanKRCJLlYLtn_Kr3sNewlQnIewDAhDZlCxQXr7s/edit?usp=sharing)
 
 ## Contributors 
+###Deployment: Updates once a week on Friday 9pm 
+###Policy: Team members must push code 24 hours before deployment to ensure their code throughout the week is on the updated site. 
+
+## Contributors 
 | Name | Github Profile | Role | Tasks | Scrum Board | Commits |
 |  --- |  ---           | --- | ---   | ---         | ---     |
 | Natasha | [@mistylavender](https://github.com/mistylavender) | Scrum Master | 
