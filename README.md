@@ -26,8 +26,8 @@
 | Updates once a week on Friday 9pm | Team members must push code 24 hours before deployment to ensure their code throughout the week is on the updated site. |
 
 ## Contributors 
-| Name | Github Profile | Role | Tasks | Scrum Board | Commits |
-|  --- |  ---           | --- | ---   | ---         | ---     |
+| Name | Github Profile | Role |
+|  --- |  ---           | --- |
 | Natasha | [@mistylavender](https://github.com/mistylavender) | Scrum Master | 
 | Ridhima | [@ridhimainukurti](https://github.com/ridhimainukurti)  | Github Admin |
 | Risa | [@risaiwazaki](https://github.com/risaiwazaki) | Deployment Manager |
@@ -44,7 +44,7 @@ Individual
 | Name | Tasks | Commits |
 |  --- |  ---           | --- | 
 | Natasha |  |  | 
-| Ridhima |  |  |
+| Ridhima | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74074256)  |  |
 | Risa | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74543599) |  |
 | Ava | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74549540) | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=avabrooks) | 
 | Sarah |  | |
@@ -59,7 +59,7 @@ Individual
 | Name | Tasks | Commits |
 |  --- |  ---           | --- | 
 | Natasha |  |  | 
-| Ridhima |  |  |
+| Ridhima | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74074281)  |  |
 | Risa | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74287890) |  |
 | Ava | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74546669) | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=avabrooks) | 
 | Sarah |  | |
@@ -74,7 +74,7 @@ Individual:
 | Name | Tasks | Commits |
 |  --- |  ---           | --- | 
 | Natasha |  |  | 
-| Ridhima |  |  |
+| Ridhima | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74567398) | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=ridhimainukurti) |
 | Risa | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74287890) | [Commits](https://github.com/ridhimainukurti/p1-Valid/blob/a4e1596ed2427c32233d3f1932875ee81ada7879/src/main/resources/templates/individual/risa.html#L1-L63) |
 | Ava | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74544407) | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=avabrooks) | 
 | Sarah |  | |
