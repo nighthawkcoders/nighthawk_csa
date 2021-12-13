@@ -159,6 +159,11 @@ public class MainController {
         return "individual/natasha";
     }
 
+    @GetMapping("/tutors")   // GET request
+    public String Tutors() {
+        return "tutoring/tutors";
+    }
+
 
 
 }
