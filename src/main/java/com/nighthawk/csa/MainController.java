@@ -164,6 +164,10 @@ public class MainController {
         return "tutoring/tutors";
     }
 
+    @GetMapping("/unit3FRQ")   // GET request
+    public String unit3frq() {
+        return "tpt/unit3frq";
+    }
 
 
 }
