@@ -184,5 +184,10 @@ public class MainController {
         return "/tutoring/services";
     }
 
+    @GetMapping("/profile")   // GET request
+    public String profile() {
+        return "/user/profile";
+    }
+
 
 }
