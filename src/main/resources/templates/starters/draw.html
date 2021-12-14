@@ -12,7 +12,7 @@
 
 <th:block layout:fragment="body" th:remove="tag">
     <h1 class="text-center">JavaScript - Draw on Canvas</h1>
-    <div class="container py-4 bg-primary">
+    <div class="container py-4 bg-primary" style="text-align:center;">
         <canvas id="canvas" width="512" height="384" ></canvas>
     </div>
 
@@ -30,8 +30,7 @@
             // color and pen width
             ctx.strokeStyle = 'white';
             ctx.lineWidth = 1;
-
-
+            // make graph paper look
             for (let col = 0; col < width; col += unit) {
                 for (let row = 0; row < height; row += unit) {
                     ctx.strokeRect(col, row, unit, unit);
