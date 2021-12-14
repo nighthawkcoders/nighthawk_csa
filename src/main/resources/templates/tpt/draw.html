@@ -63,18 +63,20 @@
             ctx.lineWidth = 5;
 
             // starting coordinates
-            const x = unit;
-            const y = unit;
+            const x = unit * 4;
+            const y = unit * 4;
             // length of sides is 4 units
             const l = unit*4;
 
             // draw a square
             ctx.beginPath();
-            ctx.moveTo(x, y);
-            ctx.lineTo(x, y+l);
-            ctx.lineTo(x+l, y+l);
-            ctx.lineTo(x+l, y);
-            ctx.lineTo(x, y);
+            const newx = width/2 + x;
+            const newy = height/2 - (4 * unit) - y;
+            ctx.moveTo(newx, newy);
+            ctx.lineTo(newx, newy+l);
+            ctx.lineTo(newx+l, newy+l);
+            ctx.lineTo(newx+l, newy);
+            ctx.lineTo(newx, newy);
             ctx.stroke();
         }
         // three actions
@@ -83,6 +85,8 @@
         // hack 1: make square according to grid positioning
         square();
         // hack 2: plot line or square on grid from user input according
+
+
     </script>
 </th:block>
 

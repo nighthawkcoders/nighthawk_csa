@@ -113,7 +113,17 @@ public class MainController {
     }
 
     @GetMapping("/sarah")   // GET request
-    public String Sarah() {
+    public String sarah(Model model) throws IOException, InterruptedException, ParseException {
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("https://icanhazdadjoke.com/"))
+                .header("Accept", "text/plain")
+                .method("GET", HttpRequest.BodyPublishers.noBody())
+                .build();
+        HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+        System.out.println(response.body());
+
+        model.addAttribute("joke", response.body());
+
         return "individual/sarah";
     }
 

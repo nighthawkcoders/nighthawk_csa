@@ -11,8 +11,8 @@
 
     <style>
     .card {
-        width:60vw;
-        height:60vh;
+        width:1000px;
+        height:600px;
         background: url("images/mask1.jpg") no-repeat;
         display: inline-block;
     }
@@ -25,16 +25,18 @@
 <!-- <body> -->
 <div layout:fragment="body" th:remove="tag">
 
+    <div style="padding:100px;">
     <h1>Sarah</h1>
 
-    <h2>Masks</h2>
-    <div class="card"></div>
+        <h2 style="margin-top:50px;">Masks</h2>
+        <div class="card"></div>
 
-    <h2>API Pull</h2>
+        <h2 style="margin-top:50px;">API Pull</h2>
+        <p th:text="${joke}"></p>
 
-    <h2>Journal Links</h2>
-
-    <h2>TPT</h2>
+        <h2 style="margin-top:50px;">Links</h2>
+        <iframe src="https://docs.google.com/document/d/e/2PACX-1vRatHkCdhEZTQj0Clug4DsjjcKy1t-Ko6ncES8pmkqTeTtxRjEY7xqDRN_v2nFqBuGZmuM7jIfFAqAI/pub?embedded=true"></iframe>     
+    </div>
 
 </div>
 
