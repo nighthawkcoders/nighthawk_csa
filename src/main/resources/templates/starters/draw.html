@@ -1,0 +1,45 @@
+<!-- This page is illustrative and contains ideas about HTML formatting -->
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml" xmlns=""
+      layout:decorate="~{layout}" lang="en">
+
+<!-- <head> -->
+<th:block layout:fragment="head" th:remove="tag">
+    <title>Draw</title>
+</th:block>
+
+<th:block layout:fragment="body" th:remove="tag">
+    <h1 class="text-center">JavaScript - Draw on Canvas</h1>
+    <div class="container py-4 bg-primary">
+        <canvas id="canvas" height="512" width="384"></canvas>
+    </div>
+
+    <script>
+        function draw() {
+            const canvas = document.querySelector('#canvas');
+
+            if (!canvas.getContext) {
+                return;
+            }
+            const ctx = canvas.getContext('2d');
+
+            // set line stroke and line width
+            ctx.strokeStyle = 'black';
+            ctx.lineWidth = 5;
+
+            // draw a square
+            ctx.beginPath();
+            ctx.moveTo(100, 100);
+            ctx.lineTo(100, 200);
+            ctx.lineTo(200, 200);
+            ctx.lineTo(200, 100);
+            ctx.lineTo(100, 100);
+            ctx.stroke();
+        }
+        draw();
+    </script>
+</th:block>
+
+</html>

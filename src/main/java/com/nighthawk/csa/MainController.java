@@ -59,6 +59,11 @@ public class MainController {
         return "starters/binary";
     }
 
+    @GetMapping("/draw")   // GET request
+    public String draw() {
+        return "starters/draw";
+    }
+
     @GetMapping("/snake")   // GET request
     public String snake() {
         return "algorithm/snake";
