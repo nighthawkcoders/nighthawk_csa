@@ -179,5 +179,10 @@ public class MainController {
         return "/tpt/draw";
     }
 
+    @GetMapping("/services")   // GET request
+    public String services() {
+        return "/tutoring/services";
+    }
+
 
 }
