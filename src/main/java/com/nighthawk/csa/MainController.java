@@ -148,6 +148,16 @@ public class MainController {
     public String calendar() {
         return "/tutoring/calendar";
     }
+    @GetMapping("/signup")
+    public String signup() {
+        return "/user/signup";
+    }
+
+    @GetMapping("/login")
+    public String signin() {
+        return "/user/login";
+    }
+
 
     @GetMapping("/signup")   // GET request
     public String SignUp() {
