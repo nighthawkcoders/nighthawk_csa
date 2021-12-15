@@ -138,6 +138,11 @@ public class MainController {
         return "/user/profile";
     }
 
+    @GetMapping("/search")
+    public String search() {
+        return "/user/search";
+    }
+
     @GetMapping("/calendar")
     public String calendar() {
         return "/tutoring/calendar";
