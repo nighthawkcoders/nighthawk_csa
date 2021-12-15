@@ -540,3 +540,57 @@ body.dark .logo img {
   padding-left:30px;
   padding-right:30px;
 }
+
+
+/* Signup and Login Page Start */
+
+
+.container1{
+  width: 60%;
+  padding: 40px;
+  background: white;
+  text-align: center;
+  border-radius:10px;
+  border: 3px solid black;
+  margin-right:auto;
+  margin-left:auto;
+}
+
+.container1 input[type = "text"], .container1 input[type = "password"]{
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #002654;
+  padding: 14px 10px;
+  width: 80%;
+  outline: none;
+  color: black;
+  border-radius: 24px;
+  transition: 0.25s;
+}
+
+.container1 input[type = "submit"]{
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border-radius: 24px;
+  border: 2px solid #002654;
+  padding: 14px 40px;
+  outline: none;
+  color: #1c1c1c;
+  transition: 0.25s;
+  cursor: pointer;
+}
+.container1 input[type = "submit"]:hover{
+  background: #f7f5fa;
+}
+
+
+.myGrid {
+    display:grid;
+    grid-template-columns: 3fr 2fr;
+}

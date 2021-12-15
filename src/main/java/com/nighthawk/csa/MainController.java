@@ -8,6 +8,7 @@ import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.IOException;
@@ -146,6 +147,18 @@ public class MainController {
     @GetMapping("/calendar")
     public String calendar() {
         return "/tutoring/calendar";
+    }
+
+    @GetMapping("/signup")   // GET request
+    public String SignUp() {
+        /* Commented out because this is broken AF
+        if (bindingResult.hasErrors()) {
+            return "user/signup";
+        }
+        repository.save(user);
+        System.out.println(user.getName());
+        */
+        return "data/signup";
     }
 
 
