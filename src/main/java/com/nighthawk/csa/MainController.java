@@ -152,9 +152,9 @@ public class MainController {
         return "/user/signup";
     }
 
-    @GetMapping("/signin")
+    @GetMapping("/login")
     public String signin() {
-        return "/user/signin";
+        return "/user/login";
     }
 
 
