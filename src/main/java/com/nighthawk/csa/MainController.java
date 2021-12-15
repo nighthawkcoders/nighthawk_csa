@@ -127,7 +127,7 @@ public class MainController {
         return "individual/sarah";
     }
 
-    @GetMapping("/risa")   // GET request
+    /* @GetMapping("/risa")   // GET request
     public String news(Model model) throws IOException, InterruptedException, ParseException {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://free-news.p.rapidapi.com/v1/search?q=Elon%20Musk&lang=en"))
@@ -141,7 +141,7 @@ public class MainController {
         model.addAttribute("news", news);
 
         return "individual/risa";
-    }
+    } */
 
     @GetMapping("/ridhima")   // GET request
     public String space(Model model) throws IOException, InterruptedException, ParseException {
