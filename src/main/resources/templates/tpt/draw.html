@@ -14,6 +14,7 @@
     <h1 class="text-center">JavaScript - Draw on Canvas</h1>
     <div class="container py-4 bg-primary" style="text-align:center;">
         <canvas id="canvas" width="512" height="384" ></canvas>
+
     </div>
 
     <script>
@@ -61,10 +62,11 @@
         function square() {
             ctx.strokeStyle = 'black';
             ctx.lineWidth = 5;
-
+            let userx = prompt('input the x');
+            let usery = prompt('input the y');
             // starting coordinates
-            const x = unit * 4;
-            const y = unit * 4;
+            const x = unit * userx;
+            const y = unit * usery;
             // length of sides is 4 units
             const l = unit*4;
 
