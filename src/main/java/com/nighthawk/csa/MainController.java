@@ -148,8 +148,10 @@ public class MainController {
     public String calendar() {
         return "/tutoring/calendar";
     }
+
     @GetMapping("/signup")
     public String signup() {
+
         return "/user/signup";
     }
 
@@ -158,18 +160,18 @@ public class MainController {
         return "/user/login";
     }
 
-
+    /*
     @GetMapping("/signup")   // GET request
     public String SignUp() {
-        /* Commented out because this is broken AF
+
         if (bindingResult.hasErrors()) {
             return "user/signup";
         }
         repository.save(user);
         System.out.println(user.getName());
-        */
+
         return "data/signup";
-    }
+    }*/
 
 
 }
