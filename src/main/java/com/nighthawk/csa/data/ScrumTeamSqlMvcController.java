@@ -21,7 +21,7 @@ public class ScrumTeamSqlMvcController implements WebMvcConfigurer {
     private ScrumTeamSqlRepository scrumTeamSqlRepository;
 
     @Autowired
-    private PersonSqlRepository personSqlRepository;
+    private UserSqlRepository userSqlRepository;
 
     @GetMapping("/data/scrum_team")
     public String scrumTeam(Model model) {
@@ -36,7 +36,7 @@ public class ScrumTeamSqlMvcController implements WebMvcConfigurer {
     @GetMapping("/data/scrum_team_create")
     public String scrumTeamCreate(Model model) {
         model.addAttribute("scrumTeam", new ScrumTeam());
-        model.addAttribute("listPersons", personSqlRepository.listAll());
+        model.addAttribute("listPersons", userSqlRepository.listAll());
         return "data/scrum_team_form";
     }
 
@@ -44,7 +44,7 @@ public class ScrumTeamSqlMvcController implements WebMvcConfigurer {
     public String scrumTeamUpdate(@PathVariable("id") int id, Model model) {
         model.addAttribute("id", id);  //passed to support using one form
         model.addAttribute("scrumTeam", scrumTeamSqlRepository.get(id));
-        model.addAttribute("listPersons", personSqlRepository.listAll());
+        model.addAttribute("listPersons", userSqlRepository.listAll());
         return "data/scrum_team_form";
     }
 

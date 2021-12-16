@@ -23,7 +23,7 @@
             <div class="col8">
                 <div class="jumbotron">
                     <h3>Update Person</h3>
-                    <!-- ThymeLeaf allows person abject of the Class Person to be acted upon by the form
+                    <!-- ThymeLeaf allows user abject of the Class Person to be acted upon by the form
                          This is known as a “bean-backed form” or "form-backing bean".
                             th:object - the backend form object (bean object)
                          There are two fields in the Person bean,
@@ -38,7 +38,7 @@
                          Reference Bootstrap Form
                             https://getbootstrap.com/docs/4.0/components/forms/#readonly-plain-text
                      -->
-                    <form class="form-inline" action="#" th:action="@{/data/personupdate}" th:object="${person}" method="POST">
+                    <form class="form-inline" action="#" th:action="@{/data/personupdate}" th:object="${user}" method="POST">
                         <div class="form-group mb-2 mr-sm-2">
                             <label for="id">ID:</label>
                             <input type="text" th:field="*{id}" id="id" readonly class="form-control-plaintext" >

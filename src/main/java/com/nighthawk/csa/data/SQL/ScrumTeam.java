@@ -30,21 +30,21 @@ public class ScrumTeam {
      */
     @ManyToOne
     @JoinColumn(name = "primary_id")    //foreign key is stored in table
-    private Person primary;
+    private User primary;
 
     @ManyToOne
     @JoinColumn(name = "member1_id")
-    private Person member1;
+    private User member1;
 
     @ManyToOne
     @JoinColumn(name = "member2_id")
-    private Person member2;
+    private User member2;
 
     @ManyToOne
     @JoinColumn(name = "member3_id")
-    private Person member3;
+    private User member3;
 
     @ManyToOne
     @JoinColumn(name = "member4_id")
-    public Person member4;
+    public User member4;
 }

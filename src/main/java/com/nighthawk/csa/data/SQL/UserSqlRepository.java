@@ -14,31 +14,31 @@ This class has an instance of Java Persistence API (JPA)
 */
 @Service
 @Transactional
-public class PersonSqlRepository {
+public class UserSqlRepository {
 
     @Autowired
-    private PersonJpaRepository jpa;
+    private UserJpaRepository jpa;
 
-    public  List<Person>listAll() {
+    public  List<User>listAll() {
         return jpa.findAll();
     }
 
-    // custom query to find anything containing term in name or email ignoring case
-    public  List<Person>listLike(String term) {
-        return jpa.findByNameContainingIgnoreCaseOrEmailContainingIgnoreCase(term, term);
+    // custom query to find anything containing term in name or username ignoring case
+    public  List<User>listLike(String term) {
+        return jpa.findByNameContainingIgnoreCaseOrUsernameContainingIgnoreCase(term, term);
     }
 
-    // custom query to find anything containing term in name or email ignoring case
-    public  List<Person>listLikeNative(String term) {
+    // custom query to find anything containing term in name or username ignoring case
+    public  List<User>listLikeNative(String term) {
         String like_term = String.format("%%%s%%",term);  // Like required % rappers
         return jpa.findByLikeTermNative(like_term);
     }
 
-    public void save(Person person) {
-        jpa.save(person);
+    public void save(User user) {
+        jpa.save(user);
     }
 
-    public Person get(long id) {
+    public User get(long id) {
         return jpa.findById(id).get();
     }
 

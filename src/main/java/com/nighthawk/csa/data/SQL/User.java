@@ -23,15 +23,14 @@ The last annotation connect to database
 @NoArgsConstructor
 @RequiredArgsConstructor
 @Entity
-public class Person {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotEmpty
     @Size(min=5)
-    @Email
-    private String email;
+    private String username;
 
     /*
     @NonNull: Places this in @RequiredArgsConstructor
@@ -44,11 +43,19 @@ public class Person {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dob;
 
+    @Size(min = 2, max = 10, message = "Type (tutor or tutee)")
+    private String type;
+
+    @Size(min = 2, max = 400, message = "A bio for the user")
+    private String bio;
+
     /* Initializer used when setting data from an API */
-    public Person(String email, String name, Date dob) {
-        this.email = email;
+    public User(String username, String name, Date dob, String type, String bio) {
+        this.username = username;
         this.name = name;
         this.dob = dob;
+        this.type = type;
+        this.bio = bio;
     }
 
     /* A custom getter to return age from dob calculation */
