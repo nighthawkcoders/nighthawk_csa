@@ -79,17 +79,22 @@ public class MainController {
     }
 
     @GetMapping("/risa")
-    public String news(Model model) throws IOException, InterruptedException, ParseException {
+    public String calc(Model model) throws IOException, InterruptedException, ParseException {
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://free-news.p.rapidapi.com/v1/search?q=Elon%20Musk&lang=en"))
-                .header("x-rapidapi-host", "free-news.p.rapidapi.com")
+                .uri(URI.create("https://love-calculator.p.rapidapi.com/getPercentage?sname=Alice&fname=John"))
+                .header("x-rapidapi-host", "love-calculator.p.rapidapi.com")
                 .header("x-rapidapi-key", "a917dcdd11msh8cb88225ac662ebp143616jsn13600ff2f660")
                 .method("GET", HttpRequest.BodyPublishers.noBody())
                 .build();
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
         System.out.println(response.body());
-        var news = new ObjectMapper().readValue(response.body(), HashMap.class);
-        model.addAttribute("news", news);
+
+        //convert response.body() to java hash map
+        var calc = new ObjectMapper().readValue(response.body(), HashMap.class);
+
+
+        //pass stats to view
+        model.addAttribute("calc", calc);
 
         return "individual/risa";
     }
