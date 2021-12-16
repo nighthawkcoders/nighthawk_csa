@@ -58,7 +58,7 @@ Team Review Ticket:
 Individual
 | Name | Tasks | Commits |
 |  --- |  ---           | --- | 
-| Natasha |  | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=mistylavender) | 
+| Natasha | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74914129) | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=mistylavender) | 
 | Ridhima | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74074281)  | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=ridhimainukurti) |
 | Risa | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74287890) | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=risaiwazaki) |
 | Ava | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74546669) | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=avabrooks) | 
