@@ -43,11 +43,11 @@ Team Review Ticket:
 Individual
 | Name | Tasks | Commits |
 |  --- |  ---           | --- | 
-| Natasha |  | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=mistylavender) | 
-| Ridhima | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74074256)  | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=ridhimainukurti) |
-| Risa | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74543599) | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=risaiwazaki) |
+| Natasha |  |  | 
+| Ridhima | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74074256)  |  |
+| Risa | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74543599) |  |
 | Ava | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74549540) | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=avabrooks) | 
-| Sarah |  | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=sarahwxie) |
+| Sarah |  |  |
 
 ## Week 3
 Team Review Ticket:
@@ -58,11 +58,11 @@ Team Review Ticket:
 Individual
 | Name | Tasks | Commits |
 |  --- |  ---           | --- | 
-| Natasha |  |  | 
-| Ridhima | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74074281)  |  |
-| Risa | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74287890) |  |
+| Natasha |  | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=mistylavender) | 
+| Ridhima | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74074281)  | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=ridhimainukurti) |
+| Risa | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74287890) | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=risaiwazaki) |
 | Ava | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74546669) | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=avabrooks) | 
-| Sarah |  | |
+| Sarah |  | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=sarahwxie) |
 
 ## Week 2
 Team Review Ticket:
