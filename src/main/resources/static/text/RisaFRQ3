@@ -1,0 +1,68 @@
+QUESTION 1
+(a) if(rsvp){
+    System.out.println("attending");
+    }
+    else{
+    System.out.println("not attending");
+    }
+
+(b) if(selection == 1){
+    System.out.println("beef");
+    }
+    elif (selection == 2){
+    System.out.println("chicken");
+    }
+    elif(selection == 3){
+    System.out.println("pasta");
+    }
+    else{
+    System.out.println("fish");
+    }
+
+(c) if(rsvp){
+    option1 = "Sorry you can't make it.";
+    }
+    else{
+    option1 = "Thanks for attending. You will be served ";
+    if(selection == 1){
+    option 1 += "beef";
+    }
+    elif (selection == 2){
+    option 1 += "chicken";
+    }
+    elif(selection == 3){
+    option 1 += "pasta";
+    }
+    else{
+    option 1 += "fish";
+      }
+    }
+
+(d) if(option.equals(option2)){
+    System.out.println("true");
+    }
+    else{
+    System.out.println("false");
+    }
+
+QUESTION 2
+(a) public class Draw {
+
+    public void drawLine(int x1, int y1, int x2, int y2) {
+
+    public void drawSquare(int x, int y, int len) {
+    int xsum = x + len; int ydiff = y - len;
+    if (xsum > 10) xsum = 10 - x; if (ydiff < 0) ydiff = 0 - y;
+    if ((x - xsum) > (y - ydiff)) xsum = ydiff+x-y;
+    else ydiff = xsum+y-x;
+
+    drawLine(x, y, x, ydiff);
+    drawLine(x, y, xsum, y);
+    drawLine(x, ydiff, xsum, ydiff);
+    drawLine(xsum, y, xsum, ydiff);
+    	}
+
+    int side = xsum - x;
+    System.out.println("side length = " + side + ", area = " + Math.pow(side, 2));
+    }
+    }
