@@ -13,6 +13,13 @@
 <!-- <body> -->
 <div layout:fragment="body" th:remove="tag">
     <div class="container">
+        <h1>User Profile</h1>
+        <p>This page is a work in progress</p>
+
+        <p th:text="${user.id}">Person ID</p>
+        <p th:text="${user.username}">Username</p>
+        <p th:text="${user.name}">Name</p>
+
 
 
     </div>

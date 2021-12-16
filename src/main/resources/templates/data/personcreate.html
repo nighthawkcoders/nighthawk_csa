@@ -12,7 +12,7 @@
 
 <!-- <body> -->
 <div layout:fragment="body" th:remove="tag">
-    <!-- Page specific body additions -->
+    <!-- Page specific bodfy additions -->
     <div class="container">
 
         <div class="row justify-content-md-center">
@@ -39,11 +39,11 @@
                          Reference Bootstrap Form
                             https://getbootstrap.com/docs/4.0/components/forms/#readonly-plain-text
                      -->
-                    <form class="form-inline" action="#" th:action="@{/data/personcreate}" th:object="${user}" method="POST">
+                    <form class="form-inline" action="#" th:action="@{/data/usercreate}" th:object="${user}" method="POST">
                         <div class="form-group mb-2 mr-sm-2">
-                            <label for="email">Email:</label>
-                            <input type="email" th:field="*{email}" id="email">
-                            <small th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</small>
+                            <label for="username">Username:</label>
+                            <input type="text" th:field="*{username}" id="username">
+                            <small th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</small>
                         </div>
                         <div class="input-group mb-2 mr-sm-2">
                             <label for="name">Name:</label>

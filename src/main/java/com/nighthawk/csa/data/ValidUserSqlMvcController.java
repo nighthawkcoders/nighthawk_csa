@@ -41,9 +41,9 @@ public class ValidUserSqlMvcController implements WebMvcConfigurer {
         @return - template for person form
         @param - Person Class
     */
-    @GetMapping("/data/usercreate")
+    @GetMapping("/signup")
     public String userAdd(User user) {
-        return "data/usercreate";
+        return "user/signup";
     }
 
     /* Gathers the attributes filled out in the form, tests for and retrieves validation error
@@ -54,11 +54,22 @@ public class ValidUserSqlMvcController implements WebMvcConfigurer {
     public String userSave(@Valid User user, BindingResult bindingResult) {
         // Validation of Decorated PersonForm attributes
         if (bindingResult.hasErrors()) {
-            return "data/usercreate";
+            return "user/signup";
         }
         repository.save(user);
         // Redirect to next step
-        return "redirect:/data/user";
+        return "redirect:/userlist";
+    }
+
+    @GetMapping("/login")
+    public String signin(User user) {
+        return "user/login";
+    }
+
+    @GetMapping("/profile/{id}")
+    public String profile(@PathVariable("id") int id, Model model) {
+        model.addAttribute("user", repository.get(id));
+        return "/user/profile";
     }
 
     @GetMapping("/data/userupdate/{id}")
@@ -75,13 +86,13 @@ public class ValidUserSqlMvcController implements WebMvcConfigurer {
         }
         repository.save(user);
         // Redirect to next step
-        return "redirect:/data/user";
+        return "redirect:/profile/62";
     }
 
     @GetMapping("/data/userdelete/{id}")
     public String personDelete(@PathVariable("id") long id) {
         repository.delete(id);
-        return "redirect:/data/user";
+        return "redirect:/userlist";
     }
 
     /*
@@ -122,8 +133,9 @@ public class ValidUserSqlMvcController implements WebMvcConfigurer {
     public ResponseEntity<Object> postUser(@RequestParam("username") String username,
                                              @RequestParam("name") String name,
                                              @RequestParam("dob") String dobString,
-                                             @RequestParam("dob") String type,
-                                             @RequestParam("dob") String bio) {
+                                             @RequestParam("type") String type,
+                                             @RequestParam("bio") String bio,
+                                             @RequestParam("password") String password) {
         Date dob;
         try {
             dob = new SimpleDateFormat("MM-dd-yyyy").parse(dobString);
@@ -131,7 +143,7 @@ public class ValidUserSqlMvcController implements WebMvcConfigurer {
             return new ResponseEntity<>(dobString +" error; try MM-dd-yyyy", HttpStatus.BAD_REQUEST);
         }
         // A person object WITHOUT ID will create a new record
-        User user = new User(username, name, dob, type, bio);
+        User user = new User(username, name, dob, type, bio, password);
         repository.save(user);
         return new ResponseEntity<>(username +" is created successfully", HttpStatus.CREATED);
     }

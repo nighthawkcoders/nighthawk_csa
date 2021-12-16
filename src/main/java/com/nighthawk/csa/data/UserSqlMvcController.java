@@ -115,8 +115,9 @@ public class UserSqlMvcController implements WebMvcConfigurer {
     public ResponseEntity<Object> postPerson(@RequestParam("email") String email,
                                              @RequestParam("name") String name,
                                              @RequestParam("dob") String dobString,
-                                             @RequestParam("dob") String type,
-                                             @RequestParam("dob") String bio) {
+                                             @RequestParam("type") String type,
+                                             @RequestParam("bio") String bio,
+                                             @RequestParam("password") String password) {
         Date dob;
         try {
             dob = new SimpleDateFormat("MM-dd-yyyy").parse(dobString);
@@ -124,7 +125,7 @@ public class UserSqlMvcController implements WebMvcConfigurer {
             return new ResponseEntity<>(dobString +" error; try MM-dd-yyyy", HttpStatus.BAD_REQUEST);
         }
         // A person object WITHOUT ID will create a new record
-        User user = new User(email, name, dob, type, bio);
+        User user = new User(email, name, dob, type, bio, password);
         repository.save(user);
         return new ResponseEntity<>(email +" is created successfully", HttpStatus.CREATED);
     }

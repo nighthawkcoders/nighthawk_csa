@@ -139,10 +139,7 @@ public class MainController {
     public String services() {
         return "/tutoring/services";
     }
-    @GetMapping("/profile")
-    public String profile() {
-        return "/user/profile";
-    }
+
 
     @GetMapping("/search")
     public String search() {
@@ -154,16 +151,9 @@ public class MainController {
         return "/tutoring/calendar";
     }
 
-    @GetMapping("/signup")
-    public String signup() {
+    // LOGIN and SIGNUP is in ValidUserSqlMvcController.java
 
-        return "/user/signup";
-    }
 
-    @GetMapping("/login")
-    public String signin() {
-        return "/user/login";
-    }
 
     /*
     @GetMapping("/signup")   // GET request

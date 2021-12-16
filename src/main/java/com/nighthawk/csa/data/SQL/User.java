@@ -49,13 +49,17 @@ public class User {
     @Size(min = 2, max = 400, message = "A bio for the user")
     private String bio;
 
+    @Size(min = 2, max = 30, message = "The User's password")
+    private String password;
+
     /* Initializer used when setting data from an API */
-    public User(String username, String name, Date dob, String type, String bio) {
+    public User(String username, String name, Date dob, String type, String bio, String password) {
         this.username = username;
         this.name = name;
         this.dob = dob;
         this.type = type;
         this.bio = bio;
+        this.password = password;
     }
 
     /* A custom getter to return age from dob calculation */

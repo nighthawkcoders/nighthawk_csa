@@ -6,65 +6,30 @@
 
 <!-- <head> -->
 <div layout:fragment="head" th:remove="tag">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" integrity="sha512-Oy18vBnbSJkXTndr2n6lDMO5NN31UljR8e/ICzVPrGpSud4Gkckb8yUpqhKuUNoE+o9gAb4O/rAxxw1ojyUVzg==" crossorigin="anonymous" />
-    <title>Login </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" integrity="sha512-Oy18vBnbSJkXTndr2n6lDMO5NN31UljR8e/ICzVPrGpSud4Gkckb8yUpqhKuUNoE+o9gAb4O/rAxxw1ojyUVzg==" crossorigin="anonymous" />
+  <title>Log In </title>
 </div>
 
 <!-- <body> -->
 <div layout:fragment="body" th:remove="tag">
-    <div class="container mt-5">
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-6">
-                <div class="card px-5 py-5" id="form1">
-                    <div class="form-data" v-if="!submitted">
-                        <div class="forms-inputs mb-4"> <span style="color:#002654">Username</span> <input autocomplete="off" type="text" v-model="email" required>
-                            <div class="invalid-feedback">A valid email is required!</div>
-                        </div>
-                        <div class="forms-inputs mb-4"> <span style="color:#002654">Password</span> <input autocomplete="off" type="password" v-model="password" required>
-                            <div class="invalid-feedback">Password must be 8 character!</div>
-                        </div>
-                        <div class="mb-3"> <button value="submit" class="btn btn-dark w-100">Login</button> </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="container1">
+    <div class="myGrid">
+
+      <!-- Sign in Form -->
+      <form id="myForm" action="#" th:action="@{/profile/62}" th:object="${user}" method="POST">
+        <h2 style="color:#002654;">Log In</h2>
+        <!-- Placeholder is a predefined value but disappears when user clicks in square -->
+        <input type="text" th:field="*{username}" id="username" name="username" placeholder="Enter Username" required>
+        <input type="password" name="password" placeholder="Enter Password" required>
+        <!-- Using email for the type attribute verifies that the input is an email on HTML 5 -->
+        <input type="Submit" name="Submit" value="Log In">
+        <a href="/signup">Don't have an account? Sign up now!</a>
+      </form>
+      <img src="images/studying1.png" style="width:100%;margin-top:10%;">
+      <!--<  <a href = "/signin" style="color:#3498db" >Already have an account? Sign In</a> -->
     </div>
-    <style>
 
-        .card {
-            border: none;
-            height: 320px
-        }
-
-        .forms-inputs {
-            position: relative
-        }
-
-        .forms-inputs span {
-            position: absolute;
-            top: -18px;
-            left: 10px;
-            background-color: #fff;
-            padding: 5px 10px;
-            font-size: 15px
-        }
-
-        .forms-inputs input {
-            height: 50px;
-            border: 2px solid #eee
-        }
-
-        .forms-inputs input:focus {
-            box-shadow: none;
-            outline: none;
-            border: 2px solid #000
-        }
-
-        .btn {
-            height: 50px
-        }
-
-    </style>
+  </div>
 
 
 </div>

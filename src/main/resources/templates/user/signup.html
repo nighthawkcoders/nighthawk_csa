@@ -16,13 +16,12 @@
       <div class="myGrid">
 
         <!-- Sign in Form -->
-        <form ID="myForm" action="/data/signup" method="POST">
+        <form id="myForm" action="#" th:action="@{/data/usercreate}" th:object="${user}" method="POST">
           <h2 style="color:#002654;">SIGN UP</h2>
           <!-- Placeholder is a predefined value but disappears when user clicks in square -->
-          <input type="text" name="username" placeholder="Enter Username" required>
-          <input type="text" name="name" placeholder="Enter Name" required>
+          <input type="text" th:field="*{username}" id="username" name="username" placeholder="Enter Username" required>
+          <input type="text" th:field="*{name}" id="name" name="name" placeholder="Enter Name" required>
           <input type="password" name="password" placeholder="Enter Password" required>
-          <input type="password" name="password" placeholder="Retype Password" required>
           <!-- Using email for the type attribute verifies that the input is an email on HTML 5 -->
           <input type="Submit" name="Submit" value="Sign Up">
         </form>
