@@ -43,11 +43,11 @@ Team Review Ticket:
 Individual
 | Name | Tasks | Commits |
 |  --- |  ---           | --- | 
-| Natasha |  |  | 
+| Natasha |  | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=mistylavender) | 
 | Ridhima | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74074256)  | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=ridhimainukurti) |
-| Risa | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74543599) |  |
+| Risa | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74543599) | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=risaiwazaki) |
 | Ava | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74549540) | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=avabrooks) | 
-| Sarah |  | |
+| Sarah |  | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=sarahwxie) |
 
 ## Week 3
 Team Review Ticket:
