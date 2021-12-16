@@ -1,0 +1,35 @@
+QUESTION 1
+(a) LightSequence gradShow = new LightSequence("0101 0101 0101");
+
+(b) gradShow.display();
+
+(c) gradShow.updateSequence("0011 0011 0011");
+
+(d) String resultSeq = gradShow.insertSegment("1111 1111", 4);
+
+(e) int index = oldSeq.indexOf(segment);
+    String newSeq = oldSeq.substring(0, index) + oldSeq.substring(index + segment.length());
+
+(f) System.out.println(Math.sqrt (aa+bb));
+
+QUESTION 2
+(a) public class Draw {
+
+    public void drawLine(int x1, int y1, int x2, int y2) {
+
+    public void drawSquare(int x, int y, int len) {
+    int xsum = x + len; int ydiff = y - len;
+    if (xsum > 10) xsum = 10 - x; if (ydiff < 0) ydiff = 0 - y;
+    if ((x - xsum) > (y - ydiff)) xsum = ydiff+x-y;
+    else ydiff = xsum+y-x;
+
+    drawLine(x, y, x, ydiff);
+    drawLine(x, y, xsum, y);
+    drawLine(x, ydiff, xsum, ydiff);
+    drawLine(xsum, y, xsum, ydiff);
+    	}
+
+    int side = xsum - x;
+    System.out.println("side length = " + side + ", area = " + Math.pow(side, 2));
+    }
+    }
