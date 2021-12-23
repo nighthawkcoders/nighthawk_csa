@@ -23,7 +23,7 @@ public class StringsController {
     @GetMapping("/strings")
     public String fib(@RequestParam(name="sequence", required=false,  defaultValue="") String sequence, Model model) {
         //MODEL attributes are passed back html
-        model.addAttribute("frq2Obj", frq2Init());
+        model.addAttribute("object", frq2Init());
         return "algorithm/strings"; //HTML render fibonacci results
     }
 

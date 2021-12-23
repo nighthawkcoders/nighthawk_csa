@@ -3,8 +3,8 @@ package com.nighthawk.csa.algorithm.Math;
 import java.util.ArrayList;
 import java.util.List;
 
+/* Static FunMath Algorithms */
 public class FunMath {
-
     /* Convert num into a list of digits of the specified base
         num: an integer
         base: binary, octal, decimal, hexadecimal
@@ -28,6 +28,8 @@ public class FunMath {
         return n == 0 ? 0 : n + sumUp(n - 1);          // what is this called?  hint TO.
     }
 
+    /* FunMath Tester
+     */
     public static void main(String[] args) {
         System.out.println("Sum Up testing for 3, 4, 5, 6, 7");
         System.out.println(sumUp(3));

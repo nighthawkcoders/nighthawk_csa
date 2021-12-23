@@ -11,6 +11,8 @@ public class StringOps {
         this.events = new ArrayList<>();
     }
 
+    public ArrayList<String> getEvents() { return events; }
+
     /* Initialize or Swap sequence
      */
     public void setString(String sequence) {
@@ -67,7 +69,7 @@ public class StringOps {
     /* Console output helper method
      */
     public void printHistory() {
-        for (String event: events)
+        for (String event: getEvents())
             System.out.println(event);
         System.out.println("Current: " + this);
     }

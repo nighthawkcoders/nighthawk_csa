@@ -14,9 +14,46 @@
 <!-- <body> -->
 <th:block layout:fragment="body" th:remove="tag">
 <!-- Page specific body additions -->
-<div class="container">
-  <p>String Ops</p>
-</div>
+  <div class="container py-4">
+    <header class="pb-3 mb-4 border-bottom">
+      <h3>Start a new sequence</h3>
+      <form id="sequenceForm1" action="" method="POST" >
+        <label for="sequence1"></label>
+        <input name="sequence1" id="sequence1" type="text">
+        <button>Restart!</button>
+      </form>
+
+      <h3>Update existing sequence to a new value</h3>
+      <form id="sequenceForm2" action="" method="POST" >
+        <label for="sequence2"></label>
+        <input name="sequence2" id="sequence2" type="text" th:value="${object}">
+        <button>Set!</button>
+      </form>
+    </header>
+
+    <div class="row align-items-md-stretch">
+
+
+
+      <div class="h-100 p-5 text-black bg-light rounded-3">
+        <!-- Series -->
+        <table class="table">
+          <thead>
+          <tr>
+            <th scope="col">Recent sequence of operations</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="event : ${object.getEvents()}">
+            <td th:text="${event}"></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </div>
 </th:block>`
 
 </html>
