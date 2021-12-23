@@ -1,4 +1,4 @@
-package com.nighthawk.csa.algorithm;
+package com.nighthawk.csa.algorithm.Math;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ public class FunMath {
         @return: a list containing the series of digits of specified base
      */
     static List<Integer> baseConvert(int num, int base) {
-        List<Integer> num_list = new ArrayList();         // what is List versus ArrayList?  Which one is Abstract?
+        List<Integer> num_list = new ArrayList<>();         // what is List versus ArrayList?  Which one is Abstract?
         do {
             num_list.add(0, num % base);    // what does this do?  explain boxing and unboxing
             num /= base;                                  // what does this do?
@@ -29,26 +29,32 @@ public class FunMath {
     }
 
     public static void main(String[] args) {
-        // Summation of a series starts a 1 and goes to 6
+        System.out.println("Sum Up testing for 3, 4, 5, 6, 7");
+        System.out.println(sumUp(3));
+        System.out.println(sumUp(4));
+        System.out.println(sumUp(5));
         System.out.println(sumUp(6));
+        System.out.println(sumUp(7));
 
-        // Base 2
+        System.out.println("Base 2 to array for 0, 255, 256");
         System.out.println(baseConvert(0,2));
         System.out.println(baseConvert(255,2));
         System.out.println(baseConvert(256,2));
-        // Base 8
+
+        System.out.println("Base 8 to array for 0, 255, 256");
         System.out.println(baseConvert(0,28));
         System.out.println(baseConvert(255,8));
         System.out.println(baseConvert(256,8));
-        // Base 10
+
+        System.out.println("Base 10 to array for 0, 255, 256");
         System.out.println(baseConvert(0,10));
         System.out.println(baseConvert(255,10));
         System.out.println(baseConvert(256,10));
-        // Base 16
+
+        System.out.println("Base 16 to array for 0, 255, 256");
         System.out.println(baseConvert(0,16));
         System.out.println(baseConvert(255,16));
         System.out.println(baseConvert(256,16));
-
     }
 }
 

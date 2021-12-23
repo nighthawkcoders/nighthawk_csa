@@ -1,19 +1,19 @@
-package com.nighthawk.csa.algorithm;
+package com.nighthawk.csa.algorithm.Strings;
 import java.util.ArrayList;
 
-public class StringSequence {
+public class StringOps {
     private String sequence = null;
     private final ArrayList<String> events;
 
     /* Zero argument Constructor
      */
-    public StringSequence() {
+    public StringOps() {
         this.events = new ArrayList<>();
     }
 
     /* Initialize or Swap sequence
      */
-    public void setSequence(String sequence) {
+    public void setString(String sequence) {
         this.events.add(
                 (this.sequence != null)     // ternary operator usage to avoid null sequence
                     ? "Sequence changed from: " + this.sequence +" to: " + sequence
@@ -25,11 +25,11 @@ public class StringSequence {
 
     /* Insert "in" segment at "position"
      */
-    public void insertSequenceAt(String in, int position) {
+    public void insertSegmentAt(String in, int position) {
         this.events.add ( "Insert into: " + this.sequence + " segment: " + in +" at position " + position );
 
         // create a gap to insert segment
-        this.setSequence(
+        this.setString(
                 this.sequence.substring(0, position) +
                 in +
                 this.sequence.substring(position)  // single argument includes 'till end of string
@@ -38,7 +38,7 @@ public class StringSequence {
 
     /* Replace "out" segment with "in" segment
      */
-    public void replaceSequence(String out, String in) {
+    public void replaceSegment(String out, String in) {
         this.events.add ( "Replace: " + sequence + " old segment: '" + out +"' with new segment '" + in + "'");
 
         // find gap for out segment
@@ -50,14 +50,14 @@ public class StringSequence {
         String back = this.sequence.substring(index2); // single argument includes 'till end of string
 
         // concatenate "in" between front and back parts of original
-        this.setSequence(
+        this.setString(
                 front +
                 in +
                 back
         );
     }
 
-    /* StringSequence object reference will return value of sequence attribute
+    /* StringOps object reference will return value of sequence attribute
      */
     @Override
     public String toString() {
@@ -72,28 +72,29 @@ public class StringSequence {
         System.out.println("Current: " + this);
     }
 
-    public static StringSequence frg2_simulation() {
+    public static StringOps frg2_simulation() {
         // Test1 construct object, zero argument constructor used to capture test event
-        StringSequence sequence = new StringSequence();
-        sequence.events.add("\nLightSequence Test (a, b): construct object + display sequence");
-        sequence.setSequence("0101 0101 0101");
+        StringOps sequence = new StringOps();
+        sequence.events.add("FRQ 2 LightSequence");
+        sequence.events.add("\nTest (a, b): construct object + display sequence");
+        sequence.setString("0101 0101 0101");
 
         // Test2 change content of object
-        sequence.events.add("\nLightSequence Test (c): update sequence");
-        sequence.setSequence("0011 0011 0011");
+        sequence.events.add("\nTest (c): update sequence");
+        sequence.setString("0011 0011 0011");
 
         // Test3 insert into content of object
-        sequence.events.add("\nLightSequence Test (d): insert into sequence at position");
-        sequence.insertSequenceAt("1111 1111", 4);
+        sequence.events.add("\nTest (d): insert into sequence at position");
+        sequence.insertSegmentAt("1111 1111", 4);
 
         // Test4 replace sequence with one that has proper spacing
-        sequence.events.add("\nLightSequence Test (f): remove segment from front, end, and middle");
-        sequence.setSequence("1100000111");
-        sequence.replaceSequence("11", "");
-        sequence.setSequence("0000011");
-        sequence.replaceSequence("11", "");
-        sequence.setSequence("1100000111");
-        sequence.replaceSequence("00", "");
+        sequence.events.add("\nTest (f): remove segment from front, end, and middle");
+        sequence.setString("1100000111");
+        sequence.replaceSegment("11", "");
+        sequence.setString("0000011");
+        sequence.replaceSegment("11", "");
+        sequence.setString("1100000111");
+        sequence.replaceSegment("00", "");
 
         // History of events
         return sequence;
@@ -102,8 +103,8 @@ public class StringSequence {
     /* Class tester method
      */
     public static void main(String[] args) {
-        // FRQ2 result simulation using StringSequence Class
-        StringSequence gradShow = StringSequence.frg2_simulation();
+        // FRQ2 result simulation using StringOps Class
+        StringOps gradShow = StringOps.frg2_simulation();
 
         // History of events
         gradShow.printHistory();

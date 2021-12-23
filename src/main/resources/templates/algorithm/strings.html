@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
+
+<!-- <head section> -->
+<th:block layout:fragment="head" th:remove="tag">
+  <!-- Page specific head additions -->
+  <title>Strings Algo</title>
+  <!-- Override colors.css -->
+</th:block>
+
+<!-- <body> -->
+<th:block layout:fragment="body" th:remove="tag">
+<!-- Page specific body additions -->
+<div class="container">
+  <p>String Ops</p>
+</div>
+</th:block>`
+
+</html>
