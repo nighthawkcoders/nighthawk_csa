@@ -1,9 +1,10 @@
 package com.nighthawk.csa.algorithm.Strings;
 import java.util.ArrayList;
+import java.util.List;
 
 public class StringOps {
     private String sequence = null;
-    private final ArrayList<String> events;
+    private final List<String> events;
 
     /* Zero argument Constructor
      */
@@ -11,7 +12,7 @@ public class StringOps {
         this.events = new ArrayList<>();
     }
 
-    public ArrayList<String> getEvents() { return events; }
+    public List<String> getEvents() { return events; }
 
     /* Initialize or Swap sequence
      */

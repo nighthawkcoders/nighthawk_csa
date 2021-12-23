@@ -17,23 +17,21 @@
   <div class="container py-4">
     <header class="pb-3 mb-4 border-bottom">
       <h3>Start a new sequence</h3>
-      <form id="sequenceForm1" action="" method="POST" >
-        <label for="sequence1"></label>
-        <input name="sequence1" id="sequence1" type="text">
-        <button>Restart!</button>
-      </form>
+      <div class="form-group">
+        <input type="text" class="form-control" id="new_sequence" placeholder="enter new sequence">
+        <button class="btn btn-primary bg-secondary" onclick="sequence(1);">Restart!</button>
+      </div>
 
-      <h3>Update existing sequence to a new value</h3>
-      <form id="sequenceForm2" action="" method="POST" >
-        <label for="sequence2"></label>
-        <input name="sequence2" id="sequence2" type="text" th:value="${object}">
-        <button>Set!</button>
-      </form>
+      <label></label> <!-spacer->
+
+      <h3>Update</h3>
+      <div class="form-group">
+        <input type="text" class="form-control" id="update_sequence" th:value="${object}">
+        <button class="btn btn-primary bg-secondary" onclick="sequence(2);">Update!</button>
+      </div>
     </header>
 
     <div class="row align-items-md-stretch">
-
-
 
       <div class="h-100 p-5 text-black bg-light rounded-3">
         <!-- Series -->
@@ -43,7 +41,7 @@
             <th scope="col">Recent sequence of operations</th>
           </tr>
           </thead>
-          <tbody>
+          <tbody id="result">
           <tr th:each="event : ${object.getEvents()}">
             <td th:text="${event}"></td>
           </tr>
@@ -54,6 +52,52 @@
     </div>
 
   </div>
+  <script>
+    function sequence(action) {
+      // fetch standard requires data set to a name-value pair
+      let sequence = "";
+      switch (action) {
+        case 1:
+          sequence = document.getElementById("new_sequence");
+          break;
+        case 2:
+          sequence = document.getElementById("update_sequence");
+          break;
+      }
+      const body = {
+        sequence: sequence.value,
+        action: action
+      };
+      // fetch call with header options
+      fetch('/api/strings/', {
+        method: "POST",
+        credentials: "include",
+        body: JSON.stringify(body),
+        cache: "no-cache",
+        headers: new Headers({
+          "content-type": "application/json"
+        })
+      })
+      // async then replies with response header
+      .then(function (response) {
+        // prepare HTML search result container for new output
+        const resultContainer = document.getElementById("result");
+        // clean up from previous search
+        while (resultContainer.firstChild) {
+          resultContainer.removeChild(resultContainer.firstChild);
+        }
+        // assumption is response contains valid result
+        response.json().then(function(result) {
+          // loop through JSON and build HTML output
+          for (let i = 0; i < result.length; i++) {
+            const row = document.createElement("tr");
+            row.innerHTML = '<td>' + result[i] + '</td>';
+            resultContainer.appendChild(row);
+          }
+        })
+      })
+    }
+  </script>
 </th:block>`
 
 </html>
