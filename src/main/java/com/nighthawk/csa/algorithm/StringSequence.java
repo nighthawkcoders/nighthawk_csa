@@ -5,11 +5,10 @@ public class StringSequence {
     private String sequence = null;
     private final ArrayList<String> events;
 
-    /* Constructor
+    /* Zero argument Constructor
      */
-    public StringSequence(String sequence) {
+    public StringSequence() {
         this.events = new ArrayList<>();
-        this.setSequence(sequence);
     }
 
     /* Initialize or Swap sequence
@@ -40,7 +39,10 @@ public class StringSequence {
     /* Replace "out" segment with "in" segment
      */
     public void replaceSequence(String out, String in) {
-        this.events.add ( "Replace: " + sequence + " old segment: " + out +" with new segment " + in );
+        if (in.length()!=0)
+            this.events.add ( "Replace: " + sequence + " old segment: '" + out +"' with new segment '" + in + "'");
+        else
+            this.events.add ( "Replace: " + sequence + " old segment: '" + out +"' with new segment " + "''");
 
         // find gap for out segment
         int index1 = this.sequence.indexOf(out);
@@ -73,23 +75,41 @@ public class StringSequence {
         System.out.println("Current: " + this);
     }
 
-    /* Class tester method
-     */
-    public static void main(String[] args) {
-        // Test1 construct object
-        StringSequence sequence = new StringSequence("0101 0101 0101");
+    public static StringSequence frg2_simulation() {
+        // Test1 construct object, zero argument constructor used to capture test event
+        StringSequence sequence = new StringSequence();
+        sequence.events.add("LightSequence Test (a, b): construct object + display sequence");
+        sequence.setSequence("0101 0101 0101");
 
         // Test2 change content of object
+        sequence.events.add("LightSequence Test (c): update sequence");
         sequence.setSequence("0011 0011 0011");
 
         // Test3 insert into content of object
+        sequence.events.add("LightSequence Test (d): insert into sequence at position");
         sequence.insertSequenceAt("1111 1111", 4);
 
         // Test4 replace sequence with one that has proper spacing
-        sequence.replaceSequence("00111111", "0011 1111");
+        sequence.events.add("LightSequence Test (f): remove segment from front, end, and middle");
+        sequence.setSequence("1100000111");
+        sequence.replaceSequence("11", "");
+        sequence.setSequence("0000011");
+        sequence.replaceSequence("11", "");
+        sequence.setSequence("1100000111");
+        sequence.replaceSequence("00", "");
 
         // History of events
-        sequence.printHistory();
+        return sequence;
+    }
+
+    /* Class tester method
+     */
+    public static void main(String[] args) {
+        // FRQ2 result simulation using StringSequence Class
+        StringSequence gradShow = StringSequence.frg2_simulation();
+
+        // History of events
+        gradShow.printHistory();
     }
 
 }
