@@ -23,26 +23,23 @@ public class StringSequence {
         this.sequence = sequence;
     }
 
-    /* Insert "segment" at "position"
+    /* Insert "in" segment at "position"
      */
-    public void insertSequenceAt(String segment, int position) {
-        this.events.add ( "Insert into: " + this.sequence + " segment: " + segment +" at position " + position );
+    public void insertSequenceAt(String in, int position) {
+        this.events.add ( "Insert into: " + this.sequence + " segment: " + in +" at position " + position );
 
         // create a gap to insert segment
         this.setSequence(
                 this.sequence.substring(0, position) +
-                segment +
-                this.sequence.substring(position)
+                in +
+                this.sequence.substring(position)  // single argument includes 'till end of string
         );
     }
 
     /* Replace "out" segment with "in" segment
      */
     public void replaceSequence(String out, String in) {
-        if (in.length()!=0)
-            this.events.add ( "Replace: " + sequence + " old segment: '" + out +"' with new segment '" + in + "'");
-        else
-            this.events.add ( "Replace: " + sequence + " old segment: '" + out +"' with new segment " + "''");
+        this.events.add ( "Replace: " + sequence + " old segment: '" + out +"' with new segment '" + in + "'");
 
         // find gap for out segment
         int index1 = this.sequence.indexOf(out);
@@ -50,7 +47,7 @@ public class StringSequence {
 
         // build front part and back part of new segemtn
         String front = this.sequence.substring(0, index1);
-        String back = this.sequence.substring(index2); // automatically goes to end of string
+        String back = this.sequence.substring(index2); // single argument includes 'till end of string
 
         // concatenate "in" between front and back parts of original
         this.setSequence(
