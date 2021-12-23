@@ -26,7 +26,7 @@ public class StringSequence {
     /* Insert "segment" at "position"
      */
     public void insertSequenceAt(String segment, int position) {
-        this.events.add ( "Insert into: " + this.sequence + " segment: " + segment +" at " + position );
+        this.events.add ( "Insert into: " + this.sequence + " segment: " + segment +" at position " + position );
 
         // create a gap to insert segment
         this.setSequence(
@@ -78,19 +78,19 @@ public class StringSequence {
     public static StringSequence frg2_simulation() {
         // Test1 construct object, zero argument constructor used to capture test event
         StringSequence sequence = new StringSequence();
-        sequence.events.add("LightSequence Test (a, b): construct object + display sequence");
+        sequence.events.add("\nLightSequence Test (a, b): construct object + display sequence");
         sequence.setSequence("0101 0101 0101");
 
         // Test2 change content of object
-        sequence.events.add("LightSequence Test (c): update sequence");
+        sequence.events.add("\nLightSequence Test (c): update sequence");
         sequence.setSequence("0011 0011 0011");
 
         // Test3 insert into content of object
-        sequence.events.add("LightSequence Test (d): insert into sequence at position");
+        sequence.events.add("\nLightSequence Test (d): insert into sequence at position");
         sequence.insertSequenceAt("1111 1111", 4);
 
         // Test4 replace sequence with one that has proper spacing
-        sequence.events.add("LightSequence Test (f): remove segment from front, end, and middle");
+        sequence.events.add("\nLightSequence Test (f): remove segment from front, end, and middle");
         sequence.setSequence("1100000111");
         sequence.replaceSequence("11", "");
         sequence.setSequence("0000011");
