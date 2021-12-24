@@ -48,27 +48,27 @@ public class StringsController {
     public ResponseEntity<Object> stringsNew(RequestEntity<Object> request) {
         // extract term from RequestEntity
         JSONObject json = new JSONObject((Map) Objects.requireNonNull(request.getBody()));
-        int action = (int) json.get("action");
+        String action = (String) json.get("action");
 
         // Build new sequence
         switch (action) {
-            case 1:  // new sequence
+            case "mew":  // new sequence
                 this.stringInit(
                         (String) json.get("new_sequence")
                 );
                 break;
-            case 2: // update string
+            case "update": // update string
                 this.getObject().setString(
                         (String) json.get("update_sequence")
                 );
                 break;
-            case 3: // insert segment at location
+            case "insert": // insert segment at location
                 this.getObject().insertSegmentAt(
                         (String) json.get("insert_segment"),
                         Integer.parseInt((String) json.get("insert_location"))
                 );
                 break;
-            case 4: // swap segment "out" for segment "in"
+            case "swap": // swap segment "out" for segment "in"
                 this.getObject().replaceSegment(
                         (String) json.get("out_segment"),
                         (String) json.get("in_segment")

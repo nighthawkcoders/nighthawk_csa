@@ -27,24 +27,24 @@
 
         <div class="row p-4">
           <input type="text" class="form-control" id="new_sequence" placeholder="start a new sequence">
-          <button class="btn btn-primary bg-secondary" onclick="sequence(1);">New!</button>
+          <button class="btn btn-primary bg-secondary" onclick="sequence('new');">New!</button>
         </div>
 
         <div class="row p-4">
           <input type="text" class="form-control" id="update_sequence" th:value="${object}">
-          <button class="btn btn-primary bg-secondary" onclick="sequence(2);">Update!</button>
+          <button class="btn btn-primary bg-secondary" onclick="sequence('update');">Update!</button>
         </div>
 
         <div class="row p-4">
           <input type="text" class="form-control" id="insert_segment" placeholder="insert sequence">
           <input type="number" class="form-control" id="insert_location" value="0" min="0">
-          <button class="btn btn-primary bg-secondary" onclick="sequence(3);">Insert!</button>
+          <button class="btn btn-primary bg-secondary" onclick="sequence('insert');">Insert!</button>
         </div>
 
         <div class="row p-4">
             <input type="text" class="form-control" id="out_segment" placeholder="out segment">
             <input type="text" class="form-control" id="in_segment" placeholder="in segment">
-            <button class="btn btn-primary bg-secondary" onclick="sequence(4);">Swap!</button>
+            <button class="btn btn-primary bg-secondary" onclick="sequence('swap');">Swap!</button>
         </div>
 
       </div> <!- End String Ops column ->
