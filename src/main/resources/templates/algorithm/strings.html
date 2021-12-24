@@ -15,57 +15,72 @@
 <th:block layout:fragment="body" th:remove="tag">
 <!-- Page specific body additions -->
   <div class="container py-4">
-    <header class="pb-3 mb-4 border-bottom">
-      <h3>Start a new sequence</h3>
-      <div class="form-group">
-        <input type="text" class="form-control" id="new_sequence" placeholder="enter new sequence">
-        <button class="btn btn-primary bg-secondary" onclick="sequence(1);">Restart!</button>
-      </div>
-
-      <label></label> <!-spacer->
-
-      <h3>Update</h3>
-      <div class="form-group">
-        <input type="text" class="form-control" id="update_sequence" th:value="${object}">
-        <button class="btn btn-primary bg-secondary" onclick="sequence(2);">Update!</button>
+    <header class="pb-3 mb-4 border-bottom border-primary">
+      <div class="d-flex align-items-center text-dark text-decoration-none">
+        <span class="fs-4">String Ops Page</span>
       </div>
     </header>
 
-    <div class="row align-items-md-stretch">
+    <div class="row mb-4 bg-light text-dark rounded-3">
 
-      <div class="h-100 p-5 text-black bg-light rounded-3">
-        <!-- Series -->
-        <table class="table">
-          <thead>
-          <tr>
-            <th scope="col">Recent sequence of operations</th>
-          </tr>
-          </thead>
-          <tbody id="result">
-          <tr th:each="event : ${object.getEvents()}">
-            <td th:text="${event}"></td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
+      <div class="col-md-6 p-5"> <!- Start String Ops Column ->
 
-    </div>
+        <div class="row p-4">
+          <input type="text" class="form-control" id="new_sequence" placeholder="start a new sequence">
+          <button class="btn btn-primary bg-secondary" onclick="sequence(1);">New!</button>
+        </div>
 
-  </div>
+        <div class="row p-4">
+          <input type="text" class="form-control" id="update_sequence" th:value="${object}">
+          <button class="btn btn-primary bg-secondary" onclick="sequence(2);">Update!</button>
+        </div>
+
+        <div class="row p-4">
+          <input type="text" class="form-control" id="insert_segment" placeholder="insert sequence">
+          <input type="number" class="form-control" id="insert_location" value="0" min="0">
+          <button class="btn btn-primary bg-secondary" onclick="sequence(3);">Insert!</button>
+        </div>
+
+        <div class="row p-4">
+            <input type="text" class="form-control" id="out_segment" placeholder="out segment">
+            <input type="text" class="form-control" id="in_segment" placeholder="in segment">
+            <button class="btn btn-primary bg-secondary" onclick="sequence(4);">Swap!</button>
+        </div>
+
+      </div> <!- End String Ops column ->
+
+      <div class="col-md-6 p-5"> <!- Start String Sequence column ->
+
+        <div class="h-100">
+          <table class="table">
+            <thead>
+            <tr>
+              <th scope="col">Sequence of operations</th>
+            </tr>
+            </thead>
+            <tbody id="result">
+            <tr th:each="event : ${object.getEvents()}">
+              <td th:text="${event}"></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>  <!- End String Sequence column ->
+
+    </div> <!- End Row ->
+
+  </div> <!- End Container ->
   <script>
     function sequence(action) {
       // fetch standard requires data set to a name-value pair
-      let sequence = "";
-      switch (action) {
-        case 1:
-          sequence = document.getElementById("new_sequence");
-          break;
-        case 2:
-          sequence = document.getElementById("update_sequence");
-          break;
-      }
       const body = {
-        sequence: sequence.value,
+        new_sequence: document.getElementById("new_sequence").value,
+        update_sequence: document.getElementById("update_sequence").value,
+        insert_segment: document.getElementById("insert_segment").value,
+        insert_location: document.getElementById("insert_location").value,
+        out_segment: document.getElementById("out_segment").value,
+        in_segment: document.getElementById("in_segment").value,
         action: action
       };
       // fetch call with header options
