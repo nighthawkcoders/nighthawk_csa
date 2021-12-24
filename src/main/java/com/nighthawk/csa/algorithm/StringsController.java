@@ -102,9 +102,9 @@ public class StringsController {
         // perform string action
         String action = (String) json.get("action");
         if (stringEvent(json)) {
-            string_ops.setMessage( action + " success.");
+            string_ops.setMessage( "Action: " + action + " successful.");
         } else {
-            string_ops.setMessage( action + " failed, data invalid.");
+            string_ops.setMessage( "Action: " + action + " failed, check data.");
         }
 
         // Extract log, jsonify does not seem necessary with LIST
@@ -122,11 +122,12 @@ public class StringsController {
 
         // establish new object and set a title
         seqObject.stringNew();
-        seqObject.string_ops.addEvent("StringsController Inventor List");
         // new test
         json.put("action", "new");
         json.put("new_sequence", "Albert Einstein, Thomas Edison, Marie Curie");
         seqObject.stringEvent(json);
+        seqObject.string_ops.setMessage("StringsController Inventor List");
+
         // update test
         json.put("action", "update");
         json.put("update_sequence", "Albert Einstein, Thomas Edison, Marie Curie, Benjamin Franklin");

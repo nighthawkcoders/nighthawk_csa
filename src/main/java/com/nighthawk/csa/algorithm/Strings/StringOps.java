@@ -6,7 +6,7 @@ import java.util.List;
 
 public class StringOps {
     private String string = null;
-    private String message = null;
+    private String message = "none";
     private final List<String> events;
 
     // Zero argument Constructor
@@ -14,7 +14,8 @@ public class StringOps {
         this.events = new ArrayList<>();
     }
 
-    // Getter for Events
+    // Getters
+    public String getMessage() { return this.message; }
     public List<String> getEvents() { return this.events; }
 
     // Getter for JSON body
@@ -92,7 +93,7 @@ public class StringOps {
     public static StringOps frg2Simulation() {
         // Test 0 construct gradShow object
         StringOps gradShow = new StringOps();
-        gradShow.addEvent("StringOps FRQ 2 LightSequence");
+        gradShow.setMessage("StringOps FRQ 2 LightSequence");
         gradShow.addEvent("\nTest (a): construct gradShow object");
 
         // Test1 set light sequence

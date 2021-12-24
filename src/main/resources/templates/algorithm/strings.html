@@ -57,10 +57,12 @@
           <table class="table">
             <thead>
             <tr>
-              <th scope="col">Sequence of operations</th>
+              <th scope="col">String Sequence Operation History</th>
             </tr>
             </thead>
             <tbody id="result">
+            <tr><td th:text="${object.getMessage()}"></td></tr>
+            <tr><td></td></tr> <!- spacer ->
             <tr th:each="event : ${object.getEvents()}">
               <td th:text="${event}"></td>
             </tr>
@@ -105,7 +107,15 @@
         }
         // this response assumes valid result
         response.json().then(function(result) {
+          // set heading with result.string
           document.getElementById("heading").innerHTML = "String sequence: " + result.string;
+          // build last message at top
+          const head = document.createElement("tr");
+          head.innerHTML = '<td>' + result.message + '</td>';
+          resultContainer.appendChild(head);
+          const spacer = document.createElement("tr");
+          spacer.innerHTML = '<td></td>';
+          resultContainer.appendChild(spacer);
           // loop through JSON and build HTML output
           for (let i = 0; i < result.events.length; i++) {
             const row = document.createElement("tr");
