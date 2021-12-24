@@ -6,18 +6,20 @@ public class StringOps {
     private String string = null;
     private final List<String> events;
 
-    /* Zero argument Constructor
-     */
+    // Zero argument Constructor
     public StringOps() {
         this.events = new ArrayList<>();
     }
 
+    // Getter for Events
     public List<String> getEvents() { return this.events; }
 
-    /* Initialize or Swap sequence
-     */
+    // Setter to add and Event to Events
+    public void addEvent(String event) { this.events.add(event); }
+
+    // Set string action
     public void setString(String string) {
-        this.events.add(
+        this.addEvent(
                 (this.string != null)     // ternary operator usage to avoid null sequence
                     ? "Sequence changed from: " + this.string +" to: " + string
                     : "Set up sequence object: " + string);
@@ -26,10 +28,9 @@ public class StringOps {
         this.string = string;
     }
 
-    /* Insert "in" segment at "position"
-     */
+    // Insert "in" segment at "position"
     public void insertSegmentAt(String in, int position) {
-        this.events.add ( "Insert into: " + this.string + " segment: " + in +" at position " + position );
+        this.addEvent( "Insert into: " + this.string + " segment: " + in +" at position " + position );
 
         // create a gap to insert segment
         this.setString(
@@ -39,10 +40,9 @@ public class StringOps {
         );
     }
 
-    /* Replace "out" segment with "in" segment
-     */
+    // Swap "out" segment with "in" segment
     public void replaceSegment(String out, String in) {
-        this.events.add ( "Replace: " + this.string + " old segment: '" + out +"' with new segment '" + in + "'");
+        this.addEvent( "Replace: " + this.string + " old segment: '" + out +"' with new segment '" + in + "'");
 
         // find gap for out segment
         int index1 = this.string.indexOf(out);
@@ -60,55 +60,55 @@ public class StringOps {
         );
     }
 
-    /* StringOps object reference will return value of sequence attribute
-     */
+    // StringOps object reference will return value of sequence attribute
     @Override
     public String toString() {
         return this.string;
     }
 
-    /* Console output helper method
-     */
+    // Console output helper method
     public void printHistory() {
         for (String event: this.getEvents())
             System.out.println(event);
         System.out.println("Current: " + this);
     }
 
-    public static StringOps frg2_simulation() {
-        StringOps string_ops = new StringOps();
-        string_ops.events.add("FRQ 2 LightSequence");
+    // FRQ2 simulation
+    public static StringOps frg2Simulation() {
+        // Test 0 construct gradShow object
+        StringOps gradShow = new StringOps();
+        gradShow.addEvent("StringOps FRQ 2 LightSequence");
+        gradShow.addEvent("\nTest (a): construct gradShow object");
 
-        // Test1 construct object, zero argument constructor used to capture and display event
-        string_ops.events.add("\nTest (a, b): construct gradShow object + set light sequence");
-        string_ops.setString("0101 0101 0101");
+        // Test1 set light sequence
+        gradShow.addEvent("\nTest (b): set light sequence");
+        gradShow.setString("0101 0101 0101");
 
         // Test2 change content of object
-        string_ops.events.add("\nTest (c): update light sequence");
-        string_ops.setString("0011 0011 0011");
+        gradShow.addEvent("\nTest (c): update light sequence");
+        gradShow.setString("0011 0011 0011");
 
         // Test3 insert into content of object
-        string_ops.events.add("\nTest (d): insert segment into light sequence at position");
-        string_ops.insertSegmentAt("1111 1111", 4);
+        gradShow.addEvent("\nTest (d): insert segment into light sequence at position");
+        gradShow.insertSegmentAt("1111 1111", 4);
 
         // Test4 replacing segment with light sequence.
-        string_ops.events.add("\nTest (f): remove segment from front, end, and middle of light sequence");
-        string_ops.setString("1100000111");
-        string_ops.replaceSegment("11", "");
-        string_ops.setString("0000011");
-        string_ops.replaceSegment("11", "");
-        string_ops.setString("1100000111");
-        string_ops.replaceSegment("00", "");
+        gradShow.addEvent("\nTest (f): remove segment from front, end, and middle of light sequence");
+        gradShow.setString("1100000111");
+        gradShow.replaceSegment("11", "");
+        gradShow.setString("0000011");
+        gradShow.replaceSegment("11", "");
+        gradShow.setString("1100000111");
+        gradShow.replaceSegment("00", "");
 
         // History of events
-        return string_ops;
+        return gradShow;
     }
 
-    /* Class tester method
-     */
+    // Class tester
     public static void main(String[] args) {
         // FRQ2 result simulation using StringOps Class
-        StringOps gradShow = StringOps.frg2_simulation();
+        StringOps gradShow = StringOps.frg2Simulation();
 
         // History of events
         gradShow.printHistory();

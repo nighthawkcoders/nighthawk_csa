@@ -1,5 +1,6 @@
 package com.nighthawk.csa.algorithm;
 
+import com.nighthawk.csa.algorithm.Math.FunMath;
 import com.nighthawk.csa.algorithm.Strings.StringOps;
 import org.json.simple.JSONObject;
 import org.springframework.http.HttpStatus;
@@ -21,32 +22,20 @@ import java.util.Objects;
 public class StringsController {
     StringOps string_ops = null;
 
-    public void stringInit(String sequence) {
+    public void stringNew() {
         this.string_ops = new StringOps();
+    }
+    public void stringInit(String sequence) {
+        if (this.string_ops == null)
+            stringNew();
         this.string_ops.setString(sequence);
     }
 
-    public void frq2Init() {
-        this.string_ops = StringOps.frg2_simulation();
-    }
-
-    // String initial method
-    @GetMapping("/strings")
-    public String strings(@RequestParam(name="sequence", required=false,  defaultValue="") String sequence, Model model) {
-        //Set default as FRQ2 data
-        frq2Init();
-        model.addAttribute("object", string_ops);
-        return "algorithm/strings"; //HTML render fibonacci results
-    }
-
-    // Starting a new sequence
-    @RequestMapping(value = "/api/strings/", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Object> stringsNew(RequestEntity<Object> request) {
-        // extract term from RequestEntity
-        JSONObject json = new JSONObject((Map) Objects.requireNonNull(request.getBody()));
+    public void stringEvent(JSONObject json) {
+        // Get string action
         String action = (String) json.get("action");
 
-        // Build new sequence
+        // Update string_ops based off of action
         switch (action) {
             case "new":  // new sequence
                 String nu = (String) json.get("new_sequence");
@@ -81,6 +70,27 @@ public class StringsController {
             default:
                 // noop
         }
+    }
+
+    // String initial method
+    @GetMapping("/strings")
+    public String strings(@RequestParam(name="sequence", required=false,  defaultValue="") String sequence, Model model) {
+        //Set default data randomly
+        if ( FunMath.random(0,1) == 0)
+            string_ops = inventorList();
+        else
+            string_ops = StringOps.frg2Simulation();
+        model.addAttribute("object", string_ops);
+        return "algorithm/strings"; //HTML render fibonacci results
+    }
+
+    // Starting a new sequence
+    @RequestMapping(value = "/api/strings/", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Object> stringsNew(RequestEntity<Object> request) {
+        // extract json from RequestEntity
+        JSONObject json = new JSONObject((Map) Objects.requireNonNull(request.getBody()));
+        // perform string action
+        stringEvent(json);
 
         // Extract log, jsonify does not seem necessary with LIST
         List<String> events = string_ops.getEvents();
@@ -89,18 +99,40 @@ public class StringsController {
         return new ResponseEntity<>(events, HttpStatus.OK);
     }
 
-    // Console UI is run out of the same Controller
-    public static void main(String[] args) {
-        // String sequence test
-        System.out.println("StringsController Object Initialization Test\n");
+    // Inventor List
+    public static StringOps inventorList() {
+        // String initializer test
         StringsController seqObject = new StringsController();
-        seqObject.stringInit("Albert Thomas Marie Wilma");
-        seqObject.string_ops.printHistory();
+        JSONObject json = new JSONObject();
 
-        System.out.println("\n");
+        // establish new object and set a title
+        seqObject.stringNew();
+        seqObject.string_ops.addEvent("StringsController Inventor List");
+        // new test
+        json.put("action", "new");
+        json.put("new_sequence", "Albert Einstein, Thomas Edison, Marie Curie");
+        seqObject.stringEvent(json);
+        // update test
+        json.put("action", "update");
+        json.put("update_sequence", "Albert Einstein, Thomas Edison, Marie Curie, Benjamin Franklin");
+        seqObject.stringEvent(json);
+        // insert test
+        json.put("action", "insert");
+        json.put("insert_segment", ", Alexander Graham Bell");
+        json.put("insert_location", String.valueOf( seqObject.string_ops.toString().length() ) );
+        seqObject.stringEvent(json);
+        // swap test
+        json.put("action", "swap");
+        json.put("out_segment", "Thomas Edison");
+        json.put("in_segment", "Nikola Tesla");
+        seqObject.stringEvent(json);
 
-        // FRQ2 test
-        seqObject.frq2Init();
-        seqObject.string_ops.printHistory();
+        return seqObject.string_ops;
+    }
+
+    // Class tester
+    public static void main(String[] args) {
+        StringOps inventors = inventorList();
+        inventors.printHistory();
     }
 }

@@ -10,7 +10,7 @@ public class FunMath {
         base: binary, octal, decimal, hexadecimal
         @return: a list containing the series of digits of specified base
      */
-    static List<Integer> baseConvert(int num, int base) {
+    static public List<Integer> baseConvert(int num, int base) {
         List<Integer> num_list = new ArrayList<>();         // what is List versus ArrayList?  Which one is Abstract?
         do {
             num_list.add(0, num % base);    // what does this do?  explain boxing and unboxing
@@ -24,8 +24,17 @@ public class FunMath {
         num: an integer
         @return:
      */
-    static int sumUp(int n) {
+    static public int sumUp(int n) {
         return n == 0 ? 0 : n + sumUp(n - 1);          // what is this called?  hint TO.
+    }
+
+    /* Recursion algorithm that does the summation of series of integers up to n
+        num: an integer
+        @return:
+     */
+    static public int random(int low, int high) {
+        int multiplier = (high - low) + 1;
+        return (int) (Math.random() * multiplier) + low;          // what is this called?  hint TO.
     }
 
     /* FunMath Tester
@@ -57,6 +66,14 @@ public class FunMath {
         System.out.println(baseConvert(0,16));
         System.out.println(baseConvert(255,16));
         System.out.println(baseConvert(256,16));
+
+        System.out.println("Random between 0,1");
+        for (int i = 0; i < 10; i++)
+            System.out.print( random(0,1) );
+
+        System.out.println("\nRandom between 1,8");
+        for (int i = 0; i < 10; i++)
+            System.out.print( random(1,8) );
     }
 }
 
