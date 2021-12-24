@@ -1,9 +1,12 @@
 package com.nighthawk.csa.algorithm.Strings;
+import org.json.simple.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class StringOps {
     private String string = null;
+    private String message = null;
     private final List<String> events;
 
     // Zero argument Constructor
@@ -14,13 +17,25 @@ public class StringOps {
     // Getter for Events
     public List<String> getEvents() { return this.events; }
 
+    // Getter for JSON body
+    public JSONObject getBody() {
+        JSONObject body = new JSONObject();
+        body.put("string", string);
+        body.put("message",message);
+        body.put("events", events);
+        return body;
+    }
+
     // Setter to add and Event to Events
     public void addEvent(String event) { this.events.add(event); }
+
+    // Set action message
+    public void setMessage(String message) { this.message = message; }
 
     // Set string action
     public void setString(String string) {
         this.addEvent(
-                (this.string != null)     // ternary operator usage to avoid null sequence
+                (this.string != null)     // ternary operator usage to consider null string
                     ? "Sequence changed from: " + this.string +" to: " + string
                     : "Set up sequence object: " + string);
 

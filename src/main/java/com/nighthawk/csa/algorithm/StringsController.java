@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -31,45 +30,56 @@ public class StringsController {
         this.string_ops.setString(sequence);
     }
 
-    public void stringEvent(JSONObject json) {
+    public boolean stringEvent(JSONObject json) {
         // Get string action
         String action = (String) json.get("action");
 
         // Update string_ops based off of action
+        boolean success = false;
         switch (action) {
             case "new":  // new sequence
                 String nu = (String) json.get("new_sequence");
                 // test to make sure new sequence contains characters
-                if (nu.length() > 0)
-                    this.stringInit( nu );
+                if (nu.length() > 0) {
+                    this.stringNew();
+                    this.stringInit(nu);
+                    success = true;
+                }
                 break;
 
             case "update": // update string
                 String upd = (String) json.get("update_sequence");
                 // test to ensure string is not empty and not the same as current
-                if ((upd.length() > 0) && (upd.compareTo(string_ops.toString()) != 0) )
-                    string_ops.setString( upd );
+                if ((upd.length() > 0) && (upd.compareTo(string_ops.toString()) != 0) ) {
+                    string_ops.setString(upd);
+                    success = true;
+                }
                 break;
 
             case "insert": // insert segment at location
                 String ins = (String) json.get("insert_segment");
                 int index = Integer.parseInt( (String) json.get("insert_location") );
                 // test to insert segment has length and index is not beyond bounds of string
-                if ( (ins.length() > 0) && (index <= string_ops.toString().length()) )
-                    string_ops.insertSegmentAt( ins, index );
+                if ( (ins.length() > 0) && (index <= string_ops.toString().length()) ) {
+                    string_ops.insertSegmentAt(ins, index);
+                    success = true;
+                }
                 break;
 
             case "swap": // swap segment "out" for segment "in"
                 String out = (String) json.get("out_segment");
                 String in = (String) json.get("in_segment");
                 // test to see if swap is worth it, plus swap is in string_ops
-                if ( ( out.length() > 0 ) && ( out.compareTo(in) != 0 ) &&  string_ops.toString().contains(out) )
-                    string_ops.replaceSegment( out, in );
+                if ( ( out.length() > 0 ) && ( out.compareTo(in) != 0 ) &&  string_ops.toString().contains(out) ) {
+                    string_ops.replaceSegment(out, in);
+                    success = true;
+                }
                 break;
 
             default:
                 // noop
         }
+        return success;
     }
 
     // String initial method
@@ -90,13 +100,18 @@ public class StringsController {
         // extract json from RequestEntity
         JSONObject json = new JSONObject((Map) Objects.requireNonNull(request.getBody()));
         // perform string action
-        stringEvent(json);
+        String action = (String) json.get("action");
+        if (stringEvent(json)) {
+            string_ops.setMessage( action + " success.");
+        } else {
+            string_ops.setMessage( action + " failed, data invalid.");
+        }
 
         // Extract log, jsonify does not seem necessary with LIST
-        List<String> events = string_ops.getEvents();
+        JSONObject body = string_ops.getBody();
 
         // return resulting list of events status, error checking should be added
-        return new ResponseEntity<>(events, HttpStatus.OK);
+        return new ResponseEntity<>(body, HttpStatus.OK);
     }
 
     // Inventor List

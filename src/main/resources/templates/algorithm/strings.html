@@ -25,13 +25,15 @@
 
       <div class="col-md-6 p-5"> <!- Start String Ops Column ->
 
+        <h6 id="heading" th:text="'String sequence: ' + ${object}"></h6>
+
         <div class="row p-4">
           <input type="text" class="form-control" id="new_sequence" placeholder="start a new sequence">
           <button class="btn btn-primary bg-secondary" onclick="sequence('new');">New!</button>
         </div>
 
         <div class="row p-4">
-          <input type="text" class="form-control" id="update_sequence" th:value="${object}">
+          <input type="text" class="form-control" id="update_sequence" placeholder="update or override string sequence">
           <button class="btn btn-primary bg-secondary" onclick="sequence('update');">Update!</button>
         </div>
 
@@ -103,10 +105,11 @@
         }
         // this response assumes valid result
         response.json().then(function(result) {
+          document.getElementById("heading").innerHTML = "String sequence: " + result.string;
           // loop through JSON and build HTML output
-          for (let i = 0; i < result.length; i++) {
+          for (let i = 0; i < result.events.length; i++) {
             const row = document.createElement("tr");
-            row.innerHTML = '<td>' + result[i] + '</td>';
+            row.innerHTML = '<td>' + result.events[i] + '</td>';
             resultContainer.appendChild(row);
           }
         })
