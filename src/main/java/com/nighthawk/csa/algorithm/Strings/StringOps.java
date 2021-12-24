@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StringOps {
-    private String sequence = null;
+    private String string = null;
     private final List<String> events;
 
     /* Zero argument Constructor
@@ -12,45 +12,45 @@ public class StringOps {
         this.events = new ArrayList<>();
     }
 
-    public List<String> getEvents() { return events; }
+    public List<String> getEvents() { return this.events; }
 
     /* Initialize or Swap sequence
      */
-    public void setString(String sequence) {
+    public void setString(String string) {
         this.events.add(
-                (this.sequence != null)     // ternary operator usage to avoid null sequence
-                    ? "Sequence changed from: " + this.sequence +" to: " + sequence
-                    : "Set up sequence object: " + sequence);
+                (this.string != null)     // ternary operator usage to avoid null sequence
+                    ? "Sequence changed from: " + this.string +" to: " + string
+                    : "Set up sequence object: " + string);
 
         // replace new sequence over existing sequence in object
-        this.sequence = sequence;
+        this.string = string;
     }
 
     /* Insert "in" segment at "position"
      */
     public void insertSegmentAt(String in, int position) {
-        this.events.add ( "Insert into: " + this.sequence + " segment: " + in +" at position " + position );
+        this.events.add ( "Insert into: " + this.string + " segment: " + in +" at position " + position );
 
         // create a gap to insert segment
         this.setString(
-                this.sequence.substring(0, position) +
+                this.string.substring(0, position) +
                 in +
-                this.sequence.substring(position)  // single argument includes 'till end of string
+                this.string.substring(position)  // single argument includes 'till end of string
         );
     }
 
     /* Replace "out" segment with "in" segment
      */
     public void replaceSegment(String out, String in) {
-        this.events.add ( "Replace: " + sequence + " old segment: '" + out +"' with new segment '" + in + "'");
+        this.events.add ( "Replace: " + this.string + " old segment: '" + out +"' with new segment '" + in + "'");
 
         // find gap for out segment
-        int index1 = this.sequence.indexOf(out);
+        int index1 = this.string.indexOf(out);
         int index2 = index1 + out.length();
 
         // build front part and back part of new segemtn
-        String front = this.sequence.substring(0, index1);
-        String back = this.sequence.substring(index2); // single argument includes 'till end of string
+        String front = this.string.substring(0, index1);
+        String back = this.string.substring(index2); // single argument includes 'till end of string
 
         // concatenate "in" between front and back parts of original
         this.setString(
@@ -64,43 +64,44 @@ public class StringOps {
      */
     @Override
     public String toString() {
-        return this.sequence;
+        return this.string;
     }
 
     /* Console output helper method
      */
     public void printHistory() {
-        for (String event: getEvents())
+        for (String event: this.getEvents())
             System.out.println(event);
         System.out.println("Current: " + this);
     }
 
     public static StringOps frg2_simulation() {
-        // Test1 construct object, zero argument constructor used to capture test event
-        StringOps sequence = new StringOps();
-        sequence.events.add("FRQ 2 LightSequence");
-        sequence.events.add("\nTest (a, b): construct object + display sequence");
-        sequence.setString("0101 0101 0101");
+        StringOps string_ops = new StringOps();
+        string_ops.events.add("FRQ 2 LightSequence");
+
+        // Test1 construct object, zero argument constructor used to capture and display event
+        string_ops.events.add("\nTest (a, b): construct gradShow object + set light sequence");
+        string_ops.setString("0101 0101 0101");
 
         // Test2 change content of object
-        sequence.events.add("\nTest (c): update sequence");
-        sequence.setString("0011 0011 0011");
+        string_ops.events.add("\nTest (c): update light sequence");
+        string_ops.setString("0011 0011 0011");
 
         // Test3 insert into content of object
-        sequence.events.add("\nTest (d): insert into sequence at position");
-        sequence.insertSegmentAt("1111 1111", 4);
+        string_ops.events.add("\nTest (d): insert segment into light sequence at position");
+        string_ops.insertSegmentAt("1111 1111", 4);
 
-        // Test4 replace sequence with one that has proper spacing
-        sequence.events.add("\nTest (f): remove segment from front, end, and middle");
-        sequence.setString("1100000111");
-        sequence.replaceSegment("11", "");
-        sequence.setString("0000011");
-        sequence.replaceSegment("11", "");
-        sequence.setString("1100000111");
-        sequence.replaceSegment("00", "");
+        // Test4 replacing segment with light sequence.
+        string_ops.events.add("\nTest (f): remove segment from front, end, and middle of light sequence");
+        string_ops.setString("1100000111");
+        string_ops.replaceSegment("11", "");
+        string_ops.setString("0000011");
+        string_ops.replaceSegment("11", "");
+        string_ops.setString("1100000111");
+        string_ops.replaceSegment("00", "");
 
         // History of events
-        return sequence;
+        return string_ops;
     }
 
     /* Class tester method

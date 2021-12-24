@@ -95,13 +95,13 @@
       })
       // async then replies with response header
       .then(function (response) {
-        // prepare HTML search result container for new output
+        /* prepare HTML search result container for new output by
+           cleaning up existing result area */
         const resultContainer = document.getElementById("result");
-        // clean up from previous search
         while (resultContainer.firstChild) {
           resultContainer.removeChild(resultContainer.firstChild);
         }
-        // assumption is response contains valid result
+        // this response assumes valid result
         response.json().then(function(result) {
           // loop through JSON and build HTML output
           for (let i = 0; i < result.length; i++) {

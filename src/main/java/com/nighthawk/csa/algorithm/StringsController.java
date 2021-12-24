@@ -19,19 +19,15 @@ import java.util.Objects;
 
 @Controller  // HTTP requests are handled as a controller, using the @Controller annotation
 public class StringsController {
-    StringOps object = null;
+    StringOps string_ops = null;
 
     public void stringInit(String sequence) {
-        this.object = new StringOps();
-        this.object.setString(sequence);
+        this.string_ops = new StringOps();
+        this.string_ops.setString(sequence);
     }
 
     public void frq2Init() {
-        this.object = StringOps.frg2_simulation();
-    }
-
-    public StringOps getObject() {
-        return this.object;
+        this.string_ops = StringOps.frg2_simulation();
     }
 
     // String initial method
@@ -39,7 +35,7 @@ public class StringsController {
     public String strings(@RequestParam(name="sequence", required=false,  defaultValue="") String sequence, Model model) {
         //Set default as FRQ2 data
         frq2Init();
-        model.addAttribute("object", getObject());
+        model.addAttribute("object", string_ops);
         return "algorithm/strings"; //HTML render fibonacci results
     }
 
@@ -52,34 +48,42 @@ public class StringsController {
 
         // Build new sequence
         switch (action) {
-            case "mew":  // new sequence
-                this.stringInit(
-                        (String) json.get("new_sequence")
-                );
+            case "new":  // new sequence
+                String nu = (String) json.get("new_sequence");
+                // test to make sure new sequence contains characters
+                if (nu.length() > 0)
+                    this.stringInit( nu );
                 break;
+
             case "update": // update string
-                this.getObject().setString(
-                        (String) json.get("update_sequence")
-                );
+                String upd = (String) json.get("update_sequence");
+                // test to ensure string is not empty and not the same as current
+                if ((upd.length() > 0) && (upd.compareTo(string_ops.toString()) != 0) )
+                    string_ops.setString( upd );
                 break;
+
             case "insert": // insert segment at location
-                this.getObject().insertSegmentAt(
-                        (String) json.get("insert_segment"),
-                        Integer.parseInt((String) json.get("insert_location"))
-                );
+                String ins = (String) json.get("insert_segment");
+                int index = Integer.parseInt( (String) json.get("insert_location") );
+                // test to insert segment has length and index is not beyond bounds of string
+                if ( (ins.length() > 0) && (index <= string_ops.toString().length()) )
+                    string_ops.insertSegmentAt( ins, index );
                 break;
+
             case "swap": // swap segment "out" for segment "in"
-                this.getObject().replaceSegment(
-                        (String) json.get("out_segment"),
-                        (String) json.get("in_segment")
-                );
+                String out = (String) json.get("out_segment");
+                String in = (String) json.get("in_segment");
+                // test to see if swap is worth it, plus swap is in string_ops
+                if ( ( out.length() > 0 ) && ( out.compareTo(in) != 0 ) &&  string_ops.toString().contains(out) )
+                    string_ops.replaceSegment( out, in );
                 break;
+
             default:
                 // noop
         }
 
         // Extract log, jsonify does not seem necessary with LIST
-        List<String> events = this.getObject().getEvents();
+        List<String> events = string_ops.getEvents();
 
         // return resulting list of events status, error checking should be added
         return new ResponseEntity<>(events, HttpStatus.OK);
@@ -91,12 +95,12 @@ public class StringsController {
         System.out.println("StringsController Object Initialization Test\n");
         StringsController seqObject = new StringsController();
         seqObject.stringInit("Albert Thomas Marie Wilma");
-        seqObject.getObject().printHistory();
+        seqObject.string_ops.printHistory();
 
         System.out.println("\n");
 
         // FRQ2 test
         seqObject.frq2Init();
-        seqObject.getObject().printHistory();
+        seqObject.string_ops.printHistory();
     }
 }
