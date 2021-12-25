@@ -21,10 +21,6 @@ import java.util.Objects;
 public class StringsController {
     StringOps string_ops = null;
 
-    public void stringInit(String sequence) {
-        this.string_ops.setStringSeq(sequence);
-    }
-
     // Getter for JSON body
     public JSONObject getBody() {
         JSONObject body = new JSONObject();
@@ -49,13 +45,9 @@ public class StringsController {
                 string_ops.setStatus( "Construct '" + title + "' " + action + " object" );
                 break;
 
-            case "init":  // new sequence
+            case "init":  // init or update string sequence
                 String init = (String) json.get("new_sequence");
-                // test to make sure new sequence contains characters
-                if ((init.length() > 0) && ((string_ops.toString() == null) ||
-                        (init.compareTo(string_ops.toString()) != 0) ) ){
-                    this.stringInit(init);
-                } else { success = false; }
+                this.string_ops.setStringSeq(init);
                 break;
 
             case "append": // update string

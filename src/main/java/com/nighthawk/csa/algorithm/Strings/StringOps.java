@@ -30,14 +30,21 @@ public class StringOps {
     // Setters
     public void setTitle(String title) { this.title = title; }
     public void setStatus(String status) { this.status = status; }
+    // Set/Init string sequence
     public void setStringSeq(String stringSeq) {
-        this.addEvent(
-                (this.stringSeq == null)     // ternary operator usage to consider null string
-                ? "Set up sequence object: " + stringSeq
-                : "Sequence changed from: " + this.stringSeq +" to: " + stringSeq
-        );
-        // replace new sequence over existing sequence in object
-        this.stringSeq = stringSeq;
+        if (stringSeq.length() == 0) {
+            this.setStatus("Set string sequence failed: empty");
+        } else if ( (this.stringSeq != null) && (stringSeq.compareTo(this.stringSeq) == 0) ) {
+            this.setStatus("Set string sequence failed: no change");
+        } else {
+            this.addEvent(
+                    (this.stringSeq == null)     // ternary operator usage to consider null string
+                            ? "Set string sequence: " + stringSeq
+                            : "Update string sequence from: " + this.stringSeq + " to: " + stringSeq
+            );
+            // replace new sequence over existing sequence in object
+            this.stringSeq = stringSeq;
+        }
     }
 
     // Append "in" segment to end of string sequence
