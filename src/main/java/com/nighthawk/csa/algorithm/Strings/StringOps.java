@@ -30,6 +30,7 @@ public class StringOps {
     // Setters
     public void setTitle(String title) { this.title = title; }
     public void setStatus(String status) { this.status = status; }
+
     // Set/Init string sequence
     public void setStringSeq(String stringSeq) {
         if (stringSeq.length() == 0) {
@@ -49,13 +50,17 @@ public class StringOps {
 
     // Append "in" segment to end of string sequence
     public void appendSegment(String in) {
-        this.addEvent( "Append tp: " + this.stringSeq + " segment: " + in );
+        if ((in.length() == 0) ) {
+            this.setStatus("Append string segment failed: empty");
+        } else {
+            this.addEvent("Append tp: " + this.stringSeq + " segment: " + in);
 
-        // create a gap to insert segment
-        this.setStringSeq(
-                this.stringSeq +
-                in
-        );
+            // create a gap to insert segment
+            this.setStringSeq(
+                    this.stringSeq +
+                            in
+            );
+        }
     }
 
     // Insert "in" segment at "position"

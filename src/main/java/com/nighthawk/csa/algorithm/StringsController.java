@@ -52,10 +52,7 @@ public class StringsController {
 
             case "append": // update string
                 String add = (String) json.get("append_segment");
-                // test to ensure string is not empty and not the same as current
-                if ((add.length() > 0) ) {
-                    string_ops.appendSegment(add);
-                } else { success = false; }
+                this.string_ops.appendSegment(add);
                 break;
 
             case "insert": // insert segment at location
