@@ -40,8 +40,8 @@ public class StringOps {
         } else {
             this.addEvent(
                     (this.stringSeq == null)     // ternary operator usage to consider null string
-                            ? "Set string sequence: " + stringSeq
-                            : "Update string sequence from: " + this.stringSeq + " to: " + stringSeq
+                            ? "Set string sequence '" + stringSeq + "'"
+                            : "Update string sequence from '" + this.stringSeq + "' to: '" + stringSeq +"'"
             );
             // replace new sequence over existing sequence in object
             this.stringSeq = stringSeq;
@@ -53,12 +53,16 @@ public class StringOps {
         if ((in.length() == 0) ) {
             this.setStatus("Append string segment failed: empty");
         } else {
-            this.addEvent("Append tp: " + this.stringSeq + " segment: " + in);
+            this.addEvent("Append to '" +
+                    this.stringSeq +
+                    "' segment: '" +
+                    in + "'"
+            );
 
             // create a gap to insert segment
             this.setStringSeq(
                     this.stringSeq +
-                            in
+                    in
             );
         }
     }
@@ -70,11 +74,11 @@ public class StringOps {
         } else if (index > this.stringSeq.length()) {
             this.setStatus("Insert index failed: out of bounds");
         } else {
-            this.addEvent("Insert into: " +
-                    this.stringSeq + " " +
-                    "segment: " +
+            this.addEvent("Insert into '" +
+                    this.stringSeq +
+                    "' new segment: '" +
                     in +
-                    " at position " +
+                    "' at index " +
                     index
             );
             // create a gap to insert segment
@@ -95,7 +99,10 @@ public class StringOps {
         } else if ( !this.stringSeq.contains(out) ) {
             this.setStatus("Swap segment failed: 'out' segment not found within string sequence");
         } else {
-            this.addEvent("Swap: " + this.stringSeq + " old segment: '" + out + "' with new segment '" + in + "'");
+            this.addEvent("Swap '" + this.stringSeq +
+                    "' old segment '" + out +
+                    "' with new segment '" + in + "'"
+            );
 
             // find gap for out segment
             int index1 = this.stringSeq.indexOf(out);
