@@ -25,16 +25,16 @@
 
       <div class="col-md-6 p-5"> <!- Start String Ops Column ->
 
-        <h6 id="heading" th:text="'String sequence: ' + ${object}"></h6>
+        <h6 id="sequence" th:text="'String sequence: ' + ${object}"></h6>
 
         <div class="row p-4">
-          <input type="text" class="form-control" id="new_sequence" placeholder="start a new sequence">
+          <input type="text" class="form-control" id="new_title" placeholder="set up title for new sequence">
           <button class="btn btn-primary bg-secondary" onclick="sequence('new');">New!</button>
         </div>
 
         <div class="row p-4">
-          <input type="text" class="form-control" id="update_sequence" placeholder="update or override string sequence">
-          <button class="btn btn-primary bg-secondary" onclick="sequence('update');">Update!</button>
+          <input type="text" class="form-control" id="new_sequence" placeholder="init the data for the new sequence">
+          <button class="btn btn-primary bg-secondary" onclick="sequence('init');">Initialize!</button>
         </div>
 
         <div class="row p-4">
@@ -53,22 +53,20 @@
 
       <div class="col-md-6 p-5"> <!- Start String Sequence column ->
 
-        <div class="h-100">
-          <table class="table">
-            <thead>
-            <tr>
-              <th scope="col">String Sequence Operation History</th>
-            </tr>
-            </thead>
-            <tbody id="result">
-            <tr><td th:text="${object.getMessage()}"></td></tr>
-            <tr><td></td></tr> <!- spacer ->
-            <tr th:each="event : ${object.getEvents()}">
-              <td th:text="${event}"></td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
+        <table class="table">
+          <thead>
+          <tr>
+            <th scope="col" id="title" th:text="${object.getTitle()}"></th>
+          </tr>
+          </thead>
+          <tbody id="result">
+          <tr><td th:text="${object.getStatus()}"></td></tr>
+          <tr><td></td></tr> <!- spacer ->
+          <tr th:each="event : ${object.getEvents()}">
+            <td th:text="${event}"></td>
+          </tr>
+          </tbody>
+        </table>
 
       </div>  <!- End String Sequence column ->
 
@@ -79,8 +77,8 @@
     function sequence(action) {
       // fetch standard requires data set to a name-value pair
       const body = {
+        title: document.getElementById("new_title").value,
         new_sequence: document.getElementById("new_sequence").value,
-        update_sequence: document.getElementById("update_sequence").value,
         insert_segment: document.getElementById("insert_segment").value,
         insert_location: document.getElementById("insert_location").value,
         out_segment: document.getElementById("out_segment").value,
@@ -107,11 +105,13 @@
         }
         // this response assumes valid result
         response.json().then(function(result) {
-          // set heading with result.string
-          document.getElementById("heading").innerHTML = "String sequence: " + result.string;
+          // set sequence with result.string
+          document.getElementById("sequence").innerHTML = "String sequence: " + result.string;
+          document.getElementById("title").innerHTML = result.title;
+
           // build last message at top
           const head = document.createElement("tr");
-          head.innerHTML = '<td>' + result.message + '</td>';
+          head.innerHTML = '<td>' + "Last action: " + result.status + '</td>';
           resultContainer.appendChild(head);
           const spacer = document.createElement("tr");
           spacer.innerHTML = '<td></td>';

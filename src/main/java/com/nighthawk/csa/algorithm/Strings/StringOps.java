@@ -6,7 +6,8 @@ import java.util.List;
 
 public class StringOps {
     private String string = null;
-    private String message = "none";
+    private String title = "none";
+    private String status = "none";
     private final List<String> events;
 
     // Zero argument Constructor
@@ -15,31 +16,35 @@ public class StringOps {
     }
 
     // Getters
-    public String getMessage() { return this.message; }
+    public String getTitle() { return this.title; }
+    public String getStatus() { return this.status; }
     public List<String> getEvents() { return this.events; }
 
     // Getter for JSON body
     public JSONObject getBody() {
         JSONObject body = new JSONObject();
-        body.put("string", string);
-        body.put("message",message);
-        body.put("events", events);
+        body.put("string", this.toString());
+        body.put("title", this.getTitle());
+        body.put("status", this.getStatus());
+        body.put("events", this.getEvents());
         return body;
     }
 
     // Setter to add and Event to Events
-    public void addEvent(String event) { this.events.add(event); }
+    public void addEvent(String event) {
+        this.status = event;
+        this.events.add(event);
+    }
 
-    // Set action message
-    public void setMessage(String message) { this.message = message; }
-
-    // Set string action
+    // Setters
+    public void setTitle(String title) { this.title = title; }
+    public void setStatus(String status) { this.status = status; }
     public void setString(String string) {
         this.addEvent(
-                (this.string != null)     // ternary operator usage to consider null string
-                    ? "Sequence changed from: " + this.string +" to: " + string
-                    : "Set up sequence object: " + string);
-
+                (this.string == null)     // ternary operator usage to consider null string
+                ? "Set up sequence object: " + string
+                : "Sequence changed from: " + this.string +" to: " + string
+        );
         // replace new sequence over existing sequence in object
         this.string = string;
     }
@@ -84,32 +89,37 @@ public class StringOps {
 
     // Console output helper method
     public void printHistory() {
+        System.out.println(this.title);
+        System.out.println("Current sequence: " + this);
+        System.out.println("Last action: " + this.status);
+        System.out.println();
+
+        System.out.println("Change History ...");
         for (String event: this.getEvents())
             System.out.println(event);
-        System.out.println("Current: " + this);
     }
 
     // FRQ2 simulation
     public static StringOps frg2Simulation() {
         // Test 0 construct gradShow object
         StringOps gradShow = new StringOps();
-        gradShow.setMessage("StringOps FRQ 2 LightSequence");
-        gradShow.addEvent("\nTest (a): construct gradShow object");
+        gradShow.setTitle("StringOps FRQ 2 LightSequence");
+        gradShow.addEvent("Test (a): construct gradShow object");
 
         // Test1 set light sequence
-        gradShow.addEvent("\nTest (b): set light sequence");
+        gradShow.addEvent("Test (b): set light sequence");
         gradShow.setString("0101 0101 0101");
 
         // Test2 change content of object
-        gradShow.addEvent("\nTest (c): update light sequence");
+        gradShow.addEvent("Test (c): update light sequence");
         gradShow.setString("0011 0011 0011");
 
         // Test3 insert into content of object
-        gradShow.addEvent("\nTest (d): insert segment into light sequence at position");
+        gradShow.addEvent("Test (d): insert segment into light sequence at position");
         gradShow.insertSegmentAt("1111 1111", 4);
 
         // Test4 replacing segment with light sequence.
-        gradShow.addEvent("\nTest (f): remove segment from front, end, and middle of light sequence");
+        gradShow.addEvent("Test (f): remove segment from front, end, and middle of light sequence");
         gradShow.setString("1100000111");
         gradShow.replaceSegment("11", "");
         gradShow.setString("0000011");

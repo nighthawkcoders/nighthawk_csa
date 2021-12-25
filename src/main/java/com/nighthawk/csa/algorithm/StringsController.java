@@ -21,12 +21,12 @@ import java.util.Objects;
 public class StringsController {
     StringOps string_ops = null;
 
-    public void stringNew() {
+    public void stringNew(String title) {
         this.string_ops = new StringOps();
+        this.string_ops.setTitle(title);
     }
+
     public void stringInit(String sequence) {
-        if (this.string_ops == null)
-            stringNew();
         this.string_ops.setString(sequence);
     }
 
@@ -38,11 +38,16 @@ public class StringsController {
         boolean success = false;
         switch (action) {
             case "new":  // new sequence
-                String nu = (String) json.get("new_sequence");
+                String title = (String) json.get("title");
+                this.stringNew(title);
+                success = true;
+                break;
+
+            case "init":  // new sequence
+                String init = (String) json.get("new_sequence");
                 // test to make sure new sequence contains characters
-                if (nu.length() > 0) {
-                    this.stringNew();
-                    this.stringInit(nu);
+                if (init.length() > 0) {
+                    this.stringInit(init);
                     success = true;
                 }
                 break;
@@ -101,10 +106,8 @@ public class StringsController {
         JSONObject json = new JSONObject((Map) Objects.requireNonNull(request.getBody()));
         // perform string action
         String action = (String) json.get("action");
-        if (stringEvent(json)) {
-            string_ops.setMessage( "Action: " + action + " successful.");
-        } else {
-            string_ops.setMessage( "Action: " + action + " failed, check data.");
+        if (!stringEvent(json)) {
+            string_ops.setStatus( action + " failed, check data.");
         }
 
         // Extract log, jsonify does not seem necessary with LIST
@@ -120,13 +123,15 @@ public class StringsController {
         StringsController seqObject = new StringsController();
         JSONObject json = new JSONObject();
 
-        // establish new object and set a title
-        seqObject.stringNew();
-        // new test
+        // new object and set a title
         json.put("action", "new");
+        json.put("title", "StringsController Inventor List");
+        seqObject.stringEvent(json);
+
+        // new test
+        json.put("action", "init");
         json.put("new_sequence", "Albert Einstein, Thomas Edison, Marie Curie");
         seqObject.stringEvent(json);
-        seqObject.string_ops.setMessage("StringsController Inventor List");
 
         // update test
         json.put("action", "update");
