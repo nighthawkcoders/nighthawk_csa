@@ -19,9 +19,10 @@ import java.util.Objects;
 
 @Controller  // HTTP requests are handled as a controller, using the @Controller annotation
 public class StringsController {
+    // StringOps object
     StringOps string_ops = null;
 
-    // Getter for JSON body
+    // Getter to transform string_ops object to JSON
     public JSONObject getBody() {
         JSONObject body = new JSONObject();
         body.put("data", string_ops.toString());
@@ -31,49 +32,44 @@ public class StringsController {
         return body;
     }
 
-    public boolean stringEvent(JSONObject json) {
+    public void stringEvent(JSONObject jo) {
         // Get string action
-        String action = (String) json.get("action");
+        String action = (String) jo.get("action");
 
         // Update string_ops based off of action
-        boolean success = true;
         switch (action) {
             case "new":  // new sequence
-                String title = (String) json.get("title");
+                String title = (String) jo.get("title");
                 this.string_ops = new StringOps();
                 this.string_ops.setTitle(title);
                 string_ops.setStatus( "Construct '" + title + "' " + action + " object" );
                 break;
 
             case "init":  // init or update string sequence
-                String init = (String) json.get("new_sequence");
+                String init = (String) jo.get("new_sequence");
                 this.string_ops.setStringSeq(init);
                 break;
 
             case "append": // update string
-                String add = (String) json.get("append_segment");
+                String add = (String) jo.get("append_segment");
                 this.string_ops.appendSegment(add);
                 break;
 
             case "insert": // insert segment at location
-                String ins = (String) json.get("insert_segment");
-                int index = Integer.parseInt( (String) json.get("insert_location") );
+                String ins = (String) jo.get("insert_segment");
+                int index = Integer.parseInt( (String) jo.get("insert_location") );
                 string_ops.insertSegmentAt(ins, index);
                 break;
 
             case "swap": // swap segment "out" for segment "in"
-                String out = (String) json.get("out_segment");
-                String in = (String) json.get("in_segment");
-                // test to see if swap is worth it, plus swap is in string_ops
-                if ( ( out.length() > 0 ) && ( out.compareTo(in) != 0 ) &&  string_ops.toString().contains(out) ) {
-                    string_ops.swapSegment(out, in);
-                } else { success = false; }
+                String out = (String) jo.get("out_segment");
+                String in = (String) jo.get("in_segment");
+                string_ops.swapSegment(out, in);
                 break;
 
             default:
                 // noop
         }
-        return success;
     }
 
     // String initial method
@@ -92,12 +88,10 @@ public class StringsController {
     @RequestMapping(value = "/api/strings/", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> stringsNew(RequestEntity<Object> request) {
         // extract json from RequestEntity
-        JSONObject json = new JSONObject((Map) Objects.requireNonNull(request.getBody()));
-        // perform string action
-        String action = (String) json.get("action");
-        if (!stringEvent(json)) {
-            string_ops.setStatus( action + " failed, check data.");
-        }
+        JSONObject jo = new JSONObject((Map) Objects.requireNonNull(request.getBody()));
+
+        // process string action
+        stringEvent(jo);
 
         // Extract object contents into JSON
         JSONObject body = this.getBody();
@@ -110,34 +104,34 @@ public class StringsController {
     public static StringOps inventorList() {
         // String initializer test
         StringsController seqObject = new StringsController();
-        JSONObject json = new JSONObject();
+        JSONObject jo = new JSONObject();
 
         // new object and set a title
-        json.put("action", "new");
-        json.put("title", "StringsController Inventor List");
-        seqObject.stringEvent(json);
+        jo.put("action", "new");
+        jo.put("title", "StringsController Inventor List");
+        seqObject.stringEvent(jo);
 
         // new test
-        json.put("action", "init");
-        json.put("new_sequence", "Albert Einstein, Thomas Edison, Marie Curie");
-        seqObject.stringEvent(json);
+        jo.put("action", "init");
+        jo.put("new_sequence", "Albert Einstein, Thomas Edison, Marie Curie");
+        seqObject.stringEvent(jo);
 
         // update test
-        json.put("action", "append");
-        json.put("append_segment", ", Benjamin Franklin");
-        seqObject.stringEvent(json);
+        jo.put("action", "append");
+        jo.put("append_segment", ", Benjamin Franklin");
+        seqObject.stringEvent(jo);
 
         // insert test
-        json.put("action", "insert");
-        json.put("insert_segment", "Alexander Graham Bell, ");
-        json.put("insert_location", "0" );
-        seqObject.stringEvent(json);
+        jo.put("action", "insert");
+        jo.put("insert_segment", "Alexander Graham Bell, ");
+        jo.put("insert_location", "0" );
+        seqObject.stringEvent(jo);
 
         // swap test
-        json.put("action", "swap");
-        json.put("out_segment", "Thomas Edison");
-        json.put("in_segment", "Nikola Tesla");
-        seqObject.stringEvent(json);
+        jo.put("action", "swap");
+        jo.put("out_segment", "Thomas Edison");
+        jo.put("in_segment", "Nikola Tesla");
+        seqObject.stringEvent(jo);
 
         return seqObject.string_ops;
     }

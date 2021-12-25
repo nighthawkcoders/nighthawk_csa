@@ -50,7 +50,6 @@ public class StringOps {
 
     // Append "in" segment to end of string sequence
     public void appendSegment(String in) {
-        // Error if "in" segment is 0
         if ((in.length() == 0) ) {
             this.setStatus("Append string segment failed: empty");
         } else {
@@ -89,22 +88,30 @@ public class StringOps {
 
     // Swap "out" segment with "in" segment
     public void swapSegment(String out, String in) {
-        this.addEvent( "Swap: " + this.stringSeq + " old segment: '" + out +"' with new segment '" + in + "'");
+        if (out.length() == 0) {
+            this.setStatus("Swap segment failed: 'out' segment is empty");
+        } else if ( out.compareTo(in) == 0 ) {
+            this.setStatus("Swap segment failed: 'out' and 'in' are equal");
+        } else if ( !this.stringSeq.contains(out) ) {
+            this.setStatus("Swap segment failed: 'out' segment not found within string sequence");
+        } else {
+            this.addEvent("Swap: " + this.stringSeq + " old segment: '" + out + "' with new segment '" + in + "'");
 
-        // find gap for out segment
-        int index1 = this.stringSeq.indexOf(out);
-        int index2 = index1 + out.length();
+            // find gap for out segment
+            int index1 = this.stringSeq.indexOf(out);
+            int index2 = index1 + out.length();
 
-        // build front part and back part of new segemtn
-        String front = this.stringSeq.substring(0, index1);
-        String back = this.stringSeq.substring(index2); // single argument includes 'till end of string
+            // build front part and back part of new segemtn
+            String front = this.stringSeq.substring(0, index1);
+            String back = this.stringSeq.substring(index2); // single argument includes 'till end of string
 
-        // concatenate "in" between front and back parts of original
-        this.setStringSeq(
-                front +
-                in +
-                back
-        );
+            // concatenate "in" between front and back parts of original
+            this.setStringSeq(
+                    front +
+                    in +
+                    back
+            );
+        }
     }
 
     // StringOps object reference will return value of sequence attribute
