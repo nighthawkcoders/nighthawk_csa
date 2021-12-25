@@ -50,6 +50,7 @@ public class StringOps {
 
     // Append "in" segment to end of string sequence
     public void appendSegment(String in) {
+        // Error if "in" segment is 0
         if ((in.length() == 0) ) {
             this.setStatus("Append string segment failed: empty");
         } else {
@@ -64,15 +65,26 @@ public class StringOps {
     }
 
     // Insert "in" segment at "position"
-    public void insertSegmentAt(String in, int position) {
-        this.addEvent( "Insert into: " + this.stringSeq + " segment: " + in +" at position " + position );
-
-        // create a gap to insert segment
-        this.setStringSeq(
-                this.stringSeq.substring(0, position) +
-                in +
-                this.stringSeq.substring(position)  // single argument includes 'till end of string
-        );
+    public void insertSegmentAt(String in, int index) {
+        if ( (in.length() == 0) ) {
+            this.setStatus("Insert string segment failed: empty");
+        } else if (index > this.stringSeq.length()) {
+            this.setStatus("Insert index failed: out of bounds");
+        } else {
+            this.addEvent("Insert into: " +
+                    this.stringSeq + " " +
+                    "segment: " +
+                    in +
+                    " at position " +
+                    index
+            );
+            // create a gap to insert segment
+            this.setStringSeq(
+                    this.stringSeq.substring(0, index) +
+                    in +
+                    this.stringSeq.substring(index)  // single argument includes 'till end of string
+            );
+        }
     }
 
     // Swap "out" segment with "in" segment

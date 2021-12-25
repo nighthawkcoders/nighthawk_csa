@@ -58,10 +58,7 @@ public class StringsController {
             case "insert": // insert segment at location
                 String ins = (String) json.get("insert_segment");
                 int index = Integer.parseInt( (String) json.get("insert_location") );
-                // test to insert segment has length and index is not beyond bounds of string
-                if ( (ins.length() > 0) && (index <= string_ops.toString().length()) ) {
-                    string_ops.insertSegmentAt(ins, index);
-                } else { success = false; }
+                string_ops.insertSegmentAt(ins, index);
                 break;
 
             case "swap": // swap segment "out" for segment "in"
