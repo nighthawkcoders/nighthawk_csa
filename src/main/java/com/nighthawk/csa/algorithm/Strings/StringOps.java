@@ -31,6 +31,12 @@ public class StringOps {
     public void setTitle(String title) { this.title = title; }
     public void setStatus(String status) { this.status = status; }
 
+    // Set new string sequence properties
+    public void newStringSeq(String title) {
+        this.setTitle(title);
+        this.addEvent( "Construct '" + title + "' new object" );
+    }
+
     // Set/Init string sequence
     public void setStringSeq(String stringSeq) {
         if (stringSeq.length() == 0) {

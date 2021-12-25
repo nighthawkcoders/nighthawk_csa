@@ -40,9 +40,12 @@ public class StringsController {
         switch (action) {
             case "new":  // new sequence
                 String title = (String) jo.get("title");
+                //avoid condition of an empty title
+                if (title == null || title.length() == 0)
+                    title = string_ops.getTitle();
+                //create new object
                 this.string_ops = new StringOps();
-                this.string_ops.setTitle(title);
-                string_ops.setStatus( "Construct '" + title + "' " + action + " object" );
+                this.string_ops.newStringSeq(title);
                 break;
 
             case "init":  // init or update string sequence
@@ -90,13 +93,13 @@ public class StringsController {
         // extract json from RequestEntity
         JSONObject jo = new JSONObject((Map) Objects.requireNonNull(request.getBody()));
 
-        // process string action
+        // process string sequence action(s)
         stringEvent(jo);
 
-        // Extract object contents into JSON
+        // create JSON object of string sequence resulting data and metadata
         JSONObject body = this.getBody();
 
-        // Response entity transfers body with status messages
+        // send ResponseEntity body and status message
         return new ResponseEntity<>(body, HttpStatus.OK);
     }
 
