@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StringOps {
-    private String string = null;
+    private String stringSeq = null;
     private String title = "none";
     private String status = "none";
     private final List<String> events;
@@ -20,15 +20,6 @@ public class StringOps {
     public String getStatus() { return this.status; }
     public List<String> getEvents() { return this.events; }
 
-    // Getter for JSON body
-    public JSONObject getBody() {
-        JSONObject body = new JSONObject();
-        body.put("string", this.toString());
-        body.put("title", this.getTitle());
-        body.put("status", this.getStatus());
-        body.put("events", this.getEvents());
-        return body;
-    }
 
     // Setter to add and Event to Events
     public void addEvent(String event) {
@@ -39,42 +30,53 @@ public class StringOps {
     // Setters
     public void setTitle(String title) { this.title = title; }
     public void setStatus(String status) { this.status = status; }
-    public void setString(String string) {
+    public void setStringSeq(String stringSeq) {
         this.addEvent(
-                (this.string == null)     // ternary operator usage to consider null string
-                ? "Set up sequence object: " + string
-                : "Sequence changed from: " + this.string +" to: " + string
+                (this.stringSeq == null)     // ternary operator usage to consider null string
+                ? "Set up sequence object: " + stringSeq
+                : "Sequence changed from: " + this.stringSeq +" to: " + stringSeq
         );
         // replace new sequence over existing sequence in object
-        this.string = string;
+        this.stringSeq = stringSeq;
+    }
+
+    // Append "in" segment to end of string sequence
+    public void appendSegment(String in) {
+        this.addEvent( "Append tp: " + this.stringSeq + " segment: " + in );
+
+        // create a gap to insert segment
+        this.setStringSeq(
+                this.stringSeq +
+                in
+        );
     }
 
     // Insert "in" segment at "position"
     public void insertSegmentAt(String in, int position) {
-        this.addEvent( "Insert into: " + this.string + " segment: " + in +" at position " + position );
+        this.addEvent( "Insert into: " + this.stringSeq + " segment: " + in +" at position " + position );
 
         // create a gap to insert segment
-        this.setString(
-                this.string.substring(0, position) +
+        this.setStringSeq(
+                this.stringSeq.substring(0, position) +
                 in +
-                this.string.substring(position)  // single argument includes 'till end of string
+                this.stringSeq.substring(position)  // single argument includes 'till end of string
         );
     }
 
     // Swap "out" segment with "in" segment
-    public void replaceSegment(String out, String in) {
-        this.addEvent( "Replace: " + this.string + " old segment: '" + out +"' with new segment '" + in + "'");
+    public void swapSegment(String out, String in) {
+        this.addEvent( "Swap: " + this.stringSeq + " old segment: '" + out +"' with new segment '" + in + "'");
 
         // find gap for out segment
-        int index1 = this.string.indexOf(out);
+        int index1 = this.stringSeq.indexOf(out);
         int index2 = index1 + out.length();
 
         // build front part and back part of new segemtn
-        String front = this.string.substring(0, index1);
-        String back = this.string.substring(index2); // single argument includes 'till end of string
+        String front = this.stringSeq.substring(0, index1);
+        String back = this.stringSeq.substring(index2); // single argument includes 'till end of string
 
         // concatenate "in" between front and back parts of original
-        this.setString(
+        this.setStringSeq(
                 front +
                 in +
                 back
@@ -84,7 +86,7 @@ public class StringOps {
     // StringOps object reference will return value of sequence attribute
     @Override
     public String toString() {
-        return this.string;
+        return this.stringSeq;
     }
 
     // Console output helper method
@@ -108,11 +110,11 @@ public class StringOps {
 
         // Test1 set light sequence
         gradShow.addEvent("Test (b): set light sequence");
-        gradShow.setString("0101 0101 0101");
+        gradShow.setStringSeq("0101 0101 0101");
 
         // Test2 change content of object
         gradShow.addEvent("Test (c): update light sequence");
-        gradShow.setString("0011 0011 0011");
+        gradShow.setStringSeq("0011 0011 0011");
 
         // Test3 insert into content of object
         gradShow.addEvent("Test (d): insert segment into light sequence at position");
@@ -120,12 +122,12 @@ public class StringOps {
 
         // Test4 replacing segment with light sequence.
         gradShow.addEvent("Test (f): remove segment from front, end, and middle of light sequence");
-        gradShow.setString("1100000111");
-        gradShow.replaceSegment("11", "");
-        gradShow.setString("0000011");
-        gradShow.replaceSegment("11", "");
-        gradShow.setString("1100000111");
-        gradShow.replaceSegment("00", "");
+        gradShow.setStringSeq("1100000111");
+        gradShow.swapSegment("11", "");
+        gradShow.setStringSeq("0000011");
+        gradShow.swapSegment("11", "");
+        gradShow.setStringSeq("1100000111");
+        gradShow.swapSegment("00", "");
 
         // History of events
         return gradShow;

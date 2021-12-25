@@ -27,7 +27,17 @@ public class StringsController {
     }
 
     public void stringInit(String sequence) {
-        this.string_ops.setString(sequence);
+        this.string_ops.setStringSeq(sequence);
+    }
+
+    // Getter for JSON body
+    public JSONObject getBody() {
+        JSONObject body = new JSONObject();
+        body.put("data", string_ops.toString());
+        body.put("title", string_ops.getTitle());
+        body.put("status", string_ops.getStatus());
+        body.put("events", string_ops.getEvents());
+        return body;
     }
 
     public boolean stringEvent(JSONObject json) {
@@ -46,17 +56,18 @@ public class StringsController {
             case "init":  // new sequence
                 String init = (String) json.get("new_sequence");
                 // test to make sure new sequence contains characters
-                if (init.length() > 0) {
+                if ((init.length() > 0) && ((string_ops.toString() == null) ||
+                        (init.compareTo(string_ops.toString()) != 0) ) ){
                     this.stringInit(init);
                     success = true;
                 }
                 break;
 
-            case "update": // update string
-                String upd = (String) json.get("update_sequence");
+            case "append": // update string
+                String add = (String) json.get("append_segment");
                 // test to ensure string is not empty and not the same as current
-                if ((upd.length() > 0) && (upd.compareTo(string_ops.toString()) != 0) ) {
-                    string_ops.setString(upd);
+                if ((add.length() > 0) ) {
+                    string_ops.appendSegment(add);
                     success = true;
                 }
                 break;
@@ -76,7 +87,7 @@ public class StringsController {
                 String in = (String) json.get("in_segment");
                 // test to see if swap is worth it, plus swap is in string_ops
                 if ( ( out.length() > 0 ) && ( out.compareTo(in) != 0 ) &&  string_ops.toString().contains(out) ) {
-                    string_ops.replaceSegment(out, in);
+                    string_ops.swapSegment(out, in);
                     success = true;
                 }
                 break;
@@ -110,10 +121,10 @@ public class StringsController {
             string_ops.setStatus( action + " failed, check data.");
         }
 
-        // Extract log, jsonify does not seem necessary with LIST
-        JSONObject body = string_ops.getBody();
+        // Extract object contents into JSON
+        JSONObject body = this.getBody();
 
-        // return resulting list of events status, error checking should be added
+        // Response entity transfers body with status messages
         return new ResponseEntity<>(body, HttpStatus.OK);
     }
 
@@ -134,14 +145,16 @@ public class StringsController {
         seqObject.stringEvent(json);
 
         // update test
-        json.put("action", "update");
-        json.put("update_sequence", "Albert Einstein, Thomas Edison, Marie Curie, Benjamin Franklin");
+        json.put("action", "append");
+        json.put("append_segment", ", Benjamin Franklin");
         seqObject.stringEvent(json);
+
         // insert test
         json.put("action", "insert");
-        json.put("insert_segment", ", Alexander Graham Bell");
-        json.put("insert_location", String.valueOf( seqObject.string_ops.toString().length() ) );
+        json.put("insert_segment", "Alexander Graham Bell, ");
+        json.put("insert_location", "0" );
         seqObject.stringEvent(json);
+
         // swap test
         json.put("action", "swap");
         json.put("out_segment", "Thomas Edison");

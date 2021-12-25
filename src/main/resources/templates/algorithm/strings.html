@@ -34,7 +34,12 @@
 
         <div class="row p-4">
           <input type="text" class="form-control" id="new_sequence" placeholder="init the data for the new sequence">
-          <button class="btn btn-primary bg-secondary" onclick="sequence('init');">Initialize!</button>
+          <button class="btn btn-primary bg-secondary" onclick="sequence('init');">Set!</button>
+        </div>
+
+        <div class="row p-4">
+          <input type="text" class="form-control" id="append_segment" placeholder="init the data for the new sequence">
+          <button class="btn btn-primary bg-secondary" onclick="sequence('append');">Append!</button>
         </div>
 
         <div class="row p-4">
@@ -55,16 +60,16 @@
 
         <table class="table">
           <thead>
-          <tr>
-            <th scope="col" id="title" th:text="${object.getTitle()}"></th>
-          </tr>
+            <tr>
+              <th scope="col" id="title" th:text="${object.getTitle()}"></th>
+            </tr>
           </thead>
-          <tbody id="result">
-          <tr><td th:text="${object.getStatus()}"></td></tr>
-          <tr><td></td></tr> <!- spacer ->
-          <tr th:each="event : ${object.getEvents()}">
-            <td th:text="${event}"></td>
-          </tr>
+          <tbody id="body">
+            <tr><td th:text="${object.getStatus()}"></td></tr>
+            <tr><td></td></tr> <!- spacer ->
+            <tr th:each="event : ${object.getEvents()}">
+              <td th:text="${event}"></td>
+            </tr>
           </tbody>
         </table>
 
@@ -75,17 +80,18 @@
   </div> <!- End Container ->
   <script>
     function sequence(action) {
-      // fetch standard requires data set to a name-value pair
+      // body contains all data from user inputs
       const body = {
+        action: action,
         title: document.getElementById("new_title").value,
         new_sequence: document.getElementById("new_sequence").value,
+        append_segment: document.getElementById("append_segment").value,
         insert_segment: document.getElementById("insert_segment").value,
         insert_location: document.getElementById("insert_location").value,
         out_segment: document.getElementById("out_segment").value,
-        in_segment: document.getElementById("in_segment").value,
-        action: action
+        in_segment: document.getElementById("in_segment").value
       };
-      // fetch call with header options
+      // call API with body as action/payload
       fetch('/api/strings/', {
         method: "POST",
         credentials: "include",
@@ -96,32 +102,34 @@
         })
       })
       // async then replies with response header
-      .then(function (response) {
-        /* prepare HTML search result container for new output by
-           cleaning up existing result area */
-        const resultContainer = document.getElementById("result");
-        while (resultContainer.firstChild) {
-          resultContainer.removeChild(resultContainer.firstChild);
+      .then(function(response) {
+        // cleanup prior visual response
+        const bodyContainer = document.getElementById("body");
+        while (bodyContainer.firstChild) {
+          bodyContainer.removeChild(bodyContainer.firstChild);
         }
-        // this response assumes valid result
-        response.json().then(function(result) {
-          // set sequence with result.string
-          document.getElementById("sequence").innerHTML = "String sequence: " + result.string;
-          document.getElementById("title").innerHTML = result.title;
+        // build a visual response from body(JSON) to body(ElementIDs)
+        response.json().then(function(body) {
+          document.getElementById("sequence").innerHTML = "String sequence: " + body.data;
+          document.getElementById("title").innerHTML = body.title;
 
-          // build last message at top
-          const head = document.createElement("tr");
-          head.innerHTML = '<td>' + "Last action: " + result.status + '</td>';
-          resultContainer.appendChild(head);
+          // display status message at top of history
+          const status = document.createElement("tr");
+          status.innerHTML = '<td>' + body.status + '</td>';
+          bodyContainer.appendChild(status);
+
+          // insert spacer between status message and event history
           const spacer = document.createElement("tr");
           spacer.innerHTML = '<td></td>';
-          resultContainer.appendChild(spacer);
-          // loop through JSON and build HTML output
-          for (let i = 0; i < result.events.length; i++) {
-            const row = document.createElement("tr");
-            row.innerHTML = '<td>' + result.events[i] + '</td>';
-            resultContainer.appendChild(row);
+          bodyContainer.appendChild(spacer);
+
+          // display events (event history)
+          for (let i = 0; i < body.events.length; i++) {
+            const event = document.createElement("tr");
+            event.innerHTML = '<td>' + body.events[i] + '</td>';
+            bodyContainer.appendChild(event);
           }
+
         })
       })
     }
