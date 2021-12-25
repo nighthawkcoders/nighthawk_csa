@@ -21,11 +21,6 @@ import java.util.Objects;
 public class StringsController {
     StringOps string_ops = null;
 
-    public void stringNew(String title) {
-        this.string_ops = new StringOps();
-        this.string_ops.setTitle(title);
-    }
-
     public void stringInit(String sequence) {
         this.string_ops.setStringSeq(sequence);
     }
@@ -45,12 +40,13 @@ public class StringsController {
         String action = (String) json.get("action");
 
         // Update string_ops based off of action
-        boolean success = false;
+        boolean success = true;
         switch (action) {
             case "new":  // new sequence
                 String title = (String) json.get("title");
-                this.stringNew(title);
-                success = true;
+                this.string_ops = new StringOps();
+                this.string_ops.setTitle(title);
+                string_ops.setStatus( "Construct '" + title + "' " + action + " object" );
                 break;
 
             case "init":  // new sequence
@@ -59,8 +55,7 @@ public class StringsController {
                 if ((init.length() > 0) && ((string_ops.toString() == null) ||
                         (init.compareTo(string_ops.toString()) != 0) ) ){
                     this.stringInit(init);
-                    success = true;
-                }
+                } else { success = false; }
                 break;
 
             case "append": // update string
@@ -68,8 +63,7 @@ public class StringsController {
                 // test to ensure string is not empty and not the same as current
                 if ((add.length() > 0) ) {
                     string_ops.appendSegment(add);
-                    success = true;
-                }
+                } else { success = false; }
                 break;
 
             case "insert": // insert segment at location
@@ -78,8 +72,7 @@ public class StringsController {
                 // test to insert segment has length and index is not beyond bounds of string
                 if ( (ins.length() > 0) && (index <= string_ops.toString().length()) ) {
                     string_ops.insertSegmentAt(ins, index);
-                    success = true;
-                }
+                } else { success = false; }
                 break;
 
             case "swap": // swap segment "out" for segment "in"
@@ -88,8 +81,7 @@ public class StringsController {
                 // test to see if swap is worth it, plus swap is in string_ops
                 if ( ( out.length() > 0 ) && ( out.compareTo(in) != 0 ) &&  string_ops.toString().contains(out) ) {
                     string_ops.swapSegment(out, in);
-                    success = true;
-                }
+                } else { success = false; }
                 break;
 
             default:
