@@ -149,8 +149,8 @@ public class StringOps {
     public static StringOps frg2Simulation() {
         // Test 0 construct gradShow object
         StringOps gradShow = new StringOps();
-        gradShow.setTitle("StringOps FRQ 2 LightSequence");
         gradShow.addEvent("Test (a): construct gradShow object");
+        gradShow.newStringSeq("StringOps FRQ 2 gradShow LightSequence");
 
         // Test1 set light sequence
         gradShow.addEvent("Test (b): set light sequence");
