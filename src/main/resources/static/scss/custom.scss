@@ -42,6 +42,7 @@ $theme-colors: (
 */
 
 // redefine colors
+$primary: #a1a9bd;
 $secondary: #5B9D82;
 $body-bg: #cfd8dc;
 
@@ -64,7 +65,7 @@ html, body {
   --#{$variable-prefix}body-bg: #{$body-bg};
 
   /* redefine theme colors */
-  $primary: $purple;
+  $primary: #5c7ba8;
   $secondary: $green-600;
 
   $theme-colors: (
