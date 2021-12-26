@@ -23,53 +23,107 @@
 
     <div class="row mb-4 bg-primary text-dark rounded-3">
 
-      <div class="col-md-6 p-5"> <!- Start String Ops Column ->
+      <div class="row p-3">
+        <h3 class="text-center" id="title" th:text="${object.getTitle()}"></h3>
+      </div>
 
-        <h6 id="sequence" th:text="'String sequence: ' + ${object}"></h6>
+      <div class="col-md-6 p-3"> <!- Start left Column ->
 
-        <div class="row p-4">
-          <input type="text" class="form-control" id="new_title" placeholder="input title for new sequence">
-          <button class="btn btn-primary bg-secondary" onclick="sequence('new');">New!</button>
+        <h6><strong>String Sequence</strong></h6>
+        <hr class="style1">
+        <h6 id="sequence" th:text="${object}"></h6>
+        <hr class="style1">
+
+        <div class="row p-3">
+          <label for="new_title">Title and start New string sequence</label>
+          <div class="col-10">
+            <input type="text" class="form-control" id="new_title" placeholder="input title for new sequence">
+          </div>
+          <div class="col-1">
+            <button class="btn btn-primary bg-secondary" onclick="sequence('new');">New!</button>
+          </div>
         </div>
 
-        <div class="row p-4">
-          <input type="text" class="form-control" id="new_sequence" placeholder="input data for the string sequence">
-          <button class="btn btn-primary bg-secondary" onclick="sequence('init');">Set!</button>
+        <div class="row p-3">
+          <label for="new_sequence">Set String Sequence</label>
+          <div class="col-10">
+            <input type="text" class="form-control" id="new_sequence" placeholder="input data for the string sequence">
+          </div>
+          <div class="col-1">
+            <button class="btn btn-primary bg-secondary" onclick="sequence('init');">Set!</button>
+          </div>
         </div>
 
-        <div class="row p-4">
-          <input type="text" class="form-control" id="append_segment" placeholder="input segment to append to the string sequence">
-          <button class="btn btn-primary bg-secondary" onclick="sequence('append');">Append!</button>
+        <div class="row p-3">
+          <label for="append_segment">Append Segment</label>
+          <div class="col-10">
+            <input type="text" class="form-control" id="append_segment" placeholder="input segment to append to the string sequence">
+          </div>
+          <div class="col-1">
+            <button class="btn btn-primary bg-secondary" onclick="sequence('append');">Append!</button>
+          </div>
         </div>
 
-        <div class="row p-4">
-          <input type="text" class="form-control" id="insert_segment" placeholder="input segment to insert to the string sequence">
-          <input type="number" class="form-control" id="insert_location" value="0" min="0">
-          <button class="btn btn-primary bg-secondary" onclick="sequence('insert');">Insert!</button>
+        <div class="row p-3">
+          <label for="insert_segment">Insert Segment</label>
+          <div class="col-6">
+            <input type="text" class="form-control" id="insert_segment" placeholder="input segment to insert">
+          </div>
+          <div class="col-2">
+            <label for="insert_location">at index</label>
+          </div>
+          <div class="col-2">
+            <input type="number" class="form-control" id="insert_location" value="0" min="0">
+          </div>
+          <div class="col-1">
+            <button class="btn btn-primary bg-secondary" onclick="sequence('insert');">Insert!</button>
+          </div>
         </div>
 
-        <div class="row p-4">
-            <input type="text" class="form-control" id="out_segment" placeholder="input segment to swap out of the string sequence">
-            <input type="text" class="form-control" id="in_segment" placeholder="input segment to swap in to the string sequence">
+        <div class="row p-3">
+          <h6>Swap Segment</h6>
+          <div class="col-1">
+            <label for="out_segment">out</label>
+          </div>
+          <div class="col-4">
+            <input type="text" class="form-control" id="out_segment" placeholder="input swap out">
+          </div>
+          <div class="col-1">
+            <label for="in_segment">in</label>
+          </div>
+          <div class="col-4">
+            <input type="text" class="form-control" id="in_segment" placeholder="input swap in">
+          </div>
+          <div class="col-1">
             <button class="btn btn-primary bg-secondary" onclick="sequence('swap');">Swap!</button>
+          </div>
         </div>
 
       </div> <!- End String Ops column ->
 
-      <div class="col-md-6 p-5"> <!- Start String Sequence column ->
+      <div class="col-md-6 p-3"> <!- Start String Sequence column ->
 
         <table class="table">
           <thead>
             <tr>
-              <th scope="col" id="title" th:text="${object.getTitle()}"></th>
+              <th scope="col">Last action</th>
             </tr>
           </thead>
+          <tbody>
+            <tr><td id="status" th:text="${object.getStatus()}"></td></tr>
+          </tbody>
+        </table>
+
+        <table class="table">
+          <thead>
+          <tr>
+            <th scope="col">History of events</th>
+          </tr>
+          </thead>
           <tbody id="body">
-            <tr><td th:text="${object.getStatus()}"></td></tr>
-            <tr><td></td></tr> <!- spacer ->
-            <tr th:each="event : ${object.getEvents()}">
-              <td th:text="${event}"></td>
-            </tr>
+          <tr th:each="event : ${object.getEvents()}">
+            <td th:text="${event}"></td>
+          </tr>
           </tbody>
         </table>
 
@@ -110,18 +164,9 @@
         }
         // build a visual response from body(JSON) to body(ElementIDs)
         response.json().then(function(body) {
-          document.getElementById("sequence").innerHTML = "String sequence: " + body.data;
           document.getElementById("title").innerHTML = body.title;
-
-          // display status message at top of history
-          const status = document.createElement("tr");
-          status.innerHTML = '<td>' + body.status + '</td>';
-          bodyContainer.appendChild(status);
-
-          // insert spacer between status message and event history
-          const spacer = document.createElement("tr");
-          spacer.innerHTML = '<td></td>';
-          bodyContainer.appendChild(spacer);
+          document.getElementById("sequence").innerHTML = body.data;
+          document.getElementById("status").innerHTML = body.status;
 
           // display events (event history)
           for (let i = 0; i < body.events.length; i++) {
