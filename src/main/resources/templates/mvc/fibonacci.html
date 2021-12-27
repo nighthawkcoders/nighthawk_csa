@@ -4,31 +4,32 @@
       xmlns:th="http://www.w3.org/1999/xhtml"
       layout:decorate="~{layout}" lang="en">
 
-<!-- <head section> -->
-<div layout:fragment="head" th:remove="tag">
-    <!-- Page specific head additions -->
+<!-- <head> additions -->
+<th:block layout:fragment="head" th:remove="tag">
     <title>Fibonacci Algo</title>
-    <!-- Override colors.css -->
-    <link th:href="@{/css/colors2.css}" rel="stylesheet">
-</div>
+</th:block>
 
-<!-- <body> -->
-<div layout:fragment="body" th:remove="tag">
-    <!-- Page specific body additions -->
-    `<div class="container">
+<!-- <body> page specific -->
+<th:block layout:fragment="body" th:remove="tag">
+    `<div class="container py-4">
 
-        <div class="center-block">
-            <!-- Title -->
-            <div class="col-12" style="text-align: center;">
-                <h1><strong>4 ways to build a Fibonacci series in Java</strong></h1>
+        <header class="pb-3 mb-4 border-bottom border-primary">
+            <div class="d-flex align-items-center text-dark text-decoration-none">
+                <img class="img-responsive py-3" src="#" th:src="@{/images/fibonacci_spiral.svg}" alt="" width="5%" height="Auto">
+                <span class="fs-4">4 ways to build a Fibonacci series in Java</span>
             </div>
+        </header>
 
+        <div class="row mb-4 bg-primary text-dark rounded-3">
+            <div class="row p-3">
+                <h3 class="text-center">Fibonacci Sequence Calculator</h3>
+                <hr class="style1">
+            </div>
             <!-- Form and Action -->
-            <div class="jumbotron text-center row">
+            <div class="row p-3">
                 <!-- Input -->
-                <div class="col-md-6">
-                    <h3>Type the nth number in the fibonacci sequence?</h3>
-                    <img class="img-responsive py-3" src="#" th:src="@{/images/fibonacci_spiral.svg}" alt="" width="50%" height="Auto">
+                <div class="col-md-6 text-center">
+                    <h6><strong>Type the nth number in the fibonacci sequence?</strong></h6>
                     <form id="fibForm" th:action="@{/mvc/fibonacci}" method="GET" >
                         <input name="fibseq" id="fibseq" type="number" min="2" max="92" >
                         <button>Go!</button>
@@ -36,20 +37,24 @@
                 </div>
                 <!-- Output/Result -->
                 <div class="col-md-6">
-                    <h3>Algorithm comparison</h3>
-                    <table class="mx-auto">
+                    <h6><strong>Algorithm comparison</strong></h6>
+                    <table class="table">
+                        <thead>
                         <tr>
                             <th scope="col">Method</th>
                             <th scope="col">Time</th>
                             <th scope="col">Number</th>
                             <th scope="col">List</th>
                         </tr>
+                        </thead>
+                        <tbody>
                         <tr th:each="fib : ${fibList}">
                             <td th:text="${fib.getName()}"></td>
                             <td th:text="${fib.getTimeElapsed()}"></td>
                             <td th:text="${fib.getNth()}"></td>
                             <td th:text="${fib.getList()}"></td>
                         </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -64,6 +69,6 @@
             -->
         </div>
     </div>
-</div>`
+</th:block>`
 
 </html>
