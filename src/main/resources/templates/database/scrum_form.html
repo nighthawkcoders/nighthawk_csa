@@ -1,0 +1,111 @@
+<!-- This page is illustrative and contains ideas about HTML formatting -->
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
+
+<!-- <head> -->
+<div layout:fragment="head" th:remove="tag">
+    <!-- Page specific head additions -->
+    <title>Scrum Team Form</title>
+</div>
+
+<!-- <body> -->
+<div layout:fragment="body" th:remove="tag">
+    <!-- Page specific body additions -->
+    <div class="container">
+
+        <div class="row justify-content-md-center">
+            <div th:if="${id == null}"><h3>Welcome, Create The Scrum Team</h3></div>
+            <div th:unless="${id == null}"><h3>Welcome, Edit The Scrum Team</h3></div>
+        </div>
+
+        <div class="row justify-content-md-center">
+            <div class="col8">
+                <div class="jumbotron">
+                    <h3>Scrum Team Update</h3>
+                    <!-- ThymeLeaf allows person abject of the Class Person to be acted upon by the form
+                         This is known as a “bean-backed form” or "form-backing bean".
+                            th:object - the backend form object (bean object)
+                         There are two fields in the Person bean,
+                            th:field="*{name}"
+                            th:field="*{age}".
+                         Each field has supporting line for to show errors in validation
+                            th:errors - form input errors added when validation errors occur
+                         Reference for CRUD
+                            https://www.baeldung.com/spring-boot-crud-thymeleaf
+                         Get started with dialects in 5 minutes
+                            https://www.thymeleaf.org/doc/articles/standarddialect5minutes.html
+                         Reference Bootstrap Form
+                            https://getbootstrap.com/docs/4.0/components/forms/#readonly-plain-text
+                     -->
+                    <form class="form" action="#" th:action="@{/database/scrum_save}" th:object="${scrum}" method="POST">
+                        <div class="form-group" th:if="${id != null}" >
+                            <label for="id"></label>
+                            <input type="text" th:value="'ID: ' + *{id}" id="id" readonly class="form-control-plaintext" >
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" th:field="*{name}" id="name">
+                            <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="primary">Scrum Master:</label>
+                            <select th:field="*{primary}" id="primary" class="form-control" required>
+                            <option th:each="person : ${listPersons}"
+                                    th:text="${person.id} + ': ' + ${person.name} + ', ' + ${person.age}"
+                                    th:value="${person.id}"
+                                    th:selected="*{primary}!=null and ${person.id}==*{primary}"></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="member1">GitHub Admin:</label>
+                            <select th:field="*{member1}" id="member1" class="form-control" required>
+                                <option th:each="person : ${listPersons}"
+                                        th:text="${person.id} + ': ' + ${person.name} + ', ' + ${person.age}"
+                                        th:value="${person.id}"
+                                        th:selected="*{member1}!=null and ${person.id}==*{member1}"></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="member2">Web Designer:</label>
+                            <select th:field="*{member2}" id="member2" class="form-control" required>
+                                <option th:each="person : ${listPersons}"
+                                        th:text="${person.id} + ': ' + ${person.name} + ', ' + ${person.age}"
+                                        th:value="${person.id}"
+                                        th:selected="*{member2}!=null and ${person.id}==*{member2}"></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="member3">Deployment Manager:</label>
+                            <select th:field="*{member3}" id="member3" class="form-control" required>
+                                <option th:each="person : ${listPersons}"
+                                        th:text="${person.id} + ': ' + ${person.name} + ', ' + ${person.age}"
+                                        th:value="${person.id}"
+                                        th:selected="*{member3}!=null and ${person.id}==*{member3}"></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="member4">Technical Officer:</label>
+                            <select th:field="*{member4}" id="member4" class="form-control" required>
+                                <option th:each="person : ${listPersons}"
+                                        th:text="${person.id} + ': ' + ${person.name} + ', ' + ${person.age}"
+                                        th:value="${person.id}"
+                                        th:selected="*{member4}!=null and ${person.id}==*{member4}"></option>
+                            </select>
+                        </div>
+                        <div class="form-group" th:if="${id != null}" >
+                            <label for="id_hidden"></label>
+                            <input type="text" th:field="*{id}" id="id_hidden" hidden>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</html>

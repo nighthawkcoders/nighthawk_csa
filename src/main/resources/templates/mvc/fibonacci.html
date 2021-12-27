@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
+
+<!-- <head section> -->
+<div layout:fragment="head" th:remove="tag">
+    <!-- Page specific head additions -->
+    <title>Fibonacci Algo</title>
+    <!-- Override colors.css -->
+    <link th:href="@{/css/colors2.css}" rel="stylesheet">
+</div>
+
+<!-- <body> -->
+<div layout:fragment="body" th:remove="tag">
+    <!-- Page specific body additions -->
+    `<div class="container">
+
+        <div class="center-block">
+            <!-- Title -->
+            <div class="col-12" style="text-align: center;">
+                <h1><strong>4 ways to build a Fibonacci series in Java</strong></h1>
+            </div>
+
+            <!-- Form and Action -->
+            <div class="jumbotron text-center row">
+                <!-- Input -->
+                <div class="col-md-6">
+                    <h3>Type the nth number in the fibonacci sequence?</h3>
+                    <img class="img-responsive py-3" src="#" th:src="@{/images/fibonacci_spiral.svg}" alt="" width="50%" height="Auto">
+                    <form id="fibForm" th:action="@{/mvc/fibonacci}" method="GET" >
+                        <input name="fibseq" id="fibseq" type="number" min="2" max="92" >
+                        <button>Go!</button>
+                    </form>
+                </div>
+                <!-- Output/Result -->
+                <div class="col-md-6">
+                    <h3>Algorithm comparison</h3>
+                    <table class="mx-auto">
+                        <tr>
+                            <th scope="col">Method</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">Number</th>
+                            <th scope="col">List</th>
+                        </tr>
+                        <tr th:each="fib : ${fibList}">
+                            <td th:text="${fib.getName()}"></td>
+                            <td th:text="${fib.getTimeElapsed()}"></td>
+                            <td th:text="${fib.getNth()}"></td>
+                            <td th:text="${fib.getList()}"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!--
+            <div class="col-12" style="text-align: left; ">
+                <a href="https://github.com/nighthawkcoders/nighthawk_csa/tree/master/src/main/java/com/nighthawk/csa/algorithm/fibonacciModel">Fibonacci Package</a>
+                <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fnighthawk_csa%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fnighthawk%2Fcsa%2Falgorithm%2FfibonacciModel%2FFibFor.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
+                <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fnighthawk_csa%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fnighthawk%2Fcsa%2Falgorithm%2FfibonacciModel%2FFibWhile.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
+                <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fnighthawk_csa%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fnighthawk%2Fcsa%2Falgorithm%2FfibonacciModel%2FFibRecurse.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
+                <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fnighthawk_csa%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fnighthawk%2Fcsa%2Falgorithm%2FfibonacciModel%2FFibStream.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
+            </div>
+            -->
+        </div>
+    </div>
+</div>`
+
+</html>
