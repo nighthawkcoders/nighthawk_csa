@@ -9,7 +9,7 @@ This lab and future labs can/should be strung together.
 3. Object, toString, changing Key (static)
    -- Add data to a Class --
 4. Look at Checkboxes and Radio Buttons.
-   -- Activity, add sound to animal sort key (can you get it to work?) --
+   -- Activity, add sound attribute to animal data (can you get it to work?) --
 
 ### Key Topics
 * @Controller (My code)
