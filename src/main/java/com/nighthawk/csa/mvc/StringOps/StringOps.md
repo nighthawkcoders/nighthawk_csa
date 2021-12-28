@@ -13,10 +13,12 @@ This lab is intended to build on concepts from PBL and CB.  This will require st
 ### Control Topics
 * Java Switch Statements
 * RequestEntity, ResponseEntity
+* Control tester (static methods)
 ### Model Topics
 * Java String Methods
 * Java List, ArrayList
-* FRQ2 and model tester
+* FRQ2
+* Model tester (static methods)
 ### View Topics
 * Thymeleaf work with Java Objects
 * JavaScript API fetch and response
