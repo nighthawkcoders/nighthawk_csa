@@ -1,7 +1,7 @@
 # StringOps with Spring/Java/JavaScript
 
 ### Overview
-This lab should be used as example to sting together concepts from the year.
+This lab should be used as example to string together concepts from the year.
 
 1. Pull code and analyze.  Get started on Activities for Extra Credit.  Work as a Team.
 2. Controller Key elements (stringEvent, allows events to be added through api request)
