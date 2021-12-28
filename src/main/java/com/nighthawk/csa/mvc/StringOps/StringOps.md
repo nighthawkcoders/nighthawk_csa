@@ -1,7 +1,7 @@
 # StringOps with Spring/Java/JavaScript
 
 ### Overview
-This lab is intended to build on concepts from PBL and CB.  This in class challenge will, topics, and future labs will require "stringing" together concepts from the year.
+This lab is intended to build on concepts from PBL and CB.  This in class challenge will use topics that require "stringing" together concepts from the 1st half of the year.
 
 1. Pull code and analyze.  Get started on Activities for Extra Credit.  Work as a Team.
 2. Model method (given a string and a delimiter return List<>)
