@@ -1,13 +1,16 @@
 # StringOps with Spring/Java/JavaScript
 
 ### Overview
-This lab is intended to build on concepts from PBL and CB.  This will require stringing together concepts from the year.
+This lab is intended to build on concepts from PBL and CB.  This in class challenge will, topics, and future labs will require "stringing" together concepts from the year.
 
 1. Pull code and analyze.  Get started on Activities for Extra Credit.  Work as a Team.
-2. Controller Key elements (stringEvent, allows events to be added through api request)
-   -- Activity, add a new string event (split to make a list from string), get it to work between "control" and "model" using provided tester--
-3. Add FrontEnd code for Split Use case
-   -- Activity, add split dialog and have user specifify deliter (<space> or comma), update Model and Control testers to support action --
+2. Model method (given a string and a delimiter return List<>)
+   -- Actvity, add method and incorporate into "model" tester
+3. Controller add "split" action (give the action "split" and delimter "<space> or ," then invoke model method)
+   -- Activity, add a new "split" event, get it to work between "control" and "model" using the provided control tester--
+4. Add FrontEnd code for Split use case
+   -- Activity (part 1), add split option to frontend and have user specifify deliter (<space> or comma)
+   -- Activity (part 2), update Model and Control testers to support split action and show as functional --
 
 
 ### Control Topics
@@ -25,5 +28,5 @@ This lab is intended to build on concepts from PBL and CB.  This will require st
 
 ### Future Mini-lab Ideas
 1. Build StringOps into your Scrum Team project, the Team section for execution.
-2. Build MVC solution in Individual Areas for FRQ2.
+2. Build MVC solution into Individual Areas for FRQ2.
 3. Establish plan for Team or individuals to complete MVC solution each week, perhaps on rotation.
