@@ -3,13 +3,11 @@
 ### Overview
 This lab/challenge is intended to build on concepts from PBL and CB.  Items #1-#4 are intended to start as an in class challenge, individual and/or team points can be applied to the week score as credit or extrac credit.  This challenge will require using topics that "string" together concepts from the 1st half of the year.  If you don't 
 
-1. Pull code and analyze.  Get started on Activities for Credit/Extra Credit.  Work as a Team, think of design and work split before coding.
-2. Model method (with the managed String Sequenc and a split delimiter return a List of Strings)
-   -- Actvity, add method and incorporate into "model" tester
-3. Controller add a "split" action (given the action "split" and a delimter "<space> or ," invoke model method)
-   -- Activity, add a new "split" event, get it to work between "control" and "model" and incorporate into the control tester--
-4. Add FrontEnd code for "split" use case, this should be considered as a result that is updated like the String Sequence  
-   -- Activity, add split delimiter as input (<space> or comma), perhaps you could smart calculate it by default, consider placement and design so it seems logical.
+# Pull code and analyze.  Get started on Activities for Credit/Extra Credit.  Work as a Team, think of design and work split before coding.
+1.  *Hack* Find a user input sequence that causes an unhandled error condition (ie 500).  Trap and handle the error condition in logical manner, aka same as other errors.
+1.  *Hack* Model method (with the managed String Sequence and a split delimiter return a List of Strings on each change).  Add a tester method and incorporate into "model" tester
+1. *Hack* Controller add a "split" action (given the action "split" and a delimter "<space> or ," invoke model method to solve.  Activity, add a new "split" event, get it to work between "control" and "model" and incorporate into the "control" tester.
+1. *Hack* Add FrontEnd code for "split" use case, this should be considered as a result that is updated like the String Sequence on each update.  Activity, add split delimiter as input (<space> or comma), perhaps you could smart calculate based off of input, consider placement and design of input and results so it seems logical.
 
 ### Control Topics
 * Java Switch Statements
