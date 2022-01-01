@@ -22,7 +22,7 @@
 ### Procedures: <a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Deployment">Deployment</a>
 
 
-# Time Box
+# Tri 2 Time Box
 <table>
   <tr>
     <th>Week</th>
