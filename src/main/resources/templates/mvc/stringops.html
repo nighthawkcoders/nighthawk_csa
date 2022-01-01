@@ -132,8 +132,8 @@
   </div> <!- End Container ->
   <script>
     function sequence(action) {
-      // body contains all database from user inputs
-      const body = {
+      const url = '/api/mvc/stringops/';  // url contains api location for stringops
+      const body = {  // body contains all data from user input form
         action: action,
         title: document.getElementById("new_title").value,
         new_sequence: document.getElementById("new_sequence").value,
@@ -143,39 +143,37 @@
         out_segment: document.getElementById("out_segment").value,
         in_segment: document.getElementById("in_segment").value
       };
-      // call API with body as action/payload
-      fetch('/api/mvc/stringops/', {
+      const request = {  // request sets up payload for api
         method: "POST",
-        credentials: "include",
         body: JSON.stringify(body),
         cache: "no-cache",
-        headers: new Headers({
+        headers: {
           "content-type": "application/json"
-        })
-      })
-      // async then replies with response header
-      .then(function(response) {
-        // cleanup prior visual response
-        const bodyContainer = document.getElementById("body");
-        while (bodyContainer.firstChild) {
-          bodyContainer.removeChild(bodyContainer.firstChild);
         }
-        // build a visual response from body(JSON) to body(ElementIDs)
-        response.json().then(function(body) {
-          document.getElementById("title").innerHTML = body.title;
-          document.getElementById("sequence").innerHTML = body.data;
-          document.getElementById("status").innerHTML = body.status;
-
-          // display events (event history)
-          for (let i = 0; i < body.events.length; i++) {
+      };
+      // fetch calls API with "request" as action/payload
+      // each .then occurs when a Promise is Fulfilled, meaning the asynchronous operation has completed with a value
+      fetch(url, request)
+        .then(response => response.json())
+        .then(data => {
+          // build a visual response from JSON data to DOM element IDs
+          document.getElementById("title").innerHTML = data.title;
+          document.getElementById("sequence").innerHTML = data.data;
+          document.getElementById("status").innerHTML = data.status;
+          // cleanup event history (from previous display)
+          const bodyContainer = document.getElementById("body");
+          while (bodyContainer.firstChild) {
+            bodyContainer.removeChild(bodyContainer.firstChild);
+          }
+          // display event history
+          for (let i = 0; i < data.events.length; i++) {
             const event = document.createElement("tr");
             event.innerHTML = '<td>' + body.events[i] + '</td>';
             bodyContainer.appendChild(event);
           }
+        });
+      }
 
-        })
-      })
-    }
   </script>
 </th:block>`
 
