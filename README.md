@@ -1,8 +1,7 @@
 {% include navigation.html %}
 
-# <img src="src/resources/static/images/ncs_logo.png" height="60" alt=""> 
+# <img src="src/main/resources/static/images/ncs_logo.png" height="60" alt=""> GitHub Activity
 
-GitHub Activity
 ### <a href="https://github.com/nighthawkcoders/nighthawk_csa/graphs/contributors" target="_blank">CSA Repo Insights</a>
 
 <table>
