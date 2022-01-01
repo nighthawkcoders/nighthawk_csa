@@ -1,3 +1,8 @@
+{% include navigation.html %}
+
+# <img src="src/resources/static/images/ncs_logo.png" height="60" alt=""> GitHub Activity
+
+
 # Deployment Guide
 
 ## Raspberry Pi (RPi) Purchase and Setup
