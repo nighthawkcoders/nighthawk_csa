@@ -2,10 +2,6 @@
 
 # <img src="src/main/resources/static/images/ncs_logo.png" height="60" alt=""> GitHub Activity
 
-# Information Hub
-### General: <a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki">Wiki</a>, <a href="https://padlet.com/jmortensen7/csa2022tri2">Padlet</a>, <a href="https://twitter.com/NighthawkCoding">Twitter</a>
-### Procedures: <a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Deployment">Deployment</a>
-
 <table>
   <tr>
     <th>Name</th>
@@ -20,6 +16,11 @@
     <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/commits?author=jm1021" target="_blank">Commits</a></td>
   </tr>
 </table>
+
+# Information Hub
+### General: <a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki">Wiki</a>, <a href="https://padlet.com/jmortensen7/csa2022tri2">Padlet</a>, <a href="https://twitter.com/NighthawkCoding">Twitter</a>
+### Procedures: <a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Deployment">Deployment</a>
+
 
 # Time Box
 <table>
