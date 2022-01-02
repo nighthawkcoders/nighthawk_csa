@@ -1,6 +1,4 @@
-{% include navigation.html %}
-
-# <img src="src/main/resources/static/images/ncs_logo.png" height="60" alt=""> GitHub Activity
+# GitHub Activity
 
 <table>
   <tr>
