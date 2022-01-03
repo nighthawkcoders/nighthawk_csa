@@ -9,7 +9,7 @@
   </tr>
   <tr>
     <td>4</td>
-    <td>Resolute, <a href="https://github.com/nighthawkcoders/nighthawk_csp/wiki/GitHub-Pages-and-Jekyll">Jekyll</a></td>
+    <td>Resolute, StringOps <a href="https://github.com/nighthawkcoders/nighthawk_csp/wiki/GitHub-Pages-and-Jekyll">Jekyll</a></td>
     <td><a href="https://apclassroom.collegeboard.org/8/assignments?quizId=589725&status=all-assigned">FRQ4</a></td>
     <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-2:-Tech-Talk-4---String-Ops">TT4</a></td>
     <td><a href="https://poway.instructure.com/courses/112428/assignments/1956807">3, 4, 5</a></td>
