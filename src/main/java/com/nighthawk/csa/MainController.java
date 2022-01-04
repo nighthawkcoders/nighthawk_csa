@@ -55,6 +55,11 @@ public class MainController {
         return "individual/ava";
     }
 
+    @GetMapping("/ava/frqs")
+    public String Ava() {
+        return "/individual/avaFrq";
+    };
+
     @GetMapping("/sarah")
     public String sarah(Model model) throws IOException, InterruptedException, ParseException {
         HttpRequest request = HttpRequest.newBuilder()
