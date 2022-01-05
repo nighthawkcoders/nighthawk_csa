@@ -12,16 +12,7 @@
 
 <!-- <body> -->
 <div layout:fragment="body" th:remove="tag">
-    <script th:inline="javascript">
-
-        function changeImageMaskOff() {
-            document.getElementById("ava").src="images/avamask.jpg";
-        }
-
-        function changeImageMaskOn() {
-            document.getElementById("ava").src="images/mortensen.png";
-        }
-    </script>
+    <h1>Ava's FRQs</h1>
 
     <main class="container">
 
@@ -43,16 +34,40 @@
             <h3 class="mb-0">FRQ #2</h3>
             <br>
             <br>
+            <p style="text-align:left">(a) Write a statement to create a LightSequence object gradShow that has the initial light sequence "0101 0101 0101".
+
+                <br>
+                <br>
+                (b) Write a statement that will call the display method to display the light sequence for the gradShow object.
+                Write the statement below.
+                <br>
+                <br>
+                (c) Write a statement that will be used to update the gradShow light sequence to "0011 0011 0011".
+                Write the statement below.
+                <br>
+                <br>
+                (d) Write a code segment that will call the insertSegment method to insert the segment "1111 1111" in the current sequence for gradShow at index 4. The resulting sequence will be stored in the string resultSeq.
+                <br>
+                <br>
+                (e) Assume that the string oldSeq has been properly declared and initialized and contains the string segment. Write a code segment that will remove the first occurrence of segment from oldSeq and store it in the string newSeq. Consider the following examples.
+                <br>
+                <br>
+                (f) Two lights will be arranged on a two-dimensional plane. The vertical distance between the two lights is stored in the double variable a. The horizontal distance between the two lights is stored in the double variable b.
+                The straight-line distance between the two lights is given by the formula sqrt(a^2 + b^2)
+            </p>
+            <br>
+            <br>
+            <br>
+
+            <br>
+            <br><label for="frq1">Find Answer:</label>
+            <input style="width: 150px" type="text" id="frq1" name="frq1">
         </div>
 
 
 
 
         <style>
-            body {
-                background: rgb(238,174,202);
-                background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
-            }
             h1 {
                 font-size: 48px;
                 line-height: 1.2;
