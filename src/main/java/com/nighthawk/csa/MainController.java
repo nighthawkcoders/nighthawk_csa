@@ -1,15 +1,12 @@
 package com.nighthawk.csa;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nighthawk.csa.starters.ImageInfo;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.IOException;
 import java.net.URI;
@@ -19,7 +16,6 @@ import java.net.http.HttpResponse;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 @Controller  // HTTP requests are handled as a controller, using the @Controller annotation
 public class MainController {
@@ -35,21 +31,13 @@ public class MainController {
                 .build();
         //rapidapi call
 
-        System.out.println("hello");
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println(response.statusCode());
-        System.out.println(response.body());
 
-        //alternative #1: convert response.body() to java hash map
-        //var map = new ObjectMapper().readValue(response.body(), HashMap.class);
-
-        //alternative #2: convert response.body() to JSON object
         Object obj = new JSONParser().parse(response.body());
         JSONObject jo = (JSONObject) obj;
         JSONArray data = (JSONArray) jo.get("data");
         JSONObject firstRow = (JSONObject) data.get(0);
 
-        System.out.println(firstRow.get("games_played"));
 
         //pass stats to view
         model.addAttribute("row", firstRow);
@@ -62,6 +50,12 @@ public class MainController {
 
         return "individual/ava";
     }
+
+    @GetMapping("/ava/frqs")
+    public String Ava() {
+        return "/individual/avaFrq";
+    };
+
 
     @GetMapping("/sarah")
     public String sarah(Model model) throws IOException, InterruptedException, ParseException {
@@ -154,19 +148,6 @@ public class MainController {
     // LOGIN and SIGNUP is in ValidUserSqlMvcController.java
 
 
-
-    /*
-    @GetMapping("/signup")   // GET request
-    public String SignUp() {
-
-        if (bindingResult.hasErrors()) {
-            return "user/signup";
-        }
-        repository.save(user);
-        System.out.println(user.getName());
-
-        return "data/signup";
-    }*/
 
 
 }
