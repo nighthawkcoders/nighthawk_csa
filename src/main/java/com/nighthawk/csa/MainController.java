@@ -56,8 +56,8 @@ public class MainController {
     }
 
     @GetMapping("/ava/frqs")
-    public String ava(@RequestParam(name = "frq1", required = false, defaultValue = "0") String frq1, Model model) {
-        int n = Integer.parseInt(frq1);
+    public String ava(@RequestParam(name = "frq2", required = false, defaultValue = "0") String frq2, Model model) {
+        int n = Integer.parseInt(frq2);
 
         LightSequence gradshow = new LightSequence("0101 0101 0101");
         if (n == 1) {
