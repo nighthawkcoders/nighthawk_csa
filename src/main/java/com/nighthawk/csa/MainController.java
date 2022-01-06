@@ -177,6 +177,11 @@ public class MainController {
         return "/services/specialtutoring";
     }
 
+    @GetMapping("/contactus")
+    public String contactus() {
+        return "/services/contact";
+    }
+
     @GetMapping("/onlinetutoring")
     public String onlinetutoring() {
         return "/services/onlinetutoring";
