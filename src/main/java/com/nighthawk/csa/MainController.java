@@ -134,6 +134,26 @@ public class MainController {
         return "/tutoring/services";
     }
 
+    @GetMapping("/subjecttutoring")
+    public String subjecttutoring() {
+        return "/services/subjecttutoring";
+    }
+
+    @GetMapping("/testprep")
+    public String testprep() {
+        return "/services/trestprep";
+    }
+
+    @GetMapping("/specialtutoring")
+    public String specialtutoring() {
+        return "/services/specialtutoring";
+    }
+
+    @GetMapping("/onlinetutoring")
+    public String onlinetutoring() {
+        return "/services/onlinetutoring";
+    }
+
 
     @GetMapping("/search")
     public String search() {
