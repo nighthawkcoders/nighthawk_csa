@@ -19,6 +19,7 @@
   - [Week 2](https://github.com/ridhimainukurti/valid#week-2)
   - [Week 3](https://github.com/ridhimainukurti/valid#week-3)
   - [Week 4](https://github.com/ridhimainukurti/valid#week-4)
+  - [Week 5](https://github.com/ridhimainukurti/valid#week-5)
 
 ## Deployment on RPi
 | Deployment | Policy |
@@ -34,7 +35,22 @@
 | Ava | [@avabrooks](https://github.com/avabrooks)  | Design Manager | 
 | Sarah | [@sarahwxie](https://github.com/sarahwxie)  | Technical Officer|
 
-## Week 4
+## Week 5 (1/10)
+Team Review Ticket:
+| Requirment | Evidence |
+| ---        | ---      |
+| Week 5 Requirements| [Week 5 Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74286680) |
+
+Individual
+| Name | Tasks | Commits |
+|  --- |  ---           | --- | 
+| Natasha | | | 
+| Ridhima | |  |
+| Risa | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-75655057) |  |
+| Ava | | | 
+| Sarah |  |  |
+
+## Week 4 (1/3)
 Team Review Ticket:
 | Requirment | Evidence |
 | ---        | ---      |
@@ -45,7 +61,7 @@ Individual
 |  --- |  ---           | --- | 
 | Natasha | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74914129) | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=mistylavender) | 
 | Ridhima | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74074256)  |  |
-| Risa | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74543599) |  |
+| Risa | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74543599) | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits/master) |
 | Ava | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74549540) | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=avabrooks) | 
 | Sarah |  |  |
 
