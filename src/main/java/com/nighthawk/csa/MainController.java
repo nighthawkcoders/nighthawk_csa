@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
+
 import com.nighthawk.csa.data.avafrq.LightSequence;
 
 @Controller  // HTTP requests are handled as a controller, using the @Controller annotation
@@ -69,7 +70,15 @@ public class MainController {
         else if(n == 3){
             System.out.println("0011 0011 0011");
         }
-
+        else if(n == 4){
+            System.out.println("String resultSeq = gradShow.insertSegment(“1111 1111”,4);\n");
+        }
+        else if(n == 5){
+            System.out.println("valid");
+        }
+        else if(n == 6){
+            System.out.println("Math.sqrt(a*a + b*b)");
+        }
         return "individual/avaFrq";
 
     }
