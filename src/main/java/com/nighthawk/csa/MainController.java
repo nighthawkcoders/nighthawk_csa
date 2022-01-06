@@ -7,6 +7,7 @@ import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.IOException;
 import java.net.URI;
@@ -17,10 +18,13 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
+import com.nighthawk.csa.data.avafrq.LightSequence;
+
 @Controller  // HTTP requests are handled as a controller, using the @Controller annotation
 public class MainController {
 
-       
+
 
     @GetMapping("/ava")
     public String Ava(Model model) throws IOException, InterruptedException, org.json.simple.parser.ParseException {
@@ -52,9 +56,24 @@ public class MainController {
     }
 
     @GetMapping("/ava/frqs")
-    public String Ava() {
-        return "/individual/avaFrq";
-    };
+    public String ava(@RequestParam(name = "frq1", required = false, defaultValue = "0") String frq1, Model model) {
+        int n = Integer.parseInt(frq1);
+
+        LightSequence gradshow = new LightSequence("0101 0101 0101");
+        if (n == 1) {
+            System.out.println("LightSequence gradshow = new LightSequence(\"0101 0101 0101\");");
+        }
+        else if(n == 2){
+            System.out.println("0101 0101 0101");
+        }
+        else if(n == 3){
+            System.out.println("0011 0011 0011");
+        }
+
+        return "individual/avaFrq";
+
+    }
+
 
 
     @GetMapping("/sarah")

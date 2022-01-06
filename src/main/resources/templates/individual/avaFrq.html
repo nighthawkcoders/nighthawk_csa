@@ -27,6 +27,26 @@
             <h3 class="mb-0">FRQ #3</h3>
             <br>
             <br>
+            <p style="text-align:left" >
+            (a)   Write a code segment that prints "attending" if rsvp is true and prints "not attending" otherwise. Write the code segment below.
+            <br>
+            <br>
+            (b)   Write a code segment that prints the food item associated with selection. For example, if selection is 3, the code segment should print "pasta".
+            <br>
+            <br>
+            (c)   Write a code segment that will store a dinner selection in option1 based on the values of rsvp and selection. The intended behavior of the code segment is described below.
+            If rsvp is true, the code segment should store in option1 a string indicating the person’s attendance and food choice. For example, if rsvp is true and selection is 1, the following string should be stored in option1.
+            "Thanks for attending. You will be served beef."
+            If rsvp is false, the following string should be stored in option1, regardless of the value of selection.
+            "Sorry you can't make it."
+            Write the code segment below. Your code segment should meet all specifications and conform to the examples.
+            <br>
+            <br>
+            (d)   Write a code segment that will print true if the strings option1 and option2 contain the same values and will print false otherwise.
+            Write the code segment below.
+
+
+            </p>
         </div>
         <br>
         <br>
@@ -57,8 +77,13 @@
                 <br>
                 <br>
             </p>
-           <label for="frq1">Find Answer:</label>
-            <input style="width: 150px" type="text" id="frq1" name="frq1">
+            <form action="/ava/frqs" method="GET" id="padForm">
+                <div>
+                    <label for="greetField">Test the Answer</label>
+                    <input name="frq1" id="greetField">
+                    <button>Go!</button>
+                </div>
+            </form>
         </div>
 
 
