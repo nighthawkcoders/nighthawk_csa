@@ -62,10 +62,10 @@ public class MainController {
 
         LightSequence gradshow = new LightSequence("0101 0101 0101");
         if (n == 1) {
-            System.out.println("LightSequence gradshow = new LightSequence(\"0101 0101 0101\");");
+            System.out.println("0101 0101 0101");
         }
         else if(n == 2){
-            System.out.println("0101 0101 0101");
+            gradshow.display();
         }
         else if(n == 3){
             System.out.println("0011 0011 0011");
@@ -180,6 +180,16 @@ public class MainController {
     @GetMapping("/contactus")
     public String contactus() {
         return "/services/contact";
+    }
+
+    @GetMapping("/profileUser")
+    public String profileUser() {
+        return "/user/profileUser";
+    }
+
+    @GetMapping("/profileTutor")
+    public String profileTutor() {
+        return "/tutoring/profileTutor";
     }
 
     @GetMapping("/onlinetutoring")

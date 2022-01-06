@@ -69,7 +69,7 @@ public class ValidUserSqlMvcController implements WebMvcConfigurer {
     @GetMapping("/profile/{id}")
     public String profile(@PathVariable("id") int id, Model model) {
         model.addAttribute("user", repository.get(id));
-        return "/user/profile";
+        return "profileUser";
     }
 
     @GetMapping("/data/userupdate/{id}")
