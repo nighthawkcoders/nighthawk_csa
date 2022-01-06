@@ -35,7 +35,7 @@
 | Ava | [@avabrooks](https://github.com/avabrooks)  | Design Manager | 
 | Sarah | [@sarahwxie](https://github.com/sarahwxie)  | Technical Officer|
 
-## Week 5
+## Week 5 (1/10)
 Team Review Ticket:
 | Requirment | Evidence |
 | ---        | ---      |
@@ -44,13 +44,13 @@ Team Review Ticket:
 Individual
 | Name | Tasks | Commits |
 |  --- |  ---           | --- | 
-| Natasha | [Ticket]() | [Commits]() | 
-| Ridhima | [Ticket]()  |  |
+| Natasha | | | 
+| Ridhima | |  |
 | Risa | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-75655057) |  |
-| Ava | [Ticket]() | [Commits]() | 
+| Ava | | | 
 | Sarah |  |  |
 
-## Week 4
+## Week 4 (1/3)
 Team Review Ticket:
 | Requirment | Evidence |
 | ---        | ---      |
