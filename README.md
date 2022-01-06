@@ -61,7 +61,7 @@ Individual
 |  --- |  ---           | --- | 
 | Natasha | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74914129) | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=mistylavender) | 
 | Ridhima | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74074256)  |  |
-| Risa | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74543599) |  |
+| Risa | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74543599) | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits/master) |
 | Ava | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74549540) | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=avabrooks) | 
 | Sarah |  |  |
 
