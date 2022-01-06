@@ -19,6 +19,7 @@
   - [Week 2](https://github.com/ridhimainukurti/valid#week-2)
   - [Week 3](https://github.com/ridhimainukurti/valid#week-3)
   - [Week 4](https://github.com/ridhimainukurti/valid#week-4)
+  - [Week 5](https://github.com/ridhimainukurti/valid#week-5)
 
 ## Deployment on RPi
 | Deployment | Policy |
@@ -33,6 +34,21 @@
 | Risa | [@risaiwazaki](https://github.com/risaiwazaki) | Deployment Manager |
 | Ava | [@avabrooks](https://github.com/avabrooks)  | Design Manager | 
 | Sarah | [@sarahwxie](https://github.com/sarahwxie)  | Technical Officer|
+
+## Week 5
+Team Review Ticket:
+| Requirment | Evidence |
+| ---        | ---      |
+| Week 5 Requirements| [Week 5 Ticket]() |
+
+Individual
+| Name | Tasks | Commits |
+|  --- |  ---           | --- | 
+| Natasha | [Ticket]() | [Commits]() | 
+| Ridhima | [Ticket]()  |  |
+| Risa | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74543599) |  |
+| Ava | [Ticket]() | [Commits]() | 
+| Sarah |  |  |
 
 ## Week 4
 Team Review Ticket:
