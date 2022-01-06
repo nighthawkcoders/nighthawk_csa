@@ -39,14 +39,14 @@
 Team Review Ticket:
 | Requirment | Evidence |
 | ---        | ---      |
-| Week 5 Requirements| [Week 5 Ticket]() |
+| Week 5 Requirements| [Week 5 Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74286680) |
 
 Individual
 | Name | Tasks | Commits |
 |  --- |  ---           | --- | 
 | Natasha | [Ticket]() | [Commits]() | 
 | Ridhima | [Ticket]()  |  |
-| Risa | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74543599) |  |
+| Risa | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-75655057) |  |
 | Ava | [Ticket]() | [Commits]() | 
 | Sarah |  |  |
 
