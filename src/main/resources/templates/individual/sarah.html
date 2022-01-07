@@ -1,43 +1,215 @@
 <!DOCTYPE HTML>
 <!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
-<html xmlns:layout="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.w3.org/1999/xhtml"
-      layout:decorate="~{layout}" lang="en">
-
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml" layout:decorate="~{layout}" lang="en">
+<link href="/docs/5.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
 <!-- <head> -->
-<div layout:fragment="head" th:remove="tag">
+<div layout:fragment="head" th:remove="tag" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" integrity="sha512-Oy18vBnbSJkXTndr2n6lDMO5NN31UljR8e/ICzVPrGpSud4Gkckb8yUpqhKuUNoE+o9gAb4O/rAxxw1ojyUVzg==" crossorigin="anonymous" />
-    <title>Sarah</title>
-
+    <title>Sarah Xie</title>
     <style>
-    .card {
-        width:1000px;
-        height:600px;
-        background: url("images/mask1.jpg") no-repeat;
-        display: inline-block;
-    }
-    .card:hover {
-        background: url("images/mask2.jpg") no-repeat;
-    }
-</style>
+        .collapsible {
+            padding: 20px;
+            margin-top:20px;
+            border-radius: 10px;
+        }
+
+        p {
+            text-align: center;
+            margin: 0;
+            font-size: large;
+            padding-top: 10px;
+            opacity: 1;
+            transform: translate(0);
+            transition: all 300ms linear;
+            transition-delay: 1900ms;
+        }
+
+        .active, .collapsible:hover {
+          background-color: white;
+        }
+
+        .content {
+          padding: 20px 30px;
+          display: none;
+          overflow: hidden;
+          background-color: #c6e2ff;
+          border-radius: 10px;
+
+        }
+        .frq {
+            text-align: left;
+        }
+    </style>
+
 </div>
 
 <!-- <body> -->
 <div layout:fragment="body" th:remove="tag">
+    <script th:inline="javascript">
 
-    <div style="padding:100px;">
-    <h1>Sarah</h1>
+        function changeImageMaskOff() {
+            document.getElementById("sarah").src="images/mask1.jpg";
+        }
 
-        <h2 style="margin-top:50px;">Masks</h2>
-        <div class="card"></div>
+        function changeImageMaskOn() {
+            document.getElementById("sarah").src="images/nomask.jpg";
+        }
+    </script>
+    <main class="container">
+        <div class="p-4 p-md-5 mb-4 text-white rounded" style="background-color:#c6e2ff;">
+            <h1 class="text-center"; style="margin-top: 5%%; ">Sarah Xie</h1>
+            <tr>
+                <td>
+                    <img class="img-responsive py-3" id="sarah"  src="images/mask1.jpg" alt=""
+                         width="900px">
+                    <div class="row justify-content-md-left-align" style="margin: 30px 0px;">
+                        <input type="button" onclick="changeImageMaskOff();" value="Mask On">
+                        <input type="button" onclick="changeImageMaskOn();" value="Mask Off">
+                    </div>
+                    <p class="label">Sarah Xie is a senior at Del Norte High School in Mr. Mortensen's AP CSA class.</p>
+                </td>
+            </tr>
+        </div>
 
-        <h2 style="margin-top:50px;">API Pull</h2>
-        <p th:text="${joke}"></p>
+        <div class="row mb-2">
 
-        <h2 style="margin-top:50px;">Links</h2>
-        <iframe src="https://docs.google.com/document/d/e/2PACX-1vRatHkCdhEZTQj0Clug4DsjjcKy1t-Ko6ncES8pmkqTeTtxRjEY7xqDRN_v2nFqBuGZmuM7jIfFAqAI/pub?embedded=true"></iframe>     
-    </div>
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <h2>FRQs</h2>
+                    <button type="button" class="collapsible">FRQ4</button>
+                    <div class="content">
+                        <p>The method longestStreak is intended to determine the longest substring of consecutive identical characters in the parameter str and print the result.
 
-</div>
+                            For example, the call longestStreak("CCAAAAATTT!") should print the result "A 5" because the longest substring of consecutive identical characters is "AAAAA".
+
+                            Complete the method below. Your implementation should conform to the example above.
+
+                            public static void longestStreak(String str)</p>
+                        <p>
+                            This question involves a simulation of a two-player game. In the game, two simulated players each start out with an equal number of coins. In each round, each player chooses to spend either 1, 2, or 3 coins. Coins are then awarded to each player according to the following rules.
+
+                            Same rule: If both players spend the same number of coins, player 2 gains 1 coin.
+                            Off-by-one rule: If the players do not spend the same number of coins and the positive difference between the number of coins spent by the two players is 1, player 2 is awarded 1 coin.
+                            Off-by-two rule: If the players do not spend the same number of coins and the positive difference between the number of coins spent by the two players is 2, player 1 is awarded 2 coins.
+                            The following is an example of a game played with a starting value of 10 coins and a game length of 5 rounds.
+                        </p>
+                        <p>(2a) You will write method getPlayer2Move, which returns the number of coins that player 2 will spend in a given round of the game. In the first round of the game, the parameter round has the value 1, in the second round of the game, it has the value 2, and so on. The method returns 1, 2, or 3 based on the following rules.
+
+                            If round is divisible by 3, then return 3.
+                            If round is not divisible by 3 but is divisible by 2, then return 2.
+                            If round is not divisible by 3 and is not divisible by 2, then return 1.
+                            Complete method getPlayer2Move below by assigning the correct value to result to be returned.</p>
+                        <p>(2b)Assume that getPlayer2Move works as specified, regardless of what you wrote in part (a) . You must use getPlayer1Move and getPlayer2Move appropriately to receive full credit.
+
+                            Complete method playGame below.
+
+                        </p>
+                    </div>
+
+                    <button type="button" class="collapsible">FRQ3</button>
+                    <div class="content">
+                        <p class="frq">(a) Write a code segment that prints "attending" if rsvp is true and prints "not attending" otherwise. Write the code segment below.</p>
+
+                        <p class="frq">(b) Write a code segment that prints the food item associated with selection. For example, if selection is 3, the code segment should print "pasta".</p>
+                        <p class="frq">(c) Write a code segment that will store a dinner selection in option1 based on the values of rsvp and selection. The intended behavior of the code segment is described below. If rsvp is true, the code segment should store in option1 a string indicating the person’s attendance and food choice. For example, if rsvp is true and selection is 1, the following string should be stored in option1. "Thanks for attending. You will be served beef." If rsvp is false, the following string should be stored in option1, regardless of the value of selection. "Sorry you can't make it." Write the code segment below. Your code segment should meet all specifications and conform to the examples.</p>
+                        <p class="frq">(d) Write a code segment that will print true if the strings option1 and option2 contain the same values and will print false otherwise. Write the code segment below. </p>
+                        </div>
+                    <button type="button" class="collapsible">FRQ2</button>
+                    <div class="content">
+                        <p class="frq">(a) Write a statement to create a LightSequence object gradShow that has the initial light sequence "0101 0101 0101".</p>
+                        <p class="frq">(b) Write a statement that will call the display method to display the light sequence for the gradShow object. Write the statement below.</p>
+                        <p class="frq">(c) Write a statement that will be used to update the gradShow light sequence to "0011 0011 0011". Write the statement below.</p>>
+                        <p class="frq">(d) Write a code segment that will call the insertSegment method to insert the segment "1111 1111" in the current sequence for gradShow at index 4. The resulting sequence will be stored in the string resultSeq. </p>
+                        <p class="frq">(e) Assume that the string oldSeq has been properly declared and initialized and contains the string segment. Write a code segment that will remove the first occurrence of segment from oldSeq and store it in the string newSeq. Consider the following examples. </p>
+                        <p class="frq">(f) Two lights will be arranged on a two-dimensional plane. The vertical distance between the two lights is stored in the double variable a. The horizontal distance between the two lights is stored in the double variable b. The straight-line distance between the two lights is given by the formula sqrt(a^2 + b^2)</p>
+                    </div>
+                    <button type="button" class="collapsible">FRQ1</button>
+                    <div class="content">
+                        <p>There is none</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <h3 class="mb-0">Joke Generator!</h3>
+                    <p th:text="${joke}" class="card-text mb-auto">
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+                <h3 class="mb-0">TPT</h3>
+                <div class="mb-1 text-muted">Unit FRQ's</div>
+                <p style="text-align:center;"><input type="button" class="btn btn-sm btn-outline-secondary" onclick="window.location.href='https://docs.google.com/document/d/1YDUA1OpjDLlR2ntq_L6DWGH0pfxtfNQsTddD-55m-x0/edit';" value="Unit 2 FRQ" />
+                <p style="text-align:center;"><input type="button" class="btn btn-sm btn-outline-secondary" onclick="window.location.href='https://docs.google.com/document/d/1dKcSii5pM6hgyo1RFUQNhJzJ_jhmdVsRGMWilMOzjIw/edit?usp=sharing';" value="Unit 3 FRQ" />
+            </div>
+        </div>
+
 
 </html>
+
+<style>
+    h1 {
+        font-size: 48px;
+        line-height: 1.2;
+        font-weight: 700;
+        color: #00008b;
+    }
+    @media (min-width: 768px){
+        .justify-content-md-center {
+            justify-content: center !important;
+            width: 150px;
+            margin-left: 530px;
+        }
+    }
+    img, svg {
+        vertical-align: middle;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 10%;
+    }
+    py-3 {
+        display: block;
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+        padding-left: 15px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .row>* {
+        /* flex-shrink: 0; */
+        /* width: 100%; */
+        max-width: 100%;
+        padding-right: calc(var(--bs-gutter-x) * .5);
+        padding-left: calc(var(--bs-gutter-x) * .5);
+        margin-top: var(--bs-gutter-y);
+        border-radius: 15px;
+        color: #00008b;
+    }
+
+
+</style>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+

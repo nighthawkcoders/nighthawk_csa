@@ -15,7 +15,6 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 
@@ -96,6 +95,50 @@ public class MainController {
         System.out.println(response.body());
 
         model.addAttribute("joke", response.body());
+
+        // frq2
+        class LightSequence{
+            String seq;
+
+            public void LightSequence(String seq){
+                this.seq = seq;
+
+            }
+
+            public void display(){
+                System.out.println(this.seq);
+            }
+
+            public void updateSequence(String seq){
+                this.seq = seq;
+            }
+
+            public String insertSegment(String newSeq, Integer index){
+                String originalString = this.seq;
+                String newString = originalString.substring(0, index + 1)
+                        + newSeq
+                        + originalString.substring(index + 1);
+                return newString;
+            }
+            public void changeSequence(String seq){
+
+            }
+        }
+
+        LightSequence gradShow = new LightSequence();
+        gradShow.LightSequence("0101 0101 0101");
+        gradShow.display();
+
+        gradShow.changeSequence("0011 0011 0011");
+
+        String resultSeq = gradShow.insertSegment("1111 1111", 4);
+
+
+        // frq3
+
+
+
+        // frq4
 
         return "individual/sarah";
     }
