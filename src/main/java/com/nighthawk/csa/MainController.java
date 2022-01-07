@@ -224,9 +224,6 @@ public class MainController {
         return "/tutoring/calendar";
     }
 
-    // LOGIN and SIGNUP is in ValidUserSqlMvcController.java
-
-
 
 
 }
