@@ -39,7 +39,7 @@
     <td>1</td>
     <td>SCCS, Async</td>
     <td>None</td>
-    <td><a href="">TT1.1</a> <a href="">TT1.2</a></td>
+    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-2:-Tech-Talk-1.1---Organizing--Bootstrap-Files,-Templates-layouts,-and-Sassy">TT1.1, </a> <a href="">TT1.2</a></td>
     <td><a href="https://poway.instructure.com/courses/112428/assignments/1943429">Project Approval</a></td>
   </tr>
 </table>
