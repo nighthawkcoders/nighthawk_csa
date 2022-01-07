@@ -30,7 +30,7 @@ This lab and future labs can/should be strung together.
 ### Mini-lab binary point criteria
 * Make your own Data/Class and initialize it.   See how far you can go  to get things to work.  Make adaptations as you see fit.
 * Use of toString()
-* Use of a Data Structure to hold Objects of your Class or Abstract class.
+* Use of a Data Structure to hold Objects of your Class or Abstract class, better if it is a POJO.
 * Web UI and visuals to interact with data
 * Check Boxes
 * Radio Buttons
