@@ -27,7 +27,7 @@ This lab and future labs can/should be strung together.
 4. Interact with data on Web to Filter result using Check Box and Radio Controls
 5. Prepare or think ahead to Sort lab.
 
-### Mini-lab binary point criteria
+### Mini-lab or PBL-lab binary point criteria (5 required)
 * Make your own Data/Class and initialize it.   See how far you can go  to get things to work.  Make adaptations as you see fit.
 * Use of toString()
 * Use of a Data Structure to hold Objects of your Class or Abstract class, better if it is a POJO.
