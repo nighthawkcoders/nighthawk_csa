@@ -10,7 +10,7 @@
    <tr>
     <td>5</td>
     <td>Data Ops, Mini-lab</td>
-    <td>FRQ5</td>
+    <td><a href="https://apclassroom.collegeboard.org/8/assignments?quizId=589725&status=all-assigned">FRQ5</td>
     <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-2:-Tech-Talk-5-Data-Ops">TT5</a></td>
     <td></td>
   </tr>
