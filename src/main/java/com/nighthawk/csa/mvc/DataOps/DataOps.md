@@ -13,7 +13,7 @@ This lab and future labs can/should be strung together.
 
 ### Key Topics
 * @Controller (My code)
-* Static Variables
+* Static Variables [CB 5.7](https://apclassroom.collegeboard.org/8/home?apd=2gde84qri5&unit=5)
 * Enums
 ### Other Topics
 * Inheritance
