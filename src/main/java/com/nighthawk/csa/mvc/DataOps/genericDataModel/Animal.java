@@ -5,23 +5,28 @@ import com.nighthawk.csa.utility.ConsoleMethods;
  * Animal class extends Generics and defines abstract methods
  */
 public class Animal extends Generics {
-	public enum KeyType {title, name, age, color} //Used with radio button selection
-	public static KeyType key = KeyType.title;  //Static variable: a key that applies to all Objects
+	public enum KeyType implements KeyTypes {title, name, age, color}
+	public static KeyTypes key;
 	private final String name;
 	private final int age;
 	private final String color;
 
-
 	/* constructor
-	 * 
+	 *
 	 */
 	public Animal(String name, int age, String color)
 	{
 		super.setType("Animal");
-		this.name = name; 
-		this.age = age; 
-		this.color = color; 
+		this.setKey(KeyType.title);
+		this.name = name;
+		this.age = age;
+		this.color = color;
 	}
+
+	@Override
+	public KeyTypes getKey() { return Animal.key; }
+	@Override
+	public void setKey(KeyTypes key) { Animal.key = key; }
 	
 	/* Generics requires toString override
 	 * toString provides conditional output based off of key
@@ -30,20 +35,15 @@ public class Animal extends Generics {
 	public String toString()
 	{
 		String output="";
-		switch(key) {
-		case name:
+		if (KeyType.name.equals(this.getKey())) {
 			output += this.name;
-			break;
-		case age:
+		} else if (KeyType.age.equals(this.getKey())) {
 			output += "00" + this.age;
-			output = output.substring(output.length()-2);
-			break;
-		case color:
+			output = output.substring(output.length() - 2);
+		} else if (KeyType.color.equals(this.getKey())) {
 			output += this.color;
-			break;
-		case title:
-		default:
-			output += super.getType() + ": " + this.name  + ", " + this.color + ", " + this.age;
+		} else {
+			output += super.getType() + ": " + this.name + ", " + this.color + ", " + this.age;
 		}
 		return output;
 		

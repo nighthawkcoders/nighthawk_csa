@@ -2,8 +2,8 @@ package com.nighthawk.csa.mvc.DataOps.genericDataModel;
 import com.nighthawk.csa.utility.ConsoleMethods;
 
 public class Cupcakes extends Generics {
-	public enum KeyType {title, flavor, frosting, sprinkles}
-	public static KeyType key = KeyType.title;
+	public enum KeyType implements KeyTypes {title, flavor, frosting, sprinkles}
+	public static KeyTypes key;
 	private final String frosting;
 	private final int sprinkles;
 	private final String flavor;
@@ -11,30 +11,31 @@ public class Cupcakes extends Generics {
 	Cupcakes(String frosting, int sprinkles, String flavor)
 	{
 		this.setType("Cupcakes");
+		this.setKey(KeyType.title);
 		this.frosting = frosting;
 		this.sprinkles = sprinkles;
 		this.flavor = flavor;
 	}
-	
+
+	@Override
+	public KeyTypes getKey() { return Cupcakes.key; }
+	@Override
+	public void setKey(KeyTypes key) { Cupcakes.key = key; }
+
 	/* 
 	 * toString provides output based off of this.key setting
 	 */
 	@Override
 	public String toString() {		
 		String output="";
-		switch(key) {
-		case flavor:
+		if (KeyType.flavor.equals(this.getKey())) {
 			output += this.flavor;
-			break;
-		case frosting:
+		} else if (KeyType.frosting.equals(this.getKey())) {
 			output += this.frosting;
-			break;
-		case sprinkles:
+		} else if (KeyType.sprinkles.equals(this.getKey())) {
 			output += "00" + this.sprinkles;
-			output = output.substring(output.length()-2);
-			break;
-		case title:
-		default:
+			output = output.substring(output.length() - 2);
+		} else {
 			output = super.getType() + ": " + this.flavor + ", " + this.frosting + ", " + this.sprinkles;
 		}
 		return output;

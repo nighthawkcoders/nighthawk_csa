@@ -2,8 +2,8 @@ package com.nighthawk.csa.mvc.DataOps.genericDataModel;
 import com.nighthawk.csa.utility.ConsoleMethods;
 
 public class Alphabet extends Generics {
-	public enum KeyType {title, letter}
-	public static KeyType key = KeyType.title;
+	public enum KeyType implements KeyTypes {title, letter}
+	public static KeyTypes key;
 	private static final int size = 26;
 	private final char letter;
 	
@@ -13,23 +13,27 @@ public class Alphabet extends Generics {
 	public Alphabet(char l)
 	{
 		this.setType("Alphabet");
+		this.setKey(KeyType.title);
+
 		this.letter = l;
-	}	
-	
+	}
+
+	@Override
+	public KeyTypes getKey() { return Alphabet.key; }
+	@Override
+	public void setKey(KeyTypes key) { Alphabet.key = key; }
+
+
 	/* 
 	 * toString provides output based off of key setting
 	 */
 	@Override
 	public String toString()
 	{
-		
 		String output="";
-		switch(key) {
-		case letter:
+		if (KeyType.letter.equals(this.getKey())) {
 			output += this.letter;
-			break;
-		case title:
-		default:
+		} else {
 			output += super.getType() + ": " + this.letter;
 		}
 		return output;

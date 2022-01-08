@@ -3,16 +3,13 @@
 ### Overview
 This lab assists with PBL and CB.  The backend includes many College Board algorithms including usage of Statics and Sorts.  Beyond College Board the backend includes and implementation of Linked Lists which is a fundamental structure for any College CompSci class.
 
-### Extra Credit Challenges.
-1. Pull or copy code and run Demo.
-2. Key elements (Data, Controller, Data Structure, Sort).  Hack: reverse order of sort
-3. Object, toString, changing Key.  Hack: Add new data set to project.
 
 ### CB Topics
 * Static Variables [CB 5.7 V1](https://apclassroom.collegeboard.org/8/home?apd=2gde84qri5&unit=5), [V2](https://apclassroom.collegeboard.org/8/home?apd=2gde84qri5&unit=5)
 * Inheritance Hierarchies [CB 9.5 V2](https://apclassroom.collegeboard.org/8/home?apd=wkp1dtdkz8&unit=9)
 * Polymorphism [CB 9.6 V1](https://apclassroom.collegeboard.org/8/home?apd=pp1jhg3pvb&unit=9)
 * Sorting [CB 10.2 Merge Sort V1](https://apclassroom.collegeboard.org/8/home?apd=14ybgme7em&unit=10), [V2](https://apclassroom.collegeboard.org/8/home?apd=yrqb7lfza1&unit=10)
+
 
 ### Other Topics
 * Enums [W3Schools](https://www.w3schools.com/java/java_enums.asp), (FrontEndBackEnd)[https://frontbackend.com/thymeleaf/using-enums-in-thymeleaf]
@@ -22,7 +19,7 @@ This lab assists with PBL and CB.  The backend includes many College Board algor
 * Linked Lists (Circular) [Tutorial Point](https://www.tutorialspoint.com/data_structures_algorithms/linked_list_algorithms.htm)
 
 
-### Mini-lab Ideas
+### Mini-lab or PBL requirements
 1. Build  section into your Scrum Team project or individual section for execution.
 2. Build abstract Class and have multiple derivative classes (extend) with Override on method(s).
 3. Have default data that loads and displays on Web page
