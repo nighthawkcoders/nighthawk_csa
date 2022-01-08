@@ -185,7 +185,7 @@ public class MainController {
 
     @GetMapping("/testprep")
     public String testprep() {
-        return "/services/trestprep";
+        return "/services/testprep";
     }
 
     @GetMapping("/specialtutoring")
