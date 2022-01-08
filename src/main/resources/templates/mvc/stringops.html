@@ -168,7 +168,7 @@
           // display event history
           for (let i = 0; i < data.events.length; i++) {
             const event = document.createElement("tr");
-            event.innerHTML = '<td>' + body.events[i] + '</td>';
+            event.innerHTML = '<td>' + data.events[i] + '</td>';
             bodyContainer.appendChild(event);
           }
         });
