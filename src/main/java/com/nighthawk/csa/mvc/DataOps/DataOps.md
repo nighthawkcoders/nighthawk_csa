@@ -3,17 +3,18 @@
 ### Overview
 This lab and future labs can/should be strung together.
 
+### Challenges
 1. Pull code and Demo.
 2. Key elements (Data, Controller, Data Structure, Sort)
-   -- Activity, reverse order of sort --
+   Hack: reverse order of sort
 3. Object, toString, changing Key (static)
-   -- Add data to a Class --
+   Hack: Add data to a Class
 4. Look at Checkboxes and Radio Buttons.
-   -- Activity, add sound attribute to animal data (can you get it to work?) --
+   Hack: Activity, add sound attribute to animal data (can you get it to work?)
 
 ### Key Topics
 * @Controller (My code)
-* Static Variables [CB 5.7](https://apclassroom.collegeboard.org/8/home?apd=2gde84qri5&unit=5)
+* Static Variables [CB 5.7 V1](https://apclassroom.collegeboard.org/8/home?apd=2gde84qri5&unit=5), [V2](https://apclassroom.collegeboard.org/8/home?apd=2gde84qri5&unit=5)
 * Enums
 ### Other Topics
 * Inheritance
