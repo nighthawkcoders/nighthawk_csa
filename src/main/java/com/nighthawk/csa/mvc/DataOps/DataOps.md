@@ -3,12 +3,10 @@
 ### Overview
 This lab assists with PBL and CB.  The backend includes many College Board algorithms including usage of Statics and Sorts.  Beyond College Board the backend includes and implementation of Linked Lists which is a fundamental structure for any College CompSci class.
 
-### Challenges.
+### Extra Credit Challenges.
 1. Pull or copy code and run Demo.
-2. Key elements (Data, Controller, Data Structure, Sort)
-   Hack: reverse order of sort
-3. Object, toString, changing Key (static)
-   Hack: Add data to a Class
+2. Key elements (Data, Controller, Data Structure, Sort).  Hack: reverse order of sort
+3. Object, toString, changing Key.  Hack: Add new data set to project.
 
 ### Key Topics
 * Static Variables [CB 5.7 V1](https://apclassroom.collegeboard.org/8/home?apd=2gde84qri5&unit=5), [V2](https://apclassroom.collegeboard.org/8/home?apd=2gde84qri5&unit=5)
