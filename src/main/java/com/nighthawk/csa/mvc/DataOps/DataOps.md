@@ -15,7 +15,7 @@ This lab assists with PBL and CB.  The backend includes many College Board algor
 * Spring Boot Basics [Jet Brains](https://www.jetbrains.com/idea/guide/tutorials/your-first-spring-application/creating-spring-boot-application/)
 * Inheritance [W3Schools](https://www.w3schools.in/java-tutorial/inheritance/)
 * Abstract Class and Methods [Tutorial Point](https://www.tutorialspoint.com/java/java_abstraction.htm)
-* Linked Lists [Tutorial Point](https://www.tutorialspoint.com/data_structures_algorithms/linked_list_algorithms.htm)
+* Linked Lists (Circular) [Tutorial Point](https://www.tutorialspoint.com/data_structures_algorithms/linked_list_algorithms.htm)
 * Enums [W3Schools](https://www.w3schools.com/java/java_enums.asp)
 
 
