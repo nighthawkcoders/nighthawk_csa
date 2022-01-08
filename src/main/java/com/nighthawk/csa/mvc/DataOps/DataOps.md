@@ -15,7 +15,7 @@ This lab assists with PBL and CB.  The backend includes many College Board algor
 * Sorting [CB 10.2 Merge Sort V1](https://apclassroom.collegeboard.org/8/home?apd=14ybgme7em&unit=10), [V2](https://apclassroom.collegeboard.org/8/home?apd=yrqb7lfza1&unit=10)
 ### Other Topics
 * @Controller
-* Inheritance
+* Inheritance [W3Schools](https://www.w3schools.in/java-tutorial/inheritance/)
 * Abstract Class and Methods [Tutorial Point](https://www.tutorialspoint.com/java/java_abstraction.htm)
 * Linked Lists [Tutorial Point](https://www.tutorialspoint.com/data_structures_algorithms/linked_list_algorithms.htm)
 * Enums [W3Schools](https://www.w3schools.com/java/java_enums.asp)
