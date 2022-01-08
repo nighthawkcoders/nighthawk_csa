@@ -17,7 +17,7 @@ This lab assists with PBL and CB.  The backend includes many College Board algor
 * @Controller
 * Inheritance
 * Abstract Class
-* Linked Lists
+* Linked Lists [Tutorial Point](https://www.tutorialspoint.com/data_structures_algorithms/linked_list_algorithms.htm)
 * Enums [W3Schools](https://www.w3schools.com/java/java_enums.asp)
 
 
