@@ -38,20 +38,20 @@
                     <tbody>
                     <tr>
                         <!-- Circle Queue Highlight database (summary)  -->
-                        <td th:text="${ctl.getCount()}"></td>
-                        <td th:text="${ctl.getQueue().getFirstObject()}"></td>
-                        <td th:text="${ctl.getQueue().getLastObject()}"></td>
+                        <td th:text="${this.getCount()}"></td>
+                        <td th:text="${this.getQueue().getFirstObject()}"></td>
+                        <td th:text="${this.getQueue().getLastObject()}"></td>
                     </tr>
                     </tbody>
                 </table>
 
                 <h6><strong>Select checkbox and radio buttons to filter</strong></h6>
-                <form id="fibForm" th:action="@{/mvc/dataops}" th:object="${ctl}" method="POST" >
+                <form id="fibForm" th:action="@{/mvc/dataops}" th:object="${this}" method="POST" >
                     <div class="jumbotron text-left row">
                         <!-- Animals -->
                         <div class="col-md-4">
                             <!-- Checkbox on/off works off of @Getter for boolean isAnimal() -->
-                            <input type="checkbox" id="animal" name="animal" value="1" th:checked="${ctl.isAnimal()}">
+                            <input type="checkbox" id="animal" name="animal" value="1" th:checked="${this.isAnimal()}">
                             <label for="animal">Animals</label>
                             <div class="form-group">
                                 <label>Sort by</label>
@@ -70,7 +70,7 @@
                         </div>
                         <!-- Cupcakes -->
                         <div class="col-md-4">
-                            <input type="checkbox" id="cake" name="cake" value="1" th:checked="${ctl.isCake()}">
+                            <input type="checkbox" id="cake" name="cake" value="1" th:checked="${this.isCake()}">
                             <label for="cake">Cup Cakes</label>
                             <div class="form-group">
                                 <label>Sort by</label>
@@ -84,7 +84,7 @@
                         </div>
                         <!-- Alphabet -->
                         <div class="col-md-4">
-                            <input type="checkbox" id="alpha" name="alpha" value="1" th:checked="${ctl.isAlpha()}">
+                            <input type="checkbox" id="alpha" name="alpha" value="1" th:checked="${this.isAlpha()}">
                             <label for="alpha">Alphabet</label>
                             <div class="form-group">
                                 <label>Sort by</label>
@@ -111,7 +111,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="line: ${ctl.getCQList()}">
+                    <tr th:each="line: ${this.getCQList()}">
                         <td th:text="${line}" ></td>
                     </tr>
                     </tbody>

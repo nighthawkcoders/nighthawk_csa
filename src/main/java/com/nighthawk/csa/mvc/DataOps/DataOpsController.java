@@ -17,18 +17,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Circle Queue Driver takes a list of Objects and puts them into a Queue
+ * Circle Queue Driver and Controller takes a list of Objects and puts them into a Queue
  * @author     John Mortensen
  *
  */
 @Getter
 @Controller  // HTTP requests are handled as a controller, using the @Controller annotation
 public class DataOpsController {
+    //persistent circle queue data
     private CircleQueue queue;	// circle queue object
     private int count; // number of objects in circle queue
-    //control variables for UI checkboxes and radios
-    private boolean animal;
-    private Animal.KeyType animalKey;
+
+    //persistent control variables for UI checkboxes and radios
+    private boolean animal;             //checkbox
+    private Animal.KeyType animalKey;   //enum radio button
     private boolean cake;
     private Cupcakes.KeyType cakeKey;
     private boolean alpha;
@@ -43,6 +45,8 @@ public class DataOpsController {
         count = 0;
         queue = new CircleQueue();
     }
+
+    /****** Circle Queue Methods *******/
 
     /*
      * Add any array of objects to the queue
@@ -88,37 +92,44 @@ public class DataOpsController {
         return log;
     }
 
+    /****** Control Methods *******/
+
     /*
-     GET request,, parameters are passed within the URI
+     GET request... setup circle queue and pass variables via model.addAttribute
      */
     @GetMapping("/mvc/dataops")
     public String data(Model model) {
         //initialize database
         this.count = 0;
         this.queue = new CircleQueue();
-        //application specific inits
-        //title defaults
-        this.animalKey = Animal.KeyType.title;
+
+        //set default order for data
         Animal.setOrder(this.animalKey);
-        this.cakeKey = Cupcakes.KeyType.title;
         Cupcakes.setOrder(this.cakeKey);
-        this.alphaKey = Alphabet.KeyType.title;
         Alphabet.setOrder(this.alphaKey);
-        //control options
+
+        //radio button defaults
+        this.animalKey = Animal.KeyType.title;
+        this.cakeKey = Cupcakes.KeyType.title;
+        this.alphaKey = Alphabet.KeyType.title;
+
+        //checkbox defaults
         this.animal = true;
         this.cake = true;
         this.alpha = true;
-        //load database
+
+        //load circle queue
         this.addCQueue(Animal.animalData());
         this.addCQueue(Cupcakes.cupCakeData());
         this.addCQueue(Alphabet.alphabetData());
-        //database is not sorted, queue order (FIFO) is default
-        model.addAttribute("ctl", this);
-        return "mvc/dataops"; //HTML render default condition
+
+        //circle queue is not sorted on initial load, circle queue order FIFO
+        model.addAttribute("this", this);
+        return "mvc/dataops"; //HTML render
     }
 
     /*
-     GET request,, parameters are passed within the URI
+     POST request... update circle queue based off of user check box and radio selections
      */
     @PostMapping("/mvc/dataops")
     public String dataFilter(
@@ -130,14 +141,14 @@ public class DataOpsController {
             @RequestParam(value = "alphaKey", required = false) Alphabet.KeyType alphaKey,
             Model model)
     {
-        //re-init database according to check boxes selected
+        //re-init circle queue according to check boxes selected
         count = 0;
         queue = new CircleQueue();
-        //for each category rebuild database, set presentation and database defaults
+        //for each category rebuild circle queue, set presentation and data defaults
         if (animal != null) {
             this.addCQueue(Animal.animalData());  //adding Animal database to queue
-            this.animal = true;             //persistent selection from check box selection
-            this.animalKey = animalKey;     //persistent enum update from radio button selection
+            this.animal = true;             //selection from check box
+            this.animalKey = animalKey;     //enum selection from radio button
             Animal.setOrder(this.animalKey);
         } else {
             this.animal = false;
@@ -161,9 +172,11 @@ public class DataOpsController {
         //sort database according to selected options
         this.queue.insertionSort();
         //render with options
-        model.addAttribute("ctl", this);
+        model.addAttribute("this", this);
         return "mvc/dataops";
     }
+
+    /****** Console Methods *******/
 
     /*
      * Show key objects/properties of circle queue
