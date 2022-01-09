@@ -1,6 +1,8 @@
 package com.nighthawk.csa.mvc.DataOps.genericDataModel;
 import com.nighthawk.csa.utility.ConsoleMethods;
 
+import java.util.Arrays;
+
 public class Alphabet extends Generics {
 	// Class data
 	public static KeyTypes key = KeyType.title;  // static initializer
@@ -40,9 +42,9 @@ public class Alphabet extends Generics {
 	}
 
 	// Test data initializer for upper case Alphabet
-	public static Generics[] alphabetData() 
-	{	
-		Generics[] alphabet = new Alphabet[Alphabet.size];
+	public static Alphabet[] alphabetData()
+	{
+		Alphabet[] alphabet = new Alphabet[Alphabet.size];
 		for (int i = 0; i < Alphabet.size; i++)
 		{
 			alphabet[i] = new Alphabet( (char)('A' + i) );
@@ -55,9 +57,16 @@ public class Alphabet extends Generics {
 	 */
 	public static void main(String[] args)
 	{
-		Generics[] alphaData = alphabetData();
-		for(Generics a : alphaData)
-			ConsoleMethods.println("" + a);
+		// Inheritance Hierarchy
+		Object[] objs = alphabetData();
+
+		// print with title
+		Alphabet.setOrder(KeyType.title);
+		Generics.print(objs);
+
+		// print letter only
+		Alphabet.setOrder(KeyType.letter);
+		Generics.print(objs);
 	}
 	
 }

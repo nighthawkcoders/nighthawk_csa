@@ -45,8 +45,8 @@ public class Cupcakes extends Generics {
 	}
 
 	// Test data initializer
-	public static Generics[] cupCakeData() {
-		return new Generics[]{
+	public static Cupcakes[] cupCakeData() {
+		return new Cupcakes[]{
 				new Cupcakes("Red", 4, "Red Velvet"),
 			    new Cupcakes("Orange", 5, "Orange"),
 			    new Cupcakes("Yellow", 6, "Lemon"),
@@ -61,9 +61,16 @@ public class Cupcakes extends Generics {
 	
 	public static void main(String[] args)
 	{
-		Generics[] cupCake = cupCakeData();
-		for(Generics c:  cupCake)
-			ConsoleMethods.println(c);
+		// Inheritance Hierarchy
+		Object[] objs = cupCakeData();
+
+		// print with title
+		Cupcakes.setOrder(KeyType.title);
+		Generics.print(objs);
+
+		// print flavor only
+		Cupcakes.setOrder(KeyType.flavor);
+		Generics.print(objs);
 	}
 	
 }

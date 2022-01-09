@@ -68,9 +68,16 @@ public class Animal extends Generics {
 	 */
 	public static void main(String[] args)
 	{
-		Generics[] animData = animalData();	//shows abstract class usage
-		for(Generics a : animData)
-			ConsoleMethods.println("" + a);	//shows polymorphic behavior
+		// Inheritance Hierarchy
+		Object[] objs = animalData();
+
+		// print with title
+		Animal.setOrder(KeyType.title);
+		Generics.print(objs);
+
+		// print name only
+		Animal.setOrder(KeyType.name);
+		Generics.print(objs);
 	}
 
 }
