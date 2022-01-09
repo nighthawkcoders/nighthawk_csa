@@ -6,7 +6,7 @@ import com.nighthawk.csa.utility.ConsoleMethods;
  */
 public class Animal extends Generics {
 	// Class data
-	public static KeyTypes key = KeyType.title;
+	public static KeyTypes key = KeyType.title;  // static initializer
 	public static void setOrder(KeyTypes key) { Animal.key = key; }
 	public enum KeyType implements KeyTypes {title, name, age, color}
 

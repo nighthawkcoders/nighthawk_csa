@@ -3,7 +3,7 @@ import com.nighthawk.csa.utility.ConsoleMethods;
 
 public class Alphabet extends Generics {
 	// Class data
-	public static KeyTypes key = KeyType.title;
+	public static KeyTypes key = KeyType.title;  // static initializer
 	public static void setOrder(KeyTypes key) {Alphabet.key = key;}
 	public enum KeyType implements KeyTypes {title, letter}
 	private static final int size = 26;  // constant used in data initialization

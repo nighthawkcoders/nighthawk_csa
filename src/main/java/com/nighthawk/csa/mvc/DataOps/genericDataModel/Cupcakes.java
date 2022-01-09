@@ -3,7 +3,7 @@ import com.nighthawk.csa.utility.ConsoleMethods;
 
 public class Cupcakes extends Generics {
 	// Class data
-	public static KeyTypes key = KeyType.title;
+	public static KeyTypes key = KeyType.title;  // static initializer
 	public static void setOrder(KeyTypes key) {Cupcakes.key = key;}
 	public enum KeyType implements KeyTypes {title, flavor, frosting, sprinkles}
 
