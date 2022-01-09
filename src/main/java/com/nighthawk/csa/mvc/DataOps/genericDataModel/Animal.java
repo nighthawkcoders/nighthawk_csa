@@ -5,8 +5,12 @@ import com.nighthawk.csa.utility.ConsoleMethods;
  * Animal class extends Generics and defines abstract methods
  */
 public class Animal extends Generics {
+	// Class data
+	public static KeyTypes key = KeyType.title;
+	public static void setOrder(KeyTypes key) { Animal.key = key; }
 	public enum KeyType implements KeyTypes {title, name, age, color}
-	public static KeyTypes key;
+
+	// Instance data
 	private final String name;
 	private final int age;
 	private final String color;
@@ -17,16 +21,13 @@ public class Animal extends Generics {
 	public Animal(String name, int age, String color)
 	{
 		super.setType("Animal");
-		this.setKey(KeyType.title);
 		this.name = name;
 		this.age = age;
 		this.color = color;
 	}
 
 	@Override
-	public KeyTypes getKey() { return Animal.key; }
-	@Override
-	public void setKey(KeyTypes key) { Animal.key = key; }
+	protected KeyTypes getKey() { return Animal.key; }
 	
 	/* Generics requires toString override
 	 * toString provides conditional output based off of key

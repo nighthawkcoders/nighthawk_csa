@@ -16,9 +16,8 @@ public abstract class Generics {
 	public interface KeyTypes {
 		String name();
 	}
+	protected abstract KeyTypes getKey();  	// this method helps force usage of KeyTypes
 
-	// force these methods to allow sort functionality to be handled abstractly
-	public abstract KeyTypes getKey();
-	public abstract void setKey(KeyTypes key);
+	// this method is used to establish key order
 	public abstract String toString();
 }

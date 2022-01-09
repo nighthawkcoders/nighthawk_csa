@@ -2,8 +2,12 @@ package com.nighthawk.csa.mvc.DataOps.genericDataModel;
 import com.nighthawk.csa.utility.ConsoleMethods;
 
 public class Cupcakes extends Generics {
+	// Class data
+	public static KeyTypes key = KeyType.title;
+	public static void setOrder(KeyTypes key) {Cupcakes.key = key;}
 	public enum KeyType implements KeyTypes {title, flavor, frosting, sprinkles}
-	public static KeyTypes key;
+
+	// Instance data
 	private final String frosting;
 	private final int sprinkles;
 	private final String flavor;
@@ -11,16 +15,13 @@ public class Cupcakes extends Generics {
 	Cupcakes(String frosting, int sprinkles, String flavor)
 	{
 		this.setType("Cupcakes");
-		this.setKey(KeyType.title);
 		this.frosting = frosting;
 		this.sprinkles = sprinkles;
 		this.flavor = flavor;
 	}
 
 	@Override
-	public KeyTypes getKey() { return Cupcakes.key; }
-	@Override
-	public void setKey(KeyTypes key) { Cupcakes.key = key; }
+	protected KeyTypes getKey() { return Cupcakes.key; }
 
 	/* 
 	 * toString provides output based off of this.key setting

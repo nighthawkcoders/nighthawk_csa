@@ -93,18 +93,17 @@ public class DataOpsController {
      */
     @GetMapping("/mvc/dataops")
     public String data(Model model) {
-
         //initialize database
         this.count = 0;
         this.queue = new CircleQueue();
         //application specific inits
         //title defaults
         this.animalKey = Animal.KeyType.title;
-        Animal.key = this.animalKey;
+        Animal.setOrder(this.animalKey);
         this.cakeKey = Cupcakes.KeyType.title;
-        Cupcakes.key = this.cakeKey;
+        Cupcakes.setOrder(this.cakeKey);
         this.alphaKey = Alphabet.KeyType.title;
-        Alphabet.key = this.alphaKey;
+        Alphabet.setOrder(this.alphaKey);
         //control options
         this.animal = true;
         this.cake = true;
@@ -139,7 +138,7 @@ public class DataOpsController {
             this.addCQueue(Animal.animalData());  //adding Animal database to queue
             this.animal = true;             //persistent selection from check box selection
             this.animalKey = animalKey;     //persistent enum update from radio button selection
-            Animal.key = this.animalKey;    //toString configure for sort order
+            Animal.setOrder(this.animalKey);
         } else {
             this.animal = false;
         }
@@ -147,7 +146,7 @@ public class DataOpsController {
             this.addCQueue(Cupcakes.cupCakeData());
             this.cake = true;
             this.cakeKey = cakeKey;
-            Cupcakes.key = this.cakeKey;
+            Cupcakes.setOrder(this.cakeKey);
         } else {
             this.cake = false;
         }
@@ -155,7 +154,7 @@ public class DataOpsController {
             this.addCQueue(Alphabet.alphabetData());
             this.alpha = true;
             this.alphaKey = alphaKey;
-            Alphabet.key = this.alphaKey;
+            Alphabet.setOrder(this.alphaKey);
         } else {
             this.alpha = false;
         }
@@ -190,26 +189,27 @@ public class DataOpsController {
         //queue
         DataOpsController trial = new DataOpsController();
 
-        //add different types of objects to the same opaque queue
+        //add different types of objects to the same queue
         trial.addCQueue(Animal.animalData());
         trial.addCQueue(Cupcakes.cupCakeData());
         trial.addCQueue(Alphabet.alphabetData());
+
         //display queue objects in queue order
         ConsoleMethods.println("Add order (all database)");
         trial.printCQueue();
 
         //sort queue objects by specific element within the object and display in sort order
-        Animal.key = Animal.KeyType.name;
-        Cupcakes.key = Cupcakes.KeyType.frosting;
-        Alphabet.key = Alphabet.KeyType.letter;
+        Animal.setOrder(Animal.KeyType.name);
+        Cupcakes.setOrder(Cupcakes.KeyType.frosting);
+        Alphabet.setOrder(Alphabet.KeyType.letter);
         trial.queue.insertionSort();
         ConsoleMethods.println("Sorted order (key only)");
         trial.printCQueue();
 
         //display queue objects, changing output but not sort
-        Animal.key = Animal.KeyType.title;
-        Cupcakes.key = Cupcakes.KeyType.title;
-        Alphabet.key = Alphabet.KeyType.title;
+        Animal.setOrder(Animal.KeyType.title);
+        Cupcakes.setOrder(Cupcakes.KeyType.title);
+        Alphabet.setOrder(Alphabet.KeyType.title);
         ConsoleMethods.println("Retain sorted order (all database)");
         trial.printCQueue();
         trial.queue.insertionSort();
