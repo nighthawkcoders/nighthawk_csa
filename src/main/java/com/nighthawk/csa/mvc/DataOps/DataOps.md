@@ -12,7 +12,8 @@ This lab assists with PBL and CB.  The backend includes many College Board algor
 
 
 ### Other Topics
-* Enums [W3Schools](https://www.w3schools.com/java/java_enums.asp), (FrontEndBackEnd)[https://frontbackend.com/thymeleaf/using-enums-in-thymeleaf]
+* Enums [W3Schools](https://www.w3schools.com/java/java_enums.asp), [FrontEndBackEnd](https://frontbackend.com/thymeleaf/using-enums-in-thymeleaf)
+* the Object Class [GeeksforGeeks](https://www.geeksforgeeks.org/object-class-in-java/)
 * Spring Boot Basics [Jet Brains](https://www.jetbrains.com/idea/guide/tutorials/your-first-spring-application/creating-spring-boot-application/)
 * Inheritance [W3Schools](https://www.w3schools.in/java-tutorial/inheritance/)
 * Abstract Class and Methods [Tutorial Point](https://www.tutorialspoint.com/java/java_abstraction.htm)
