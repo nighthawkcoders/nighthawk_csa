@@ -26,11 +26,12 @@ public class Animal extends Generics {
 		this.color = color;
 	}
 
+	/* 'Generics' requires getKey to help enforce KeyTypes usage */
 	@Override
 	protected KeyTypes getKey() { return Animal.key; }
 	
-	/* Generics requires toString override
-	 * toString provides conditional output based off of key
+	/* 'Generics' requires toString override
+	 * toString provides data based off of Static Key setting
 	 */
 	@Override
 	public String toString()
@@ -49,10 +50,8 @@ public class Animal extends Generics {
 		return output;
 		
 	}
-	
-	/* Initialize Animal database
-	 * 
-	 */
+
+	// Test data initializer
 	public static Generics[] animalData() {
 		return new Generics[]{
 				new Animal("Lion", 8, "Gold"),

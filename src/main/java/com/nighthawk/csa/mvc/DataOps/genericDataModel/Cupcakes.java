@@ -11,7 +11,8 @@ public class Cupcakes extends Generics {
 	private final String frosting;
 	private final int sprinkles;
 	private final String flavor;
-	
+
+	// Constructor
 	Cupcakes(String frosting, int sprinkles, String flavor)
 	{
 		this.setType("Cupcakes");
@@ -20,11 +21,12 @@ public class Cupcakes extends Generics {
 		this.flavor = flavor;
 	}
 
+	/* 'Generics' requires getKey to help enforce KeyTypes usage */
 	@Override
 	protected KeyTypes getKey() { return Cupcakes.key; }
 
-	/* 
-	 * toString provides output based off of this.key setting
+	/* 'Generics' requires toString override
+	 * toString provides data based off of Static Key setting
 	 */
 	@Override
 	public String toString() {		
@@ -41,7 +43,8 @@ public class Cupcakes extends Generics {
 		}
 		return output;
 	}
-	
+
+	// Test data initializer
 	public static Generics[] cupCakeData() {
 		return new Generics[]{
 				new Cupcakes("Red", 4, "Red Velvet"),

@@ -6,7 +6,7 @@ public class Alphabet extends Generics {
 	public static KeyTypes key = KeyType.title;
 	public static void setOrder(KeyTypes key) {Alphabet.key = key;}
 	public enum KeyType implements KeyTypes {title, letter}
-	private static final int size = 26;
+	private static final int size = 26;  // constant used in data initialization
 
 	// Instance data
 	private final char letter;
@@ -20,11 +20,12 @@ public class Alphabet extends Generics {
 		this.letter = letter;
 	}
 
+	/* 'Generics' requires getKey to help enforce KeyTypes usage */
 	@Override
 	protected KeyTypes getKey() { return Alphabet.key; }
 
-	/* 
-	 * toString provides output based off of key setting
+	/* 'Generics' requires toString override
+	 * toString provides data based off of Static Key setting
 	 */
 	@Override
 	public String toString()
@@ -37,10 +38,8 @@ public class Alphabet extends Generics {
 		}
 		return output;
 	}
-	
-	/*
-	 * upper case alphabet array
-	 */
+
+	// Test data initializer for upper case Alphabet
 	public static Generics[] alphabetData() 
 	{	
 		Generics[] alphabet = new Alphabet[Alphabet.size];
