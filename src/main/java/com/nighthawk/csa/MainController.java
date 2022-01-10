@@ -96,13 +96,19 @@ public class MainController {
 
         model.addAttribute("joke", response.body());
 
+        return "individual/sarah";
+    }
+
+    @GetMapping("/sarah/answer")
+    public String sarahanswer(Model model) throws IOException, InterruptedException, ParseException {
+
         // frq2
         class LightSequence{
             String seq;
+            Boolean on = true;
 
             public void LightSequence(String seq){
                 this.seq = seq;
-
             }
 
             public void display(){
@@ -121,7 +127,12 @@ public class MainController {
                 return newString;
             }
             public void changeSequence(String seq){
-
+                if (this.on == true){
+                    this.on = false;
+                }
+                else {
+                    this.on = true;
+                }
             }
         }
 
@@ -134,11 +145,7 @@ public class MainController {
         String resultSeq = gradShow.insertSegment("1111 1111", 4);
 
 
-        // frq3
 
-
-
-        // frq4
 
         return "individual/sarah";
     }

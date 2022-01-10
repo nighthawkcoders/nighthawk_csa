@@ -105,6 +105,9 @@
                             Complete method playGame below.
 
                         </p>
+                        <form action="/sarah/answer" method="GET">
+                            <input name="frq4" id="frq4" class="formInput">
+                        </form>
                     </div>
 
                     <button type="button" class="collapsible">FRQ3</button>
@@ -114,7 +117,10 @@
                         <p class="frq">(b) Write a code segment that prints the food item associated with selection. For example, if selection is 3, the code segment should print "pasta".</p>
                         <p class="frq">(c) Write a code segment that will store a dinner selection in option1 based on the values of rsvp and selection. The intended behavior of the code segment is described below. If rsvp is true, the code segment should store in option1 a string indicating the person’s attendance and food choice. For example, if rsvp is true and selection is 1, the following string should be stored in option1. "Thanks for attending. You will be served beef." If rsvp is false, the following string should be stored in option1, regardless of the value of selection. "Sorry you can't make it." Write the code segment below. Your code segment should meet all specifications and conform to the examples.</p>
                         <p class="frq">(d) Write a code segment that will print true if the strings option1 and option2 contain the same values and will print false otherwise. Write the code segment below. </p>
-                        </div>
+                        <form action="/sarah/answer" method="GET">
+                            <input name="frq3" id="frq3" class="formInput">
+                        </form>
+                    </div>
                     <button type="button" class="collapsible">FRQ2</button>
                     <div class="content">
                         <p class="frq">(a) Write a statement to create a LightSequence object gradShow that has the initial light sequence "0101 0101 0101".</p>
@@ -123,7 +129,11 @@
                         <p class="frq">(d) Write a code segment that will call the insertSegment method to insert the segment "1111 1111" in the current sequence for gradShow at index 4. The resulting sequence will be stored in the string resultSeq. </p>
                         <p class="frq">(e) Assume that the string oldSeq has been properly declared and initialized and contains the string segment. Write a code segment that will remove the first occurrence of segment from oldSeq and store it in the string newSeq. Consider the following examples. </p>
                         <p class="frq">(f) Two lights will be arranged on a two-dimensional plane. The vertical distance between the two lights is stored in the double variable a. The horizontal distance between the two lights is stored in the double variable b. The straight-line distance between the two lights is given by the formula sqrt(a^2 + b^2)</p>
+                        <form action="/sarah/answer" method="GET">
+                            <input name="frq2" id="frq2" class="formInput">
+                        </form>
                     </div>
+
                     <button type="button" class="collapsible">FRQ1</button>
                     <div class="content">
                         <p>There is none</p>
@@ -159,6 +169,16 @@
         line-height: 1.2;
         font-weight: 700;
         color: #00008b;
+    }
+
+    input {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        border: none;
+        text-align:center;
     }
     @media (min-width: 768px){
         .justify-content-md-center {
