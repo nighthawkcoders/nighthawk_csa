@@ -100,10 +100,11 @@ public class MainController {
     }
 
     @GetMapping("/sarah/answer")
-    public String sarahanswer(@RequestParam(name = "frq2", required = false, defaultValue = "0") String frq2,
-                              @RequestParam(name = "frq3", required = false, defaultValue = "0") String frq3,
-                              @RequestParam(name = "frq4", required = false, defaultValue = "0") String frq4,
-                              Model model) throws IOException, InterruptedException, ParseException {
+    public String sarahanswer(Model model, @RequestParam(name = "frq2", required = false, defaultValue = "default") String frq2,
+                              @RequestParam(name = "frq3", required = false, defaultValue = "default") String frq3,
+                              @RequestParam(name = "frq4", required = false, defaultValue = "default") String frq4
+                              ) throws IOException, InterruptedException, ParseException {
+
 
         // frq2
         class LightSequence{
@@ -187,24 +188,24 @@ public class MainController {
             }
         }
 
-        String message;
-        if (frq2 != "0"){
-            if (frq2 == "gradShow.display();"){
+        String message = "nothing to say";
+        if (!frq2.equals( "default")){
+            if (frq2.equals("gradShow.display();")){
                 message = "Correct answer for FRQ2!";
             }
             else {
                 message = "incorrect answer for FRQ2";
             }
         }
-        else if (frq3 != "0"){
-            if (frq3 == "boolean rsvp = true;"){
+        if (!frq3.equals("default")){
+            if (frq3.equals("boolean rsvp = true;")){
                 message = "boolean rsvp = true;";
             }
             else {
                 message = "incorrect answer for FRQ3";
             }
         }
-        else if (frq4 != "0"){
+        if (!frq4.equals("default")){
             message = "class frq4function {\n" +
                     "            String str;\n" +
                     "            Boolean repeatSequence = true;\n" +
@@ -225,12 +226,13 @@ public class MainController {
                     "                }\n" +
                     "            }\n" +
                     "        }";
+
         }
-        else {
-            message = "nothing to say";
-        }
-        model.addAttribute("joke", message);
-        return "individual/sarah";
+
+
+        // message = frq2;
+        model.addAttribute("message", message);
+        return "individual/message";
     }
 
     @GetMapping("/risa")
