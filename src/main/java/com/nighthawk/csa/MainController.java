@@ -100,7 +100,10 @@ public class MainController {
     }
 
     @GetMapping("/sarah/answer")
-    public String sarahanswer(Model model) throws IOException, InterruptedException, ParseException {
+    public String sarahanswer(@RequestParam(name = "frq2", required = false, defaultValue = "0") String frq2,
+                              @RequestParam(name = "frq3", required = false, defaultValue = "0") String frq3,
+                              @RequestParam(name = "frq4", required = false, defaultValue = "0") String frq4,
+                              Model model) throws IOException, InterruptedException, ParseException {
 
         // frq2
         class LightSequence{
@@ -144,9 +147,89 @@ public class MainController {
 
         String resultSeq = gradShow.insertSegment("1111 1111", 4);
 
+        // frq3
+        boolean rsvp = true;
+        int selection;
+        selection = 1;
+        String option1;
+        String option2;
+
+        if (selection == 1) {
+            System.out.println("beef");
+        } else if ( selection == 2) {
+            System.out.println("chicken");
+        } else if (selection ==3) {
+            System.out.println("pasta");
+        } else{
+            System.out.println("fitsh");
+        }
 
 
+        // frq4
+        class frq4function {
+            String str;
+            Boolean repeatSequence = true;
 
+            void longestStreak(String str) {
+                int n = str.length();
+                Character[] visited = new Character[256];
+                repeatSequence = false;
+                for (int j = 0; j < n; j++){
+                    if (str.charAt(j - 1) == str.charAt(j)) {
+                        visited[j] = str.charAt(j);
+                    } else {
+                        visited[j] = 0;
+                    }
+                }
+                for (int i = 0; i < n; ++i) {
+                    System.out.println(visited[i]);
+                }
+            }
+        }
+
+        String message;
+        if (frq2 != "0"){
+            if (frq2 == "gradShow.display();"){
+                message = "Correct answer for FRQ2!";
+            }
+            else {
+                message = "incorrect answer for FRQ2";
+            }
+        }
+        else if (frq3 != "0"){
+            if (frq3 == "boolean rsvp = true;"){
+                message = "boolean rsvp = true;";
+            }
+            else {
+                message = "incorrect answer for FRQ3";
+            }
+        }
+        else if (frq4 != "0"){
+            message = "class frq4function {\n" +
+                    "            String str;\n" +
+                    "            Boolean repeatSequence = true;\n" +
+                    "\n" +
+                    "            void longestStreak(String str) {\n" +
+                    "                int n = str.length();\n" +
+                    "                Character[] visited = new Character[256];\n" +
+                    "                repeatSequence = false;\n" +
+                    "                for (int j = 0; j < n; j++){\n" +
+                    "                    if (str.charAt(j - 1) == str.charAt(j)) {\n" +
+                    "                        visited[j] = str.charAt(j);\n" +
+                    "                    } else {\n" +
+                    "                        visited[j] = 0;\n" +
+                    "                    }\n" +
+                    "                }\n" +
+                    "                for (int i = 0; i < n; ++i) {\n" +
+                    "                    System.out.println(visited[i]);\n" +
+                    "                }\n" +
+                    "            }\n" +
+                    "        }";
+        }
+        else {
+            message = "nothing to say";
+        }
+        model.addAttribute("joke", message);
         return "individual/sarah";
     }
 
