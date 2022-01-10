@@ -47,7 +47,7 @@ Individual
 | Natasha | | | 
 | Ridhima | |  |
 | Risa | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-75655057) |  |
-| Ava | | | 
+| Ava | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74549540) | | 
 | Sarah |  |  |
 
 ## Week 4 (1/3)

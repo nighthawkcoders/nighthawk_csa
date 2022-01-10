@@ -7,6 +7,7 @@ import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.IOException;
 import java.net.URI;
@@ -17,10 +18,14 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
+
+import com.nighthawk.csa.data.avafrq.LightSequence;
+
 @Controller  // HTTP requests are handled as a controller, using the @Controller annotation
 public class MainController {
 
-       
+
 
     @GetMapping("/ava")
     public String Ava(Model model) throws IOException, InterruptedException, org.json.simple.parser.ParseException {
@@ -52,9 +57,32 @@ public class MainController {
     }
 
     @GetMapping("/ava/frqs")
-    public String Ava() {
-        return "/individual/avaFrq";
-    };
+    public String ava(@RequestParam(name = "frq2", required = false, defaultValue = "0") String frq2, Model model) {
+        int n = Integer.parseInt(frq2);
+
+        LightSequence gradshow = new LightSequence("0101 0101 0101");
+        if (n == 1) {
+            System.out.println("0101 0101 0101");
+        }
+        else if(n == 2){
+            gradshow.display();
+        }
+        else if(n == 3){
+            System.out.println("0011 0011 0011");
+        }
+        else if(n == 4){
+            System.out.println("String resultSeq = gradShow.insertSegment(“1111 1111”,4);\n");
+        }
+        else if(n == 5){
+            System.out.println("valid");
+        }
+        else if(n == 6){
+            System.out.println("Math.sqrt(a*a + b*b)");
+        }
+        return "individual/avaFrq";
+
+    }
+
 
 
     @GetMapping("/sarah")
@@ -115,7 +143,23 @@ public class MainController {
     }
 
     @GetMapping("/natasha")
-    public String Natasha() {
+    public String calculate(Model model) throws IOException, InterruptedException, ParseException {
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("https://love-calculator.p.rapidapi.com/getPercentage?sname=Alice&fname=John"))
+                .header("x-rapidapi-host", "love-calculator.p.rapidapi.com")
+                .header("x-rapidapi-key", "a917dcdd11msh8cb88225ac662ebp143616jsn13600ff2f660")
+                .method("GET", HttpRequest.BodyPublishers.noBody())
+                .build();
+        HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+        System.out.println(response.body());
+
+        //convert response.body() to java hash map
+        var calc = new ObjectMapper().readValue(response.body(), HashMap.class);
+
+
+        //pass stats to view
+        model.addAttribute("calculate", calc);
+
         return "individual/natasha";
     }
 
@@ -141,12 +185,27 @@ public class MainController {
 
     @GetMapping("/testprep")
     public String testprep() {
-        return "/services/trestprep";
+        return "/services/testprep";
     }
 
     @GetMapping("/specialtutoring")
     public String specialtutoring() {
         return "/services/specialtutoring";
+    }
+
+    @GetMapping("/contactus")
+    public String contactus() {
+        return "/services/contact";
+    }
+
+    @GetMapping("/profileUser")
+    public String profileUser() {
+        return "/user/profileUser";
+    }
+
+    @GetMapping("/profileTutor")
+    public String profileTutor() {
+        return "/tutoring/profileTutor";
     }
 
     @GetMapping("/onlinetutoring")
@@ -164,9 +223,6 @@ public class MainController {
     public String calendar() {
         return "/tutoring/calendar";
     }
-
-    // LOGIN and SIGNUP is in ValidUserSqlMvcController.java
-
 
 
 

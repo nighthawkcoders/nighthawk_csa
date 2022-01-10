@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
+
+<!-- <head> -->
+<div layout:fragment="head" th:remove="tag">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" integrity="sha512-Oy18vBnbSJkXTndr2n6lDMO5NN31UljR8e/ICzVPrGpSud4Gkckb8yUpqhKuUNoE+o9gAb4O/rAxxw1ojyUVzg==" crossorigin="anonymous" />
+    <title>Profile </title>
+</div>
+
+<!-- <body> -->
+<div layout:fragment="body" th:remove="tag">
+    <div class="container">
+        <h1>User Profile</h1>
+        <div class="row py-5 px-4">
+            <div class="col-md-5 mx-auto">
+                <!-- Profile widget -->
+                <div class="bg-white shadow rounded overflow-hidden">
+                    <div class="px-4 pt-0 pb-4 cover">
+                        <div class="media align-items-end profile-head">
+                            <div class="profile mr-3"><img src="https://i.imgur.com/bDLhJiP.jpg" alt="..." width="130" class="rounded mb-2 img-thumbnail"><a href="#" class="btn btn-outline-dark btn-sm btn-block">Edit profile</a></div>
+                            <div class="media-body mb-5 text-white">
+                                <h4 class="mt-0 mb-0" th:text="${username}">Mark Williams</h4>
+                                <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-2"></i>New York</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-4 py-3">
+                        <h5 class="mb-0">Upcoming Sessions</h5>
+                        <div class="p-4 rounded shadow-sm bg-light">
+                            <p class="font-italic mb-0">Chemistry</p>
+                            <p class="font-italic mb-0">Math</p>
+                            <p class="font-italic mb-0">English</p>
+                            <a href="#" class="btn btn-outline-dark btn-sm btn-block">See Calendar</a>
+                        </div>
+                    </div>
+                    <div class="py-4 px-4">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <h5 class="mb-0">Past Sessions</h5><a href="#" class="btn btn-link text-muted">Show all</a>
+                        </div>
+                        <div class="row">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+</html>
+
+<style>
+    .profile-head {
+        transform: translateY(5rem)
+    }
+
+    .cover {
+        background-image: url(https://images.unsplash.com/photo-1530305408560-82d13781b33a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80);
+        background-size: cover;
+        background-repeat: no-repeat
+    }
+
+    body {
+        min-height: 100vh;
+        overflow-x: hidden
+    }
+</style>
+
+
+
