@@ -52,8 +52,8 @@ public class Animal extends Generics {
 	}
 
 	// Test data initializer
-	public static Generics[] animalData() {
-		return new Generics[]{
+	public static Animal[] animalData() {
+		return new Animal[]{
 				new Animal("Lion", 8, "Gold"),
 				new Animal("Pig", 3, "Pink"),
 				new Animal("Robin", 7, "Red"),
@@ -69,7 +69,7 @@ public class Animal extends Generics {
 	public static void main(String[] args)
 	{
 		// Inheritance Hierarchy
-		Object[] objs = animalData();
+		Animal[] objs = animalData();
 
 		// print with title
 		Animal.setOrder(KeyType.title);

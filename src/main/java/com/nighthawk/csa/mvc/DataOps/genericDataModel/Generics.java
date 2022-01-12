@@ -23,21 +23,21 @@ public abstract class Generics {
 	public abstract String toString();
 
 	// static print method used by extended classes
-	public static void print(Object[] objs) {
+	public static void print(Generics[] objs) {
 		// print 'Object' properties
 		ConsoleMethods.println(objs.getClass() + " " + objs.length);
 
 		// print 'Generics' properties
 		if (objs.length > 0) {
-			Generics g = (Generics) objs[0];	// Cast to Generics
+			Generics obj = objs[0];	// Look at properties of 1st element
 			ConsoleMethods.println(
-					g.getMasterType() +
-					":" + g.getType() +
+					obj.getMasterType() +
+					":" + obj.getType() +
 					" listed by " +
-					g.getKey());
+					obj.getKey());
 		}
 
-		// print 'Object' details
+		// print 'Object'
 		for(Object o : objs)
 			ConsoleMethods.println(o);
 

@@ -62,7 +62,7 @@ public class Cupcakes extends Generics {
 	public static void main(String[] args)
 	{
 		// Inheritance Hierarchy
-		Object[] objs = cupCakeData();
+		Cupcakes[] objs = cupCakeData();
 
 		// print with title
 		Cupcakes.setOrder(KeyType.title);

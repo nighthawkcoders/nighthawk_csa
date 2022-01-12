@@ -58,7 +58,7 @@ public class Alphabet extends Generics {
 	public static void main(String[] args)
 	{
 		// Inheritance Hierarchy
-		Object[] objs = alphabetData();
+		Alphabet[] objs = alphabetData();
 
 		// print with title
 		Alphabet.setOrder(KeyType.title);
