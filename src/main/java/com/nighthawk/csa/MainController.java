@@ -323,15 +323,10 @@ public class MainController {
         return "/services/testprep";
     }
 
-    @GetMapping("/specialtutoring")
-    public String specialtutoring() {
-        return "/services/specialtutoring";
-    }
 
     @GetMapping("/schedulenow")
     public String schedulenow() {
-        return "/services/schedulenow";
-    }
+        return "/services/schedulenow";}
 
     @GetMapping("/contactus")
     public String contactus() {
