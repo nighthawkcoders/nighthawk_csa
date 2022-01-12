@@ -12,7 +12,7 @@
     <td>Data Ops, Mini-lab</td>
     <td><a href="https://apclassroom.collegeboard.org/8/assignments?quizId=589731">FRQ5, Invitation</a></td>
     <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-2:-Tech-Talk-5-Data-Ops">TT5</a></td>
-    <td></td>
+     <td><a href="https://poway.instructure.com/courses/112428/assignments/1967729">PBL Showing</a></td>
   </tr>
   <tr>
     <td>4</td>
@@ -43,22 +43,3 @@
     <td><a href="https://poway.instructure.com/courses/112428/assignments/1943429">Project Approval</a></td>
   </tr>
 </table>
-
-
-# GitHub Activity
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Profile</th>
-    <th>Issues</th>
-    <th>Commits</th>
-  </tr>
-  <tr>
-    <td>John Mortensen</td>
-    <td><a href="https://github.com/jm1021" target="_blank">Profile</a></td>
-    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/issues?q=assignee%3Ajm1021" target="_blank">Issues</a></td>
-    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/commits?author=jm1021" target="_blank">Commits</a></td>
-  </tr>
-</table>
-
