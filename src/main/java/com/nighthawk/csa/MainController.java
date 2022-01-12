@@ -328,6 +328,11 @@ public class MainController {
         return "/services/specialtutoring";
     }
 
+    @GetMapping("/schedulenow")
+    public String schedulenow() {
+        return "/services/schedulenow";
+    }
+
     @GetMapping("/contactus")
     public String contactus() {
         return "/services/contact";
