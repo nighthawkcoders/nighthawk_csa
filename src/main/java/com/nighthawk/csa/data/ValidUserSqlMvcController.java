@@ -63,6 +63,7 @@ public class ValidUserSqlMvcController implements WebMvcConfigurer {
 
     @GetMapping("/login")
     public String signin(User user) {
+
         return "user/login";
     }
 
