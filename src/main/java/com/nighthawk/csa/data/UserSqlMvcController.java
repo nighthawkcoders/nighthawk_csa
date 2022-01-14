@@ -112,7 +112,8 @@ public class UserSqlMvcController implements WebMvcConfigurer {
     POST Aa record by Requesting Parameters from URI
      */
     @RequestMapping(value = "/api/person/post", method = RequestMethod.POST)
-    public ResponseEntity<Object> postPerson(@RequestParam("email") String email,
+    public ResponseEntity<Object> postPerson(@RequestParam("email") Integer id,
+                                            @RequestParam("email") String email,
                                              @RequestParam("name") String name,
                                              @RequestParam("dob") String dobString,
                                              @RequestParam("type") String type,
@@ -125,7 +126,7 @@ public class UserSqlMvcController implements WebMvcConfigurer {
             return new ResponseEntity<>(dobString +" error; try MM-dd-yyyy", HttpStatus.BAD_REQUEST);
         }
         // A person object WITHOUT ID will create a new record
-        User user = new User(email, name, dob, type, bio, password);
+        User user = new User(id, email, name, dob, type, bio, password);
         repository.save(user);
         return new ResponseEntity<>(email +" is created successfully", HttpStatus.CREATED);
     }

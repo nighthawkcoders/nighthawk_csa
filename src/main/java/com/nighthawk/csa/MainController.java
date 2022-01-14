@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -229,6 +231,8 @@ public class MainController {
 
         }
 
+        // FRQ5
+
 
         // message = frq2;
         model.addAttribute("message", message);
@@ -356,6 +360,10 @@ public class MainController {
 
     @GetMapping("/search")
     public String search() {
+        // Obsoleted Resource: https://support.google.com/programmable-search/answer/4513903?hl=en
+        // Previously used to search the users
+
+
         return "/user/search";
     }
 
@@ -364,6 +372,55 @@ public class MainController {
         return "tutoring/calendar";
     }
 
+    // ELASTIC SEARCH FOR THE PAGE
+
+
+    // Commented out because it's not currently working
+
+    /*
+    public interface ArticleRepository extends ElasticsearchRepository<Article, String> {
+
+        Page<Article> findByAuthorsName(String name, Pageable pageable);
+
+        @Query("{\"bool\": {\"must\": [{\"match\": {\"authors.name\": \"?0\"}}]}}")
+        Page<Article> findByAuthorsNameUsingCustomQuery(String name, Pageable pageable);
+    }
+
+    @Configuration
+    @EnableElasticsearchRepositories(basePackages = "com.baeldung.spring.data.es.repository")
+    @ComponentScan(basePackages = { "com.baeldung.spring.data.es.service" })
+    public class Config {
+
+        @Bean
+        public RestHighLevelClient client() {
+            ClientConfiguration clientConfiguration
+                    = ClientConfiguration.builder()
+                    .connectedTo("localhost:9200")
+                    .build();
+
+            return RestClients.create(clientConfiguration).rest();
+        }
+
+        @Bean
+        public ElasticsearchOperations elasticsearchTemplate() {
+            return new ElasticsearchRestTemplate(client());
+        }
+    }
+
+    @Document(indexName = "blog", type = "article")
+        public class Article {
+
+            @Id
+            private String id;
+
+            private String title;
+
+            @Field(type = FieldType.Nested, includeInParent = true)
+            private List<Author> authors;
+
+            // standard getters and setters
+        }
+*/
 
 
 }
