@@ -16,7 +16,7 @@
     <div class="myGrid">
 
       <!-- Sign in Form -->
-      <form id="myForm" action="#" th:action="@{/profile/68}" th:object="${user}" method="POST">
+      <form id="myForm" action="#" th:action="@{/profile}" th:object="${user}" method="GET">
         <h2 style="color:#002654;">Log In</h2>
         <!-- Placeholder is a predefined value but disappears when user clicks in square -->
         <input type="text" th:field="*{username}" id="username" name="username" placeholder="Enter Username" required>
