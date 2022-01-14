@@ -1,9 +1,6 @@
 # Period 1 Valid  
 ## TutorVue is a tutoring site where students from Del Norte can seek help amd guidance from upperclassmen in any class subject! Vue the new you!
 
----
-permalink: README.html
----
 
 ## Scrum Board
 [Scrum Board](https://github.com/ridhimainukurti/p1-Valid/projects/1)
@@ -105,3 +102,6 @@ Team Review Ticket:
 | Week 1 Requirements| [Week 1 Ticket](https://github.com/ridhimainukurti/valid#week-1) |
 
 ## Week 0
+- -
+permalink: README.html
+---
