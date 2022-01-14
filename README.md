@@ -47,7 +47,7 @@ Individual
 | Natasha | | | 
 | Ridhima | |  |
 | Risa | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-75655057) | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits/master?before=8aa415c15cf294de000701b49f33f8a113c74d26+35&branch=master) |
-| Ava | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74549540) | | 
+| Ava | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74549540) |[Commits]() | 
 | Sarah |  | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=sarahwxie) |
 
 ## Week 4 (1/3)
@@ -60,10 +60,10 @@ Individual
 | Name | Tasks | Commits |
 |  --- |  ---           | --- | 
 | Natasha | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74914129) | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=mistylavender) | 
-| Ridhima | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74074256)  |  |
+| Ridhima | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74074256)  | [Commits]() |
 | Risa | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74543599) | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits/master) |
 | Ava | [Ticket](https://github.com/ridhimainukurti/p1-Valid/projects/1#card-74549540) | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=avabrooks) | 
-| Sarah |  | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=sarahwxie) |
+| Sarah | [Ticket]() | [Commits](https://github.com/ridhimainukurti/p1-Valid/commits?author=sarahwxie) |
 
 ## Week 3
 Team Review Ticket:
