@@ -45,41 +45,120 @@
             <h6>*Contact your local TutorVue office to request tutoring session recordings</h6>
             <h2><strong></strong><p style="text-align:center">Testimonials:</p></strong></h2>
             <div class="card">
-                <div class="container">
-                    <p><em>&quot;We've been working with TutorVue for the last year and a half.
+                <div id="testimony1" class="container">
+                    <h1><em>&quot;We've been working with TutorVue for the last year and a half.
                         They moved seamlessly into distance learning as soon as the pandemic started.
                         Our tutor Karen is amazing. She's always so positive with our son and
                         she has amazing patience. We love that we can connect with her directly
                         about what we'd like her to work on with him. She's super flexible when
-                        we've had a change in our schedule.&quot;</em></p>
+                        we've had a change in our schedule.&quot;</em></h1>
+                    <div class="overlay"></div>
                     <p><strong class="clr-pry">Mary Z., Portland, OR</strong></p>
                 </div>
+                <div class="overlay"></div>
             </div>
 
             <div class="card">
-                <div class="container">
-                    <p><em>&quot;TutorVue provided us with exceptional private online tutoring
+                <div id="testimony2" class="container">
+                    <h1><em>&quot;TutorVue provided us with exceptional private online tutoring
                         and helped my son improve his reading comprehension skills and class grade.
                         Our tutor, Rebecca, has done an amazing job. She is very knowledgeable
                         and is very flexible with scheduling. I would definitely recommend TutorVue
-                        for anyone who is looking for tutoring services!&quot;</em></p>
+                        for anyone who is looking for tutoring services!&quot;</em></h1>
+                    <div class="overlay"></div>
                     <p><strong class="clr-pry">Manar D., San Antonio, TX</strong></p>
                 </div>
+                <div class="overlay"></div>
             </div>
 
             <div class="card">
-                <div class="container">
-                    <p><em>&quot;The tutorvue has been amazing for my daughter. She has developed
+                <div id="testimony3" class="container">
+                    <h1><em>&quot;The tutorvue has been amazing for my daughter. She has developed
                         a confidence in math that she never had before thanks to her wonderful
                         tutor. She has obtained skills to make her more successful in math with
                         the conviennent online sessions. The online sessions are wonderful because
                         we are still able to get the benefits but stay safe within our home at
                         the same time. I would highly recommend the online sessions, the one hour
-                        sessions are engaging and full of amazing learning.&quot;</em></p>
+                        sessions are engaging and full of amazing learning.&quot;</em></h1>
+                    <div class="overlay"></div>
                     <p><strong class="clr-pry">Melissa T., Sudbury, ON</strong></p>
                 </div>
+
             </div>
 
+        </div>
+        </article>
+    </div>
+</div>
+</html>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+
+    .card {
+        display: flex;
+        height: 100vh;
+        max-height: 400px;
+    }
+
+    .container {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center;
+        color: #c9e5a4;
+        transition: flex .4s ease;
+        position: relative;
+    }
+
+    .container h1{
+        color: #c9e5a4;
+        font-size: 20px;
+        line-height: 1.2;
+        font-weight: 300;
+        text-align: center;
+    }
+
+    .container .overlay {
+        background-color: rgba(0, 0, 0, 0.7);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transition: background-color .8s ease;
+    }
+
+
+    .container .p  {
+        z-index: 2;
+    }
+
+    .container:hover {
+        flex: 2;
+    }
+
+    .container:hover .overlay {
+        background-color: rgba(0, 0, 0, 0.15);
+    }
+    #testimony1 {
+        background-image: url(https://images.unsplash.com/photo-1530893609608-32a9af3aa95c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fe6b92f88f55824e64a1bae15f5bf52a&auto=format&fit=crop&w=500&q=60);
+    }
+
+
+    #testimony2 {
+        background-image: url(https://images.unsplash.com/photo-1530893609608-32a9af3aa95c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fe6b92f88f55824e64a1bae15f5bf52a&auto=format&fit=crop&w=500&q=60);
+    }
+
+    #testimony3 {
+        background-image: url(https://images.unsplash.com/photo-1530893609608-32a9af3aa95c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fe6b92f88f55824e64a1bae15f5bf52a&auto=format&fit=crop&w=500&q=60);
+    }
+</style>
 
 
 

@@ -327,14 +327,14 @@ public class MainController {
         return "/services/testprep";
     }
 
-    @GetMapping("/specialtutoring")
-    public String specialtutoring() {
-        return "/services/specialtutoring";
-    }
 
     @GetMapping("/schedulenow")
     public String schedulenow() {
-        return "/services/schedulenow";
+        return "/services/schedulenow";}
+
+    @GetMapping("/test")
+    public String test() {
+        return "/tutoring/test";
     }
 
     @GetMapping("/contactus")
@@ -369,7 +369,7 @@ public class MainController {
 
     @GetMapping("/calendar")
     public String calendar() {
-        return "/tutoring/calendar";
+        return "tutoring/calendar";
     }
 
     // ELASTIC SEARCH FOR THE PAGE
