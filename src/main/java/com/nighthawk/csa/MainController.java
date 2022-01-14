@@ -361,7 +361,7 @@ public class MainController {
 
     @GetMapping("/calendar")
     public String calendar() {
-        return "/tutoring/calendar";
+        return "tutoring/calendar";
     }
 
 
