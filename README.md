@@ -10,10 +10,10 @@
   </tr>
   <tr>
     <td>6</td>
-    <td>Ketchupb</td>
+    <td>Ketchup</td>
     <td><a href="https://apclassroom.collegeboard.org/8/assignments?quizId=589737&status=all-assigned">FRQ6, Enhanced for loop</a></td>
     <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-2:-Tech-Talk-6-FRQs-and-Vocab">TT6</a></td>
-     <td><a href="">FRQ review</a></td>
+    <td><a href="https://poway.instructure.com/courses/112428/assignments/1995326">Mid Term FRQ and Vocab</a></td>
   </tr>
   <tr>
     <td>5</td>
