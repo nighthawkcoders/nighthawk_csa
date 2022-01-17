@@ -102,3 +102,6 @@ Team Review Ticket:
 | Week 1 Requirements| [Week 1 Ticket](https://github.com/ridhimainukurti/valid#week-1) |
 
 ## Week 0
+- -
+permalink: README.html
+---
