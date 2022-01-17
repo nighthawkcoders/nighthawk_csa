@@ -11,7 +11,7 @@
   <tr>
     <td>6</td>
     <td>Ketchupb</td>
-    <td><a href="https://apclassroom.collegeboard.org/8/assignments?quizId=589737&status=all-assigned">FRQ6, Enhanced for</a></td>
+    <td><a href="https://apclassroom.collegeboard.org/8/assignments?quizId=589737&status=all-assigned">FRQ6, Enhanced for loop</a></td>
     <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-2:-Tech-Talk-6-Ketchup">TT6</a></td>
      <td><a href="">FRQ review</a></td>
   </tr>
