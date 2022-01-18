@@ -146,6 +146,8 @@
                 // Clock Control
                 // clockElement global element set for convenience
                 let clockElement = document.getElementById('clock');
+                // Execute clock function on load
+                clock();
                 // Clock update executes on each interval set by timer
                 function clock() {
                     let date = new Date();
