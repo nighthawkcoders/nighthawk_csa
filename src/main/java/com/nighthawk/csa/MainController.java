@@ -4,8 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +19,7 @@ import java.util.HashMap;
 
 
 
-import com.nighthawk.csa.data.avafrq.LightSequence;
+import com.nighthawk.csa.data.ava.avaFrq2.LightSequence;
 
 @Controller  // HTTP requests are handled as a controller, using the @Controller annotation
 public class MainController {
@@ -75,7 +73,8 @@ public class MainController {
             System.out.println("String resultSeq = gradShow.insertSegment(“1111 1111”,4);\n");
         }
         else if(n == 5){
-            System.out.println("valid");
+            System.out.println("Int index = oldSeq.index(Segment);\n" +
+                    "\tString newSeq = oldSeq.substring(0,index) + oldSeq.substring(index + segment.length());\n");
         }
         else if(n == 6){
             System.out.println("Math.sqrt(a*a + b*b)");
