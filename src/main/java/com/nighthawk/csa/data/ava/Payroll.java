@@ -4,6 +4,7 @@ public class Payroll {
     private int[] itemsSold;
     private double[] wages;
 
+    // created using data given by problem(to eventually move to frontend)
     public Payroll(){
         itemsSold = new int[] {48,50,37,62,38,70,55,37,64,60};
         wages = new double[10];
@@ -28,14 +29,16 @@ public class Payroll {
 
     }
 
+
     public void computeWages(double fixedWage, double perItemWage) {
         double bonusThreshold = computeBonusThreshold();
         for(int i = 0; i < wages.length; i++){
+            //fixed wage added to the number of items sold * peritemwage which makes new wage based on how much they sell
             wages[i] = fixedWage + (itemsSold[i] * perItemWage);
             double baseWage = fixedWage + perItemWage * itemsSold[i];
 
             if (itemsSold[i] > bonusThreshold) {
-                //multiply to get the extra 10% of the current wage
+                //multiply to get the extra 10% of the current wage if employee goes over the bonus threshold items
                 wages[i] = baseWage * 1.1;
             }
             else {
@@ -44,7 +47,13 @@ public class Payroll {
             }
         }
 
+    }
 
+    // method to print Wages
+    public void printWages(){
+        for (int i = 0; i < wages.length; i++){
+            System.out.println();
+        }
     }
 
 }
