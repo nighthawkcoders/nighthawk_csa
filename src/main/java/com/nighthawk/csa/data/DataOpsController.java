@@ -4,6 +4,7 @@ import com.nighthawk.csa.consoleUI.ConsoleMethods;
 import com.nighthawk.csa.data.DataOps.genericDataModel.Alphabet;
 import com.nighthawk.csa.data.DataOps.genericDataModel.Animal;
 import com.nighthawk.csa.data.DataOps.genericDataModel.Cupcakes;
+import com.nighthawk.csa.data.DataOps.genericDataModel.risaFRQ6;
 
 import com.nighthawk.csa.data.LinkedLists.CircleQueue;
 import lombok.Getter;
@@ -33,6 +34,8 @@ public class DataOpsController {
     private Cupcakes.KeyType cakeKey;
     private boolean alpha;
     private Alphabet.KeyType alphaKey;
+    private boolean risa;
+    private risaFRQ6.KeyType risaKey;
 
     /*
      * Circle queue constructor
@@ -105,14 +108,18 @@ public class DataOpsController {
         Cupcakes.key = this.cakeKey;
         this.alphaKey = Alphabet.KeyType.title;
         Alphabet.key = this.alphaKey;
+        this.risaKey = risaFRQ6.KeyType.title;
+        risaKey = this.risaKey;
         //control options
         this.animal = true;
         this.cake = true;
         this.alpha = true;
+        this.risa = true;
         //load data
         this.addCQueue(Animal.animalData());
         this.addCQueue(Cupcakes.cupCakeData());
         this.addCQueue(Alphabet.alphabetData());
+        this.addCQueue(risaFRQ6.risaFRQ6data());
         //data is not sorted, queue order (FIFO) is default
         model.addAttribute("ctl", this);
         return "data/dataops"; //HTML render default condition
@@ -129,6 +136,8 @@ public class DataOpsController {
             @RequestParam(value = "cakeKey") Cupcakes.KeyType cakeKey,
             @RequestParam(value = "alpha", required = false) String alpha,
             @RequestParam(value = "alphaKey", required = false) Alphabet.KeyType alphaKey,
+            @RequestParam(value = "risa", required = false) String risa,
+            @RequestParam(value = "risaKey", required = false) risaFRQ6.KeyType risaKey,
             Model model)
     {
         //re-init data according to check boxes selected
@@ -158,6 +167,14 @@ public class DataOpsController {
             Alphabet.key = this.alphaKey;
         } else {
             this.alpha = false;
+        }
+        if (risa != null) {
+            this.addCQueue(risaFRQ6.risaFRQ6data());
+            this.risa = true;
+            this.risaKey = risaKey;
+            risaFRQ6.key = this.risaKey;
+        } else {
+            this.risa = false;
         }
         //sort data according to selected options
         this.queue.insertionSort();
@@ -194,6 +211,7 @@ public class DataOpsController {
         trial.addCQueue(Animal.animalData());
         trial.addCQueue(Cupcakes.cupCakeData());
         trial.addCQueue(Alphabet.alphabetData());
+        trial.addCQueue(risaFRQ6.risaFRQ6data());
         //display queue objects in queue order
         ConsoleMethods.println("Add order (all data)");
         trial.printCQueue();
@@ -202,6 +220,7 @@ public class DataOpsController {
         Animal.key = Animal.KeyType.name;
         Cupcakes.key = Cupcakes.KeyType.frosting;
         Alphabet.key = Alphabet.KeyType.letter;
+        risaFRQ6.key = risaFRQ6.KeyType.newList;
         trial.queue.insertionSort();
         ConsoleMethods.println("Sorted order (key only)");
         trial.printCQueue();
@@ -210,6 +229,7 @@ public class DataOpsController {
         Animal.key = Animal.KeyType.title;
         Cupcakes.key = Cupcakes.KeyType.title;
         Alphabet.key = Alphabet.KeyType.title;
+        risaFRQ6.key = risaFRQ6.KeyType.title;
         ConsoleMethods.println("Retain sorted order (all data)");
         trial.printCQueue();
         trial.queue.insertionSort();

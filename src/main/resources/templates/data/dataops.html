@@ -7,7 +7,7 @@
 <!-- <head> -->
 <div layout:fragment="head" th:remove="tag">
     <!-- Page specific head additions -->
-    <title>Data Filters</title>
+    <title>Risa FRQ</title>
 </div>
 
 <!-- <body> -->
@@ -18,7 +18,7 @@
         <div class="center-block" style="margin: 2% 3% 3%; font-family: gilroy,serif;">
             <!-- Title -->
             <div class="col-12" style="text-align: center;">
-                <h1><strong>Data Filtering and Sorting</strong></h1>
+                <h1><strong>Risa's FRQs</strong></h1>
             </div>
             <!-- Form and Action -->
             <div class="jumbotron text-center row">
@@ -27,50 +27,16 @@
                     <h3>Select options to filter and sort</h3>
                     <form id="fibForm" th:action="@{/data/dataops}" th:object="${ctl}" method="POST" >
                         <div class="jumbotron text-left row">
-                            <!-- Animals -->
+                            <!-- FRQ6 -->
                             <div class="col-md-4">
-                                <!-- Checkbox on/off works off of @Getter for boolean isAnimal() -->
-                                <input type="checkbox" id="animal" name="animal" value="1" th:checked="${ctl.isAnimal()}">
-                                <label for="animal">Animals</label>
+                                <input type="checkbox" id="risa" name="risa" value="1" th:checked="${ctl.isRisa()}">
+                                <label for="risa">FRQ6</label>
                                 <div class="form-group">
                                     <label>Sort by</label>
-                                    <!-- Sort by Radio buttons:
-                                    1. option(s) are generated directly from Animal.KeyType
-                                    2. animalKey is the result of radio button selection
-                                    3. each radio option is provided a unique id, review rendered code to see expansion
-                                    -->
-                                    <div th:each="option : ${T(com.nighthawk.csa.data.DataOps.genericDataModel.Animal.KeyType).values()}">
+                                    <div th:each="option : ${T(com.nighthawk.csa.data.DataOps.genericDataModel.risaFRQ6.KeyType).values()}">
                                         <div class="custom-control custom-radio custom-control-inline">
-                                            <input type="radio" th:field="*{animalKey}" th:value="${option}" class="custom-control-input">
-                                            <label class="custom-control-label" th:for="${#ids.prev('animalKey')}" th:text="${option}">option</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Cupcakes -->
-                            <div class="col-md-4">
-                                <input type="checkbox" id="cake" name="cake" value="1" th:checked="${ctl.isCake()}">
-                                <label for="cake">Cup Cakes</label>
-                                <div class="form-group">
-                                    <label>Sort by</label>
-                                    <div th:each="option : ${T(com.nighthawk.csa.data.DataOps.genericDataModel.Cupcakes.KeyType).values()}">
-                                        <div class="custom-control custom-radio custom-control-inline">
-                                            <input type="radio" th:field="*{cakeKey}" th:value="${option}" class="custom-control-input">
-                                            <label class="custom-control-label" th:for="${#ids.prev('cakeKey')}" th:text="${option}">option</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Alphabet -->
-                            <div class="col-md-4">
-                                <input type="checkbox" id="alpha" name="alpha" value="1" th:checked="${ctl.isAlpha()}">
-                                <label for="alpha">Alphabet</label>
-                                <div class="form-group">
-                                    <label>Sort by</label>
-                                    <div th:each="option : ${T(com.nighthawk.csa.data.DataOps.genericDataModel.Alphabet.KeyType).values()}">
-                                        <div class="custom-control custom-radio custom-control-inline">
-                                            <input type="radio" th:field="*{alphaKey}" th:value="${option}" class="custom-control-input">
-                                            <label class="custom-control-label" th:for="${#ids.prev('alphaKey')}" th:text="${option}">option</label>
+                                            <input type="radio" th:field="*{risaKey}" th:value="${option}" class="custom-control-input">
+                                            <label class="custom-control-label" th:for="${#ids.prev('risaKey')}" th:text="${option}">option</label>
                                         </div>
                                     </div>
                                 </div>
