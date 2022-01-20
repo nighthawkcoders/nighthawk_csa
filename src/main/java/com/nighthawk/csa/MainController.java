@@ -20,6 +20,7 @@ import java.util.HashMap;
 
 
 import com.nighthawk.csa.data.ava.avaFrq2.LightSequence;
+import com.nighthawk.csa.data.ava.avaFrq6.*;
 
 @Controller  // HTTP requests are handled as a controller, using the @Controller annotation
 public class MainController {
@@ -59,25 +60,33 @@ public class MainController {
     public String ava(@RequestParam(name = "frq2", required = false, defaultValue = "0") String frq2, Model model) {
         int n = Integer.parseInt(frq2);
 
-        LightSequence gradshow = new LightSequence("0101 0101 0101");
         if (n == 1) {
-            System.out.println("0101 0101 0101");
+            System.out.println("there is no FRQ1");
         }
         else if(n == 2){
-            gradshow.display();
+            System.out.println(" \n a) 0101 0101 0101 \n b) gradshow.display() \n c) 001100110011 \n d)String resultSeq = gradShow.insertSegment(“1111 1111”,4);\n e) Int index = oldSeq.index(Segment);\\n\" +\n String newSeq = oldSeq.substring(0,index) + oldSeq.substring(index + segment.length());\\n \n f) Math.sqrt(a*a + b*b)\"");
         }
         else if(n == 3){
-            System.out.println("0011 0011 0011");
+            System.out.println("frq3");
         }
         else if(n == 4){
-            System.out.println("String resultSeq = gradShow.insertSegment(“1111 1111”,4);\n");
+            System.out.println("frq4");
         }
         else if(n == 5){
-            System.out.println("Int index = oldSeq.index(Segment);\n" +
-                    "\tString newSeq = oldSeq.substring(0,index) + oldSeq.substring(index + segment.length());\n");
+            System.out.println("frq5");
         }
         else if(n == 6){
-            System.out.println("Math.sqrt(a*a + b*b)");
+            //creating the array using words given by CB
+            String words[] = {"ten", "fading", "post", "card", "thunder", "hinge", "trailing", "batting"};
+
+            //for loop to go through array
+            // word: words allows to search substring of the strings
+            for(String word : words){
+                //lastIndexOf method allows to search for strings in array that have the last 3 letters as "ing" to be printed
+                if(word.lastIndexOf("ing") == word.length() - 3){
+                    System.out.println(word);
+                }
+            }
         }
         return "individual/avaFrq";
 
