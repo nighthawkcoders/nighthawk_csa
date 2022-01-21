@@ -224,7 +224,7 @@
 
             <div class="row">
                 <div class="col-sm-2 text-center">
-                    <img src="bandmember.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+                    <img src="ava.jpg" class="img-circle" height="65" width="65" alt="ava">
                 </div>
                 <div class="col-sm-10">
                     <h4>Ava <small>Jan 13, 2022, 9:12 PM</small></h4>
@@ -232,28 +232,116 @@
                     <br>
                 </div>
                 <div class="col-sm-2 text-center">
-                    <img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+                    <img src="sarah.jpg" class="img-circle" height="65" width="65" alt="sarah">
                 </div>
                 <div class="col-sm-10">
                     <h4>Sarah <small>Jan 10, 2022, 8:25 PM</small></h4>
                     <p>Our theme is very uniformed and I'm excited to see where this project will take us in life.</p>
                     <br>
                 </div>
-                <div class="col-sm-10">
-                    <h4>Ridhima <small>Jan 13, 2022, 2:39 PM</small></h4>
-                    <p>I specialize in APIs and html front end so feel free to reach out if you need some help! </p>
-                    <br>
-                </div>
-                <div class="col-sm-2 text-center">
-                    <img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">
-                </div>
-                <div class="col-sm-10">
-                    <h4>Natasha <small>Jan 10, 2022, 3:28 PM</small></h4>
-                    <p>I am really interested in your work and hope we can work together in the future</p>
-                    <br>
-                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-2 text-center">
+                        <img src="ridhima.jpg" class="img-circle" height="65" width="65" alt="ridhima">
+                    </div>
+                    <div class="col-sm-10">
+                        <h4>Ridhima <small>Jan 12, 2022, 3:20 PM</small></h4>
+                        <p>I specialize in APIs and html front end so feel free to reach out if you need some help! </p>
+                        <br>
+                    </div>
+                    <div class="col-sm-2 text-center">
+                        <img src="natasha.jpg" class="img-circle" height="65" width="65" alt="natasha">
+                    </div>
+                    <div class="col-sm-10">
+                        <h4>Natasha <small>Jan 10, 2022, 8:49 AM</small></h4>
+                        <p>I am really interested in your work and hope we can work together in the future. </p>
+                        <br>
+                    </div>
             </div>
         </div>
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Unit FRQs</h1>
+                    </div>
+                </div>
+
+                <div class="col-sm-9">
+                    <hr>
+                    <h2>Unit 6 FRQ</h2>
+                    <h5><span class="glyphicon glyphicon-time"></span> Post by Risa I, Jan 17, 2022.</h5>
+                    <h5><span class="label label-danger">1. An array of String objects, words, has been properly declared and initialized. Each element of words contains a String consisting of at least 3 lowercase letters (a–z).
+
+Write a code segment that uses an enhanced for loop to print all elements of words that end with "ing". As an example, if words contains {"ten", "fading", "post", "card", "thunder", "hinge", "trailing", "batting"}, then the following output should be produced by the code segment.
+
+fading
+
+trailing
+
+batting
+
+Write the code segment as described above. The code segment must use an enhanced for loop to earn full credit.</span> </h5><br>
+                    <h4>Type in an Answer</h4>
+                    <form role="form">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success">Check to see if you were correct!</button>
+                    </form>
+                    <br><br>
+                    <p>public static void main(String[] args) {</p>
+                    <p>String ing[] = {"ten","fading","post","card","thunder","hinge","trailing","batting"};</p>
+                    <p>for (String i: ing){</p>
+                    <p>    if (i.endsWith("ing")){</p>
+                    <br><br>
+
+                    <h5><span class="label label-danger">2a. Complete the method computeBonusThreshold below, which is intended to return the bonus threshold based on the contents of the itemsSold array. Assume that itemsSold has been filled appropriately, and that the array contains at least three employees.
+
+/** Returns the bonus threshold as described in part (a).
+
+*/
+
+public double computeBonusThreshold()</span> </h5>
+
+                    <p>public double computeBonusThreshold() {</p>
+                    <p>int highest = itemsSold[0];</p>
+                    <p>int lowest = itemsSold[0];</p>
+                    <p>int sumOfItemsSold = itemsSold[0];</p>
+                    <p>double bonusThreshold =0;</p>
+                    <p>for (int i = 1; i < itemsSold.length ; i++){</p>
+                    <p>sumOfItemsSold += itemsSold[i];</p>
+                    <p>if(itemsSold[i] > highest)</p>
+                    <p>highest = itemsSold[i];</p>
+                    <p>if(itemsSold[i] < lowest)</p>
+                    <p>bonusThreshold = (sumOfItemsSold - lowest - highest ) / (itemsSold.length -2.0);</p>
+                    <p>return bonusThreshold;}</p>
+                    <br><br>
+
+
+                    <h5><span class="label label-danger">2b. Write the method computeWages. Assume that itemsSold has been filled appropriately, and there are at least three employees in the array. Assume also that the wages array and the itemsSold array have the same length. Your solution must call computeBonusThreshold appropriately to receive full credit.</span> </h5>
+                    <p>public void computeWages(double fixedWage, double perItemWage){</p>
+                    <p>double bonusThresholdForWages = computeBonusThreshold();</p>
+                    <p>for (int i = 0; i < wages.length ; i++){</p>
+                    <p>wages[i] = fixedWage + ( itemsSold[i] * perItemWage);</p>
+                    <p>if(itemsSold[i] > bonusThresholdForWages){</p>
+                    <p>wages[i] = wages[i] * 1.1 ; //which is 10 % extra of current wage of employee}</p>
+                    <p>}public void printWages(){</p>
+                    <p>for (int i = 0; i < wages.length ; i++){</p>
+                    <p>System.out.printf("Employee =%d , ItemsSold = %d, Wage = %.2f\n",i,itemsSold[i], wages[i]);}</p>
+                    <p>}</p>
+                    <p>}</p>
+                    <p>=========main.java======</p>
+                    <p>public class Main{</p>
+                    <p>public static void main(String[] args) {</p>
+                    <p>Payroll payroll = new Payroll();</p>
+                    <p>System.out.println("Bonus threshold items are : " + payroll.computeBonusThreshold());</p>
+                    <p>payroll.computeWages(10.0,1.5);</p>
+                    <p>payroll.printWages();</p>
+                    <p>}</p>
+                    <p>}</p>
+                    <br><br>
 </div>
 </div>
 

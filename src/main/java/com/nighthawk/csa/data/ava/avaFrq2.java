@@ -1,9 +1,9 @@
-package com.nighthawk.csa.data;
+package com.nighthawk.csa.data.ava;
 import java.lang.*;
 
 import org.springframework.web.bind.annotation.GetMapping;
 
-public class avafrq {
+public class avaFrq2 {
     public static class LightSequence{
         private String sequence;
 

@@ -1,1 +1,8 @@
 theme: jekyll-theme-midnight
+description: "This is a Github Pages website that contains the trackment of our progress with how we develop the website. Once the project is clone, the code mainly is Python-Flask webserver code. This page will mainly have links and pages on the building and deployment of the web server."
+defaults: 
+  - 
+  scope:
+      path: "README.md"
+    values:
+      permalink: "README.html"
