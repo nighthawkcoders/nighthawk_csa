@@ -213,7 +213,24 @@ public class ValidUserSqlMvcController implements WebMvcConfigurer {
     // Hashmaps tests
     // Import the HashMap class
 
+    @GetMapping("/hashmap")
+    public String hashmap() {
+        // Create a HashMap object of users
+        // Testing this out - TODO: change to use for loop to create full user list hashmap
+        HashMap<Integer, User> capitalCities = new HashMap<Integer, User>();
 
+        // Add keys and values (Country, City)
+        capitalCities.put(1, repository.get(1));
+        capitalCities.put(2, repository.get(2));
+        capitalCities.put(3, repository.get(3));
+        capitalCities.put(4, repository.get(4));
+
+        // prints it out
+        System.out.println(capitalCities);
+
+        // redirects to the userlist page
+        return "redirect:/userlist";
+    }
 
 
 }
