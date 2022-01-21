@@ -13,7 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
+import java.util.HashMap;
 import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -78,6 +78,8 @@ public class ValidUserSqlMvcController implements WebMvcConfigurer {
     }
 
     // delete
+    // Make this part admin only
+    // after figuring out how to lock things behind login
     @GetMapping("/data/userdelete/{id}")
     public String personDelete(@PathVariable("id") long id) {
         repository.delete(id);
@@ -206,5 +208,12 @@ public class ValidUserSqlMvcController implements WebMvcConfigurer {
         // return resulting list and status, error checking should be added
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
+
+
+    // Hashmaps tests
+    // Import the HashMap class
+
+
+
 
 }
