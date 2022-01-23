@@ -11,9 +11,9 @@
   
   <tr>
     <td>7</td>
-    <td>Data Ops, Queue and Stack</td>
+    <td>Data Ops, Sorts</td>
     <td><a href="https://apclassroom.collegeboard.org/8/assignments?quizId=589742&status=all-assigned">FRQ7, Username</a></td>
-    <td><a href="">TT7</a></td>
+    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-2:-Tech-Talk-7-Sorts">TT7</a></td>
     <td><a href="">Pair/Trio Showing with Crossover Grade</a></td>
   </tr>
   
