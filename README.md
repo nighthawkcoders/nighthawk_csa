@@ -11,10 +11,10 @@
   
   <tr>
     <td>8</td>
-    <td>Data Ops, Linked Lists</td>
+    <td>Data Ops, Linked List of Objects</td>
     <td><a href="https://apclassroom.collegeboard.org/8/assignments?quizId=589751&status=all-assigned">FRQ9 Books</a>, <a href="https://apclassroom.collegeboard.org/8/assignments?quizId=589756&status=all-assigned">FRQ10 GCF</a></td>
     <td><a href="">TT8</a></td>
-    <td><a href="">Pair/Trio Showing 2</a></td>
+    <td><a href="https://poway.instructure.com/courses/112428/assignments/2009100">Pair/Trio Showing 2</a></td>
   </tr>
   
   <tr>
@@ -22,7 +22,7 @@
     <td>Data Ops, Sorts</td>
     <td><a href="https://apclassroom.collegeboard.org/8/assignments?quizId=589742&status=all-assigned">FRQ7 Users</a>, <a href="https://apclassroom.collegeboard.org/8/assignments?quizId=589746&status=all-assigned">FRQ8 Plots</a></td>
     <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-2:-Tech-Talk-7-Sorts">TT7</a></td>
-    <td><a href="">Pair/Trio Showing 1</a></td>
+    <td><a href="https://poway.instructure.com/courses/112428/assignments/2009099">Pair/Trio Showing 1</a></td>
   </tr>
   
   <tr>
