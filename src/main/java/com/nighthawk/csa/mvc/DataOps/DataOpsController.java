@@ -213,7 +213,7 @@ public class DataOpsController {
 
         //sort queue objects by specific element within the object and display in sort order
         Animal.setOrder(Animal.KeyType.name);
-        Cupcakes.setOrder(Cupcakes.KeyType.frosting);
+        Cupcakes.setOrder(Cupcakes.KeyType.flavor);
         Alphabet.setOrder(Alphabet.KeyType.letter);
         trial.queue.insertionSort();
         ConsoleMethods.println("Sorted order (key only)");
@@ -223,11 +223,7 @@ public class DataOpsController {
         Animal.setOrder(Animal.KeyType.title);
         Cupcakes.setOrder(Cupcakes.KeyType.title);
         Alphabet.setOrder(Alphabet.KeyType.title);
-        ConsoleMethods.println("Retain sorted order (all database)");
-        trial.printCQueue();
-        trial.queue.insertionSort();
-        //display queue objects, changing sort order
-        ConsoleMethods.println("Order by database type (all database)");
+        ConsoleMethods.println("Retain sorted order (show all data)");
         trial.printCQueue();
 
         //delete queue objects
