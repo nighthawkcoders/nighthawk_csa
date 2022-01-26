@@ -8,6 +8,23 @@
     <th>Tech Talk</th>
     <th>Canvas</th>
   </tr>
+  
+  <tr>
+    <td>8</td>
+    <td>Data Ops, Linked List of Objects</td>
+    <td><a href="https://apclassroom.collegeboard.org/8/assignments?quizId=589751&status=all-assigned">FRQ9 Books</a>, <a href="https://apclassroom.collegeboard.org/8/assignments?quizId=589756&status=all-assigned">FRQ10 GCF</a></td>
+    <td><a href="">TT8</a></td>
+    <td><a href="https://poway.instructure.com/courses/112428/assignments/2009100">Pair/Trio Showing 2</a></td>
+  </tr>
+  
+  <tr>
+    <td>7</td>
+    <td>Data Ops, Sorts</td>
+    <td><a href="https://apclassroom.collegeboard.org/8/assignments?quizId=589742&status=all-assigned">FRQ7 Users</a>, <a href="https://apclassroom.collegeboard.org/8/assignments?quizId=589746&status=all-assigned">FRQ8 Plots</a></td>
+    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-2:-Tech-Talk-7-Sorts">TT7</a></td>
+    <td><a href="https://poway.instructure.com/courses/112428/assignments/2009099">Pair/Trio Showing 1</a></td>
+  </tr>
+  
   <tr>
     <td>6</td>
     <td>Midterm, FRQs, and Ketchup</td>
@@ -15,9 +32,10 @@
     <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-2:-Tech-Talk-6-FRQs-and-Vocab">TT6</a></td>
     <td><a href="https://poway.instructure.com/courses/112428/assignments/1995326">Mid Term FRQ and Vocab</a></td>
   </tr>
+  
   <tr>
     <td>5</td>
-    <td>Data Ops, Mini-lab</td>
+    <td>Data Ops, Generics</td>
     <td><a href="https://apclassroom.collegeboard.org/8/assignments?quizId=589731">FRQ5, Invitation</a></td>
     <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-2:-Tech-Talk-5-Data-Ops">TT5</a></td>
      <td><a href="https://poway.instructure.com/courses/112428/assignments/1967729">PBL Showing</a></td>
