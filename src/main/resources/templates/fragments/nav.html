@@ -21,13 +21,6 @@
                         </li>
                     </ul>
                 </div>
-                <div class="collapse navbar-collapse" id="navbarSearch">
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" th:href="@{/search/search1}">Search<span class="sr-only"></span></a>
-                        </li>
-                    </ul>
-                </div>
 
                 <div class="collapse navbar-collapse" id="navbarNavDarkDropdown0">
                     <ul class="navbar-nav">
@@ -111,6 +104,9 @@
 
             <div class="btn-group">
                 <!-- Clock display -->
+                <div class="px-3">
+                    <input id="search" type="search" placeholder="Search" aria-label="Search">
+                </div>
                 <div class="px-3 text-dark">
                     <span id="clock"></span>
                 </div>
@@ -123,6 +119,37 @@
 
             <!-- Navigation bar JavaScript support -->
             <script>
+                const search = document.getElementById('search');
+                const google = 'https://www.google.com/search?q=site%3A+';
+                const site = 'https://nighthawkcodingsociety.com';
+
+                function submitted(event) {
+                    if (event.key === 'Enter') {
+                        event.preventDefault();
+                        const url = google
+                            + site
+                            + '+'
+                            + search.value;
+                        const win = window.open(url, '_blank');
+                        win.focus();
+                    }
+                }
+                search.addEventListener('keypress', submitted);
+
+                // Clock Control
+                // clockElement global element set for convenience
+                let clockElement = document.getElementById('clock');
+                // Execute clock function on load
+                clock();
+                // Clock update executes on each interval set by timer
+                function clock() {
+                    let date = new Date();
+                    clockElement.textContent = date.toLocaleString();
+                }
+                // Clock refresh timer, a reoccurring event
+                setInterval(clock, 1000);
+                // End Clock Control
+
                 // Dark Mode Control
                 // darkSwitch global element is set for convenience
                 const darkSwitch=document.getElementById("darkSwitch");
@@ -150,19 +177,8 @@
                 // End Dark Mode Control
 
 
-                // Clock Control
-                // clockElement global element set for convenience
-                let clockElement = document.getElementById('clock');
-                // Execute clock function on load
-                clock();
-                // Clock update executes on each interval set by timer
-                function clock() {
-                    let date = new Date();
-                    clockElement.textContent = date.toLocaleString();
-                }
-                // Clock refresh timer, a reoccurring event
-                setInterval(clock, 1000);
-                // End Clock Control
+
+
             </script>
 
         </div>
