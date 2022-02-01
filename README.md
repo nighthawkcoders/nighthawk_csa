@@ -13,7 +13,7 @@
     <td>8</td>
     <td>Data Ops, Linked List of Objects</td>
     <td><a href="https://apclassroom.collegeboard.org/8/assignments?quizId=589751&status=all-assigned">FRQ9 Books</a>, <a href="https://apclassroom.collegeboard.org/8/assignments?quizId=589756&status=all-assigned">FRQ10 GCF</a></td>
-    <td><a href="">TT8</a></td>
+    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-2:-Tech-Talk-8:-Linked-Lists,-Queues,-Stacks">TT8</a></td>
     <td><a href="https://poway.instructure.com/courses/112428/assignments/2009100">Pair/Trio Showing 2</a></td>
   </tr>
   
