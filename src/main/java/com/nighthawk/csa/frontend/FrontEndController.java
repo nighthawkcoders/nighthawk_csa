@@ -21,4 +21,9 @@ public class FrontEndController {
         return "frontend/snake";
     }
 
+    @GetMapping("/frontend/life")   // GET request
+    public String life() {
+        return "frontend/life";
+    }
+
 }
