@@ -18,9 +18,9 @@ public class LinkedList
      */
     public LinkedList(Object opaqueObject, LinkedList node)
     {
-        setObject(opaqueObject);
-        setPrevNode(node);
-        setNextNode(null);
+        this.setObject(opaqueObject);
+        this.setPrevNode(node);
+        this.setNextNode(null);
     }
 
     /**
