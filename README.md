@@ -19,7 +19,7 @@
   
   <tr>
     <td>10</td>
-    <td>PBL Project 2</td>
+    <td>PBL Project 2, A Real Test</td>
     <td><a href="">Final Exam</a></td>
     <td>none</td>
     <td><a href="">none</a></td>
