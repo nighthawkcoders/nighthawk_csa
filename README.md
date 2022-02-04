@@ -14,12 +14,12 @@
     <td>Finals Weeks</td>
     <td>none</td>
     <td><a href="">none</a></td>
-    <td><a href="">PBL Project</a></td>
+    <td><a href="">PBL Project Due</a></td>
   </tr>
   
   <tr>
     <td>10</td>
-    <td>PBL Week Final</td>
+    <td>PBL Project 2</td>
     <td>none</td>
     <td><a href="">Final Exam</a></td>
     <td><a href="">none</a></td>
@@ -27,7 +27,7 @@
   
   <tr>
     <td>9</td>
-    <td>PBL Week</td>
+    <td>PBL Project 1</td>
     <td>none</td>
     <td><a href="">TT9.1</a>Search, <a href="">TT9.2</a>Sassy</td>
     <td><a href="">none</a></td>
