@@ -10,11 +10,19 @@
   </tr>
   
   <tr>
+    <td>11</td>
+    <td>Finals Weeks</td>
+    <td>none</td>
+    <td><a href="">none</a></td>
+    <td><a href="">PBL Project</a></td>
+  </tr>
+  
+  <tr>
     <td>10</td>
     <td>PBL Week Final</td>
     <td>none</td>
-    <td><a href="">Exam</a></td>
-    <td><a href="">TBD</a></td>
+    <td><a href="">Final Exam</a></td>
+    <td><a href="">none</a></td>
   </tr>
   
   <tr>
