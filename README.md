@@ -13,16 +13,16 @@
     <td>11</td>
     <td>Finals Weeks</td>
     <td>none</td>
-    <td><a href="">none</a></td>
+    <td>none</td>
     <td><a href="">PBL Project Due</a></td>
   </tr>
   
   <tr>
     <td>10</td>
-    <td>PBL Project 2, A Real Test</td>
+    <td>PBL Project 2, Surprise Test Day</td>
     <td><a href="">Final Exam</a></td>
     <td>none</td>
-    <td><a href="">none</a></td>
+    <td>none</td>
   </tr>
   
   <tr>
