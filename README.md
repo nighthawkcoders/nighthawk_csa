@@ -30,7 +30,7 @@
     <td>PBL Project 1, Student Tech Talks</td>
     <td>none</td>
     <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-2:-Tech-Talk-9.1---Google-Search">TT9.1</a>Search, <a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-2:-Tech-Talk-9.2-Sassy">TT9.2</a>Sassy</td>
-    <td><a href="">none</a></td>
+    <td>none</td>
   </tr>
   
   <tr>
