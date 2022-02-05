@@ -14,7 +14,7 @@
     <td>Finals Week</td>
     <td>none</td>
     <td>none</td>
-    <td><a href="">PBL Final</a></td>
+    <td><a href="https://poway.instructure.com/courses/112428/assignments/2017440">PBL Final</a></td>
   </tr>
   
   <tr>
@@ -22,7 +22,7 @@
     <td>Surprise Test</td>
     <td><a href="">Final Exam</a></td>
     <td>none</td>
-    <td>none</td>
+    <td><a href="https://poway.instructure.com/courses/112428/assignments/2017439">PBL Part 2</td>
   </tr>
   
   <tr>
