@@ -11,15 +11,15 @@
   
   <tr>
     <td>11</td>
-    <td>Finals Weeks</td>
+    <td>Finals Week</td>
     <td>none</td>
     <td>none</td>
-    <td><a href="">PBL Project Due</a></td>
+    <td><a href="">PBL Final</a></td>
   </tr>
   
   <tr>
     <td>10</td>
-    <td>PBL Project 2, Surprise Test Day</td>
+    <td>Surprise Test</td>
     <td><a href="">Final Exam</a></td>
     <td>none</td>
     <td>none</td>
@@ -27,10 +27,10 @@
   
   <tr>
     <td>9</td>
-    <td>PBL Project 1, Student Tech Talks</td>
+    <td>Student Tech Talks</td>
     <td>none</td>
     <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-2:-Tech-Talk-9.1---Google-Search">TT9.1</a>Search, <a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-2:-Tech-Talk-9.2-Sassy">TT9.2</a>Sassy</td>
-    <td>none</td>
+    <td><a href="https://poway.instructure.com/courses/112428/assignments/2017438">PBL Phase 1</td>
   </tr>
   
   <tr>
