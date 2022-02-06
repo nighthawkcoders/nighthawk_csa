@@ -22,7 +22,7 @@
     <td>Surprise Test</td>
     <td><a href="">Final Exam</a></td>
     <td>none</td>
-    <td><a href="https://poway.instructure.com/courses/112428/assignments/2017439">PBL Part 2</td>
+    <td><a href="https://poway.instructure.com/courses/112428/assignments/2017439">PBL Part 2</a></td>
   </tr>
   
   <tr>
@@ -30,7 +30,7 @@
     <td>Student Tech Talks</td>
     <td>none</td>
     <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-2:-Tech-Talk-9.1---Google-Search">TT9.1</a>Search, <a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-2:-Tech-Talk-9.2-Sassy">TT9.2</a>Sassy</td>
-    <td><a href="https://poway.instructure.com/courses/112428/assignments/2017438">PBL Part 1</td>
+    <td><a href="https://poway.instructure.com/courses/112428/assignments/2017438">PBL Part 1</a></td>
   </tr>
   
   <tr>
