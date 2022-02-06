@@ -16,11 +16,8 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.text.ParseException;
 import java.util.HashMap;
-
-
-
-import com.nighthawk.csa.data.ava.avaFrq2.LightSequence;
-import com.nighthawk.csa.data.ava.avaFrq6.*;
+import com.nighthawk.csa.data.sarahfrq.frq2.sarahLightSequence;
+import com.nighthawk.csa.data.sarahfrq.frq10.gcf;
 
 @Controller  // HTTP requests are handled as a controller, using the @Controller annotation
 public class MainController {
@@ -104,11 +101,86 @@ public class MainController {
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
         System.out.println(response.body());
 
-
-
         model.addAttribute("joke", response.body());
 
         return "individual/sarah";
+    }
+
+    @GetMapping("/sarah/gcf")
+    public String sarahgcf(Model model, @RequestParam(
+            name = "num1", required = false, defaultValue = "0") String num1,
+                           @RequestParam(name = "num2", required = false, defaultValue = "0") String num2)
+            throws IOException, InterruptedException, ParseException {
+
+        int number1 = Integer.parseInt(num1);
+        int number2 = Integer.parseInt(num2);
+
+        gcf calculate = new gcf(number1, number2);
+
+        int message = calculate.obtainGCF();
+        /*
+        String viewMessage = String.valueOf(message);*/
+        model.addAttribute("message", "the GCF is " + message);
+        return "individual/message";
+    }
+
+    @GetMapping("/sarah/answer")
+    public String sarahanswer(Model model, @RequestParam(name = "frq2", required = false, defaultValue = "default") String frq2,
+                              @RequestParam(name = "frq3", required = false, defaultValue = "default") String frq3,
+                              @RequestParam(name = "frq4", required = false, defaultValue = "default") String frq4
+    ) throws IOException, InterruptedException, ParseException {
+
+        sarahLightSequence gradShow = new sarahLightSequence();
+        gradShow.sarahLightSequence("0101 0101 0101");
+        gradShow.display();
+        gradShow.changeSequence("0011 0011 0011");
+        String resultSeq = gradShow.insertSegment("1111 1111", 4);
+
+        String message = "nothing to say";
+        if (!frq2.equals( "default")){
+            if (frq2.equals("gradShow.display();")){
+                message = "Correct answer for FRQ2!";
+            }
+            else {
+                message = "incorrect answer for FRQ2";
+            }
+        }
+        if (!frq3.equals("default")){
+            if (frq3.equals("boolean rsvp = true;")){
+                message = "boolean rsvp = true;";
+            }
+            else {
+                message = "incorrect answer for FRQ3";
+            }
+        }
+        if (!frq4.equals("default")) {
+            message = "class frq4function {\n" +
+                    "            String str;\n" +
+                    "            Boolean repeatSequence = true;\n" +
+                    "\n" +
+                    "            void longestStreak(String str) {\n" +
+                    "                int n = str.length();\n" +
+                    "                Character[] visited = new Character[256];\n" +
+                    "                repeatSequence = false;\n" +
+                    "                for (int j = 0; j < n; j++){\n" +
+                    "                    if (str.charAt(j - 1) == str.charAt(j)) {\n" +
+                    "                        visited[j] = str.charAt(j);\n" +
+                    "                    } else {\n" +
+                    "                        visited[j] = 0;\n" +
+                    "                    }\n" +
+                    "                }\n" +
+                    "                for (int i = 0; i < n; ++i) {\n" +
+                    "                    System.out.println(visited[i]);\n" +
+                    "                }\n" +
+                    "            }\n" +
+                    "        }";
+
+        }
+
+
+        // message = frq2;
+        model.addAttribute("message", message);
+        return "individual/message";
     }
 
 

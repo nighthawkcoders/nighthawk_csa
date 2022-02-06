@@ -77,28 +77,78 @@
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">
                     <h2>FRQs</h2>
-                    <button type="button" class="collapsible">FRQ6</button>
+
+                    <button type="button" class="collapsible">FRQ10</button>
                     <div class="content">
-                        <iframe frameborder="0" width="100%" height="500px" src="https://replit.com/@Sarahwxie/frq6?embed=true"></iframe>
+                        <form action="/sarah/gcf" method="GET">
+                            <p>Enter the two numbers you're going to use to get the greatest common factor of</p>
+                            <input name="num1" id="num1" required class="formInput">
+                            <input name="num2" id="num2" required class="formInput">
+                            <input type="submit">
+                        </form>
                     </div>
 
-                    <button type="button" class="collapsible">FRQ5</button>
-                    <div class="content">
-                        <iframe frameborder="0" width="100%" height="500px" src="https://replit.com/@Sarahwxie/frq5?embed=true"></iframe>
-                    </div>
 
-                    <button type="button" class="collapsible">FRQ4</button>
+                    <button type="button" class="collapsible">FRQ4 - FRQ9</button>
                     <div class="content">
-                        <iframe frameborder="0" width="100%" height="500px" src="https://replit.com/@Sarahwxie/frq4?embed=true"></iframe>
+                        <iframe frameborder="0" width="100%" height="500px" src="https://replit.com/@Sarahwxie/frqall?embed=true"></iframe>
                     </div>
 
                     <button type="button" class="collapsible">FRQ3</button>
                     <div class="content">
-                        <iframe frameborder="0" width="100%" height="500px" src="https://replit.com/@Sarahwxie/frq3?embed=true"></iframe>
+                        <p>Check this box if you have rsvp'd already:</p>
+                        <input type="checkbox" id="rsvp" name="rsvp" value="Bike">
+                        <p>I will be bringing this food: </p>
+                        <input type="text" id="foodid" name="name" value='sample food'>
+
+                        <p id="notAttending">Sorry! You didn't rsvp so you will not be attending</p>
+                        <p id="attending">Congrats! You rsvp'd so you will be attending :) You are bringing: <span id="foodlabel"></span></p>
+
+                        <p>Part 2 of this FRQ is visible on /teamabout</p>
                     </div>
+
+
+                    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+                    <script type="text/javascript">
+                        $("#foodid").keyup(function(){
+                           var foodvar = $("#foodid").val();
+                           // alert(foodvar);
+                           $("#foodlabel").text(foodvar);
+                        });
+                       function checked(){
+                            // this is for when it's a NexStarter
+                            $('#attending').show();
+                            $('#notAttending').hide();
+                       }
+
+                       function unchecked(){
+                            $('#notAttending').show();
+                            $('#attending').hide();
+                       }
+                       $('#rsvp').change(function(){
+                            if (this.checked){
+                                checked();
+                            }
+                            else {
+                                unchecked();
+                            }
+                        });
+
+                        // page default is unchecked
+                        unchecked();
+                    </script>
+
                     <button type="button" class="collapsible">FRQ2</button>
                     <div class="content">
-                        <iframe frameborder="0" width="100%" height="500px" src="https://replit.com/@Sarahwxie/frq2?embed=true"></iframe>
+                        <p class="frq">(a) Write a statement to create a LightSequence object gradShow that has the initial light sequence "0101 0101 0101".</p>
+                        <p class="frq">(b) Write a statement that will call the display method to display the light sequence for the gradShow object. Write the statement below.</p>
+                        <p class="frq">(c) Write a statement that will be used to update the gradShow light sequence to "0011 0011 0011". Write the statement below.</p>>
+                        <p class="frq">(d) Write a code segment that will call the insertSegment method to insert the segment "1111 1111" in the current sequence for gradShow at index 4. The resulting sequence will be stored in the string resultSeq. </p>
+                        <p class="frq">(e) Assume that the string oldSeq has been properly declared and initialized and contains the string segment. Write a code segment that will remove the first occurrence of segment from oldSeq and store it in the string newSeq. Consider the following examples. </p>
+                        <p class="frq">(f) Two lights will be arranged on a two-dimensional plane. The vertical distance between the two lights is stored in the double variable a. The horizontal distance between the two lights is stored in the double variable b. The straight-line distance between the two lights is given by the formula sqrt(a^2 + b^2)</p>
+                        <form action="/sarah/answer" method="GET">
+                            <input name="frq2" id="frq2" class="formInput">
+                        </form>
                     </div>
 
                     <button type="button" class="collapsible">FRQ1</button>
