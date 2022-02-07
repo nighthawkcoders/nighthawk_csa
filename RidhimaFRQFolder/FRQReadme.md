@@ -9,8 +9,8 @@
 7) Once dead click the STOP gray button on the top and it will close the program
 
 ## Links 
-[Link to FRQS](https://replit.com/@ridhimainukurti/FRQs#Readme.MD)
-[Link to Ridhima's Review Ticket with Grading](https://github.com/ridhimainukurti/p1-Valid/issues/42)
-[Link to Rini's Review Ticket with Grading](https://github.com/rkwreck/team_flappy_bird/issues/33)
-[Link to Video](https://www.loom.com/share/852883ee371649568fc91912c3a24b75)
+* [Link to FRQS](https://replit.com/@ridhimainukurti/FRQs#Readme.MD)
+* [Link to Ridhima's Review Ticket with Grading](https://github.com/ridhimainukurti/p1-Valid/issues/42)
+* [Link to Rini's Review Ticket with Grading](https://github.com/rkwreck/team_flappy_bird/issues/33)
+* [Link to Video](https://www.loom.com/share/852883ee371649568fc91912c3a24b75)
 
