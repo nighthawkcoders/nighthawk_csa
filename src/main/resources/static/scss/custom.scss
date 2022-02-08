@@ -41,10 +41,15 @@ $theme-colors: (
 
 */
 
+// import fonts
+@import "https://fonts.googleapis.com/css?family=Syne+Tactile";
+@import "https://fonts.googleapis.com/css?family=Roboto";
+
 // redefine colors
 $primary: #a1a9bd;
 $secondary: #5B9D82;
 $body-bg: #cfd8dc;
+$font: "Roboto", serif;
 
 // redefine body background
 @import "../../../../node_modules/bootstrap/scss/bootstrap.scss";
@@ -63,12 +68,13 @@ html, body {
   $primary: #5c7ba8;
   $secondary: $green-600;
   $body-bg: #455a64;
+  $font: "Syne Tactile", serif;
   /* set background values */
   --#{$variable-prefix}body-bg: #{$body-bg};
 
   $theme-colors: (
           "primary": $primary,
-          "secondary": $secondary
+          "secondary": $secondary,
   );
   /* redefine theme color variables */
   @each $color, $value in $theme-colors {
