@@ -47,7 +47,7 @@ $secondary: #5B9D82;
 $body-bg: #cfd8dc;
 
 // redefine body background
-@import "../../../../../node_modules/bootstrap/scss/bootstrap";
+@import "../../../../node_modules/bootstrap/scss/bootstrap.scss";
 
 // setup default background
 html, body {
@@ -80,6 +80,6 @@ html, body {
     --#{$variable-prefix}#{$color}-rgb: #{$value};
   }
 
-  @import "../../../../../node_modules/bootstrap/scss/bootstrap";
+@import "../../../../node_modules/bootstrap/scss/bootstrap.scss";
 }
 
