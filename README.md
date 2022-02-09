@@ -10,6 +10,30 @@
   </tr>
   
   <tr>
+    <td>11</td>
+    <td>Finals Week</td>
+    <td>none</td>
+    <td>none</td>
+    <td><a href="https://poway.instructure.com/courses/112428/assignments/2017440">PBL Final</a></td>
+  </tr>
+  
+  <tr>
+    <td>10</td>
+    <td>Surprise Test</td>
+    <td><a href="">Final Exam</a></td>
+    <td>none</td>
+    <td><a href="https://poway.instructure.com/courses/112428/assignments/2017439">PBL Part 2</a></td>
+  </tr>
+  
+  <tr>
+    <td>9</td>
+    <td>Student Tech Talks</td>
+    <td>none</td>
+    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-2:-Tech-Talk-9.1---Google-Search">TT9.1</a>Search, <a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-2:-Tech-Talk-9.2-Sassy">TT9.2</a>Sassy</td>
+    <td><a href="https://poway.instructure.com/courses/112428/assignments/2017438">PBL Part 1</a></td>
+  </tr>
+  
+  <tr>
     <td>8</td>
     <td>Data Ops, Linked List of Objects</td>
     <td><a href="https://apclassroom.collegeboard.org/8/assignments?quizId=589751&status=all-assigned">FRQ9 Books</a>, <a href="https://apclassroom.collegeboard.org/8/assignments?quizId=589756&status=all-assigned">FRQ10 GCF</a></td>
