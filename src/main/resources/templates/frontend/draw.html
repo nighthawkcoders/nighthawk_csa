@@ -20,20 +20,19 @@
         // https://www.w3schools.com/graphics/canvas_intro.asp
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
-        const width = canvas.width;
-        const height = canvas.height;
-        const unit = 16;   // unit block size
+        const WIDTH = canvas.width;
+        const HEIGHT = canvas.height;
+        const CELL_SIZE = 16;   // CELL_SIZE block size
 
-
-        // grid based off of width, height
+        // grid based off of width, HEIGHT
         function grid(){
             // color and pen width
             ctx.strokeStyle = 'white';
             ctx.lineWidth = 1;
             // make graph paper look
-            for (let col = 0; col < width; col += unit) {
-                for (let row = 0; row < height; row += unit) {
-                    ctx.strokeRect(col, row, unit, unit);
+            for (let col = 0; col < WIDTH; col += CELL_SIZE) {
+                for (let row = 0; row < HEIGHT; row += CELL_SIZE) {
+                    ctx.strokeRect(col, row, CELL_SIZE, CELL_SIZE);
                 }
             }
         }
@@ -42,47 +41,76 @@
         function axis() {
             // color and pen width
             ctx.strokeStyle = 'red';
-            ctx.lineWidth = 3;
-
+            ctx.lineWIDTH = 3;
             // x & y zero midpoints of grid
-            const x0 = width*.5;
-            const y0 = height*.5;
+            const x0 = WIDTH*.5;
+            const y0 = HEIGHT*.5;
             // x-axis
             ctx.moveTo(0, y0);
-            ctx.lineTo(width, y0);
+            ctx.lineTo(WIDTH, y0);
             ctx.stroke();
             // y-axis
             ctx.moveTo(x0, 0);
-            ctx.lineTo(x0, height);
+            ctx.lineTo(x0, HEIGHT);
             ctx.stroke();
         }
 
         // square using lines
-        function square() {
+        function square(x0, y0, len) {
             ctx.strokeStyle = 'black';
             ctx.lineWidth = 5;
-
-            // starting coordinates
-            const x = unit;
-            const y = unit;
-            // length of sides is 4 units
-            const l = unit*4;
-
+            // NOTE canvas 0,0 is upper left corner, grid 0,0 is in middle of canvas
+            let x = x0*CELL_SIZE + (WIDTH/2);
+            let y = -y0*CELL_SIZE + (HEIGHT/2);
+            let l = len*CELL_SIZE;
             // draw a square
             ctx.beginPath();
             ctx.moveTo(x, y);
-            ctx.lineTo(x, y+l);
-            ctx.lineTo(x+l, y+l);
             ctx.lineTo(x+l, y);
+            ctx.lineTo(x+l, y-l);
+            ctx.lineTo(x, y-l);   // positive y is negative orientation in grid
             ctx.lineTo(x, y);
             ctx.stroke();
         }
-        // three actions
+
+        // randomly find
+        function randomPlusMinus(range) {
+            let pluMinusSeed =  (Math.random() - 0.499) * 2; // from -.998 to .998
+            return Math.round(pluMinusSeed * range);  // convert to rounded integer
+        }
+
+        // randomly draw squares
+        function randomDraw(i) {
+            // recursion base case
+            if ( i <= 0) {
+                return;
+            }
+            // obtain x, y coordinates on canvas per quadrant
+            let x = randomPlusMinus(WIDTH/CELL_SIZE/2);
+            let y = randomPlusMinus(HEIGHT/CELL_SIZE/2);
+            // obtain random length between 1 and 5
+            let l = Math.floor((Math.random()) * 5) + 1;
+            // draw square
+            square(x, y, l);
+            // timeout allows user to enjoy drawing effect
+            // this function calls itself, but decrements counter before call
+            setTimeout(() => { randomDraw(--i); }, 150);
+        }
+
+        // establish grid and axis
         grid();
         axis();
-        // hack 1: make square according to grid positioning
-        square();
-        // hack 2: plot line or square on grid from user input according
+
+        // Sample squares
+        square(-2, -2, 4);   // center square
+        //square(12, 8, 4);    // quadrant 1 extents
+        //square(-16, 8, 4);   // quadrant 2 extents
+        //square(-16, -12, 4); // quadrant 3 extents
+        //square(12, -12, 4);  // quadrant 4 extents
+
+        // Random squares
+        randomDraw(50);
+
     </script>
 </th:block>
 
