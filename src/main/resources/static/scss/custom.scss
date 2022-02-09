@@ -49,6 +49,7 @@ $theme-colors: (
 $primary: #a1a9bd;
 $secondary: #5B9D82;
 $body-bg: #cfd8dc;
+$textColor: #222;
 $font: "Roboto", serif;
 
 // redefine body background
@@ -58,6 +59,12 @@ $font: "Roboto", serif;
 html, body {
   background-image: var(--bs-gradient);
   background-color: var(--bs-body-bg);
+  font-family: var(--bs-font-family-sans-serif);
+  color: var(--bs-textColor);
+}
+
+span {
+  color: var(--bs-textColor);
 }
 
 // setup dark mode styling
@@ -66,15 +73,19 @@ html, body {
 
   /* redefine theme colors */
   $primary: #5c7ba8;
-  $secondary: $green-600;
-  $body-bg: #455a64;
+  $secondary: $orange;
+  $body-bg: #222;
+  $textColor: #ddd;
   $font: "Syne Tactile", serif;
+  
   /* set background values */
   --#{$variable-prefix}body-bg: #{$body-bg};
+  --#{$variable-prefix}font-family-sans-serif: #{$font};
 
   $theme-colors: (
           "primary": $primary,
           "secondary": $secondary,
+          "textColor": $textColor
   );
   /* redefine theme color variables */
   @each $color, $value in $theme-colors {
