@@ -176,8 +176,6 @@ public class MainController {
                     "        }";
 
         }
-
-
         // message = frq2;
         model.addAttribute("message", message);
         return "individual/message";
