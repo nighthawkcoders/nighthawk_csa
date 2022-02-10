@@ -2,8 +2,6 @@ package com.nighthawk.csa.data;
 
 import com.nighthawk.csa.consoleUI.ConsoleMethods;
 import com.nighthawk.csa.data.DataOps.genericDataModel.Alphabet;
-import com.nighthawk.csa.data.DataOps.genericDataModel.Animal;
-import com.nighthawk.csa.data.DataOps.genericDataModel.Cupcakes;
 import com.nighthawk.csa.data.DataOps.genericDataModel.risaFRQ6;
 
 import com.nighthawk.csa.data.LinkedLists.CircleQueue;
@@ -28,10 +26,7 @@ public class DataOpsController {
     private CircleQueue queue;	// circle queue object
     private int count; // number of objects in circle queue
     //control variables for UI checkboxes and radios
-    private boolean animal;
-    private Animal.KeyType animalKey;
-    private boolean cake;
-    private Cupcakes.KeyType cakeKey;
+
     private boolean alpha;
     private Alphabet.KeyType alphaKey;
     private boolean risa;
@@ -102,22 +97,12 @@ public class DataOpsController {
         this.queue = new CircleQueue();
         //application specific inits
         //title defaults
-        this.animalKey = Animal.KeyType.title;
-        Animal.key = this.animalKey;
-        this.cakeKey = Cupcakes.KeyType.title;
-        Cupcakes.key = this.cakeKey;
         this.alphaKey = Alphabet.KeyType.title;
         Alphabet.key = this.alphaKey;
         this.risaKey = risaFRQ6.KeyType.title;
         risaKey = this.risaKey;
-        //control options
-        this.animal = true;
-        this.cake = true;
         this.alpha = true;
         this.risa = true;
-        //load data
-        this.addCQueue(Animal.animalData());
-        this.addCQueue(Cupcakes.cupCakeData());
         this.addCQueue(Alphabet.alphabetData());
         this.addCQueue(risaFRQ6.risaFRQ6data());
         //data is not sorted, queue order (FIFO) is default
@@ -130,10 +115,6 @@ public class DataOpsController {
      */
     @PostMapping("/data/dataops")
     public String dataFilter(
-            @RequestParam(value = "animal", required = false) String animal,
-            @RequestParam(value = "animalKey") Animal.KeyType animalKey,
-            @RequestParam(value = "cake", required = false) String cake,
-            @RequestParam(value = "cakeKey") Cupcakes.KeyType cakeKey,
             @RequestParam(value = "alpha", required = false) String alpha,
             @RequestParam(value = "alphaKey", required = false) Alphabet.KeyType alphaKey,
             @RequestParam(value = "risa", required = false) String risa,
@@ -144,22 +125,7 @@ public class DataOpsController {
         count = 0;
         queue = new CircleQueue();
         //for each category rebuild data, set presentation and data defaults
-        if (animal != null) {
-            this.addCQueue(Animal.animalData());  //adding Animal data to queue
-            this.animal = true;             //persistent selection from check box selection
-            this.animalKey = animalKey;     //persistent enum update from radio button selection
-            Animal.key = this.animalKey;    //toString configure for sort order
-        } else {
-            this.animal = false;
-        }
-        if (cake != null) {
-            this.addCQueue(Cupcakes.cupCakeData());
-            this.cake = true;
-            this.cakeKey = cakeKey;
-            Cupcakes.key = this.cakeKey;
-        } else {
-            this.cake = false;
-        }
+
         if (alpha != null) {
             this.addCQueue(Alphabet.alphabetData());
             this.alpha = true;
@@ -208,8 +174,6 @@ public class DataOpsController {
         DataOpsController trial = new DataOpsController();
 
         //add different types of objects to the same opaque queue
-        trial.addCQueue(Animal.animalData());
-        trial.addCQueue(Cupcakes.cupCakeData());
         trial.addCQueue(Alphabet.alphabetData());
         trial.addCQueue(risaFRQ6.risaFRQ6data());
         //display queue objects in queue order
@@ -217,8 +181,6 @@ public class DataOpsController {
         trial.printCQueue();
 
         //sort queue objects by specific element within the object and display in sort order
-        Animal.key = Animal.KeyType.name;
-        Cupcakes.key = Cupcakes.KeyType.frosting;
         Alphabet.key = Alphabet.KeyType.letter;
         risaFRQ6.key = risaFRQ6.KeyType.newList;
         trial.queue.insertionSort();
@@ -226,8 +188,6 @@ public class DataOpsController {
         trial.printCQueue();
 
         //display queue objects, changing output but not sort
-        Animal.key = Animal.KeyType.title;
-        Cupcakes.key = Cupcakes.KeyType.title;
         Alphabet.key = Alphabet.KeyType.title;
         risaFRQ6.key = risaFRQ6.KeyType.title;
         ConsoleMethods.println("Retain sorted order (all data)");
