@@ -247,6 +247,12 @@ public class MainController {
         return "individual/natasha";
     }
 
+    @GetMapping("/natashaInvitation")
+    public String natashaInvitation(@RequestParam(name="hostname", required=false, defaultValue="default") String hostname, Model model) {
+        model.addAttribute("hostname", hostname);
+        return "individual/natashaInvitation";
+    }
+
     @GetMapping("/tutors")
     public String Tutors() {
         return "tutoring/tutors";
