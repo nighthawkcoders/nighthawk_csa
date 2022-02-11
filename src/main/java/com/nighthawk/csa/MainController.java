@@ -248,8 +248,13 @@ public class MainController {
     }
 
     @GetMapping("/natashaInvitation")
-    public String natashaInvitation(@RequestParam(name="hostname", required=false, defaultValue="default") String hostname, Model model) {
+    public String natashaInvitation(Model model, @RequestParam(name = "hostname", required = false, defaultValue = "host") String hostname,
+                                    @RequestParam(name = "address", required = false, defaultValue = "at my house") String address,
+                                    @RequestParam(name = "invited", required = false, defaultValue = "guest") String invited
+    ) throws IOException, InterruptedException, ParseException {
         model.addAttribute("hostname", hostname);
+        model.addAttribute("address", address);
+        model.addAttribute("invited", invited);
         return "individual/natashaInvitation";
     }
 

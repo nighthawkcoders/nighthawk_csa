@@ -19,6 +19,9 @@
                 <input type="text" name="email" placeholder="Enter Address" required>
                 <input type = "text" name ="feedback" placeholder = "Enter Invited Person" required>
                 <input type="Submit" name="Submit" value="Submit">
+
+
+                <p th:text="'Dear ' + ${invited} + ', please attend my event at '+ ${address} + '. See you\nthen, ' + ${hostname} + ".""></p>
             </form>
         </div>
     </div>
