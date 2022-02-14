@@ -11,60 +11,36 @@
 </div>
 
 <div layout:fragment="body" th:remove="tag">
-    <div class="main flex">
+    <div class="container1">
+        <div class="main flex">
 
-        <h1><strong>Get Started With Personalized Tutoring!</strong></h1>
-        <p>We’ll contact you shortly to schedule your free consultation where we'll learn about your goals and recommend a customized plan to achieve them.</p>
-        <form class="row g-3">
+            <h1><strong>Get Started With Personalized Tutoring!</strong></h1>
+            <p>We’ll contact you shortly to schedule your free consultation where we'll learn about your goals and recommend a customized plan to achieve them.</p>
+            <form class="row g-3">
 
-            <div class="col-md-6">
-                <label for="inputfirst" class="form-label">First Name</label>
-                <input type="email" class="form-control" id="inputfirst">
-            </div>
-            <div class="col-md-6">
-                <label for="inputlast" class="form-label">Last Name</label>
-                <input type="password" class="form-control" id="inputlast">
-            </div>
-            <div class="col-12">
-                <label for="inputemail" class="form-label">Email</label>
-                <input type="text" class="form-control" id="inputemail" placeholder="bobross@gmail.com">
-            </div>
-            <div class="col-12">
-                <label for="inputphone" class="form-label">Phone</label>
-                <input type="text" class="form-control" id="inputphone" placeholder="123-456-7890">
-            </div>
-            <div class="col-md-6">
-                <label for="inputzip" class="form-label">ZIP/Postal Code</label>
-                <input type="text" class="form-control" id="inputzip">
-            </div>
-            <div class="col-md-4">
-                <label for="inputState" class="form-label">Best Time to Call</label>
-                <select id="inputState" class="form-select">
-                    <option selected>Choose...</option>
-                    <option>Morning</option>
-                    <option>Afternoon</option>
-                    <option>Evening</option>
-                </select>
-            </div>
-            <div class="col-md-2">
-                <label for="input" class="form-label">How can we help you?</label>
-                <input type="text" class="form-control" id="input">
-            </div>
-            <div class="input-text flex f_l">
-                <label for="LocalContactUs_ITM0_PreviousContactedTutorDoctor">Have you been in touch with Tutor Doctor before?</label>
-                <ul id="LocalContactUs_ITM0_PreviousContactedTutorDoctor">
-                    <li>
-                        <input type="radio" value="Yes" id="LocalContactUs_ITM0_PreviousContactedTutorDoctor_0" name="LocalContactUs$ITM0$PreviousContactedTutorDoctor">
-                        <label class="cms-replace" tabindex="0" for="LocalContactUs_ITM0_PreviousContactedTutorDoctor_0"></label>
-                        <label for="LocalContactUs_ITM0_PreviousContactedTutorDoctor_0">Yes</label>
-                    </li>
-                    <li>
-                        <input type="radio" value="No" id="LocalContactUs_ITM0_PreviousContactedTutorDoctor_1" name="LocalContactUs$ITM0$PreviousContactedTutorDoctor">
-                        <label class="cms-replace" tabindex="0" for="LocalContactUs_ITM0_PreviousContactedTutorDoctor_1"></label>
-                        <label for="LocalContactUs_ITM0_PreviousContactedTutorDoctor_1">No</label>
-                    </li>
-                </ul>
-            </div>
-            <button class="btn btn-primary" type="submit">Submit!</button>
-        </form>
+                <div class="col-md-6">
+                    <label for="inputlast" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="inputlast" placeholder="Name" >
+                </div>
+                <div class="col-6">
+                    <label for="inputemail" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="inputemail" placeholder="Email">
+                </div>
+                <div class="col-12">
+                    <label for="inputphone" class="form-label">Phone</label>
+                    <input type="text" class="form-control" id="inputphone" placeholder="Phone Number">
+                </div>
+                <div class="col-md-12">
+                    <label for="inputzip" class="form-label">ZIP/Postal Code</label>
+                    <input type="text" class="form-control" id="inputzip" placeholder="Zip Code">
+                </div>
+                <div class="col-md-12">
+                    <label for="input" class="form-label">How can we help you?</label>
+                    <input type="text" class="form-control" id="input">
+                </div>
+                <div class="col-md-8">
+                    <input type="Submit" name="Submit" value="Submit">
+                </div>
+            </form>
+        </div>
 </html>
