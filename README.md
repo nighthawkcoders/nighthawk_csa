@@ -19,10 +19,10 @@
   
   <tr>
     <td>10</td>
-    <td>Surprise Test</td>
-    <td><a href="">Final Exam</a></td>
+    <td>Surprise Test and Tri 3 Intro</td>
     <td>none</td>
-    <td><a href="https://poway.instructure.com/courses/112428/assignments/2017439">PBL Part 2</a></td>
+    <td>TT10</td>
+    <td><a href="https://poway.instructure.com/courses/112428/assignments/2017439">Final MCQ Test</a></td>
   </tr>
   
   <tr>
