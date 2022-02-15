@@ -35,14 +35,14 @@ public class Number {
         ArrayList<Number> squirrels = new ArrayList<Number>();
 
         // Initialize 10 squirrels of class type Number
-        for (int j = 0; j < 10; j++)
+        for (int i = 0; i < 10; i++)
         {
             Number newnumber = new Number();
             squirrels.add(newnumber);
         }
         // Insert Number instance into ArrayList Squirrel in least to greatest order by random number, mine required nested loops
-        System.out.println(squirrels);
         ArrayList<Number> sorted = new ArrayList<Number>();
+        for
 
 
 
