@@ -1,59 +1,56 @@
 package com.nighthawk.csa.data.ava;
-import java.util.ArrayList;
 import java.util.Random;
+import java.util.ArrayList;
 
 // Write a Class Number
 public class Number {
+
     // instance variables
-    private int squirrels;
+    int num;
+    private static int counter;
 
     // Number has a zero Argument constructor
 
+    // It initializes a random number between 3 and 36, ie the number of squirrels in class
     public Number() {
         // constructor
+        this.num = (int)Math.floor(Math.random()*37);
+        this.counter = counter;
+        counter ++;
     }
 
     // It contains a getter for the Random Number
-    public int getNumber(int value) {
-        System.out.println(value);
-        return value;
+    public int getNumber(){
+        return this.num;
     }
-
 
     // It contains a getter for Index, or the order it was initialized
-    public int getIndex(int index){
-        return index;
+    public static int index() {
+        return counter;
     }
-
 
     // Write a tester method
     public static void main(String[] args) {
-        // It initializes a random number between 3 and 36, ie the number of squirrels in class
-        int min = 3;
-        int max = 36;
-        Random random = new Random();
-        int value = random.nextInt(max + min) + min;
-        System.out.println(value);
-
-
         // Create an ArrayList of Type Number, my ArrayList is called squirrels
-        ArrayList<Integer> squirrels;
+        ArrayList<Number> squirrels = new ArrayList<Number>();
 
         // Initialize 10 squirrels of class type Number
-
-        // Insert Number instance into ArrayList Squirrel in least to greatest order by random number, mine required nested loops
-        public String insertSegment(String segment, int index){
-            StringBuffer sb = new StringBuffer(this.sequence);
-            sb.insert(index + 1, segment);
-            this.sequence = sb.toString();
-            return this.sequence;
-
+        for (int j = 0; j < 10; j++)
+        {
+            Number newnumber = new Number();
+            squirrels.add(newnumber);
         }
+        // Insert Number instance into ArrayList Squirrel in least to greatest order by random number, mine required nested loops
+        System.out.println(squirrels);
+        ArrayList<Number> sorted = new ArrayList<Number>();
+
 
 
         // Print a formatted message with number of Squirrels and Index by which they were created, use enhanced for loop
-        System.out.println("");
-
+        for (Number sort : sorted)
+        {
+            System.out.println("There were " + sort.getNumber() + " squirrels on day " + sort.index());
+        }
     }
 
 }
