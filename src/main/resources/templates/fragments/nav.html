@@ -30,18 +30,6 @@
                                     </div>
                                 </li>
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                    <a class="nav-link" href="/login">Login</a>
-                                </li>
-                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                    <a class="nav-link" href="/contactus">Contact us</a>
-                                </li>
-                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                    <a class="nav-link" href="/search">Search</a>
-                                </li>
-                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                    <a class="nav-link" href="/calendar">Calendar</a>
-                                </li>
-                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">About Us</a>
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" href="/ava">Ava</a>
@@ -52,8 +40,6 @@
                                         <a class="dropdown-item" href="/teamabout">Team About</a>
                                     </div>
                                 </li>
-
-
                             </ul>
                         </div>
 
@@ -63,11 +49,60 @@
                             </div>
                         </div>
 
+                        <style>
+                            #search:focus-visible{
+                                border:none;
+                            }
+                        </style>
+                        <li class="topnav-right" style="padding:0px;">
+                            <!-- Search Box -->
+                            <div class="px-3">
+                                <input style="margin-top:10px; margin-bottom:0px;border:none;" id="search" type="search" placeholder="Search" aria-label="Search">
+                            </div>
+                        </li>
+
+                        <ul class="navbar-nav ml-auto py-4 py-md-0">
+                            <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                <a class="nav-link" href="/login">Login</a>
+                            </li>
+                        </ul>
+
                     </nav>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        const search = document.getElementById('search');
+        const google = 'https://www.google.com/search?q=site%3A+';
+        const site = 'https://valid.rocks';
+
+        function submitted(event) {
+            if (event.key === 'Enter') {
+                // calculations to determine new window size at 66% of existing
+                const reduction = 0.66;  // reduce by 66%
+                const w = Math.trunc(window.innerWidth*reduction);
+                const h = Math.trunc(window.outerHeight*reduction);
+                const l = Math.trunc(window.top.screenX + ((window.innerWidth - w)/2));
+                const t = Math.trunc(window.top.screenY + ((window.outerHeight - h)/2));
+                const left = "left=" + l;
+                const top = "top=" + t;
+                const width = "width=" + w;
+                const height = "height=" + h;
+                const location = left + ", " + top + ", " + width + ", " + height
+
+                // setup and display window
+                event.preventDefault();
+                const url = google
+                    + site
+                    + '+'
+                    + search.value;
+                const win = window.open(url, "CompSci A Search", location);
+                win.focus();
+            }
+        }
+        search.addEventListener('keypress', submitted);
+    </script>
 
     <script>
         (function($) { "use strict";

@@ -176,8 +176,6 @@ public class MainController {
                     "        }";
 
         }
-
-
         // message = frq2;
         model.addAttribute("message", message);
         return "individual/message";
@@ -288,15 +286,6 @@ public class MainController {
     public String schedulenow() {
         return "/services/schedulenow";}
 
-    @GetMapping("/test")
-    public String test() {
-        return "/tutoring/test";
-    }
-
-    @GetMapping("/contactus")
-    public String contactus() {
-        return "/services/contact";
-    }
 
     @GetMapping("/profileUser")
     public String profileUser() {
