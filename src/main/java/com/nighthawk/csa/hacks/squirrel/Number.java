@@ -28,6 +28,10 @@ public class Number {
         return this.index;
     }
 
+    public String toString() {
+        return "Number: " + this.getNumber() + " Day: " + this.getIndex();
+    }
+
     // Write a tester method to:
     public static void main(String[] args) {
 
@@ -51,9 +55,13 @@ public class Number {
         }
 
         // Print a formatted message with number of Squirrels and Index by which they were created
+        System.out.println("Best case of a Teachers life vs Squirrels over 10 day period");
+        int total = 0;
         for (Number s : squirrels) {
-            System.out.println("Squirrels: " + s.getNumber() + " Day: " + s.getIndex());
+            total += s.getNumber();
+            System.out.println(s);  // prints toString() method
         }
+        System.out.println("Average squirrels per day: " + total / (double) squirrels.size());
 
     }
 
