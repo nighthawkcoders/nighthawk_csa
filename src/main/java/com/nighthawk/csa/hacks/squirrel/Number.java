@@ -58,7 +58,7 @@ public class Number {
             }
         }
 
-        // Added an total/average, not in requirements
+        // Added total/average, not in requirements
         int total = 0;
         for (Number squirrel : squirrels) {
             // Print a formatted message with number of Squirrels and Index
