@@ -1,3 +1,4 @@
+/*
 package com.nighthawk.csa.data.ava;
 import java.util.ArrayList;
 import java.util.Random;
@@ -57,3 +58,4 @@ public class Number {
     }
 
 }
+*/

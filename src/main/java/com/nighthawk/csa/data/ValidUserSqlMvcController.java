@@ -163,7 +163,7 @@ public class ValidUserSqlMvcController implements WebMvcConfigurer {
     POST Aa record by Requesting Parameters from URI
      */
     @RequestMapping(value = "/api/user/post", method = RequestMethod.POST)
-    public ResponseEntity<Object> postUser(@RequestParam("username") Integer id,
+    public ResponseEntity<Object> postUser(@RequestParam("id") Integer id,
                                             @RequestParam("username") String username,
                                              @RequestParam("name") String name,
                                              @RequestParam("dob") String dobString,
