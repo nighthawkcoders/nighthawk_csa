@@ -11,9 +11,9 @@ public class Number {
     // Number has a zero Argument constructor
     // It initializes a random number between 3 and 36, ie the number of squirrels in class
     public Number() {
-        int SIZE = 36; int MIN = 3; int RANGE = SIZE - MIN + 1;
-        this.number = (int)(Math.random()*RANGE) + MIN;
-        this.index = Number.COUNT++;
+        int SIZE = 36; int MIN = 3; int RANGE = SIZE - MIN + 1;  // constants for initialization
+        this.number = (int)(Math.random()*RANGE) + MIN;  // observe RANGE calculation and MIN offset
+        this.index = Number.COUNT++;    // observe use of Class variable COUNT and post increment
     }
 
     // It contains a getter for the Random Number
@@ -26,7 +26,7 @@ public class Number {
         return this.index;
     }
 
-    // toString method for formatted input, not required
+    // toString method for formatted output, this was not in requirement but is critical knowledge
     public String toString() {
         return "Squirrels: " + this.getNumber() + " Day: " + this.getIndex();
     }
@@ -36,10 +36,10 @@ public class Number {
 
         // Create an ArrayList of Type Number, the ArrayList is called squirrels
         ArrayList<Number> squirrels = new ArrayList<>();
-        int SQUIRRELS = 10;
 
         // Initialize 10 squirrels of class type Number
-        // Insert Number instance into ArrayList Squirrels in least to the greatest order by getNumber()
+        // Insert Number Object into ArrayList Squirrels in least to the greatest order using getNumber()
+        int SQUIRRELS = 10;
         for (int i = 0; i < SQUIRRELS; i++) {
             Number num = new Number();
             // Insert in ordered position, this avoids sort algorithm
@@ -66,6 +66,7 @@ public class Number {
             total += squirrel.getNumber(); // running total, not in requirements
         }
         // Integer division requires cast for precision
+        System.out.println("Total random squirrels: " + total + ", Number of days: " + squirrels.size());
         System.out.println("Average squirrels per day: " + total / (double) squirrels.size());
     }
 
