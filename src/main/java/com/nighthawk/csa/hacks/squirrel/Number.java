@@ -11,10 +11,8 @@ public class Number {
     // Number has a zero Argument constructor
     // It initializes a random number between 3 and 36, ie the number of squirrels in class
     public Number() {
-        int CLASS_SIZE = 36;
-        int CLASS_MIN = 3;
-        int range = CLASS_SIZE - CLASS_MIN + 1;
-        this.number = (int)(Math.random()*range) + CLASS_MIN;
+        int SIZE = 36; int MIN = 3; int RANGE = SIZE - MIN + 1;
+        this.number = (int)(Math.random()*RANGE) + MIN;
         this.index = Number.COUNT++;
     }
 
@@ -28,41 +26,47 @@ public class Number {
         return this.index;
     }
 
+    // toString method for formatted input, not required
     public String toString() {
-        return "Number: " + this.getNumber() + " Day: " + this.getIndex();
+        return "Squirrels: " + this.getNumber() + " Day: " + this.getIndex();
     }
 
-    // Write a tester method to:
+    // Write a tester method
     public static void main(String[] args) {
 
-        // Create an ArrayList of Type Number, mine ArrayList is called squirrels
+        // Create an ArrayList of Type Number, the ArrayList is called squirrels
         ArrayList<Number> squirrels = new ArrayList<>();
+        int SQUIRRELS = 10;
 
         // Initialize 10 squirrels of class type Number
-        // Insert Number instance into ArrayList Squirrel in least to greatest order by getNumber()
-        for (int i = 0; i < 10; i++) {
+        // Insert Number instance into ArrayList Squirrels in least to the greatest order by getNumber()
+        for (int i = 0; i < SQUIRRELS; i++) {
             Number num = new Number();
-            // Insert in position now
+            // Insert in ordered position, this avoids sort algorithm
             for (int j = 0; true; j++) {
-                if ((squirrels.size() == 0) // empty condition means add it
-                        || (squirrels.size() == j) // at end means add to end
-                        || (num.getNumber() < squirrels.get(j).getNumber()) )  // less than current add in j position
+                // Conditions to insert
+                if ((squirrels.size() == j) // empty or at end of list
+                        || (num.getNumber() < squirrels.get(j).getNumber()) )  // less than current
                 {
-                    squirrels.add(j, num);
+                    /* The java.util.ArrayList.add(int index, Object)
+                       method inserts the specified object at the specified position in this list.
+                       This is overload of the common java.util.ArrayList.add(Object)
+                    */
+                    squirrels.add(j, num); // insert in "j" position
                     break;  // break forever loop when inserted
                 }
             }
         }
 
-        // Print a formatted message with number of Squirrels and Index by which they were created
-        System.out.println("Best case of a Teachers life vs Squirrels over 10 day period");
+        // Added an total/average, not in requirements
         int total = 0;
-        for (Number s : squirrels) {
-            total += s.getNumber();
-            System.out.println(s);  // prints toString() method
+        for (Number squirrel : squirrels) {
+            // Print a formatted message with number of Squirrels and Index
+            System.out.println(squirrel);  // prints Object using toString() method
+            total += squirrel.getNumber(); // running total, not in requirements
         }
+        // Integer division requires cast for precision
         System.out.println("Average squirrels per day: " + total / (double) squirrels.size());
-
     }
 
 }
