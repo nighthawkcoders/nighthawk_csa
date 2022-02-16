@@ -112,6 +112,8 @@ public class ValidUserSqlMvcController implements WebMvcConfigurer {
     @GetMapping("/login")
     public String signin(User user) {
 
+        // DEBUGGING BY SARAH
+        // model.addAttribute("user", repository.get(user.id()));
         return "user/login";
     }
 
@@ -126,6 +128,34 @@ public class ValidUserSqlMvcController implements WebMvcConfigurer {
         model.addAttribute("person", repository.get(id));
         return "data/userupdate";
     }
+
+
+
+    // CRUD OPERATIONS END
+
+
+
+
+
+    /*  The HTML template Forms and PersonForm attributes are bound
+        @return - template for person form
+        @param - Person Class
+    */
+
+
+    /* Gathers the attributes filled out in the form, tests for and retrieves validation error
+    @param - Person object with @Valid
+    @param - BindingResult object
+     */
+
+
+
+    /*
+    @GetMapping("/data/userupdate/{id}")
+    public String personUpdate(@PathVariable("id") int id, Model model) {
+        model.addAttribute("person", repository.get(id));
+        return "data/userupdate";
+    }*/
 
 
     /*

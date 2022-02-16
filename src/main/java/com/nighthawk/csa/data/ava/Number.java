@@ -1,61 +1,67 @@
-/*
 package com.nighthawk.csa.data.ava;
-import java.util.ArrayList;
 import java.util.Random;
+import java.util.ArrayList;
+import java.util.Collections;
+
 
 // Write a Class Number
-public class Number {
+public class Number implements Comparable<Number>{ //allows you to compare two objects of type Number
     // instance variables
-    private int squirrels;
+    int count;
+    int index;
+    static int squirrelIndex = 0;
+
 
     // Number has a zero Argument constructor
-
+    // It initializes a random number between 3 and 36, ie the number of squirrels in class
     public Number() {
         // constructor
+        Random r = new Random();
+        count = 3 + r.nextInt(34);
+        index = squirrelIndex;
+        squirrelIndex++;
     }
 
     // It contains a getter for the Random Number
-    public int getNumber(int value) {
-        System.out.println(value);
-        return value;
+    public int getCount(){
+        return count;
     }
 
-
     // It contains a getter for Index, or the order it was initialized
-    public int getIndex(int index){
+    public int getIndex(){
         return index;
+    }
+
+    public int compareTo(Number other){
+        return this.getCount() - other.getCount(); // compares ArrayLists
     }
 
 
     // Write a tester method
     public static void main(String[] args) {
-        // It initializes a random number between 3 and 36, ie the number of squirrels in class
-        int min = 3;
-        int max = 36;
-        Random random = new Random();
-        int value = random.nextInt(max + min) + min;
-        System.out.println(value);
-
 
         // Create an ArrayList of Type Number, my ArrayList is called squirrels
-        ArrayList<Integer> squirrels;
+        ArrayList<Number> squirrels = new ArrayList<Number>();
 
         // Initialize 10 squirrels of class type Number
+        for (int i = 0; i < 10; i++)
+        {
+            squirrels.add(new Number());
+        }
 
         // Insert Number instance into ArrayList Squirrel in least to greatest order by random number, mine required nested loops
-        public String insertSegment(String segment, int index){
-            StringBuffer sb = new StringBuffer(this.sequence);
-            sb.insert(index + 1, segment);
-            this.sequence = sb.toString();
-            return this.sequence;
 
+        Collections.sort(squirrels);
+
+        // Print a formatted message with number of Squirrels and Index by which they were created, use enhanced for loop
+        for (int i = 0; i < squirrels.size(); i++)
+        {
+            System.out.println("Squirrels: " + squirrels.get(i).getCount() + " Day: " + squirrels.get(i).getIndex());
         }
 
 
-        // Print a formatted message with number of Squirrels and Index by which they were created, use enhanced for loop
-        System.out.println("");
+
+
 
     }
-
 }
-*/
