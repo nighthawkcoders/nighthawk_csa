@@ -1,4 +1,4 @@
-package com.nighthawk.csa.data.ava;
+/* package com.nighthawk.csa.data.ava;
 import java.util.Random;
 import java.util.ArrayList;
 
@@ -42,7 +42,7 @@ public class Number {
         }
         // Insert Number instance into ArrayList Squirrel in least to greatest order by random number, mine required nested loops
         ArrayList<Number> sorted = new ArrayList<Number>();
-        for
+
 
 
 
@@ -54,3 +54,5 @@ public class Number {
     }
 
 }
+
+ */
