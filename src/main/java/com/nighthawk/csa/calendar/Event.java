@@ -18,7 +18,7 @@ public class Event {
     @Size(min=1,max=100)
     private String event;
 
-    public Login(Long id, String event) {
+    public Event(Long id, String event) {
         this.id = id;
         this.event = event;
     }
