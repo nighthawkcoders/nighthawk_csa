@@ -14,6 +14,12 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NonNull
+    @Size(min=1,max=100)
+    private String event;
 
-
+    public Login(Long id, String event) {
+        this.id = id;
+        this.event = event;
+    }
 }
