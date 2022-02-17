@@ -2,6 +2,11 @@
 <!-- Bootstrap Navigation Code -->
 <th:block xmlns:th="http://www.w3.org/1999/xhtml" th:fragment="header">
     <body class="hero-anime">
+    <style>
+        #search:focus-visible{
+            border:none;
+        }
+    </style>
 
     <div class="navigation-wrap bg-light start-header start-style">
         <div class="container">
@@ -42,6 +47,12 @@
                                 </li>
                             </ul>
                         </div>
+                        <div class="topnav-right" style="margin-right:20px;">
+                            <div class="px-3">
+                                <input style="margin-top:10px; margin-bottom:0px;border:none;" id="search" type="search" placeholder="Search" aria-label="Search">
+                            </div>
+
+                        </div>
 
                         <div class="topnav-right">
                             <div id="switch">
@@ -49,17 +60,8 @@
                             </div>
                         </div>
 
-                        <style>
-                            #search:focus-visible{
-                                border:none;
-                            }
-                        </style>
-                        <li class="topnav-right" style="padding:0px;">
-                            <!-- Search Box -->
-                            <div class="px-3">
-                                <input style="margin-top:10px; margin-bottom:0px;border:none;" id="search" type="search" placeholder="Search" aria-label="Search">
-                            </div>
-                        </li>
+
+
 
                         <ul class="navbar-nav ml-auto py-4 py-md-0">
                             <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
