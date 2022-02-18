@@ -14,7 +14,7 @@ public class EventSQLRepository {
     @Autowired
     private EventJpaRepository jpa;
 
-    public List<Event> listAll() {
+    public List<Event> () {
         return jpa.findAll();
     }
 
