@@ -1,3 +1,146 @@
+# Time Box Tri 3
+## Primary deliverables for trimester:
+* Individual/Pair Data Structures Project - every individual will manage their own Java project.  Replit or Web deliverables with integrated GitHub version control are required.  Those who commit frequently and regularly will receive higher grades.  Requirements for this project will be provided via Tech Talks.
+* PBL Customer Project Embedded or Web - teams of four will work on a project throughout the trimester, this should be a focus in all planning during Trimester.  For Web projects it is advised that you build or add to a project that was started in Trimester 1 or 2, or that you fork/extend an idea from CSA 2021 students.  For embedded projects you will work with Teacher and cover new ground.   In this work, we will be researching technology for our individual learning and be building curriculm for the future.   It is highly advised to plan to incorporate any data structures ideas into your final project.  Such planning will lead to leveraged and strategic implementation.  Teams that assign jobs, leverage work, and plan throughout the trimester and will undoubltable receive higher grades.  Requirements need to be approved by Project Owner, this job represents needs of a Customer and must be someone outside of project team.
+
+<table>
+   <tr>
+    <th>Week</th>
+    <th>Dates</th>
+    <th>Stand Up Theme</th>
+    <th>Test Prep</th>
+    <th>Tech Talk</th>
+    <th>Canvas</th>
+   </tr>
+   
+   <tr>
+    <td>Finals</td>
+    <td>June 6 - 9</td>
+    <td>N@tM Week</td>
+    <td>none</td>
+    <td>none</td>
+    <td>none</td>
+   </tr>
+   
+   <tr>
+    <td>11</td>
+    <td>May 30 - June 3</td>
+    <td>PBL Customer Project Due</td>
+    <td>none</td>
+    <td>none</td>
+    <td>Customer AND/OR Embedded Project Final Review</td>
+   </tr>
+   
+   <tr>
+    <td>10</td>
+    <td>May 23 - 27</td>
+    <td>none</td>
+    <td>none</td>
+    <td>TT10 PBL, sharing data via API's with Crossover Team</td>
+    <td>Customer Project Deployment Review</td>
+   </tr>
+   
+   <tr>
+    <td>9</td>
+    <td>May 16 - 20</td>
+    <td>none</td>
+    <td>none</td>
+    <td>TT9 PBL, CRUD operations and Async</td>
+    <td>Customer Project Feature Acceptance</td>
+   </tr>
+   
+   <tr>
+    <td>8</td>
+    <td>May 9 - 13</td>
+    <td>AP Exams Week 2</td>
+    <td>CSP Exam May 9th</td>
+    <td>TT8 LED Panels</td>
+    <td>AP Study Week/Customer Project Coding</td>
+   </tr>
+   
+   <tr>
+    <td>7</td>
+    <td>May 2 - 6</td>
+    <td>AP Exams Week 1</td>
+    <td>none</td>
+    <td>TT7 Log4J / Pi4J</td>
+    <td>AP Study Week/Customer Project Coding</td>
+   </tr>
+   
+   <tr>
+    <td>6</td>
+    <td>April 25 - 29</td>
+    <td>College Board Create Task Work Week 2</td>
+    <td>Proctored Test 2</td>
+    <td>TTz6 Console Programming 2 / JavaFX</td>
+    <td></td>
+   </tr>
+   
+   <tr>
+    <td>5</td>
+    <td>April 18 - 22</td>
+    <td>CSP College Board Create Task Work Week 1</td>
+    <td>Proctored Test 1</td>
+    <td>TT5 Console Programming 1</td>
+    <td>none</td>
+   </tr>
+   
+   <tr>
+    <td>Spring Break</td>
+    <td>April 11 - 15</td>
+    <td>none</td>
+    <td>none</td>
+    <td>none</td>
+    <td>none</td>
+   </tr>
+   
+   <tr>
+    <td>4</td>
+    <td>April 4 - 8</td>
+    <td>Ketchup week</td>
+    <td>nones</td>
+    <td>none</td>
+    <td>Individual Data Structures Final</td>
+   </tr>
+   
+   <tr>
+    <td>3</td>
+    <td>March 28 - April 1</td>
+    <td>Java HashMaps</td>
+    <td>Study group Challenge 3</td>
+    <td>TT3 Adding a Database to Data Ops</td>
+    <td>Data Structures Challenge 3</td>
+   </tr>
+
+   <tr>
+    <td>2</td>
+    <td>March 21 - 25</td>
+    <td>Java Sorts and Analysis</td>
+    <td>Study group Challenge 2</td>
+    <td>TT2 Sorts</td>
+    <td>Data Structures Challenge 2</td>
+   </tr>
+   
+   <tr>
+    <td>1</td>
+    <td>March 14 - 18</td>
+    <td>Java Linked Lists</td>
+    <td>Study group Challenge 1</td>
+    <td>TT1 Linked Lists</td>
+    <td>Data Structures Challenge 1</td>
+   </tr>
+   
+   <tr>
+    <td>0</td>
+    <td>March 7 - 11</td>
+    <td>Innovation Week options: Individual Data Structures Project, Exploring Embedded Programming AND/OR Creating a Web Project</td>
+    <td>Form Study groups</td>
+    <td>TT0 Data Structures</td>
+    <td>Plans, Team, Jobs</td>
+   </tr>
+</table>
+
+
 # Tri 2 Time Box
 
 <table>
