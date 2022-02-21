@@ -214,7 +214,7 @@ public class Calculator {
         return ("Original expression: " + this.expression + "\n" +
                 "Tokenized expression: " + this.tokens.toString() + "\n" +
                 "Reverse Polish Notation: " +this.reverse_polish.toString() + "\n" +
-                "Final result: " + this.result.toString());
+                "Final result: " + String.format("%.2f", this.result));
     }
 
     // Tester method
