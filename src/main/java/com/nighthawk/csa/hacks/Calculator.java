@@ -20,6 +20,7 @@ public class Calculator {
     }
 
     // Term Splitter takes original expression and converts it to ArrayList of terms
+    // a calculator will need this to keep evaluation of expression effective and simple
     private void termSplitter() {
         int start = 0;  // term split starting index
         String working_term = "";    // term holder
