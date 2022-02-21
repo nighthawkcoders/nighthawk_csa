@@ -25,7 +25,7 @@ public class Calculator {
         String working_term = "";    // term holder
         for (int i = 0; i < this.expression.length(); i++) {
             switch (this.expression.substring(i, i+1)) {
-                // term splitters, including operators
+                // term splitters: operators, parenthesis, space
                 case "+":
                 case "-":
                 case "*":
@@ -44,7 +44,8 @@ public class Calculator {
                     start = i+1;
                     working_term = "";
                     break;
-                // multi character terms, including numbers and functions
+
+                // multi character terms: numbers, functions, perhaps non-supported elements
                 default:
                     working_term = working_term + this.expression.charAt(i);
             }
