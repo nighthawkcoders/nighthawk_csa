@@ -1,9 +1,11 @@
-package com.nighthawk.csa.hacks.squirrel;
+package com.nighthawk.csa.hacks;
 
 import java.util.ArrayList;
 
 // Write a Class Number
 public class Number {
+    private String title = "Number";
+    private String counter = "Index";
     private static int COUNT = 0;
     private final int number;
     private final int index;
@@ -26,9 +28,15 @@ public class Number {
         return this.index;
     }
 
+    // Make a setter to title the Random Number
+    public void setTitle(String title) { this.title = title; }
+
+    // Make a setter to name the Counter
+    public void setCounter(String counter) { this.counter = counter; }
+
     // toString method for formatted output, this was not in requirement but is critical knowledge
     public String toString() {
-        return "Squirrels: " + this.getNumber() + " Day: " + this.getIndex();
+        return this.title + ": " + this.getNumber() + " " + this.counter + ": " + this.getIndex();
     }
 
     // Write a tester method
@@ -42,6 +50,8 @@ public class Number {
         int SQUIRRELS = 10;
         for (int i = 0; i < SQUIRRELS; i++) {
             Number num = new Number();
+            num.setTitle("Squirrels");
+            num.setCounter("Days");
             // Insert in ordered position, this avoids sort algorithm
             for (int j = 0; true; j++) {
                 // Conditions to insert
