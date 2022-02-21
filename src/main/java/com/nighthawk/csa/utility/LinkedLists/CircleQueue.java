@@ -1,4 +1,4 @@
-package com.nighthawk.csa.mvc.DataOps.LinkedLists;
+package com.nighthawk.csa.utility.LinkedLists;
 
 /**
  *  Implementation of Queue, using LinkedList (previous and next).

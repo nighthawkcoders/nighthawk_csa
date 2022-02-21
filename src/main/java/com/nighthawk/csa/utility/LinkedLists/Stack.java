@@ -1,4 +1,4 @@
-package com.nighthawk.csa.mvc.DataOps.LinkedLists;
+package com.nighthawk.csa.utility.LinkedLists;
 
 import java.util.*;
 
@@ -26,12 +26,10 @@ public class Stack
      *
      * @return  the current objects value in Stack.
      */
-    public Object getObject()
+    public Object peek()
     {
         if (lifo == null)
-        {
-            throw new NoSuchElementException();
-        }
+            return null;
         else
             return lifo.getObject();
     }

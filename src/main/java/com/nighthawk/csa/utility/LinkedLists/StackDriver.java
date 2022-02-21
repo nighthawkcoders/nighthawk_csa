@@ -1,4 +1,4 @@
-package com.nighthawk.csa.mvc.DataOps.LinkedLists;
+package com.nighthawk.csa.utility.LinkedLists;
 
 
 import com.nighthawk.csa.utility.ConsoleMethods;
@@ -33,7 +33,7 @@ public class StackDriver {
         for (Object o : objects)
         {
             stack.push(o);
-            ConsoleMethods.println("Push: " + stack.getObject() + " " + stack);
+            ConsoleMethods.println("Push: " + stack.peek() + " " + stack);
             this.count++;
         }
         ConsoleMethods.println();
@@ -43,7 +43,7 @@ public class StackDriver {
     public void showStack()
     {
         ConsoleMethods.println("Size: " + count);
-        ConsoleMethods.println("Top Element: " + stack.getObject());
+        ConsoleMethods.println("Top Element: " + stack.peek());
         ConsoleMethods.println("Full Stack: " + stack);
         ConsoleMethods.println();
     }

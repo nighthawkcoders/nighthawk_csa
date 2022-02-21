@@ -5,7 +5,7 @@ import com.nighthawk.csa.mvc.DataOps.genericDataModel.Alphabet;
 import com.nighthawk.csa.mvc.DataOps.genericDataModel.Animal;
 import com.nighthawk.csa.mvc.DataOps.genericDataModel.Cupcakes;
 
-import com.nighthawk.csa.mvc.DataOps.LinkedLists.CircleQueue;
+import com.nighthawk.csa.utility.LinkedLists.CircleQueue;
 import lombok.Getter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

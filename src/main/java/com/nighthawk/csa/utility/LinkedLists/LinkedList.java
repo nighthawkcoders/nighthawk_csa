@@ -1,4 +1,4 @@
-package com.nighthawk.csa.mvc.DataOps.LinkedLists;
+package com.nighthawk.csa.utility.LinkedLists;
 /**
  *  Implementation of a Linked List with an Object reference as database;  forward and backward links point to adjacent Nodes.
  *
