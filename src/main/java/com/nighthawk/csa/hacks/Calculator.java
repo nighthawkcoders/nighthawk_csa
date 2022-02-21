@@ -81,37 +81,37 @@ public class Calculator {
         this.tokens = new ArrayList<>();
 
         int start = 0;  // term split starting index
-        StringBuilder working_term = new StringBuilder();    // term holder
+        StringBuilder multiCharTerm = new StringBuilder();    // term holder
         for (int i = 0; i < this.expression.length(); i++) {
             Character c = this.expression.charAt(i);
             if ( isOperator(c.toString() ) || isSeperator(c.toString())  ) {
                 // 1st check for working term and add if it exists
-                if (working_term.length() > 0) {
+                if (multiCharTerm.length() > 0) {
                     tokens.add(this.expression.substring(start, i));
                 }
                 // Add operator or parenthesis term to list
-                if (this.expression.charAt(i) != ' ') {
-                    tokens.add(this.expression.substring(i, i + 1));
+                if (c != ' ') {
+                    tokens.add(c.toString());
                 }
                 // Get ready for next term
                 start = i + 1;
-                working_term = new StringBuilder();
+                multiCharTerm = new StringBuilder();
             } else {
                 // multi character terms: numbers, functions, perhaps non-supported elements
                 // Add next character to working term
-                working_term.append(c);
+                multiCharTerm.append(c);
             }
 
         }
         // Add last term
-        if (working_term.length() > 0) {
+        if (multiCharTerm.length() > 0) {
             tokens.add(this.expression.substring(start));
         }
     }
 
-    // Takes human order of terms and reorders to Reverse Polish Notation (RPN)
+    // Takes tokens and converts to Reverse Polish Notation (RPN), this is one where the operator follows its operands.
     private void tokensToReversePolishNotation () {
-        // contains final list of tokens in RPN order
+        // contains final list of tokens in RPN
         this.reverse_polish = new ArrayList<>();
 
         // stack is used to reorder for appropriate grouping and precedence
@@ -176,26 +176,26 @@ public class Calculator {
             else
             {
                 // Pop the two top entries
-                Double d2 = Double.valueOf( (String)stack.pop() );
-                Double d1 = Double.valueOf( (String)stack.pop() );
+                Double operand1 = Double.valueOf( (String)stack.pop() );
+                Double operand0 = Double.valueOf( (String)stack.pop() );
 
                 // Calculate intermediate results
                 Double result;
-                switch (token) {
+                switch (token) {    // token is the operator
                     case "+":
-                        result = d1 + d2;
+                        result = operand0 + operand1;
                         break;
                     case "-":
-                        result = d1 - d2;
+                        result = operand0 - operand1;
                         break;
                     case "*":
-                        result = d1 * d2;
+                        result = operand0 * operand1;
                         break;
                     case "/":
-                        result = d1 / d2;
+                        result = operand0 / operand1;
                         break;
                     case "%":
-                        result = d1 % d2;
+                        result = operand0 % operand1;
                         break;
                     default:    //  replace this code with errors
                         result = 0.0;
@@ -211,10 +211,10 @@ public class Calculator {
 
     // Print the expression, terms, and result
     public String toString() {
-        return (this.expression + "\n" +
-                this.tokens.toString() + "\n" +
-                this.reverse_polish.toString() + "\n" +
-                this.result.toString());
+        return ("Original expression: " + this.expression + "\n" +
+                "Tokenized expression: " + this.tokens.toString() + "\n" +
+                "Reverse Polish Notation: " +this.reverse_polish.toString() + "\n" +
+                "Final result: " + this.result.toString());
     }
 
     // Tester method
