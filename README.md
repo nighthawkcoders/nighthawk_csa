@@ -108,7 +108,7 @@
     <td>March 28 - April 1</td>
     <td>Java HashMaps</td>
     <td>Study group Challenge 3</td>
-    <td>TT3 Adding a Database to Data Ops</td>
+    <td>TT3 Sorts and Analysis</td>
     <td>Data Structures Challenge 3</td>
    </tr>
 
@@ -117,7 +117,7 @@
     <td>March 21 - 25</td>
     <td>Java Sorts and Analysis</td>
     <td>Study group Challenge 2</td>
-    <td>TT2 Sorts</td>
+    <td>TT2 Calculator, Stacks, ArrayLists</td>
     <td>Data Structures Challenge 2</td>
    </tr>
    
