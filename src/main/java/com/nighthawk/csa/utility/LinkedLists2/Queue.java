@@ -1,11 +1,15 @@
 package com.nighthawk.csa.utility.LinkedLists2;
 
+import com.nighthawk.csa.mvc.DataOps.genericDataModel.Alphabet;
 import com.nighthawk.csa.mvc.DataOps.genericDataModel.Animal;
+import com.nighthawk.csa.mvc.DataOps.genericDataModel.Cupcakes;
+import com.nighthawk.csa.mvc.DataOps.genericDataModel.Generics;
+import com.nighthawk.csa.utility.ConsoleMethods;
 
 import java.util.Iterator;
 
 // Custom Linked List class using Java Generic T and implements Iterable
-class Queue<T> implements Iterable<T> {
+public class Queue<T> implements Iterable<T> {
     LinkedList<T> head, tail;
 
     /**
@@ -74,6 +78,50 @@ class QueueIterator<T> implements Iterator<T> {
     }
 }
 
+/**
+ * Queue Manager
+ * @author     John Mortensen
+ *
+ */
+class QueueManager {
+    //persistent circle queue data
+    private Queue<Generics> queue;	// circle queue object
+    private int count; // number of objects in circle queue
+    private String name; // name of queue
+
+    /**
+     *  Queue constructor
+     */
+    public QueueManager(String name, Generics[] objects) {
+        // queue inits
+        this.name = name;
+        this.count = 0;
+        this.queue = new Queue<>();
+        this.addListToQueue(objects);
+    }
+
+    /**
+     * Add a list of objects to queue
+     */
+    public void addListToQueue(Generics[] objects) {
+        for (Generics o : objects) {
+            this.queue.add(o);
+            this.count++;
+        }
+    }
+
+    /**
+     * Print any Generics array objects from queue
+     */
+    public void printQueue() {
+        System.out.println(this.name + " count: " + count);
+        System.out.print(this.name + " data: ");
+        for (Generics g : queue)
+            System.out.print(g + " ");
+        System.out.println();
+    }
+}
+
 // Driver class
 class Main {
     public static void main(String[] args)
@@ -91,20 +139,29 @@ class Main {
         Queue<Integer> iQ = new Queue<>();
         iQ.add(0);iQ.add(1);iQ.add(2);iQ.add(3);iQ.add(4);
         // Prove as iterable with For Each Loop
-        Animal.setOrder(Animal.KeyType.name);
         System.out.print("Integers in queue: ");
         for (Integer i : iQ)
             System.out.print(i + " ");
         System.out.println();
 
         // Create iterable Queue of Animals
-        Queue<Animal> aQ = new Queue<>();
-        for (Animal a : Animal.animalData()) {
-            aQ.add(a);
-        }
-        System.out.print("Animals in queue: ");
-        for (Animal a : aQ)
-            System.out.print(a + " ");
-        System.out.println();
+        Animal.setOrder(Animal.KeyType.name);
+        QueueManager Qa = new QueueManager("Animals", Animal.animalData());
+        Qa.printQueue();
+
+        // Create iterable Queue of Animals
+        Alphabet.setOrder(Alphabet.KeyType.letter);
+        QueueManager Qaa = new QueueManager("Alphabet", Alphabet.alphabetData());
+        Qaa.printQueue();
+
+        // Create iterable Queue of Animals
+        Cupcakes.setOrder(Cupcakes.KeyType.flavor);
+        QueueManager Qc = new QueueManager("Cupcakes", Cupcakes.cupCakeData());
+        Qc.printQueue();
+
+        QueueManager Qmix = new QueueManager("Mixed", Animal.animalData());
+        Qmix.addListToQueue(Alphabet.alphabetData());
+        Qmix.addListToQueue(Cupcakes.cupCakeData());
+        Qmix.printQueue();
     }
 }
