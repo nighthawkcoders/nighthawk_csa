@@ -13,8 +13,7 @@ public class CircleQueue
     private LinkedList currentNode;
 
     /**
-     *  Constructor for the SinglyLinkedList object
-     *  Generates an empty list.
+     *  Constructor generates an empty list.
      */
     public CircleQueue()
     {
