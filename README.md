@@ -135,7 +135,7 @@
     <td>March 7 - 11</td>
     <td>Innovation Week options: Individual Data Structures Project, Exploring Embedded Programming AND/OR Creating a Web Project</td>
     <td>Form Study groups</td>
-    <td>TT0 Data Structures</td>
+    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-0---Data-Structures">TT0 Data Structures</a></td>
     <td>Plans, Team, Jobs</td>
    </tr>
 </table>
