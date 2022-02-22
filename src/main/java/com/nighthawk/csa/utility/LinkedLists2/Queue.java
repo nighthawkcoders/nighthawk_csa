@@ -1,5 +1,7 @@
 package com.nighthawk.csa.utility.LinkedLists2;
 
+import com.nighthawk.csa.mvc.DataOps.genericDataModel.Animal;
+
 import java.util.Iterator;
 
 // Custom Linked List class using Java Generic T and implements Iterable
@@ -89,9 +91,20 @@ class Main {
         Queue<Integer> iQ = new Queue<>();
         iQ.add(0);iQ.add(1);iQ.add(2);iQ.add(3);iQ.add(4);
         // Prove as iterable with For Each Loop
+        Animal.setOrder(Animal.KeyType.name);
         System.out.print("Integers in queue: ");
         for (Integer i : iQ)
             System.out.print(i + " ");
+        System.out.println();
+
+        // Create iterable Queue of Animals
+        Queue<Animal> aQ = new Queue<>();
+        for (Animal a : Animal.animalData()) {
+            aQ.add(a);
+        }
+        System.out.print("Animals in queue: ");
+        for (Animal a : aQ)
+            System.out.print(a + " ");
         System.out.println();
     }
 }
