@@ -11,7 +11,7 @@ public class IntByReference {
         return (String.format("%d", this.value));
     }
 
-    public void swapLowHigh(IntByReference i) {
+    public void swapToLowHighOrder(IntByReference i) {
         if (this.value > i.value) {
             int tmp = this.value;
             this.value = i.value;
@@ -23,7 +23,7 @@ public class IntByReference {
         IntByReference a = new IntByReference(n0);
         IntByReference b = new IntByReference(n1);
         System.out.println("Before: " + a + " " + b);
-        a.swapLowHigh(b);  // conditionally build swap method to change values of a, b
+        a.swapToLowHighOrder(b);  // conditionally build swap method to change values of a, b
         System.out.println("After: " + a + " " + b);
         System.out.println();
     }
