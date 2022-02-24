@@ -142,7 +142,7 @@ class QueueManager {
 
 /**
  * Driver Class
- *
+ * Tests queue with string, integers, and mixes of Classes and types
  */
 class QueueTester {
     public static void main(String[] args)
@@ -157,20 +157,17 @@ class QueueTester {
         QueueManager qNums = new QueueManager("Integers", numbers );
         qNums.printQueue();
 
-        // Create iterable Queue of Animals
+        // Create iterable Queue of NCS Generics
         Animal.setOrder(Animal.KeyType.name);
-        QueueManager qAnimal = new QueueManager("Animals", Animal.animalData());
-        qAnimal.printQueue();
-
-        // Create iterable Queue of Animals
         Alphabet.setOrder(Alphabet.KeyType.letter);
-        QueueManager qAlpha = new QueueManager("Alphabet", Alphabet.alphabetData());
-        qAlpha.printQueue();
-
-        // Create iterable Queue of Animals
         Cupcakes.setOrder(Cupcakes.KeyType.flavor);
-        QueueManager qCup = new QueueManager("Cupcakes", Cupcakes.cupCakeData());
-        qCup.printQueue();
+        // Illustrates use of a series of repeating arguments
+        QueueManager qGenerics = new QueueManager("My Generics",
+                Alphabet.alphabetData(),
+                Animal.animalData(),
+                Cupcakes.cupCakeData()
+        );
+        qGenerics.printQueue();
 
         // Create iterable Queue of Mixed types of data
         QueueManager qMix = new QueueManager("Mixed");
@@ -178,8 +175,8 @@ class QueueTester {
         qMix.addList(
                 words,
                 numbers,
-                Animal.animalData(),
                 Alphabet.alphabetData(),
+                Animal.animalData(),
                 Cupcakes.cupCakeData()
         );
         qMix.queue.add("End");
