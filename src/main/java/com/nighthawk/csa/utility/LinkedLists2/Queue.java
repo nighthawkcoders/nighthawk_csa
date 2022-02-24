@@ -3,6 +3,7 @@ package com.nighthawk.csa.utility.LinkedLists2;
 import com.nighthawk.csa.mvc.DataOps.genericDataModel.Alphabet;
 import com.nighthawk.csa.mvc.DataOps.genericDataModel.Animal;
 import com.nighthawk.csa.mvc.DataOps.genericDataModel.Cupcakes;
+import com.nighthawk.csa.mvc.DataOps.genericDataModel.Generics;
 
 import java.util.Iterator;
 
@@ -15,7 +16,7 @@ import java.util.Iterator;
  * 3. "has a" LinkedList for head and tail
  */
 public class Queue<T> implements Iterable<T> {
-    LinkedList<T> head, tail;
+    LinkedList<T> head = null, tail = null;
 
     /**
      *  Add a new object at the end of the Queue,
@@ -32,6 +33,31 @@ public class Queue<T> implements Iterable<T> {
             this.tail.setNextNode(tail); // current tail points to new tail
             this.tail = tail;  // update tail
         }
+    }
+
+    /**
+     *  Returns the data of head.
+     *
+     * @return  data, the dequeued data
+     */
+    public T delete() {
+        T data = this.peek();
+        if (this.tail != null) { // initial condition
+            this.head = this.head.getNext(); // current tail points to new tail
+            if (this.head != null) {
+                this.head.setPrevNode(tail);
+            }
+        }
+        return data;
+    }
+
+    /**
+     *  Returns the data of head.
+     *
+     * @return  this.head.getData(), the head data in Queue.
+     */
+    public T peek() {
+        return this.head.getData();
     }
 
     /**
@@ -71,7 +97,7 @@ public class Queue<T> implements Iterable<T> {
 class QueueIterator<T> implements Iterator<T> {
     LinkedList<T> current;  // current element in iteration
 
-    // QueueIterator is intended to the head of the list for iteration
+    // Returns the head of the list
     public QueueIterator(Queue<T> q) {
         current = q.getHead();
     }
@@ -94,11 +120,21 @@ class QueueIterator<T> implements Iterator<T> {
  * 1. "has a" Queue
  * 2. support management of Queue tasks (aka: titling, adding a list, printing)
  */
-class QueueManager {
+class QueueManager<T> {
     // queue data
+    static public boolean DEBUG = false;
     private final String name; // name of queue
-    private int count = 0; // number of objects in queue
-    public final Queue<Object> queue = new Queue<>(); // queue object
+    private long count = 0; // number of objects in queue
+    private final Queue<T> queue = new Queue<>(); // queue object
+
+
+    /**
+     *  Queue constructor
+     *  Title with empty queue
+     */
+    public long size() {
+        return count;
+    }
 
     /**
      *  Queue constructor
@@ -112,7 +148,8 @@ class QueueManager {
      *  Queue constructor
      *  Title with series of Arrays of Objects
      */
-    public QueueManager(String name, Object[]... seriesOfObjects) {
+    @SafeVarargs
+    public QueueManager(String name, T[]... seriesOfObjects) {
         this.name = name;
         this.addList(seriesOfObjects);
     }
@@ -120,23 +157,61 @@ class QueueManager {
     /**
      * Add a list of objects to queue
      */
-    public void addList(Object[]... seriesOfObjects) {
-        for (Object[] objects: seriesOfObjects)
-            for (Object o : objects) {
-                this.queue.add(o);
-                this.count++;
+    @SafeVarargs
+    public final void addList(T[]... seriesOfObjects) {
+        for (T[] objects: seriesOfObjects)
+            for (T data : objects) {
+                this.add(data);
             }
     }
 
     /**
-     * Print any array objects from queue
+     * Delete or dequeue all objects
+     */
+    public void deleteList() {
+        while (this.queue.getHead() != null) {
+            this.delete();
+        }
+    }
+
+    /**
+     * Add an object to queue
+     */
+    public void add(T data) {
+        this.queue.add(data);
+        this.count++;
+        if (DEBUG) {
+            System.out.println("Enqueued data: " + data);
+            printQueue();
+        }
+    }
+
+    /**
+     * Remove an object from the queue
+     */
+    public T delete() {
+        T data = this.queue.delete();
+        this.count--;
+        if (DEBUG) {
+            System.out.println("Dequeued data: " + data);
+            printQueue();
+        }
+        return data;
+    }
+
+    /**
+     * Print objects from queue
      */
     public void printQueue() {
-        System.out.println(this.name + " count: " + count);
-        System.out.print(this.name + " data: ");
-        for (Object o : queue)
-            System.out.print(o + " ");
-        System.out.println();
+        System.out.print(this.name + " count: " + this.size());
+        System.out.print(", data: ");
+        if (this.queue.getHead() == null) {
+            System.out.println( "null");
+        } else {
+            for (Object o : this.queue)
+                System.out.print(o + " ");
+            System.out.println();
+        }
     }
 }
 
@@ -148,21 +223,25 @@ class QueueTester {
     public static void main(String[] args)
     {
         // Create iterable Queue of Words
-        Object[] words = new String[] { "seven", "slimy", "snakes", "sallying", "slowly", "slithered", "southward"};
-        QueueManager qWords = new QueueManager("Words", words );
-        qWords.printQueue();
+        QueueManager.DEBUG = true;
+        String[] words = new String[] { "seven", "slimy", "snakes", "sallying", "slowly", "slithered", "southward"};
+        QueueManager<String> qWords = new QueueManager<>("Words", words );
+        qWords.deleteList();
+
 
         // Create iterable Queue of Integers
+        QueueManager.DEBUG = false;
         Object[] numbers = new Integer[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-        QueueManager qNums = new QueueManager("Integers", numbers );
+        QueueManager<Object> qNums = new QueueManager<>("Integers", numbers );
         qNums.printQueue();
 
         // Create iterable Queue of NCS Generics
+        QueueManager.DEBUG = false;
         Animal.setOrder(Animal.KeyType.name);
         Alphabet.setOrder(Alphabet.KeyType.letter);
         Cupcakes.setOrder(Cupcakes.KeyType.flavor);
         // Illustrates use of a series of repeating arguments
-        QueueManager qGenerics = new QueueManager("My Generics",
+        QueueManager<Generics> qGenerics = new QueueManager<>("My Generics",
                 Alphabet.alphabetData(),
                 Animal.animalData(),
                 Cupcakes.cupCakeData()
@@ -170,8 +249,9 @@ class QueueTester {
         qGenerics.printQueue();
 
         // Create iterable Queue of Mixed types of data
-        QueueManager qMix = new QueueManager("Mixed");
-        qMix.queue.add("Start");
+        QueueManager.DEBUG = false;
+        QueueManager<Object> qMix = new QueueManager<>("Mixed");
+        qMix.add("Start");
         qMix.addList(
                 words,
                 numbers,
@@ -179,7 +259,8 @@ class QueueTester {
                 Animal.animalData(),
                 Cupcakes.cupCakeData()
         );
-        qMix.queue.add("End");
+        qMix.add("End");
         qMix.printQueue();
+        qMix.deleteList();
     }
 }
