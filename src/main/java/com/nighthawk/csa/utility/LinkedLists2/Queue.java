@@ -3,12 +3,17 @@ package com.nighthawk.csa.utility.LinkedLists2;
 import com.nighthawk.csa.mvc.DataOps.genericDataModel.Alphabet;
 import com.nighthawk.csa.mvc.DataOps.genericDataModel.Animal;
 import com.nighthawk.csa.mvc.DataOps.genericDataModel.Cupcakes;
-import com.nighthawk.csa.mvc.DataOps.genericDataModel.Generics;
-import com.nighthawk.csa.utility.ConsoleMethods;
 
 import java.util.Iterator;
 
-// Custom Linked List class using Java Generic T and implements Iterable
+/**
+ * Queue: custom implementation
+ * @author     John Mortensen
+ *
+ * 1. Uses custom LinkedList of Generic type T
+ * 2. Implements Iterable
+ * 3. "has a" LinkedList for head and tail
+ */
 public class Queue<T> implements Iterable<T> {
     LinkedList<T> head, tail;
 
@@ -57,6 +62,12 @@ public class Queue<T> implements Iterable<T> {
     }
 }
 
+/**
+ * Queue Iterator
+ *
+ * 1. "has a" current reference in Queue
+ * 2. supports iterable required methods for next that returns a data object
+ */
 class QueueIterator<T> implements Iterator<T> {
     LinkedList<T> current;  // current element in iteration
 
@@ -70,7 +81,7 @@ class QueueIterator<T> implements Iterator<T> {
         return current != null;
     }
 
-    // next returns data current data and updates to next position in queue
+    // next returns data object and advances to next position in queue
     public T next() {
         T data = current.getData();
         current = current.getNext();
@@ -80,88 +91,98 @@ class QueueIterator<T> implements Iterator<T> {
 
 /**
  * Queue Manager
- * @author     John Mortensen
- *
+ * 1. "has a" Queue
+ * 2. support management of Queue tasks (aka: titling, adding a list, printing)
  */
 class QueueManager {
-    //persistent circle queue data
-    private Queue<Generics> queue;	// circle queue object
-    private int count; // number of objects in circle queue
-    private String name; // name of queue
+    // queue data
+    private final String name; // name of queue
+    private int count = 0; // number of objects in queue
+    public final Queue<Object> queue = new Queue<>(); // queue object
 
     /**
      *  Queue constructor
+     *  Title with empty queue
      */
-    public QueueManager(String name, Generics[] objects) {
-        // queue inits
+    public QueueManager(String name) {
         this.name = name;
-        this.count = 0;
-        this.queue = new Queue<>();
-        this.addListToQueue(objects);
+    }
+
+    /**
+     *  Queue constructor
+     *  Title with series of Arrays of Objects
+     */
+    public QueueManager(String name, Object[]... seriesOfObjects) {
+        this.name = name;
+        this.addList(seriesOfObjects);
     }
 
     /**
      * Add a list of objects to queue
      */
-    public void addListToQueue(Generics[] objects) {
-        for (Generics o : objects) {
-            this.queue.add(o);
-            this.count++;
-        }
+    public void addList(Object[]... seriesOfObjects) {
+        for (Object[] objects: seriesOfObjects)
+            for (Object o : objects) {
+                this.queue.add(o);
+                this.count++;
+            }
     }
 
     /**
-     * Print any Generics array objects from queue
+     * Print any array objects from queue
      */
     public void printQueue() {
         System.out.println(this.name + " count: " + count);
         System.out.print(this.name + " data: ");
-        for (Generics g : queue)
-            System.out.print(g + " ");
+        for (Object o : queue)
+            System.out.print(o + " ");
         System.out.println();
     }
 }
 
-// Driver class
-class Main {
+/**
+ * Driver Class
+ *
+ */
+class QueueTester {
     public static void main(String[] args)
     {
-        // Create iterable Queue of Strings
-        Queue<String> sQ = new Queue<>();
-        sQ.add("abc");sQ.add("def");sQ.add("mno");sQ.add("pqr");sQ.add("xyz");
-        // Prove as iterable with For Each Loop
-        System.out.print("Strings in queue: " );
-        for (String s : sQ)
-            System.out.print(s + " ");
-        System.out.println();
+        // Create iterable Queue of Words
+        Object[] words = new String[] { "seven", "slimy", "snakes", "sallying", "slowly", "slithered", "southward"};
+        QueueManager qWords = new QueueManager("Words", words );
+        qWords.printQueue();
 
         // Create iterable Queue of Integers
-        Queue<Integer> iQ = new Queue<>();
-        iQ.add(0);iQ.add(1);iQ.add(2);iQ.add(3);iQ.add(4);
-        // Prove as iterable with For Each Loop
-        System.out.print("Integers in queue: ");
-        for (Integer i : iQ)
-            System.out.print(i + " ");
-        System.out.println();
+        Object[] numbers = new Integer[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        QueueManager qNums = new QueueManager("Integers", numbers );
+        qNums.printQueue();
 
         // Create iterable Queue of Animals
         Animal.setOrder(Animal.KeyType.name);
-        QueueManager Qa = new QueueManager("Animals", Animal.animalData());
-        Qa.printQueue();
+        QueueManager qAnimal = new QueueManager("Animals", Animal.animalData());
+        qAnimal.printQueue();
 
         // Create iterable Queue of Animals
         Alphabet.setOrder(Alphabet.KeyType.letter);
-        QueueManager Qaa = new QueueManager("Alphabet", Alphabet.alphabetData());
-        Qaa.printQueue();
+        QueueManager qAlpha = new QueueManager("Alphabet", Alphabet.alphabetData());
+        qAlpha.printQueue();
 
         // Create iterable Queue of Animals
         Cupcakes.setOrder(Cupcakes.KeyType.flavor);
-        QueueManager Qc = new QueueManager("Cupcakes", Cupcakes.cupCakeData());
-        Qc.printQueue();
+        QueueManager qCup = new QueueManager("Cupcakes", Cupcakes.cupCakeData());
+        qCup.printQueue();
 
-        QueueManager Qmix = new QueueManager("Mixed", Animal.animalData());
-        Qmix.addListToQueue(Alphabet.alphabetData());
-        Qmix.addListToQueue(Cupcakes.cupCakeData());
-        Qmix.printQueue();
+        // Create iterable Queue of Mixed types of data
+        QueueManager qMix = new QueueManager("Mixed");
+        qMix.queue.add("Start");
+        qMix.addList(
+                words,
+                numbers,
+                Animal.animalData(),
+                Alphabet.alphabetData(),
+                Cupcakes.cupCakeData()
+        );
+        qMix.queue.add("End");
+        qMix.printQueue();
     }
 }
