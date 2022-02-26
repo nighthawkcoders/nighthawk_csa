@@ -11,15 +11,15 @@ import com.nighthawk.csa.utility.ConsoleMethods;
  * @author     John Mortensen
  *
  * 1. Uses custom LinkedList of Generic type T
- * 2. Implements Iterable
- * 3. "has a" LinkedList for head and tail
+ * 2. "has a" LinkedList for Last In First Out (LIFO) object
+ *
  */
 public class Stack<T>
 {
     private LinkedList<T> lifo = null;  // last in first out Object of stack
 
     /**
-     *  Returns the current (LIFO) objects value.
+     *  Returns the current (LIFO) objects data.
      *
      * @return  the current data in Stack.
      */
@@ -32,7 +32,7 @@ public class Stack<T>
     }
 
     /**
-     *  Inserts a new object at the top of this Stack,
+     *  Inserts a new data object at the top of this Stack,
      *
      * @param  data  to be inserted at the top of the Stack.
      */
@@ -45,8 +45,9 @@ public class Stack<T>
     }
 
     /**
-     *  Removes the top element in the Stack.  Garbage collection should destroy this element when not used.
+     *  Removes the top element in the Stack.
      *
+     * @return  the popped data from the Stack.
      */
     public T pop()
     {
@@ -62,7 +63,7 @@ public class Stack<T>
      *  Returns a string representation of this Stack,
      *  polymorphic nature of toString overrides of standard System.out.print behavior
      *
-     * @return    string representation of this list
+     * @return    string representation of data within Stack
      */
     public String toString()
     {
@@ -84,9 +85,10 @@ public class Stack<T>
 }
 
 /**
- * Stak Manager
+ * Stack Manager
  * 1. "has a" Stack
- * 2. support management of Stack tasks (aka: titling, adding a list, printing)
+ * 2. support management of Stack tasks (aka: titling, adding a list, emptying, printing)
+ *
  */
 class StackDriver<T> {
     static public boolean DEBUG = false;
@@ -96,7 +98,9 @@ class StackDriver<T> {
 
     /**
      *  Stack constructor
-     *  Title with series of Arrays of Objects
+     *
+     * @param  title  name associated with stack
+     * @param  seriesOfObjects  data to be inserted into stack
      */
     @SafeVarargs
     public StackDriver(String title, T[]... seriesOfObjects) {
@@ -104,6 +108,11 @@ class StackDriver<T> {
         this.addList(seriesOfObjects);
     }
 
+    /**
+     *  Add a series of data object to the Stack
+     *
+     * @param  seriesOfObjects  data to be inserted into stack
+     */
     @SafeVarargs
     public final void addList(T[]... seriesOfObjects)
     {
@@ -117,6 +126,10 @@ class StackDriver<T> {
         if (DEBUG) ConsoleMethods.println();
     }
 
+    /**
+     *  Empty or remove all data objects from the Stack
+     *
+     */
     public void emptyStack()
     {
         if (DEBUG) ConsoleMethods.println("Delete " + title);
@@ -127,6 +140,10 @@ class StackDriver<T> {
         if (DEBUG) ConsoleMethods.println();
     }
 
+    /**
+     *  Print analytics from the Stack
+     *
+     */
     public void printStack()
     {
         ConsoleMethods.println("Size: " + count);
@@ -139,7 +156,8 @@ class StackDriver<T> {
 
 class Main {
     /**
-     * Illustrate different data object that can be placed on the Stack
+     * Test Stack functionality using different types of Objects
+     *
      */
     public static void main(String[] args) {
         // Create Stack of Words
