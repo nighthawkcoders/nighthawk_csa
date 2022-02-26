@@ -126,7 +126,7 @@
     <td>March 14 - 18</td>
     <td>Java Linked Lists</td>
     <td>Study group Challenge 1</td>
-    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-1:-Linked-Lists-Part-2"/>TT1 Linked Lists</a></td>
+    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-1:-Linked-Lists-Part-2">TT1 Linked Lists</a></td>
     <td>Data Structures Challenge 1</td>
    </tr>
    
