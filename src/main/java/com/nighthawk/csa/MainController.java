@@ -425,6 +425,10 @@ public class MainController {
         return "/services/onlinetutoring";
     }
 
+    @GetMapping("/customerfeedback")
+    public String customerfeedback() {
+        return "/services/customerfeedback";
+    }
 
     @GetMapping("/search")
     public String search() {
