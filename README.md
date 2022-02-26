@@ -117,7 +117,7 @@
     <td>March 21 - 25</td>
     <td>Java Sorts and Analysis</td>
     <td>Study group Challenge 2</td>
-    <td>TT2 Calculator, Stacks, ArrayLists</td>
+    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-2:-Calculator">TT2 Calculator, Stacks, ArrayLists</a></td>
     <td>Data Structures Challenge 2</td>
    </tr>
    
