@@ -106,7 +106,7 @@
    <tr>
     <td>3</td>
     <td>March 28 - April 1</td>
-    <td>Java HashMaps</td>
+    <td>Sorts</td>
     <td>Study group Challenge 3</td>
     <td>TT3 Sorts and Analysis</td>
     <td>Data Structures Challenge 3</td>
@@ -115,7 +115,7 @@
    <tr>
     <td>2</td>
     <td>March 21 - 25</td>
-    <td>Java Sorts and Analysis</td>
+    <td>Calculator</td>
     <td>Study group Challenge 2</td>
     <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-2:-Calculator">TT2 Calculator, Stacks, ArrayLists</a></td>
     <td>Data Structures Challenge 2</td>
@@ -124,7 +124,7 @@
    <tr>
     <td>1</td>
     <td>March 14 - 18</td>
-    <td>Java Linked Lists</td>
+    <td>Custom Java and Linked Lists</td>
     <td>Study group Challenge 1</td>
     <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-1:-Linked-Lists-Part-2">TT1 Linked Lists</a></td>
     <td>Data Structures Challenge 1</td>
@@ -134,7 +134,7 @@
     <td>0</td>
     <td>March 7 - 11</td>
     <td>Innovation Week options: Individual Data Structures Project, Exploring Embedded Programming AND/OR Creating a Web Project</td>
-    <td>Form Study groups</td>
+    <td>Plan Tri 3, form PBL/Study groups</td>
     <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-0---Data-Structures">TT0 Data Structures</a></td>
     <td>Plans, Team, Jobs</td>
    </tr>
