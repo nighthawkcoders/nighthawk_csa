@@ -222,17 +222,18 @@ class QueueTester {
     public static void main(String[] args)
     {
         // Create iterable Queue of Words
-        QueueManager.DEBUG = true;
+        QueueManager.DEBUG = false;
         String[] words = new String[] { "seven", "slimy", "snakes", "sallying", "slowly", "slithered", "southward"};
         QueueManager<String> qWords = new QueueManager<>("Words", words );
+        qWords.printQueue();
         qWords.deleteList();
-
 
         // Create iterable Queue of Integers
         QueueManager.DEBUG = false;
         Object[] numbers = new Integer[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
         QueueManager<Object> qNums = new QueueManager<>("Integers", numbers );
         qNums.printQueue();
+        qNums.deleteList();
 
         // Create iterable Queue of NCS Generics
         QueueManager.DEBUG = false;
@@ -240,12 +241,13 @@ class QueueTester {
         Alphabet.setOrder(Alphabet.KeyType.letter);
         Cupcakes.setOrder(Cupcakes.KeyType.flavor);
         // Illustrates use of a series of repeating arguments
-        QueueManager<Generics> qGenerics = new QueueManager<>("My Generics",
+        QueueManager<Generics> qGenerics = new QueueManager<>("Custom Generics",
                 Alphabet.alphabetData(),
                 Animal.animalData(),
                 Cupcakes.cupCakeData()
         );
         qGenerics.printQueue();
+        qGenerics.deleteList();
 
         // Create iterable Queue of Mixed types of data
         QueueManager.DEBUG = false;

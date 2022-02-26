@@ -1,5 +1,9 @@
 package com.nighthawk.csa.utility.LinkedLists2;
 
+import com.nighthawk.csa.mvc.DataOps.genericDataModel.Alphabet;
+import com.nighthawk.csa.mvc.DataOps.genericDataModel.Animal;
+import com.nighthawk.csa.mvc.DataOps.genericDataModel.Cupcakes;
+import com.nighthawk.csa.mvc.DataOps.genericDataModel.Generics;
 import com.nighthawk.csa.utility.ConsoleMethods;
 
 /**
@@ -13,7 +17,6 @@ import com.nighthawk.csa.utility.ConsoleMethods;
 public class Stack<T>
 {
     private LinkedList<T> lifo = null;  // last in first out Object of stack
-
 
     /**
      *  Returns the current (LIFO) objects value.
@@ -42,18 +45,17 @@ public class Stack<T>
     }
 
     /**
-     *  Removes the top element in the Stack.  Garbage collection should destroy this element when needed.
+     *  Removes the top element in the Stack.  Garbage collection should destroy this element when not used.
      *
      */
     public T pop()
     {
-        T data = null;
-
+        T data = null;  // empty condition
         if (lifo != null) {
             data = lifo.getData();
-            lifo = lifo.getPrevious();
+            lifo = lifo.getPrevious();  // stack is overwritten with next item
         }
-        return data;
+        return data;    // pop always returns data of element popped
     }
 
     /**
@@ -110,7 +112,7 @@ class StackDriver<T> {
             for (T data : objects) {
                 this.stack.push(data);
                 this.count++;
-                if (DEBUG) ConsoleMethods.println("Push: " + stack.peek() + " " + stack);
+                if (DEBUG) ConsoleMethods.println("Push: " + this.stack.peek() + " " + this.stack);
             }
         if (DEBUG) ConsoleMethods.println();
     }
@@ -119,9 +121,10 @@ class StackDriver<T> {
     {
         if (DEBUG) ConsoleMethods.println("Delete " + title);
         while (this.stack.peek() != null) {
-            T data = stack.pop();
+            T data = this.stack.pop();
             if (DEBUG) ConsoleMethods.println("Pop: " + data + " " + stack);
         }
+        if (DEBUG) ConsoleMethods.println();
     }
 
     public void printStack()
@@ -140,9 +143,31 @@ class Main {
      */
     public static void main(String[] args) {
         // Create Stack of Words
-        StackDriver.DEBUG = true;
+        StackDriver.DEBUG = false;
         String[] words = new String[]{"seven", "slimy", "snakes", "sallying", "slowly", "slithered", "southward"};
-        StackDriver<String> qWords = new StackDriver<>("Words", words);
-        qWords.emptyStack();
+        StackDriver<String> sWords = new StackDriver<>("Words", words);
+        sWords.printStack();
+        sWords.emptyStack();
+
+        // Create Stack of Integers
+        StackDriver.DEBUG = false;
+        Object[] numbers = new Integer[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        StackDriver<Object> sNums = new StackDriver<>("Integers", numbers );
+        sNums.printStack();
+        sNums.emptyStack();
+
+        // Create iterable Queue of NCS Generics
+        StackDriver.DEBUG = false;
+        Animal.setOrder(Animal.KeyType.name);
+        Alphabet.setOrder(Alphabet.KeyType.letter);
+        Cupcakes.setOrder(Cupcakes.KeyType.flavor);
+        // Illustrates use of a series of arrays
+        StackDriver<Generics> sGenerics = new StackDriver<>("My Generics",
+                Alphabet.alphabetData(),
+                Animal.animalData(),
+                Cupcakes.cupCakeData()
+        );
+        sGenerics.printStack();
+        sGenerics.emptyStack();
     }
 }
