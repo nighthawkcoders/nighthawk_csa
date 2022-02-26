@@ -27,7 +27,7 @@ public class Queue<T> implements Iterable<T> {
         // add new object to end of Queue
         LinkedList<T> tail = new LinkedList<>(data, null);
 
-        if (head == null)  // initial condition
+        if (this.head == null)  // initial condition
             this.head = this.tail = tail;
         else {  // nodes in queue
             this.tail.setNextNode(tail); // current tail points to new tail
@@ -127,15 +127,6 @@ class QueueManager<T> {
     private long count = 0; // number of objects in queue
     private final Queue<T> queue = new Queue<>(); // queue object
 
-
-    /**
-     *  Queue constructor
-     *  Title with empty queue
-     */
-    public long size() {
-        return count;
-    }
-
     /**
      *  Queue constructor
      *  Title with empty queue
@@ -152,6 +143,14 @@ class QueueManager<T> {
     public QueueManager(String name, T[]... seriesOfObjects) {
         this.name = name;
         this.addList(seriesOfObjects);
+    }
+
+    /**
+     *  Queue constructor
+     *  Title with empty queue
+     */
+    public long size() {
+        return count;
     }
 
     /**
