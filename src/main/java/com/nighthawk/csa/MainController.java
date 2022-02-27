@@ -6,6 +6,7 @@ import org.hibernate.loader.collection.BasicCollectionJoinWalker;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import com.nighthawk.csa.data.sarahfrq.frq2.sarahLightSequence;
 import com.nighthawk.csa.data.sarahfrq.frq10.gcf;
+import javax.validation.Valid;
 
 @Controller  // HTTP requests are handled as a controller, using the @Controller annotation
 public class MainController {
@@ -375,13 +377,11 @@ public class MainController {
 
 
 
-    @GetMapping("/schedulenow")
-    public String schedulenow() {
-        return "/services/schedulenow";}
+
 
     @GetMapping("/scheduleconfirm")
     public String scheduleconfirm(){
-        return "/services/scheduleConfirm.html";}
+        return "/services/scheduleConfirm";}
 
 
 

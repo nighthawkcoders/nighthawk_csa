@@ -16,23 +16,24 @@
 
             <h1><strong>Get Started With Personalized Tutoring!</strong></h1>
             <p>We’ll contact you shortly to schedule your free consultation where we'll learn about your goals and recommend a customized plan to achieve them.</p>
-            <form class="row g-3" th:action="@{/schedulenow}" th:object="${schedule}" method="POST">
+            <form class="row g-3" th:action="@{/schedulenow}" th:object="${schedule}" method="POST" modelAttribute="schedule" >
 
                 <div class="col-md-6">
-                    <label for="inputlast" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="inputlast" placeholder="Name" >
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Name" >
+                    <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
                 </div>
                 <div class="col-6">
-                    <label for="inputemail" class="form-label">Email</label>
-                    <input type="text" class="form-control" id="inputemail" placeholder="Email">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="email" placeholder="Email">
                 </div>
                 <div class="col-md-12">
-                    <label for="inputzip" class="form-label">ZIP/Postal Code</label>
-                    <input type="text" class="form-control" id="inputzip" placeholder="Zip Code">
+                    <label for="zip" class="form-label">ZIP/Postal Code</label>
+                    <input type="text" class="form-control" id="zip" placeholder="Zip Code">
                 </div>
                 <div class="col-md-12">
-                    <label for="input" class="form-label">How can we help you?</label>
-                    <input type="text" class="form-control" id="input" placeholder="Start typing here..." >
+                    <label for="help" class="form-label">How can we help you?</label>
+                    <input type="text" class="form-control" id="help" placeholder="Start typing here..." >
                 </div>
                 <div class="container">
                     <div class="row">
