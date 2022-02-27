@@ -35,10 +35,10 @@ public class Schedule {
     @Size(min = 2, max = 30, message = "Email (2 to 30 chars)")
     private String email;
 
-    @NotNull
+
     private Integer zip;
 
-    @NotNull
+
     private String help;
 
     public Schedule(String name, String email, Integer zip, String help) {

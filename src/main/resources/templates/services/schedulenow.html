@@ -20,20 +20,19 @@
 
                 <div class="col-md-6">
                     <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Name" >
-                    <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+                    <input type="text" class="form-control" id="name" placeholder="Name" th:field="*{name}">
                 </div>
                 <div class="col-6">
                     <label for="email" class="form-label">Email</label>
-                    <input type="text" class="form-control" id="email" placeholder="Email">
+                    <input type="text" class="form-control" id="email" placeholder="Email" th:field="*{email}">
                 </div>
                 <div class="col-md-12">
                     <label for="zip" class="form-label">ZIP/Postal Code</label>
-                    <input type="text" class="form-control" id="zip" placeholder="Zip Code">
+                    <input type="text" class="form-control" id="zip" placeholder="Zip Code" th:field="*{zip}">
                 </div>
                 <div class="col-md-12">
                     <label for="help" class="form-label">How can we help you?</label>
-                    <input type="text" class="form-control" id="help" placeholder="Start typing here..." >
+                    <input type="text" class="form-control" id="help" placeholder="Start typing here..." th:field="*{help}">
                 </div>
                 <div class="container">
                     <div class="row">

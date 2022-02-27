@@ -23,7 +23,7 @@ public class ScheduleSqlMvcController implements WebMvcConfigurer {
 
     @PostMapping("/schedulenow")
     public String scheduleSave(@Valid Schedule schedule , BindingResult bindingResult) {
-        // repository.save(schedule);
+        repository.save(schedule);
         System.out.println(schedule.getName());
         return "/services/scheduleConfirm";
     }
