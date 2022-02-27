@@ -72,7 +72,7 @@
     <td>April 25 - 29</td>
     <td>College Board Create Task Work Week 2</td>
     <td>Proctored Test 2</td>
-    <td>TTz6 Console Programming 2 / JavaFX</td>
+    <td>TT6 Console Programming 2 / JavaFX</td>
     <td></td>
    </tr>
    
