@@ -379,6 +379,11 @@ public class MainController {
     public String schedulenow() {
         return "/services/schedulenow";}
 
+    @GetMapping("/scheduleconfirm")
+    public String scheduleconfirm(){
+        return "/services/scheduleConfirm.html";}
+
+
 
     @GetMapping("/profileUser")
     public String profileUser() {
