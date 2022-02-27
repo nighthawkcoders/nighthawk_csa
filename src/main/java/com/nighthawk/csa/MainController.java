@@ -1,12 +1,17 @@
 package com.nighthawk.csa;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.nighthawk.csa.tutoring.Tutor;
+import org.hibernate.loader.collection.BasicCollectionJoinWalker;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.IOException;
@@ -15,9 +20,11 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import com.nighthawk.csa.data.sarahfrq.frq2.sarahLightSequence;
 import com.nighthawk.csa.data.sarahfrq.frq10.gcf;
+import javax.validation.Valid;
 
 @Controller  // HTTP requests are handled as a controller, using the @Controller annotation
 public class MainController {
@@ -55,36 +62,6 @@ public class MainController {
 
     @GetMapping("/ava/frqs")
     public String ava(@RequestParam(name = "frq2", required = false, defaultValue = "0") String frq2, Model model) {
-        int n = Integer.parseInt(frq2);
-
-        if (n == 1) {
-            System.out.println("there is no FRQ1");
-        }
-        else if(n == 2){
-            System.out.println(" \n a) 0101 0101 0101 \n b) gradshow.display() \n c) 001100110011 \n d)String resultSeq = gradShow.insertSegment(“1111 1111”,4);\n e) Int index = oldSeq.index(Segment);\\n\" +\n String newSeq = oldSeq.substring(0,index) + oldSeq.substring(index + segment.length());\\n \n f) Math.sqrt(a*a + b*b)\"");
-        }
-        else if(n == 3){
-            System.out.println("frq3");
-        }
-        else if(n == 4){
-            System.out.println("frq4");
-        }
-        else if(n == 5){
-            System.out.println("frq5");
-        }
-        else if(n == 6){
-            //creating the array using words given by CB
-            String words[] = {"ten", "fading", "post", "card", "thunder", "hinge", "trailing", "batting"};
-
-            //for loop to go through array
-            // word: words allows to search substring of the strings
-            for(String word : words){
-                //lastIndexOf method allows to search for strings in array that have the last 3 letters as "ing" to be printed
-                if(word.lastIndexOf("ing") == word.length() - 3){
-                    System.out.println(word);
-                }
-            }
-        }
         return "individual/avaFrq";
 
     }
@@ -256,9 +233,126 @@ public class MainController {
         return "individual/natashaInvitation";
     }
 
-    @GetMapping("/tutors")
-    public String Tutors() {
+    @RequestMapping(value={"/tutors", "/tutors/{sort}"})
+    public String tutors(Model model, @PathVariable(required = false) String sort) {
+        ArrayList<Tutor> englishTutorList = buildEnglishTutorList();
+        ArrayList<Tutor> mathTutorList = buildMathTutorList();
+        ArrayList<Tutor> chemistryTutorList = buildChemistryTutorList();
+        ArrayList<Tutor> languageTutorList = buildLanguageTutorList();
+        if(sort != null){
+            sortTutorList(englishTutorList);
+            sortTutorList(mathTutorList);
+            sortTutorList(chemistryTutorList);
+            sortTutorList(languageTutorList);
+        }
+        model.addAttribute("englishTutorList", englishTutorList);
+        model.addAttribute("mathTutorList", mathTutorList);
+        model.addAttribute("chemistryTutorList", chemistryTutorList);
+        model.addAttribute("languageTutorList", languageTutorList);
+
         return "tutoring/tutors";
+    }
+
+    private ArrayList<Tutor> buildMathTutorList() {
+        ArrayList<Tutor> tutorList = new ArrayList<Tutor>();
+        Tutor tutor1 = new Tutor("Kaitlin Gil",
+                "Statistics",
+                "Kaitlin is a freshman in college and majoring in statistics. She took AP statistics in high school and received a 5 on the AP exam. She can help assist with homework, classwork, and go over problems.",
+                "/images/tutorkaitlin.jpg");
+        Tutor tutor2 = new Tutor("Calvin Wren",
+                "Calculus",
+                "Calvin is a senior in high school and took AP Calculus AB, BC, and college calculus courses in college by the time he was a junior in high school. He is very familiar with the course and loves to help students.",
+                "/images/tutorcalvin.jpg");
+        Tutor tutor3 = new Tutor("Mark Kellar",
+                "Algebra & Geometry",
+                "Mark is a freshman in high school majoring in mathematics and took every possible math class in high school. He performs very well on tests and his assistance can be beneficial to students.",
+                "/images/tutormark.jpg");
+
+        tutorList.add(tutor1);
+        tutorList.add(tutor2);
+        tutorList.add(tutor3);
+
+        return tutorList;
+    }
+
+    private ArrayList<Tutor> buildChemistryTutorList() {
+        ArrayList<Tutor> tutorList = new ArrayList<Tutor>();
+        Tutor tutor1 = new Tutor("Cole Styles",
+                "Organic Chemistry",
+                "Kaitlin is a freshman in college and majoring in statistics. She took AP statistics in high school and received a 5 on the AP exam. She can help assist with homework, classwork, and go over problems.",
+                "/images/tutorcole.jpg");
+        Tutor tutor2 = new Tutor("Emma Wat",
+                "Biochemistry",
+                "Emma is a junior in college at UC Berkeley and majors in biochemistry. She is a responsible student who earned a 5 on her AP Chemistry and AP Biology AP exam. She can assist with classwork, homework, and test prep.",
+                "/images/tutoremma.jpg");
+        Tutor tutor3 = new Tutor("Justin Webs",
+                "Physical Chemistry",
+                "Justin is a senior in high school and earned a 5 on the AP Chem exam. He is very familiar with the course as he recently took the class. He can assist with homework and class work as well as test prep.",
+                "/images/tutorjustin.jpg");
+
+        tutorList.add(tutor1);
+        tutorList.add(tutor2);
+        tutorList.add(tutor3);
+
+        return tutorList;
+    }
+
+    private ArrayList<Tutor> buildLanguageTutorList() {
+        ArrayList<Tutor> tutorList = new ArrayList<Tutor>();
+        Tutor tutor1 = new Tutor("Ed Sheshe",
+                "Mandarin",
+                "Ed is familiar with reading, writing, and speaking mandarin. He can help assist with classwork and school work, as well as teaching students how to hold a conversation.",
+                "/images/tutored.jpg");
+        Tutor tutor2 = new Tutor("Austin Dubois",
+                "French",
+                "Austin was born and raised in France and recently moved to the United Stated. He is very familiar with the French language and can help assist with reading, writing, and speaking French.",
+                "/images/tutoraustin.jpg");
+        Tutor tutor3 = new Tutor("Trish Lopez",
+                "Spanish",
+                "Trish lived in Mexico for 8 years and speaks spanish at home. She can assist with speaking, reading, and writing spanish, with practice in holding conversations.",
+                "/images/tutortrish.jpg");
+
+        tutorList.add(tutor1);
+        tutorList.add(tutor2);
+        tutorList.add(tutor3);
+
+        return tutorList;
+    }
+
+    private ArrayList<Tutor> buildEnglishTutorList(){
+        ArrayList<Tutor> tutorList = new ArrayList<Tutor>();
+
+        Tutor tutor1 = new Tutor("Jennifer Mckennen",
+                "History Essay",
+                "Jennifer is a senior in high school and has been assisting students with their essays for four years. She enjoys poetry and historical fiction. Her favorite book is The Song of Achilles by Madeline Miller.",
+                "/images/tutorjennifer.jpg");
+
+        Tutor tutor2 = new Tutor("Kevin Kim",
+                "Literature",
+                "Kevin is a junior in high school and has been working with the WHAT Center for two years. He enjoys reading classic books and his favorite author is Jane Austen.",
+                "/images/tutorkevin.jpg");
+
+        Tutor tutor3 = new Tutor("Jonathan Do",
+                "Creative Writing",
+                "Jonathan is a senior in high school and has crafted stellar english essays in his AP Literature class. He enjoys creative writing and hopes to write his own book in the future!",
+                "/images/tutorjonathan.jpg");
+
+        tutorList.add(tutor1);
+        tutorList.add(tutor2);
+        tutorList.add(tutor3);
+        return tutorList;
+    }
+
+    private void sortTutorList(ArrayList<Tutor> tutors){
+        for (int i = 0; i < tutors.size(); i++) {
+            for (int j = i+1; j < tutors.size(); j++) {
+                if ((tutors.get(i).getName().compareTo(tutors.get(j).getName()) > 0) && (i != j)) {
+                    Tutor tutor = tutors.get(i);
+                    tutors.set(i, tutors.get(j));
+                    tutors.set(j, tutor);
+                }
+            }
+        }
     }
 
     @GetMapping("/teamabout")
@@ -283,9 +377,12 @@ public class MainController {
 
 
 
-    @GetMapping("/schedulenow")
-    public String schedulenow() {
-        return "/services/schedulenow";}
+
+
+    @GetMapping("/scheduleconfirm")
+    public String scheduleconfirm(){
+        return "/services/scheduleConfirm";}
+
 
 
     @GetMapping("/profileUser")
@@ -303,6 +400,10 @@ public class MainController {
         return "/services/onlinetutoring";
     }
 
+    @GetMapping("/customerfeedback")
+    public String customerfeedback() {
+        return "/services/customerfeedback";
+    }
 
     @GetMapping("/search")
     public String search() {

@@ -13,144 +13,82 @@
 <!-- <body> -->
 <div layout:fragment="body" th:remove="tag">
 
-  <div class="row" style="padding:100px;">
-    <h1>English</h1> <p><button class="button">Schedule</button></p>
-    <div class="column">
-      <br>
-      <div class="card">
-        <div class="container">
-          <img src="" th:src="@{'/images/tutorjennifer.jpg'}" alt="tutors" style="margin-left:90px; max-width: 49%;">
-          <h2><p style="text-align:center">Jennifer Mckennen</p></h2>
-          <p class="title">History Essays</p>
-          <p>Jennifer is a senior in high school and has been assisting students with their essays for four years. She enjoys poetry and historical fiction. Her favorite book is The Song of Achilles by Madeline Miller. </p>
+  <div class="row" style="padding:100px;" >
+
+    <h1>English</h1>
+    <p><button class="button">Schedule</button></p>
+    <form id="englishSort" action="/tutors/sort" method="POST" >
+      <p><button class="button">Sort</button></p>
+    </form>
+    <div class="column" th:each="tutor: ${englishTutorList}" >
+        <br>
+        <div class="card">
+          <div class="container">
+            <img src="" th:src="@{${tutor.image}}" alt="tutors" style="margin-left:90px; max-width: 49%;">
+            <h2><p style="text-align:center" th:text="${tutor.name}" /></h2>
+            <p class="title" th:text="${tutor.subject}" />
+            <p th:text="${tutor.description}" />
+          </div>
         </div>
-      </div>
     </div>
-    <div class="column">
+
+
+
+    <h1>Math</h1>
+    <p><button class="button">Schedule</button></p>
+    <form id="mathSort" action="/tutors/sort" method="POST" >
+      <p><button class="button">Sort</button></p>
+    </form>
+    <div class="column" th:each="tutor: ${mathTutorList}" >
       <br>
       <div class="card">
         <div class="container">
-          <img src="" th:src="@{'/images/tutorkevin.jpg'}" alt="tutors" style="margin-left:90px; max-width: 52%;">
-          <h2><p style="text-align:center">Kevin Kim</p></h2>
-          <p class="title">Literature</p>
-          <p>Kevin is a junior in high school and has been working with the WHAT Center for two years. He enjoys reading classic books and his favorite author is Jane Austen.</p>
-        </div>
-      </div>
-    </div>
-    <div class="column">
-      <br>
-      <div class="card">
-        <div class="container">
-          <img src="" th:src="@{'/images/tutorjonathan.jpg'}" alt="tutors" style="margin-left:90px; max-width: 50%;">
-          <h2><p style="text-align:center">Jonathan Do</p></h2>
-          <p class="title">Creative Writing</p>
-          <p>Jonathan is a senior in high school and has crafted stellar english essays in his AP Literature class. He enjoys creative writing and hopes to write his own book in the future!</p>
+          <img src="" th:src="@{${tutor.image}}" alt="tutors" style="margin-left:90px; max-width: 49%;">
+          <h2><p style="text-align:center" th:text="${tutor.name}" /></h2>
+          <p class="title" th:text="${tutor.subject}" />
+          <p th:text="${tutor.description}" />
         </div>
       </div>
     </div>
 
-    <h1 style="margin-top:100px;">Math</h1> <p><button class="button">Schedule</button></p>
-    <div class="column">
+
+
+    <h1>Chemistry</h1>
+    <p><button class="button">Schedule</button></p>
+    <form id="chemistrySort" action="/tutors/sort" method="POST" >
+      <p><button class="button">Sort</button></p>
+    </form>
+    <div class="column" th:each="tutor: ${chemistryTutorList}" >
       <br>
       <div class="card">
         <div class="container">
-          <img src="" th:src="@{'/images/tutorkaitlin.jpg'}" alt="tutors" style="margin-left:90px; max-width: 50%;">
-          <h2><p style="text-align:center">Kaitlin Gil</p></h2>
-          <p class="title">Statistics</p>
-          <p>Kaitlin is a freshman in college and majoring in statistics. She took AP statistics in high school and received a 5 on the AP exam. She can help assist with homework, classwork, and go over problems.  </p>
+          <img src="" th:src="@{${tutor.image}}" alt="tutors" style="margin-left:90px; max-width: 49%;">
+          <h2><p style="text-align:center" th:text="${tutor.name}" /></h2>
+          <p class="title" th:text="${tutor.subject}" />
+          <p th:text="${tutor.description}" />
         </div>
       </div>
     </div>
-    <div class="column">
+
+
+
+    <h1>Language</h1>
+    <p><button class="button">Schedule</button></p>
+    <form id="languageSort" action="/tutors/sort" method="POST" >
+      <p><button class="button">Sort</button></p>
+    </form>
+    <div class="column" th:each="tutor: ${languageTutorList}" >
       <br>
       <div class="card">
         <div class="container">
-          <img src="" th:src="@{'/images/tutorcalvin.jpg'}" alt="tutors" style="margin-left:90px; max-width: 50%;">
-          <h2><p style="text-align:center">Calvin Wren</p></h2>
-          <p class="title">Calculus</p>
-          <p>Calvin is a senior in high school and took AP Calculus AB, BC, and college calculus courses in college by the time he was a junior in high school. He is very familiar with the course and loves to help students. </p>
+          <img src="" th:src="@{${tutor.image}}" alt="tutors" style="margin-left:90px; max-width: 49%;">
+          <h2><p style="text-align:center" th:text="${tutor.name}" /></h2>
+          <p class="title" th:text="${tutor.subject}" />
+          <p th:text="${tutor.description}" />
         </div>
       </div>
     </div>
-    <div class="column">
-      <br>
-      <div class="card">
-        <div class="container">
-          <img src="" th:src="@{'/images/tutormark.jpg'}" alt="tutors" style="margin-left:90px; max-width: 50%;">
-          <h2><p style="text-align:center">Mark Kellar</p></h2>
-          <p class="title">Algebra & Geometry </p>
-          <p>Mark is a freshman in high school majoring in mathematics and took every possible math class in high school. He performs very well on tests and his assistance can be beneficial to students.  </p>
-        </div>
-      </div>
-    </div>
-    <h1 style="margin-top:100px;" >Chemistry Tutoring</h1> <p><button class="button">Schedule</button></p>
-    <div class="column">
-      <br>
-      <div class="card">
-        <div class="container">
-          <img src="" th:src="@{'/images/tutorcole.jpg'}" alt="tutors" style="margin-left:110px; max-width: 40%;">
-          <h2><p style="text-align:center">Cole Styles</p></h2>
-          <p class="title">Organic Chemistry</p>
-          <p>Cole is a sophomore in college at UPenn and majors in organic chemistry. He performs well on his chemistry tests and can assist students in labs, classwork, homework, and test prep. He also took the AP Chemistry test and can help with AP test prep. </p>
-        </div>
-      </div>
-    </div>
-    <div class="column">
-      <br>
-      <div class="card">
-        <div class="container">
-          <img src="" th:src="@{'/images/tutoremma.jpg'}" alt="tutors" style="margin-left:80px; max-width: 55%;">
-          <h2><p style="text-align:center">Emma Wat</p></h2>
-          <p class="title">Biochemistry</p>
-          <p>Emma is a junior in college at UC Berkeley and majors in biochemistry. She is a responsible student who earned a 5 on her AP Chemistry and AP Biology AP exam. She can assist with classwork, homework, and test prep. </p>
-        </div>
-      </div>
-    </div>
-    <div class="column">
-      <br>
-      <div class="card">
-        <div class="container">
-          <img src="" th:src="@{'/images/tutorjustin.jpg'}" alt="tutors" style="margin-left:90px; max-width: 50%;">
-          <h2><p style="text-align:center">Justin Webs</p></h2>
-          <p class="title">Physical Chemistry</p>
-          <p>Justin is a senior in high school and earned a 5 on the AP Chem exam. He is very familiar with the course as he recently took the class. He can assist with homework and class work as well as test prep.</p>
-        </div>
-      </div>
-    </div>
-    <h1 style="margin-top:100px;">Language</h1><p><button class="button">Schedule</button></p>
-    <div class="column">
-      <br>
-      <div class="card">
-        <div class="container">
-          <img src="" th:src="@{'/images/tutored.jpg'}" alt="tutors" style="margin-left:110px; max-width: 65%;">
-          <h2><p style="text-align:center">Ed Sheshe</p></h2>
-          <p class="title">Mandarin</p>
-          <p>Ed is familiar with reading, writing, and speaking mandarin. He can help assist with classwork and school work, as well as teaching students how to hold a conversation. </p>
-        </div>
-      </div>
-    </div>
-    <div class="column">
-      <br>
-      <div class="card">
-        <div class="container">
-          <img src="" th:src="@{'/images/tutoraustin.jpg'}" alt="tutors" style="margin-left:100px; max-width: 52%;">
-          <h2><p style="text-align:center">Austin Dubois</p></h2>
-          <p class="title">French</p>
-          <p>Austin was born and raised in France and recently moved to the United Stated. He is very familiar with the French language and can help assist with reading, writing, and speaking French.  </p>
-        </div>
-      </div>
-    </div>
-    <div class="column">
-      <br>
-      <div class="card">
-        <div class="container">
-          <img src="" th:src="@{'/images/tutortrish.jpg'}" alt="tutors" style="margin-left:100px; max-width: 48%;">
-          <h2><p style="text-align:center">Trish Lopez</p></h2>
-          <p class="title">Spanish</p>
-          <p>Trish lived in Mexico for 8 years and speaks spanish at home. She can assist with speaking, reading, and writing spanish, with practice in holding conversations.  </p>
-        </div>
-      </div>
-    </div>
+
     <style>
       /* Three columns side by side */
       .column {
