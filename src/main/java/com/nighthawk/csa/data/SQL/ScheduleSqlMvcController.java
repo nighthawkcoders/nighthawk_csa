@@ -18,12 +18,11 @@ public class ScheduleSqlMvcController implements WebMvcConfigurer {
     private ScheduleSqlRepository repository;
 
     @GetMapping("/schedulenow")
-    public String schedulenow(Model model) {
-        model.addAttribute("schedule", new Schedule());
+    public String schedulenow(Schedule schedule) {
         return "/services/schedulenow";}
 
     @PostMapping("/schedulenow")
-    public String scheduleSave(@Valid @ModelAttribute("schedule") Schedule schedule , BindingResult bindingResult) {
+    public String scheduleSave(@Valid Schedule schedule , BindingResult bindingResult) {
         // repository.save(schedule);
         System.out.println(schedule.getName());
         return "/services/scheduleConfirm";
