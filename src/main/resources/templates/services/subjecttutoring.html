@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
+
+<!-- <head> -->
+<div layout:fragment="head" th:remove="tag">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" integrity="sha512-Oy18vBnbSJkXTndr2n6lDMO5NN31UljR8e/ICzVPrGpSud4Gkckb8yUpqhKuUNoE+o9gAb4O/rAxxw1ojyUVzg==" crossorigin="anonymous" />
+    <title>Tutors</title>
+</div>
+
+<!-- <body> -->
+<div layout:fragment="body" th:remove="tag">
+
+    <div class="container-fluid text-center">
+        <div class="row content">
+            <div class="col-sm-2 sidenav">
+                <p><a href="/tutoring-services/subject-tutoring/math-tutoring/">Math tutoring</a></p>
+                <p><a href="/tutoring-services/subject-tutoring/science-tutoring/">Science tutoring</a></p>
+                <p><a href="/tutoring-services/subject-tutoring/english-tutoring/">English tutoring</a></p>
+                <p><a href="/tutoring-services/language-tutoring/">Language tutoring</a></a></p>
+                <p><a href="/tutoring-services/test-prep-services/">Test preparation</a></p>
+            </div>
+            <div class="col-sm-8 text-left">
+                <h1>Private Tutoring for all subjects and all types of learners</h1>
+                <p>At TutorVue, we offer in-home and online tutoring services for a wide
+                    range of subjects. From math and science to test preparation, we handle
+                    it all! Whatever your needs, you can trust that the professionals at Tutor
+                    Doctor are well-equipped to help you reach your academic goals. In fact,
+                    our program comes highly recommended by more than 95% of past and current
+                    customers.</p>
+                <hr>
+                <h3>We Match Students with the Right Tutor for Their Needs</h3>
+                <ul>
+                    <li>TutorVue has been featured on ABC, NBC &amp; Fox News.</li>
+                    <li>We utilize more than 24,000 tutors in 15 different countries.</li>
+                    <li>We have been tutoring students of all ages for over a decade.</li>
+                    <li>Our programs have helped more than 200,000 people.</li>
+                </ul>
+            </div>
+            <div class="col-sm-2 sidenav">
+                <div class="well">
+                    <p>ADS</p>
+                </div>
+                <div class="well">
+                    <p>ADS</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+</html>
