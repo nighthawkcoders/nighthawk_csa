@@ -72,7 +72,7 @@
     <td>April 25 - 29</td>
     <td>College Board Create Task Work Week 2</td>
     <td>Proctored Test 2</td>
-    <td>TTz6 Console Programming 2 / JavaFX</td>
+    <td>TT6 Console Programming 2 / JavaFX</td>
     <td></td>
    </tr>
    
@@ -108,7 +108,7 @@
     <td>March 28 - April 1</td>
     <td>Sorts</td>
     <td>Study group Challenge 3</td>
-    <td>TT3 Sorts and Analysis</td>
+    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-3:-Sorts">TT3 Sorts and Analysis</a></td>
     <td>Data Structures Challenge 3</td>
    </tr>
 
