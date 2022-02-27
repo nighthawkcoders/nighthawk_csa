@@ -16,7 +16,7 @@
 
             <h1><strong>Get Started With Personalized Tutoring!</strong></h1>
             <p>We’ll contact you shortly to schedule your free consultation where we'll learn about your goals and recommend a customized plan to achieve them.</p>
-            <form class="row g-3">
+            <form class="row g-3" th:action="@{/schedulenow}" th:object="${user}" class="form1" method="POST">
 
                 <div class="col-md-6">
                     <label for="inputlast" class="form-label">Name</label>
@@ -25,10 +25,6 @@
                 <div class="col-6">
                     <label for="inputemail" class="form-label">Email</label>
                     <input type="text" class="form-control" id="inputemail" placeholder="Email">
-                </div>
-                <div class="col-12">
-                    <label for="inputphone" class="form-label">Phone</label>
-                    <input type="text" class="form-control" id="inputphone" placeholder="Phone Number">
                 </div>
                 <div class="col-md-12">
                     <label for="inputzip" class="form-label">ZIP/Postal Code</label>
