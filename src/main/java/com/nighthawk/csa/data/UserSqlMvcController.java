@@ -112,7 +112,7 @@ public class UserSqlMvcController implements WebMvcConfigurer {
     POST Aa record by Requesting Parameters from URI
      */
     @RequestMapping(value = "/api/person/post", method = RequestMethod.POST)
-    public ResponseEntity<Object> postPerson(@RequestParam("email") Integer id,
+    public ResponseEntity<Object> postPerson(@RequestParam("email") Long id,
                                             @RequestParam("email") String email,
                                              @RequestParam("name") String name,
                                              @RequestParam("dob") String dobString,

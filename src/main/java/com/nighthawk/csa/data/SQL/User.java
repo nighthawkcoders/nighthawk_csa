@@ -26,7 +26,7 @@ The last annotation connect to database
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     @NotEmpty
     @Size(min=5)
@@ -44,7 +44,7 @@ public class User {
     private Date dob;
 
     @Size(min = 2, max = 10, message = "Type (tutor or tutee)")
-    private String type;
+    private String userType;
 
     @Size(min = 2, max = 400, message = "A bio for the user")
     private String bio;
@@ -53,12 +53,12 @@ public class User {
     private String password;
 
     /* Initializer used when setting data from an API */
-    public User(Integer id, String username, String name, Date dob, String type, String bio, String password) {
+    public User(Long id, String username, String name, Date dob, String userType, String bio, String password) {
         this.id = id;
         this.username = username;
         this.name = name;
         this.dob = dob;
-        this.type = type;
+        this.userType = userType;
         this.bio = bio;
         this.password = password;
     }
@@ -71,7 +71,27 @@ public class User {
         return -1;
     }
 
-    public long id() {
-        return(this.id);
+    public String getName(){
+        return this.name;
+    }
+
+    public String getUsername(){
+        return username;
+    }
+
+    public String getUserType(){
+        return userType;
+    }
+
+    public String getBio(){
+        return bio;
+    }
+
+    public String getPassword(){
+        return password;
+    }
+
+    public Long id(){
+        return id;
     }
 }

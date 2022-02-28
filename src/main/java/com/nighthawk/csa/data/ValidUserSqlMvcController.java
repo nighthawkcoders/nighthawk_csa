@@ -54,14 +54,13 @@ public class ValidUserSqlMvcController implements WebMvcConfigurer {
 
     // Read
     @GetMapping("/profile/process")
-    public String processProfile(@Valid User user, BindingResult bindingResult, Model model) {
-        user = repository.get(user.id());
-        System.out.println(user);
-        model.addAttribute("user", user);
+    public String processProfile(@RequestParam(name = "username", required = false, defaultValue = "default") String username, Model model) {
+        List list = repository.listLike(username);
+        User user = (User) list.get(1);
+        // model.addAttribute("user", user);
 
         // DEBUGGING BY SARAH
-        model.addAttribute("user", repository.get(user.id()));
-        return "user/login";
+        return "redirect:/profile/" + user.id();
     }
 
 
@@ -193,7 +192,7 @@ public class ValidUserSqlMvcController implements WebMvcConfigurer {
     POST Aa record by Requesting Parameters from URI
      */
     @RequestMapping(value = "/api/user/post", method = RequestMethod.POST)
-    public ResponseEntity<Object> postUser(@RequestParam("id") Integer id,
+    public ResponseEntity<Object> postUser(@RequestParam("id") Long id,
                                             @RequestParam("username") String username,
                                              @RequestParam("name") String name,
                                              @RequestParam("dob") String dobString,
@@ -217,8 +216,10 @@ public class ValidUserSqlMvcController implements WebMvcConfigurer {
         return "data/user_search";
     }
 
-    @GetMapping("/profile")
-    public String profile(Model model) {
+    @GetMapping("/profile/{id}")
+    public String profile(@PathVariable long id, Model model) {
+        User user = repository.get(id);
+        model.addAttribute("user", user);
         return "user/profileUser";
     }
 

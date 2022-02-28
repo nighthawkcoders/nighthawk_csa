@@ -13,21 +13,32 @@
 <!-- <body> -->
 <div layout:fragment="body" th:remove="tag">
     <div class="container1">
-      <div class="myGrid">
+      <div>
 
         <!-- Sign in Form -->
-        <form id="myForm" action="#" th:action="@{/data/usercreate}" th:object="${user}" method="POST">
-          <h2 style="color:#002654;">SIGN UP</h2>
-          <!-- Placeholder is a predefined value but disappears when user clicks in square -->
-          <input type="text" th:field="*{username}" id="username" name="username" placeholder="Enter Username" required>
-          <input type="text" th:field="*{name}" id="name" name="name" placeholder="Enter Name" required>
-          <input type="password" name="password" placeholder="Enter Password" required>
-          <input type="password" name="password" placeholder="Retype Password" required>
-          <p>Already have an account? Login <a href="/login">here!</a></p>
-          <!-- Using email for the type attribute verifies that the input is an email on HTML 5 -->
-          <input type="Submit" name="Submit" value="Sign Up">
+        <form id="myForm" action="#" th:action="@{/data/usercreate}" th:object="${user}" method="POST" >
+          <div class="myGrid">
+            <div>
+              <h2 style="color:#002654;">SIGN UP</h2>
+              <!-- Placeholder is a predefined value but disappears when user clicks in square -->
+              <input type="text" th:field="*{username}" id="username" name="username" placeholder="Enter Username" required>
+              <input type="text" th:field="*{name}" id="name" name="name" placeholder="Enter Name" required>
+              <input type="text" th:field="*{userType}" id="userType" name="userType" placeholder="Enter User Type (tutor or tutee)" required>
+              <input type="password" name="password" placeholder="Enter Password" required>
+              <input type="password" name="password" placeholder="Retype Password" required>
+            </div>
+            <img src="images/studying1.png" style="width:100%;margin-top:10%;">
+          </div>
+
+          <div>
+            <input style="height:200px;" type="text" th:field="*{bio}" id="bio" name="bio" placeholder="Enter Bio" required>
+
+            <p>Already have an account? Login <a href="/login">here!</a></p>
+            <!-- Using email for the type attribute verifies that the input is an email on HTML 5 -->
+            <input type="Submit" name="Submit" value="Sign Up">
+          </div>
+
         </form>
-        <img src="images/studying1.png" style="width:100%;margin-top:10%;">
       <!--<  <a href = "/signin" style="color:#3498db" >Already have an account? Sign In</a> -->
       </div>
     </div>

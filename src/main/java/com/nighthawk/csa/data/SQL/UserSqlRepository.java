@@ -23,23 +23,25 @@ public class UserSqlRepository {
         return jpa.findAll();
     }
 
-    // custom query to find anything containing term in name or username ignoring case
+    // custom query to find anything containing term in name or email ignoring case
     public  List<User>listLike(String term) {
         return jpa.findByNameContainingIgnoreCaseOrUsernameContainingIgnoreCase(term, term);
     }
 
-    // custom query to find anything containing term in name or username ignoring case
+    // custom query to find anything containing term in name or email ignoring case
     public  List<User>listLikeNative(String term) {
         String like_term = String.format("%%%s%%",term);  // Like required % rappers
         return jpa.findByLikeTermNative(like_term);
     }
 
-    public void save(User user) {
-        jpa.save(user);
+    public void save(User person) {
+        jpa.save(person);
     }
 
     public User get(long id) {
-        return jpa.findById(id).get();
+        return (jpa.findById(id).isPresent())
+                ? jpa.findById(id).get()
+                : null;
     }
 
     public void delete(long id) {
