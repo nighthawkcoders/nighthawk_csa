@@ -53,7 +53,7 @@
     <td>8</td>
     <td>May 9 - 13</td>
     <td>AP Exams Week 2</td>
-    <td>CSP Exam May 9th</td>
+    <td>none</td>
     <td>TT8 LED Panels</td>
     <td>AP Study Week/Customer Project Coding</td>
    </tr>
@@ -62,7 +62,7 @@
     <td>7</td>
     <td>May 2 - 6</td>
     <td>AP Exams Week 1</td>
-    <td>none</td>
+    <td>CSP Exam May 4th</td>
     <td>TT7 Log4J / Pi4J</td>
     <td>AP Study Week/Customer Project Coding</td>
    </tr>
@@ -156,7 +156,7 @@
     <td>11</td>
     <td>Finals Week</td>
     <td>none</td>
-    <td>none</td>
+    <td>N@tM</td>
     <td><a href="https://poway.instructure.com/courses/112428/assignments/2017440">PBL Final</a></td>
   </tr>
   
