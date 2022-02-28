@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class ScheduleSqlMvcController implements WebMvcConfigurer {
@@ -26,5 +27,12 @@ public class ScheduleSqlMvcController implements WebMvcConfigurer {
         repository.save(schedule);
         System.out.println(schedule.getName());
         return "/services/scheduleConfirm";
+    }
+
+    @GetMapping("/seeschedule")
+    public String seeSchedule(Model model) {
+        List<Schedule> list = repository.listAll();
+        model.addAttribute("list", list);
+        return "services/seeschedule";
     }
 }
