@@ -1,6 +1,5 @@
 ---
 layout: default
-default: key
 ---
 {% include navigation.html %}
 
