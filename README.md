@@ -136,7 +136,7 @@
     <td>Innovation Week options: Individual Data Structures Project, Exploring Embedded Programming AND/OR Creating a Web Project</td>
     <td>Study group Challenges</td>
     <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-0---Data-Structures">TT0 Data Structures</a></td>
-    <td>Plans, Team, Jobs</td>
+    <td><a href="https://poway.instructure.com/courses/112339/assignments/2043641">Plans, Team, Jobs</a></td>
    </tr>
 </table>
 
