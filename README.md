@@ -53,7 +53,7 @@
     <td>8</td>
     <td>May 9 - 13</td>
     <td>AP Exams Week 2</td>
-    <td>CSP Exam May 9th</td>
+    <td>none</td>
     <td>TT8 LED Panels</td>
     <td>AP Study Week/Customer Project Coding</td>
    </tr>
@@ -62,7 +62,7 @@
     <td>7</td>
     <td>May 2 - 6</td>
     <td>AP Exams Week 1</td>
-    <td>none</td>
+    <td>CSP Exam May 4th</td>
     <td>TT7 Log4J / Pi4J</td>
     <td>AP Study Week/Customer Project Coding</td>
    </tr>
@@ -98,7 +98,7 @@
     <td>4</td>
     <td>April 4 - 8</td>
     <td>Ketchup week</td>
-    <td>nones</td>
+    <td>none</td>
     <td>none</td>
     <td>Individual Data Structures Final</td>
    </tr>
@@ -134,9 +134,9 @@
     <td>0</td>
     <td>March 7 - 11</td>
     <td>Innovation Week options: Individual Data Structures Project, Exploring Embedded Programming AND/OR Creating a Web Project</td>
-    <td>Plan Tri 3, form PBL/Study groups</td>
+    <td>Study group Challenges</td>
     <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-0---Data-Structures">TT0 Data Structures</a></td>
-    <td>Plans, Team, Jobs</td>
+    <td><a href="https://poway.instructure.com/courses/112339/assignments/2043641">Plans, Team, Jobs</a></td>
    </tr>
 </table>
 
@@ -156,7 +156,7 @@
     <td>11</td>
     <td>Finals Week</td>
     <td>none</td>
-    <td>none</td>
+    <td>N@tM</td>
     <td><a href="https://poway.instructure.com/courses/112428/assignments/2017440">PBL Final</a></td>
   </tr>
   
