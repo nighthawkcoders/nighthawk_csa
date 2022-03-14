@@ -127,7 +127,7 @@
     <td>Custom Java and Linked Lists</td>
     <td>Study group Challenge 1</td>
     <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-1:-Linked-Lists-Part-2">TT1 Linked Lists</a></td>
-    <td>Data Structures Challenge 1</td>
+    <td><a href="https://poway.instructure.com/courses/112339/assignments/2058316">Data Structures Challenge 1</a></td>
    </tr>
    
    <tr>
