@@ -118,7 +118,7 @@
     <td>Calculator</td>
     <td>Study group Challenge 2</td>
     <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-2:-Calculator">TT2 Calculator, Stacks, ArrayLists</a></td>
-    <td>Data Structures Challenge 2</td>
+    <td><a href="https://poway.instructure.com/courses/112339/assignments/2063677">Data Structures Challenge 2</a></td>
    </tr>
    
    <tr>
