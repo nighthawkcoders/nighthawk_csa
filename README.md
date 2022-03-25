@@ -98,7 +98,7 @@
     <td>4</td>
     <td>April 4 - 8</td>
     <td>Ketchup week</td>
-    <td>none</td>
+    <td>Hackaton or Test</td>
     <td>none</td>
     <td>Individual Data Structures Final</td>
    </tr>
