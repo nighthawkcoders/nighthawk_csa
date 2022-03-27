@@ -15,5 +15,5 @@ title:  "Schedule for 2020 Tri 3 Week 4"
 * See canvas for [Data Structures Challenge 2](https://poway.instructure.com/courses/112339/assignments/2063677) for grading percentages and requirements 
 
 **Wed-Fri Data Structures Final**
-* CCC,PBL  
+* Finish Sorts
 * Prepare for [Data Structures Final/Video](https://poway.instructure.com/courses/112339/assignments/2077455) (Due 4/11 @ 8:00AM)
