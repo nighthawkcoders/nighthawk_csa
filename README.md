@@ -130,7 +130,7 @@
    <tr>
     <td>0</td>
     <td>March 7 - 11</td>
-    <td>Innovation Week Objectives</td>
+    <td><a href="https://csacoders.nighthawkcodingsociety.com/2022/03/07/Week-0-DataStructures-Objectives.html">Innovation Week Objectives</a></td>
     <td>none</td>
     <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-0---Data-Structures">TT0 Data Structures</a></td>
     <td><a href="https://poway.instructure.com/courses/112339/assignments/2043641">Plans, Team, Jobs</a></td>
