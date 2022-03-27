@@ -97,16 +97,16 @@
    <tr>
     <td>4</td>
     <td>April 4 - 8</td>
-    <td>Ketchup week</td>
-    <td>Hackaton or Test</td>
+    <td>Data Structures Final</td>
     <td>none</td>
+    <td>Crossover Coding</td>
     <td><a href="https://poway.instructure.com/courses/112339/assignments/2077455">Individual Data Structures Final</a></td>
    </tr>
    
    <tr>
     <td>3</td>
     <td>March 28 - April 1</td>
-    <td>Sorts</td>
+    <td>Sorts and Analysis</td>
     <td>none</td>
     <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-3:-Sorts">TT3 Sorts and Analysis</a></td>
     <td>Data Structures Challenge 3</td>
