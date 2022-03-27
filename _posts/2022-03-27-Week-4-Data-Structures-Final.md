@@ -1,5 +1,4 @@
-### *2020 Tri 3 Week 4: 4/4 - 4/8**, Finish trimester work on Java Data Structures.
-
+### **2020 Tri 3 Week 4: 4/4 - 4/8**, Finish trimester work on Java Data Structures.
 * **Mon Crossover grading** (Must be new Partner)
     * INDIVIDUAL **Sorts** Review Ticket with Indi score/5 (incl. name of grader next to score)
     * DMs for John Mortensen: GitHub Pages, Review Ticket
