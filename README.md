@@ -94,7 +94,7 @@
    <tr>
     <td>4</td>
     <td>April 4 - 8</td>
-    <td>Data Structures Final</td>
+    <td><a href="https://csacoders.nighthawkcodingsociety.com/2022/03/27/Week-4-DataStructures-Final.html">Data Structures Final</a></td>
     <td>none</td>
     <td>Crossover Coding Tue, Wed</td>
     <td><a href="https://poway.instructure.com/courses/112339/assignments/2077455">Individual Data Structures Final</a></td>
@@ -103,7 +103,7 @@
    <tr>
     <td>3</td>
     <td>March 28 - April 1</td>
-    <td>Sorts</td>
+    <td><a href="https://csacoders.nighthawkcodingsociety.com/2022/03/27/Week-3-Sorts.html">Sorts</a></td>
     <td>none</td>
     <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-3:-Sorts">TT3 Sorts and Analysis</a></td>
     <td><a href="https://poway.instructure.com/courses/112339/assignments/2077454">Sorts and Analysis</a></td>
@@ -130,7 +130,7 @@
    <tr>
     <td>0</td>
     <td>March 7 - 11</td>
-    <td>Innovation Week options: Individual Data Structures Project, Exploring Embedded Programming AND/OR Creating a Web Project</td>
+    <td>Innovation Week Objectives</td>
     <td>none</td>
     <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-0---Data-Structures">TT0 Data Structures</a></td>
     <td><a href="https://poway.instructure.com/courses/112339/assignments/2043641">Plans, Team, Jobs</a></td>
