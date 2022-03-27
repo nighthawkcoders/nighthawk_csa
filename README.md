@@ -99,7 +99,7 @@
     <td>April 4 - 8</td>
     <td>Data Structures Final</td>
     <td>none</td>
-    <td>Crossover Coding</td>
+    <td>Crossover Coding Tue, Wed</td>
     <td><a href="https://poway.instructure.com/courses/112339/assignments/2077455">Individual Data Structures Final</a></td>
    </tr>
    
