@@ -106,10 +106,10 @@
    <tr>
     <td>3</td>
     <td>March 28 - April 1</td>
-    <td>Sorts and Analysis</td>
+    <td>Sorts</td>
     <td>none</td>
     <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-3:-Sorts">TT3 Sorts and Analysis</a></td>
-    <td>Data Structures Challenge 3</td>
+    <td><a href="https://poway.instructure.com/courses/112339/assignments/2077454">Data Structures 3: Sorts and Analysis</a></td>
    </tr>
 
    <tr>
