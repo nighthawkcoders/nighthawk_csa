@@ -100,7 +100,7 @@
     <td>Ketchup week</td>
     <td>Hackaton or Test</td>
     <td>none</td>
-    <td>Individual Data Structures Final</td>
+    <td><a href="https://poway.instructure.com/courses/112339/assignments/2077455">Individual Data Structures Final</a></td>
    </tr>
    
    <tr>
