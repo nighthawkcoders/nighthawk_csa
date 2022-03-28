@@ -1,6 +1,6 @@
 theme: jekyll-theme-midnight
 title: Nighthawk CSA
-description: "This GitHub project provides Advance Placement Computer Science A (AP-CSA) code and training, it is a Java-Spring Web project.  The page you are viewing is a GitHub Pages website and is contained within the master branch of the same project.   Cloning the GitHub Project provides both Java-Spring and GitHub Pages code.  Explore this page for activities including procedures to develop, build, and deploy a Web Servers in two ways."
+description: "This GitHub project provides Advance Placement Computer Science A (AP-CSA) code and training.  The page you are viewing is a GitHub Pages website and is contained within the master branch of the project.   Cloning the GitHub Project provides both Java-Spring and GitHub Pages code.  Using Java-Spring code includes activities and procedures to develop, build, and deploy a Web Server using Java as the backend."
 email: "nighthawkcodingsociety@gmail.com"
 webserver: "csa.nighthawkcodingsociety.com"
 twitter: "twitter.com/NighthawkCoding"
