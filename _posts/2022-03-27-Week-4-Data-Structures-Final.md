@@ -6,7 +6,7 @@
 * **Tue-Wed Crossover coding** (Same as Sorts Grading Partner)
     * Pick a crossover partner from a group other than your study group.  
     * Check for completion of all challenges (weeks0/1/2/3) to meet the finals requirements of [Individual Data Structures Final](https://poway.instructure.com/courses/112339/assignments/2077455).
-    * Make/Complete/Fix/Contribute to the crossover project and/or indi GitHub Pages. Be creative!
+    * Make/Complete/Fix/Contribute to the crossover project and/or indi GitHub Pages. Add a Data Structure from year long material (ie POJO or ASCI art).  Be creative!
 * **Thu** Code Code Code
 * **Fri Data Structures Final Crossover Grading** (Due Friday AM, Regular Scrum Team Partner)
     * INDIVIDUAL **Datat Structures Final** Review Ticket with Indi score/10
