@@ -13,7 +13,7 @@
    <tr>
     <td>Finals</td>
     <td>June 6 - 9</td>
-    <td>N@tM Week</td>
+    <td>Finals Week</td>
     <td>none</td>
     <td>none</td>
     <td>none</td>
@@ -25,7 +25,7 @@
     <td>PBL Customer Project Due</td>
     <td>none</td>
     <td>none</td>
-    <td>Customer AND/OR Embedded Project Final Review</td>
+    <td>Project Final Review</td>
    </tr>
    
    <tr>
@@ -33,7 +33,7 @@
     <td>May 23 - 27</td>
     <td>none</td>
     <td>none</td>
-    <td>TT10 PBL, sharing data via API's with Crossover Team</td>
+    <td>none</td>
     <td>Customer Project Deployment Review</td>
    </tr>
    
@@ -42,8 +42,8 @@
     <td>May 16 - 20</td>
     <td>none</td>
     <td>none</td>
-    <td>TT9 PBL, CRUD operations and Async</td>
-    <td>Customer Project Feature Acceptance</td>
+    <td>none</td>
+    <td>Customer Project Feature Review/Acceptance</td>
    </tr>
    
    <tr>
@@ -51,7 +51,7 @@
     <td>May 9 - 13</td>
     <td>AP Exams Week 2</td>
     <td>none</td>
-    <td>TT8 LED Panels</td>
+    <td>TT8 sharing data via API's with Crossover Team</td>
     <td>AP Study Week/Customer Project Coding</td>
    </tr>
    
@@ -59,27 +59,27 @@
     <td>7</td>
     <td>May 2 - 6</td>
     <td>AP Exams Week 1</td>
-    <td>CSP Exam May 4th</td>
-    <td>TT7 Log4J / Pi4J</td>
+    <td>CSA Exam May 4th</td>
+    <td>TT7 PBL, CRUD operations and Async</td>
     <td>AP Study Week/Customer Project Coding</td>
    </tr>
    
    <tr>
     <td>6</td>
     <td>April 25 - 29</td>
-    <td>College Board Create Task Work Week 2</td>
+    <td>CSA College Board Prep Week 2</td>
     <td>Proctored Test 2</td>
-    <td>TT6 Console Programming 2 / JavaFX</td>
-    <td></td>
+    <td>none</td>
+    <td>TBD</td>
    </tr>
    
    <tr>
     <td>5</td>
     <td>April 18 - 22</td>
-    <td>CSP College Board Create Task Work Week 1</td>
+    <td>CSA College Board Prep Week 1</td>
     <td>Proctored Test 1</td>
-    <td>TT5 Console Programming 1</td>
     <td>none</td>
+    <td>TBD</td>
    </tr>
    
    <tr>
