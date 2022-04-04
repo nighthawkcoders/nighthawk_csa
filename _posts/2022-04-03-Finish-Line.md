@@ -3,7 +3,7 @@ Steve Jobs Founder of Apple Computer 2 minutes: [Thinker Doer](https://www.googl
 
 <p>
 
-Something happened to me last Thursday. I was tagged as having said something inappropriate.  This put in state of depression.  I even spent big portions of Friday crying, praying, listening to talks and soul searching.   As this process continued into the weekend I have learned that I can’t quit, linger in depression, or stay in self pity because of something that was said about me.  No matter how much it hurts me inside: Pity, anger, injustice feelings won't make it go away.
+Something happened to me last Thursday. I was tagged as having said something inappropriate.  This put me into a state of depression.  I even spent big portions of Friday crying, praying, listening to talks and soul searching.   As this process continued into the weekend I have learned that I can’t quit, linger in depression, or stay in self pity because of something that was said about me.  No matter how much it hurts me inside: Pity, anger, injustice feelings won't make it go away.
 
 I have learned this weekend that just because I have tried to be good and dedicate a second career to others, this in itself does not entitle me to be isolated from criticism and dislike.  I am now willing to accept that internal pain and go forward with a renewed positive and spirited momentum.  I am comfortable in values I represent, in what I have said or not said.  I listened to a speaker who spoke about riding a bicycle, don't look back or at down to the peddles.  These behaviors only lead to worse things happening.  Instead,  look at the road ahead and enjoy the ride.
 
