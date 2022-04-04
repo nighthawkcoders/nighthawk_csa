@@ -1,4 +1,4 @@
-# Preparing for the Finish Line
+### Preparing for the Finish Line
 Steve Jobs Founder of Apple Computer 2 minutes: [Thinker Doer](https://www.google.com/search?q=Steve+Jobs+Thinker+Doers&oq=Steve+Jobs+Thinker+Doers&aqs=chrome..69i57.16126j0j7&sourceid=chrome&ie=UTF-8#kpvalbx=_kTZKYoe0KoKckPIPlJWX-Aw20).   What is your takeaway?
 
 <p>
