@@ -68,17 +68,17 @@
     <td>6</td>
     <td>April 25 - 29</td>
     <td>CSA College Board Prep Week 2</td>
-    <td>Proctored Test 2</td>
-    <td>none</td>
+    <td>Proctored MCQ Tue, FRQ Th</td>
+    <td>PBL Coders code</td>
     <td>TBD</td>
    </tr>
    
    <tr>
     <td>5</td>
     <td>April 18 - 22</td>
-    <td>CSA College Board Prep Week 1</td>
-    <td>Proctored Test 1</td>
-    <td>none</td>
+    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/_posts/2022-04-11-Week-5-Study1.md">CSA College Board Prep Week 1</a></td>
+    <td>Proctored MCQ Tue, FRQ Thu</td>
+    <td>PBL Coders code</td>
     <td>TBD</td>
    </tr>
    
