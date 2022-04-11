@@ -69,8 +69,8 @@
     <td>April 25 - 29</td>
     <td>CSA College Board Prep Week 2</td>
     <td>Proctored MCQ Tue, FRQ Th</td>
-    <td>PBL Coders code</td>
-    <td>TBD</td>
+    <td>none</td>
+    <td>Study Week 2</td>
    </tr>
    
    <tr>
