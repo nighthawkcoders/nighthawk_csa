@@ -67,7 +67,7 @@
    <tr>
     <td>6</td>
     <td>April 25 - 29</td>
-    <td>CSA College Board Prep Week 2</td>
+    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/_posts/2022-04-23-Week-6-Study2.md">CSA College Board Prep Week 2</a></td>
     <td>Proctored MCQ Tue, FRQ Th</td>
     <td>none</td>
     <td>Study Week 2</td>
