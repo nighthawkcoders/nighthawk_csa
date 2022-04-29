@@ -23,8 +23,8 @@
     <td>11</td>
     <td>May 30 - June 3</td>
     <td>PBL Customer Project Due</td>
-    <td>none</td>
-    <td>N@tM Tue 5/31 6-7:30pm</td>
+    <td>Student Led, engineering best practices</td>
+    <td>N@tM Wed 6/1 6-7:30pm</td>
     <td>Project Final Review</td>
    </tr>
    
@@ -32,18 +32,18 @@
     <td>10</td>
     <td>May 23 - 27</td>
     <td>Final Project Dev 2</td>
-    <td>none</td>
-    <td>none</td>
-    <td>Customer Project Deployment Review</td>
+    <td>Student Led, engineering best practices</td>
+    <td>Async API or Relational Data Presentation</td>
+    <td>Customer Project Deployment Review 2</td>
    </tr>
    
    <tr>
     <td>9</td>
     <td>May 16 - 20</td>
     <td>Final Project Dev 1</td>
-    <td>none</td>
-    <td>none</td>
-    <td>Customer Project Deployment Review</td>
+    <td>Student Led, engineering best practices</td>
+    <td>Async API or Relational Data Presentation</td>
+    <td>Customer Project Deployment Review 1</td>
    </tr>
    
    <tr>
