@@ -31,7 +31,7 @@
    <tr>
     <td>10</td>
     <td>May 23 - 27</td>
-    <td>none</td>
+    <td>Final Project Dev 2</td>
     <td>none</td>
     <td>none</td>
     <td>Customer Project Deployment Review</td>
@@ -40,28 +40,28 @@
    <tr>
     <td>9</td>
     <td>May 16 - 20</td>
+    <td>Final Project Dev 1</td>
     <td>none</td>
     <td>none</td>
-    <td>none</td>
-    <td>Customer Project Feature Review/Acceptance</td>
+    <td>Customer Project Deployment Review</td>
    </tr>
    
    <tr>
     <td>8</td>
     <td>May 9 - 13</td>
-    <td>AP Exams Week 2</td>
+    <td>AP Week 2, Final Project Review 2</td>
     <td>none</td>
-    <td>TT8 sharing data via API's with Crossover Team</td>
-    <td>AP Study Week/Customer Project Coding</td>
+    <td>none</td>
+    <td><a href="https://poway.instructure.com/courses/112339/assignments/2103848">PBL Sponsor Requirements Presentations</a></td>
    </tr>
    
    <tr>
     <td>7</td>
     <td>May 2 - 6</td>
-    <td>AP Exams Week 1</td>
+    <td>AP Week 1, Final Project Review 1</td>
     <td>CSA Exam May 4th</td>
-    <td>TT7 PBL, CRUD operations and Async</td>
-    <td>AP Study Week/Customer Project Coding</td>
+    <td>none</td>
+    <td><a href="https://poway.instructure.com/courses/112339/assignments/2103634">PBL Classroom Requirements Presentations</a></td>
    </tr>
    
    <tr>
