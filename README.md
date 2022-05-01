@@ -58,7 +58,7 @@
    <tr>
     <td>7</td>
     <td>May 2 - 6</td>
-    <td>AP Week 1, Final Project Review 1</td>
+    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/_posts/2022-05-01-AP-Week1.md">AP Week 1, Final Project Review 1</a></td>
     <td>CSA Exam May 4th</td>
     <td>none</td>
     <td><a href="https://poway.instructure.com/courses/112339/assignments/2103634">PBL Classroom Requirements Presentations</a></td>
