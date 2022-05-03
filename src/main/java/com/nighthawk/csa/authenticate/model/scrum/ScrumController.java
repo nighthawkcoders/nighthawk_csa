@@ -1,6 +1,6 @@
-package com.nighthawk.csa.database.scrum;
+package com.nighthawk.csa.authenticate.model.scrum;
 
-import com.nighthawk.csa.database.person.PersonSqlRepository;
+import com.nighthawk.csa.authenticate.model.person.PersonSqlRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

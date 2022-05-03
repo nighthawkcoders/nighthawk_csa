@@ -1,7 +1,5 @@
-package com.nighthawk.csa.database.person;
+package com.nighthawk.csa.authenticate.model.person;
 
-import com.nighthawk.csa.database.person.Person;
-import com.nighthawk.csa.database.person.PersonSqlRepository;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;

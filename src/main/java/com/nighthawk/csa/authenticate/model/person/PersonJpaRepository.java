@@ -1,4 +1,4 @@
-package com.nighthawk.csa.database.person;
+package com.nighthawk.csa.authenticate.model.person;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

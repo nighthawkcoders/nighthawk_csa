@@ -1,8 +1,8 @@
-package com.nighthawk.csa.database.scrum;
+package com.nighthawk.csa.authenticate.model.scrum;
 
 // https://projectlombok.org/features/all
 
-import com.nighthawk.csa.database.person.Person;
+import com.nighthawk.csa.authenticate.model.person.Person;
 import lombok.*;
 
 import javax.persistence.*;

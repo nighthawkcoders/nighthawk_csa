@@ -1,4 +1,4 @@
-package com.nighthawk.csa.database.scrum;
+package com.nighthawk.csa.authenticate.model.scrum;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
