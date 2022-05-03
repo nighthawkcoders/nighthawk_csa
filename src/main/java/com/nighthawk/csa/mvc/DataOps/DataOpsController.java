@@ -95,7 +95,7 @@ public class DataOpsController {
     /****** Control Methods *******/
 
     /*
-     GET request... setup circle queue and pass variables via model.addAttribute
+     GET request... setup circle queue and pass variables via login.addAttribute
      */
     @GetMapping("/mvc/dataops")
     public String data(Model model) {
