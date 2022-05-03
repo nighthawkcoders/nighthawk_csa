@@ -17,11 +17,11 @@ This class has an instance of Java Persistence API (JPA)
 @Transactional
 public class PersonSqlRepository {
 
-    @Autowired
+    @Autowired  // Inject PersonJpaRepository
     private PersonJpaRepository jpa;
 
-    @Autowired
-    private ScrumSqlRepository scrum_team_jpa;
+    @Autowired  // Inject ScrumSqlRepository
+    private ScrumSqlRepository scrum_sql;
 
     public  List<Person>listAll() {
         return jpa.findAll();
@@ -49,7 +49,7 @@ public class PersonSqlRepository {
     }
 
     public void delete(long id) {
-        scrum_team_jpa.member_deleted(id);
+        scrum_sql.member_deleted(id);   // make sure ID is no longer present in SCRUM Teams
         jpa.deleteById(id);
     }
 }
