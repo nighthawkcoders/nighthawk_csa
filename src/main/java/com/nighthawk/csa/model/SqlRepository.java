@@ -87,6 +87,10 @@ public class SqlRepository {
         return roleJpaRepository.findAll();
     }
 
+    public Role findRole(String roleName) {
+        return roleJpaRepository.findByName(roleName);
+    }
+
     public void saveRole(Role role) {
         Role roleObj = roleJpaRepository.findByName(role.getName());
         if (roleObj == null) {  // only add if it is not found

@@ -1,6 +1,7 @@
 package com.nighthawk.csa.model.person;
 
 import com.nighthawk.csa.model.SqlRepository;
+import com.nighthawk.csa.model.role.Role;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
@@ -50,6 +51,7 @@ public class PersonController implements WebMvcConfigurer {
             return "database/personcreate";
         }
         repository.save(person);
+        repository.addRoleToPerson(person.getEmail(), "ROLE_STUDENT");
         // Redirect to next step
         return "redirect:/database/person";
     }
@@ -67,6 +69,8 @@ public class PersonController implements WebMvcConfigurer {
             return "database/personupdate";
         }
         repository.save(person);
+        repository.addRoleToPerson(person.getEmail(), "ROLE_STUDENT");
+
         // Redirect to next step
         return "redirect:/database/person";
     }
@@ -122,8 +126,8 @@ public class PersonController implements WebMvcConfigurer {
         } catch (Exception e) {
             return new ResponseEntity<>(dobString +" error; try MM-dd-yyyy", HttpStatus.BAD_REQUEST);
         }
-        // A person object WITHOUT ID will create a new record
-        Person person = new Person(email, password, name, dob);
+        // A person object WITHOUT ID will create a new record with default roles as student
+        Person person = new Person(email, password, name, dob, repository.findRole("ROLE_STUDENT") );
         repository.save(person);
         return new ResponseEntity<>(email +" is created successfully", HttpStatus.CREATED);
     }
