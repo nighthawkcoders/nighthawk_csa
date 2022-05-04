@@ -1,6 +1,6 @@
-package com.nighthawk.csa.authenticate.model.scrum;
+package com.nighthawk.csa.model.scrum;
 
-import com.nighthawk.csa.authenticate.model.person.PersonSqlRepository;
+import com.nighthawk.csa.model.SqlRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +21,7 @@ public class ScrumController implements WebMvcConfigurer {
     private ScrumSqlRepository scrumSqlRepository;
 
     @Autowired
-    private PersonSqlRepository personSqlRepository;
+    private SqlRepository personSqlRepository;
 
     @GetMapping("/database/scrum")
     public String scrumTeam(Model model) {

@@ -1,5 +1,6 @@
-package com.nighthawk.csa.authenticate.model.person;
+package com.nighthawk.csa.model.person;
 
+import com.nighthawk.csa.model.SqlRepository;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
@@ -20,7 +21,7 @@ public class PersonController implements WebMvcConfigurer {
 
     // Autowired enables Control to connect HTML and POJO Object to Database easily for CRUD
     @Autowired
-    private PersonSqlRepository repository;
+    private SqlRepository repository;
 
     @GetMapping("/database/person")
     public String person(Model model) {

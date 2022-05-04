@@ -1,4 +1,4 @@
-package com.nighthawk.csa.authenticate.model.role;
+package com.nighthawk.csa.model.role;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

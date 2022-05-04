@@ -1,6 +1,6 @@
-package com.nighthawk.csa.authenticate.model.person;
+package com.nighthawk.csa.model.person;
 
-import com.nighthawk.csa.authenticate.model.role.Role;
+import com.nighthawk.csa.model.role.Role;
 import org.springframework.format.annotation.DateTimeFormat;
 import lombok.*;
 

@@ -1,4 +1,4 @@
-package com.nighthawk.csa.authenticate.model.role;
+package com.nighthawk.csa.model.role;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
