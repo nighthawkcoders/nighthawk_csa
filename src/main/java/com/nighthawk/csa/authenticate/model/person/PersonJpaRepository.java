@@ -1,5 +1,6 @@
 package com.nighthawk.csa.authenticate.model.person;
 
+import com.nighthawk.csa.authenticate.model.role.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -12,6 +13,9 @@ Extends the JpaRepository interface from Spring Data JPA.
 -- Via JPA the developer can retrieve database from relational databases to Java objects and vice versa.
  */
 public interface PersonJpaRepository extends JpaRepository<Person, Long> {
+
+    Person findByEmail(String email);
+
     // JPA query, findBy does JPA magic with "Name", "Containing", "Or", "Email", "IgnoreCase"
     List<Person> findByNameContainingIgnoreCaseOrEmailContainingIgnoreCase(String name, String email);
     /* Custom JPA query articles, there are articles that show custom SQL as well

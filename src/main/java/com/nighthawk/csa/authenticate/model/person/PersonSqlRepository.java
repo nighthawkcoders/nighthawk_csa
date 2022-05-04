@@ -1,5 +1,7 @@
 package com.nighthawk.csa.authenticate.model.person;
 
+import com.nighthawk.csa.authenticate.model.role.Role;
+import com.nighthawk.csa.authenticate.model.role.RoleJpaRepository;
 import com.nighthawk.csa.authenticate.model.scrum.ScrumSqlRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -20,6 +22,9 @@ public class PersonSqlRepository {
 
     @Autowired  // Inject PersonJpaRepository
     private PersonJpaRepository jpa;
+
+    @Autowired  // Inject RoleJpaRepository
+    private RoleJpaRepository roleJpa;
 
     @Autowired  // Inject ScrumSqlRepository
     private ScrumSqlRepository scrum_sql;
@@ -56,5 +61,15 @@ public class PersonSqlRepository {
     public void delete(long id) {
         scrum_sql.member_deleted(id);   // make sure ID is no longer present in SCRUM Teams
         jpa.deleteById(id);
+    }
+
+    public Role saveRole(Role role) {
+        return roleJpa.save(role);
+    }
+
+    public void addRoleToPerson(String email, String roleName) { // by passing in the two strings you are giving the user that certain role
+        Person person = jpa.findByEmail(email);
+        Role role = roleJpa.findByName(roleName);
+        person.getRoles().add(role);
     }
 }

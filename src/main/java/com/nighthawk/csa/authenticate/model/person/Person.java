@@ -37,6 +37,7 @@ public class Person {
     // email, password, roles are key to login and authentication
     @NotEmpty
     @Size(min=5)
+    @Column(unique=true)
     @Email
     private String email;
 
@@ -55,8 +56,9 @@ public class Person {
     private Date dob;
 
     // Initializer used when setting database from an API
-    public Person(String email, String name, Date dob) {
+    public Person(String email, String password, String name, Date dob) {
         this.email = email;
+        this.password = password;
         this.name = name;
         this.dob = dob;
     }
