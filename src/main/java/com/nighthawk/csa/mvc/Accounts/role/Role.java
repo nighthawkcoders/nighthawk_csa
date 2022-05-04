@@ -1,12 +1,10 @@
-package com.nighthawk.csa.model.role;
+package com.nighthawk.csa.mvc.Accounts.role;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-
-import static javax.persistence.GenerationType.AUTO;
 
 @Entity
 @Data

@@ -1,6 +1,7 @@
-package com.nighthawk.csa.model.scrum;
+package com.nighthawk.csa.mvc.Accounts;
 
-import com.nighthawk.csa.model.SqlRepository;
+import com.nighthawk.csa.mvc.Accounts.scrum.Scrum;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,14 +19,12 @@ import javax.validation.Valid;
 public class ScrumController implements WebMvcConfigurer {
 
     @Autowired
-    private ScrumSqlRepository scrumSqlRepository;
+    private ModelRepository modelRepository;
 
-    @Autowired
-    private SqlRepository personSqlRepository;
 
     @GetMapping("/database/scrum")
     public String scrumTeam(Model model) {
-        model.addAttribute("list", scrumSqlRepository.listAll());
+        model.addAttribute("list", modelRepository.listAllScrums());
         return "database/scrum";
     }
 
@@ -36,15 +35,15 @@ public class ScrumController implements WebMvcConfigurer {
     @GetMapping("/database/scrum_create")
     public String scrumTeamCreate(Model model) {
         model.addAttribute("scrum", new Scrum());
-        model.addAttribute("listPersons", personSqlRepository.listAll());
+        model.addAttribute("listPersons", modelRepository.listAll());
         return "database/scrum_form";
     }
 
     @GetMapping("/database/scrum_update/{id}")
     public String scrumTeamUpdate(@PathVariable("id") int id, Model model) {
         model.addAttribute("id", id);  //passed to support using one form
-        model.addAttribute("scrum", scrumSqlRepository.get(id));
-        model.addAttribute("listPersons", personSqlRepository.listAll());
+        model.addAttribute("scrum", modelRepository.getScrum(id));
+        model.addAttribute("listPersons", modelRepository.listAll());
         return "database/scrum_form";
     }
 
@@ -59,13 +58,13 @@ public class ScrumController implements WebMvcConfigurer {
             return "database/scrum_form";
         }
         // Redirect to next step
-        scrumSqlRepository.save(scrum);
+        modelRepository.saveScrum(scrum);
         return "redirect:/database/scrum";
     }
 
     @GetMapping("/database/scrum_delete/{id}")
     public String familyDelete(@PathVariable("id") long id) {
-        scrumSqlRepository.delete(id);
+        modelRepository.delete(id);
         return "redirect:/database/scrum";
     }
 }

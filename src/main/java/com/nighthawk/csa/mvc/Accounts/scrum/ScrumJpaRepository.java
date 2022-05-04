@@ -1,4 +1,4 @@
-package com.nighthawk.csa.model.scrum;
+package com.nighthawk.csa.mvc.Accounts.scrum;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

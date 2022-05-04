@@ -1,8 +1,8 @@
-package com.nighthawk.csa.model.scrum;
+package com.nighthawk.csa.mvc.Accounts.scrum;
 
 // https://projectlombok.org/features/all
 
-import com.nighthawk.csa.model.person.Person;
+import com.nighthawk.csa.mvc.Accounts.person.Person;
 import lombok.*;
 
 import javax.persistence.*;
