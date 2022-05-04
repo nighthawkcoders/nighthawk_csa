@@ -41,7 +41,6 @@ public class Person {
     private String email;
 
     @NotEmpty
-    @Size(min = 4, max = 20, message = "Password (4 to 20 chars)")
     private String password;
 
     @ManyToMany(fetch = EAGER)

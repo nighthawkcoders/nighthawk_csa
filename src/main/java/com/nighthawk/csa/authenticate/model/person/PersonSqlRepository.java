@@ -2,6 +2,7 @@ package com.nighthawk.csa.authenticate.model.person;
 
 import com.nighthawk.csa.authenticate.model.scrum.ScrumSqlRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,6 +24,9 @@ public class PersonSqlRepository {
     @Autowired  // Inject ScrumSqlRepository
     private ScrumSqlRepository scrum_sql;
 
+    @Autowired  // Inject PasswordEncoder
+    private PasswordEncoder passwordEncoder;
+
     public  List<Person>listAll() {
         return jpa.findAll();
     }
@@ -39,6 +43,7 @@ public class PersonSqlRepository {
     }
 
     public void save(Person person) {
+        person.setPassword(passwordEncoder.encode(person.getPassword()));
         jpa.save(person);
     }
 
