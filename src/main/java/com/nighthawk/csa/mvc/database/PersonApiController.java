@@ -16,8 +16,8 @@ import java.util.*;
 import java.text.SimpleDateFormat;
 
 @RestController
-@RequestMapping("/api")
-public class ModelAPI {
+@RequestMapping("/api/person")
+public class PersonApiController {
     /*
     #### RESTful API ####
     Resource: https://spring.io/guides/gs/rest-service/
@@ -30,7 +30,7 @@ public class ModelAPI {
     /*
     GET List of People
      */
-    @GetMapping("/people")
+    @GetMapping("/all")
     public ResponseEntity<List<Person>> getPeople() {
         return new ResponseEntity<>( repository.listAll(), HttpStatus.OK);
     }
@@ -38,7 +38,7 @@ public class ModelAPI {
     /*
     GET individual Person using ID
      */
-    @GetMapping("/person/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Person> getPerson(@PathVariable long id) {
         return new ResponseEntity<>( repository.get(id), HttpStatus.OK);
     }
@@ -46,7 +46,7 @@ public class ModelAPI {
     /*
     DELETE individual Person using ID
      */
-    @DeleteMapping("/person/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Object> deletePerson(@PathVariable long id) {
         repository.delete(id);
         return new ResponseEntity<>( ""+ id +" deleted", HttpStatus.OK);
@@ -55,7 +55,7 @@ public class ModelAPI {
     /*
     POST Aa record by Requesting Parameters from URI
      */
-    @PostMapping( "/person/post")
+    @PostMapping( "/post")
     public ResponseEntity<Object> postPerson(@RequestParam("email") String email,
                                              @RequestParam("password") String password,
                                              @RequestParam("name") String name,
@@ -75,7 +75,7 @@ public class ModelAPI {
     /*
     The personSearch API looks across database for partial match to term (k,v) passed by RequestEntity body
      */
-    @PostMapping(value = "/person/search", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/search", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> personSearch(RequestEntity<Object> request) {
 
         // extract term from RequestEntity

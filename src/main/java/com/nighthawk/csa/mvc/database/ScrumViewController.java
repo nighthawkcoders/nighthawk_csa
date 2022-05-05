@@ -16,7 +16,7 @@ import javax.validation.Valid;
 
 // Built using video: https://www.youtube.com/watch?v=ctwRpskAeIU
 @Controller
-public class ScrumController implements WebMvcConfigurer {
+public class ScrumViewController {
 
     @Autowired
     private ModelRepository modelRepository;
