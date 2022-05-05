@@ -1,9 +1,8 @@
 package com.nighthawk.csa.mvc.database;
 
 import com.nighthawk.csa.mvc.database.person.Person;
-import org.json.simple.JSONObject;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,8 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.validation.Valid;
-import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.List;
 
 // Built using article: https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/mvc.html
 // or similar: https://asbnotebook.com/2020/04/11/spring-boot-thymeleaf-form-validation-example/
@@ -83,75 +81,6 @@ public class PersonController implements WebMvcConfigurer {
     @GetMapping("/database/person_search")
     public String person() {
         return "mvc/database/person_search";
-    }
-
-
-    /*
-    #### RESTful API section ####
-    Resource: https://spring.io/guides/gs/rest-service/
-    */
-
-    /*
-    GET List of People
-     */
-    @RequestMapping(value = "/api/people/get")
-    public ResponseEntity<List<Person>> getPeople() {
-        return new ResponseEntity<>( repository.listAll(), HttpStatus.OK);
-    }
-
-    /*
-    GET individual Person using ID
-     */
-    @RequestMapping(value = "/api/person/get/{id}")
-    public ResponseEntity<Person> getPerson(@PathVariable long id) {
-        return new ResponseEntity<>( repository.get(id), HttpStatus.OK);
-    }
-
-    /*
-    DELETE individual Person using ID
-     */
-    @RequestMapping(value = "/api/person/delete/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<Object> deletePerson(@PathVariable long id) {
-        repository.delete(id);
-        return new ResponseEntity<>( ""+ id +" deleted", HttpStatus.OK);
-    }
-
-
-    /*
-    POST Aa record by Requesting Parameters from URI
-     */
-    @RequestMapping(value = "/api/person/post", method = RequestMethod.POST)
-    public ResponseEntity<Object> postPerson(@RequestParam("email") String email,
-                                             @RequestParam("password") String password,
-                                             @RequestParam("name") String name,
-                                             @RequestParam("dob") String dobString) {
-        Date dob;
-        try {
-            dob = new SimpleDateFormat("MM-dd-yyyy").parse(dobString);
-        } catch (Exception e) {
-            return new ResponseEntity<>(dobString +" error; try MM-dd-yyyy", HttpStatus.BAD_REQUEST);
-        }
-        // A person object WITHOUT ID will create a new record with default roles as student
-        Person person = new Person(email, password, name, dob, repository.findRole("ROLE_STUDENT") );
-        repository.save(person);
-        return new ResponseEntity<>(email +" is created successfully", HttpStatus.CREATED);
-    }
-
-    /*
-    The personSearch API looks across database for partial match to term (k,v) passed by RequestEntity body
-     */
-    @RequestMapping(value = "/api/person_search", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Object> personSearch(RequestEntity<Object> request) {
-
-        // extract term from RequestEntity
-        JSONObject json = new JSONObject((Map) Objects.requireNonNull(request.getBody()));
-        String term = (String) json.get("term");
-
-        // custom JPA query to filter on term
-        List<Person> list = repository.listLikeNative(term);
-
-        // return resulting list and status, error checking should be added
-        return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
 }
