@@ -37,12 +37,26 @@
                          Reference Bootstrap Form
                             https://getbootstrap.com/docs/4.0/components/forms/#readonly-plain-text
                      -->
+                    <!--Read Only Section -->
+                    <h3 th:text="'ID: ' + ${person.id}"></h3>
+                    <table>
+                        <tr th:if="${person.roles.empty}">
+                            <td colspan="2"> NoRoles </td>
+                        </tr>
+                        <tr th:each="role : ${person.roles}">
+                            <td><span th:text="${role.name}"> Name </span></td>
+                        </tr>
+                    </table>
+                    <!--Update Form -->
                     <form class="form-inline" action="#" th:action="@{/database/personupdate}" th:object="${person}" method="POST">
-                        <h3 th:text="'ID: ' + ${id}"></h3>
+                        <!-- Hidden Section, stuff we need to reference to preserve on Update -->
                         <div class="form-group mb-2 mr-sm-2">
                             <label for="id" hidden></label>
                             <input type="text" th:field="*{id}" id="id" hidden class="form-control-plaintext" >
+                            <label for="roles" hidden></label>
+                            <input type="text" th:field="*{roles}" id="roles" hidden class="form-control-plaintext" >
                         </div>
+                        <!--Update Section -->
                         <div class="form-group mb-2 mr-sm-2">
                             <label for="email">Email:</label>
                             <input type="email" th:field="*{email}" id="email" >
