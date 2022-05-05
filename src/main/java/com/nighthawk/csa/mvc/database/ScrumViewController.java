@@ -63,8 +63,8 @@ public class ScrumViewController {
     }
 
     @GetMapping("/database/scrum_delete/{id}")
-    public String familyDelete(@PathVariable("id") long id) {
-        modelRepository.delete(id);
+    public String scrumDelete(@PathVariable("id") long id) {
+        modelRepository.deleteScrum(id);
         return "redirect:/database/scrum";
     }
 }
