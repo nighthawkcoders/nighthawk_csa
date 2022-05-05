@@ -64,7 +64,7 @@ public class ModelRepository {
     /* Person Section */
 
     public  List<Person>listAll() {
-        return personJpaRepository.findAll();
+        return personJpaRepository.findAllByOrderByNameAsc();
     }
 
     // custom query to find anything containing term in name or email ignoring case
@@ -151,7 +151,7 @@ public class ModelRepository {
     }
 
     public List<Scrum> listAllScrums() {
-        return scrumJpaRepository.findAll();
+        return scrumJpaRepository.findAllByOrderByNameAsc();
     }
 
     public Scrum getScrum(long id) {

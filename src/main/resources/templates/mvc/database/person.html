@@ -13,41 +13,46 @@
 
 <!-- <body> -->
 <div layout:fragment="body" th:remove="tag">
-    <!-- Page specific body additions -->
-    <div class="container">
+    <div class="container py-4 bg-primary">
+        <!-- Page specific body additions -->
+        <header class="pb-3 mb-4 border-bottom">
+            <a href="#" class="d-flex align-items-center text-light text-decoration-none">
+                <span class="fs-4">Database SQL Person</span>
+            </a>
+        </header>
 
-        <div class="row justify-content-md-center">
-            <h1>SQL Person List</h1>
-        </div>
-        <div class="row justify-content-md-center">
+        <div class="container py-4 text-light bg-success">
+
+            <h2>Person Viewer</h2>
             <a th:href="@{/database/personcreate/}">Create Person</a>
+            <div class="row align-items-md-stretch">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>EMail</th>
+                        <th>Person</th>
+                        <th>Age</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="person : ${list}">
+                        <td th:text="${person.id}">Person ID</td>
+                        <td th:text="${person.email}">Birth Date</td>
+                        <td th:text="${person.name}">Name</td>
+                        <td th:if="${person.getAge() != -1}" th:text="${person.getAge()}">Age</td>
+                        <td th:unless="${person.getAge() != -1}" th:text="Unknown">Unknown Age</td>
+                        <td>
+                            <a th:href="@{/database/personupdate/{id}(id = ${person.id})}">Update</a>
+                            <a th:href="@{/database/persondelete/{id}(id = ${person.id})}">Delete</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
         </div>
-
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>EMail</th>
-                <th>Person</th>
-                <th>Age</th>
-                <th>Action</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="person : ${list}">
-                <td th:text="${person.id}">Person ID</td>
-                <td th:text="${person.email}">Birth Date</td>
-                <td th:text="${person.name}">Name</td>
-                <td th:if="${person.getAge() != -1}" th:text="${person.getAge()}">Age</td>
-                <td th:unless="${person.getAge() != -1}" th:text="Unknown">Unknown Age</td>
-                <td>
-                    <a th:href="@{/database/personupdate/{id}(id = ${person.id})}">Update</a>
-                    <a th:href="@{/database/persondelete/{id}(id = ${person.id})}">Delete</a>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-
     </div>
 
 </div>

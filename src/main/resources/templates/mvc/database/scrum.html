@@ -13,61 +13,68 @@
 
 <!-- <body> -->
 <div layout:fragment="body" th:remove="tag">
-    <!-- Page specific body additions -->
-    <div style="margin: 2%;">
-        <div align="center">
-            <h1>SQL Scrum Team List</h1>
+    <div class="container py-4 bg-primary">
+        <!-- Page specific body additions -->
+        <header class="pb-3 mb-4 border-bottom">
+            <a href="#" class="d-flex align-items-center text-light text-decoration-none">
+                <span class="fs-4">Database SQL Scrum</span>
+            </a>
+        </header>
+
+        <div class="container py-4 text-light bg-success">
+
+            <h2>Scrum Team Viewer</h2>
             <a th:href="@{/database/scrum_create/}">Create Scrum Team</a>
-            <br/><br/>
-
-            <table border="1" cellpadding="10">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Scrum Name</th>
-                    <th>Scrum Master</th>
-                    <th>GitHub Admin</th>
-                    <th>Web Designer</th>
-                    <th>Deployment Manager</th>
-                    <th>Technical Officer</th>
-                    <th>Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <!--
-                    Display listing of Family properties
-                     Reference to POJO details
-                     Objects primary and spouse allow access to details
-                    -->
-                    <tr th:each="item : ${list}">
-                        <td th:text="${item.id}">Scrum ID</td>
-                        <td th:text="${item.name}">Scrum Name</td>
-
-                        <th:block th:if="${item.primary == null}"><td th:text="none">Primary</td></th:block>
-                        <th:block th:unless="${item.primary == null}"><td th:text="${item.primary.name}">Primary</td></th:block>
-
-                        <th:block th:if="${item.member1 == null}"><td th:text="none">Member 1</td></th:block>
-                        <th:block th:unless="${item.member1 == null}"><td th:text="${item.member1.name}">Member 1</td></th:block>
-
-                        <th:block th:if="${item.member2 == null}"><td th:text="none">Member 2</td></th:block>
-                        <th:block th:unless="${item.member2 == null}"><td th:text="${item.member2.name}">Member 2</td></th:block>
-
-                        <th:block th:if="${item.member3 == null}"><td th:text="none">Member 3</td></th:block>
-                        <th:block th:unless="${item.member3 == null}"><td th:text="${item.member3.name}">Member 3</td></th:block>
-
-                        <th:block th:if="${item.member4 == null}"><td th:text="none">Member 4</td></th:block>
-                        <th:block th:unless="${item.member4 == null}"><td th:text="${item.member4.name}">Member 4</td></th:block>
-
-                        <td>
-                            <a th:href="@{/database/scrum_update/{id}(id = ${item.id})}">Update</a>
-                            <a th:href="@{/database/scrum_delete/{id}(id = ${item.id})}">Delete</a>
-                        </td>
+            <div class="row align-items-md-stretch">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Scrum Name</th>
+                        <th>Scrum Master</th>
+                        <th>GitHub Admin</th>
+                        <th>Web Designer</th>
+                        <th>Deployment Manager</th>
+                        <th>Technical Officer</th>
+                        <th>Action</th>
                     </tr>
-                </tbody>
-            </table>
-            <!--
-            <p th:text="'Raw Data: ' + ${list}"></p>
-            -->
+                    </thead>
+                    <tbody>
+                        <!--
+                        Display listing of Family properties
+                         Reference to POJO details
+                         Objects primary and spouse allow access to details
+                        -->
+                        <tr th:each="item : ${list}">
+                            <td th:text="${item.id}">Scrum ID</td>
+                            <td th:text="${item.name}">Scrum Name</td>
+
+                            <th:block th:if="${item.primary == null}"><td th:text="none">Primary</td></th:block>
+                            <th:block th:unless="${item.primary == null}"><td th:text="${item.primary.name}">Primary</td></th:block>
+
+                            <th:block th:if="${item.member1 == null}"><td th:text="none">Member 1</td></th:block>
+                            <th:block th:unless="${item.member1 == null}"><td th:text="${item.member1.name}">Member 1</td></th:block>
+
+                            <th:block th:if="${item.member2 == null}"><td th:text="none">Member 2</td></th:block>
+                            <th:block th:unless="${item.member2 == null}"><td th:text="${item.member2.name}">Member 2</td></th:block>
+
+                            <th:block th:if="${item.member3 == null}"><td th:text="none">Member 3</td></th:block>
+                            <th:block th:unless="${item.member3 == null}"><td th:text="${item.member3.name}">Member 3</td></th:block>
+
+                            <th:block th:if="${item.member4 == null}"><td th:text="none">Member 4</td></th:block>
+                            <th:block th:unless="${item.member4 == null}"><td th:text="${item.member4.name}">Member 4</td></th:block>
+
+                            <td>
+                                <a th:href="@{/database/scrum_update/{id}(id = ${item.id})}">Update</a>
+                                <a th:href="@{/database/scrum_delete/{id}(id = ${item.id})}">Delete</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!--
+                <p th:text="'Raw Data: ' + ${list}"></p>
+                -->
+            </div>
         </div>
     </div>
 </div>
