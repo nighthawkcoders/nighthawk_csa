@@ -1,6 +1,6 @@
-package com.nighthawk.csa.mvc.Accounts;
+package com.nighthawk.csa.mvc.database;
 
-import com.nighthawk.csa.mvc.Accounts.person.Person;
+import com.nighthawk.csa.mvc.database.person.Person;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
@@ -19,7 +19,7 @@ import java.util.*;
 @Controller
 public class PersonController implements WebMvcConfigurer {
 
-    // Autowired enables Control to connect HTML and POJO Object to Database easily for CRUD
+    // Autowired enables Control to connect HTML and POJO Object to database easily for CRUD
     @Autowired
     private ModelRepository repository;
 
@@ -27,7 +27,7 @@ public class PersonController implements WebMvcConfigurer {
     public String person(Model model) {
         List<Person> list = repository.listAll();
         model.addAttribute("list", list);
-        return "database/person";
+        return "mvc/database/person";
     }
 
     /*  The HTML template Forms and PersonForm attributes are bound
@@ -36,7 +36,7 @@ public class PersonController implements WebMvcConfigurer {
     */
     @GetMapping("/database/personcreate")
     public String personAdd(Person person) {
-        return "database/personcreate";
+        return "mvc/database/personcreate";
     }
 
     /* Gathers the attributes filled out in the form, tests for and retrieves validation error
@@ -47,7 +47,7 @@ public class PersonController implements WebMvcConfigurer {
     public String personSave(@Valid Person person, BindingResult bindingResult) {
         // Validation of Decorated PersonForm attributes
         if (bindingResult.hasErrors()) {
-            return "database/personcreate";
+            return "mvc/database/personcreate";
         }
         repository.save(person);
         repository.addRoleToPerson(person.getEmail(), "ROLE_STUDENT");
@@ -58,14 +58,14 @@ public class PersonController implements WebMvcConfigurer {
     @GetMapping("/database/personupdate/{id}")
     public String personUpdate(@PathVariable("id") int id, Model model) {
         model.addAttribute("person", repository.get(id));
-        return "database/personupdate";
+        return "mvc/database/personupdate";
     }
 
     @PostMapping("/database/personupdate")
     public String personUpdateSave(@Valid Person person, BindingResult bindingResult) {
         // Validation of Decorated PersonForm attributes
         if (bindingResult.hasErrors()) {
-            return "database/personupdate";
+            return "mvc/database/personupdate";
         }
         repository.save(person);
         repository.addRoleToPerson(person.getEmail(), "ROLE_STUDENT");
@@ -79,6 +79,12 @@ public class PersonController implements WebMvcConfigurer {
         repository.delete(id);
         return "redirect:/database/person";
     }
+
+    @GetMapping("/database/person_search")
+    public String person() {
+        return "mvc/database/person_search";
+    }
+
 
     /*
     #### RESTful API section ####
@@ -129,11 +135,6 @@ public class PersonController implements WebMvcConfigurer {
         Person person = new Person(email, password, name, dob, repository.findRole("ROLE_STUDENT") );
         repository.save(person);
         return new ResponseEntity<>(email +" is created successfully", HttpStatus.CREATED);
-    }
-
-    @GetMapping("/database/person_search")
-    public String person() {
-        return "database/person_search";
     }
 
     /*

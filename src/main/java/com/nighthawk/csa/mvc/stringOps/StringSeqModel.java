@@ -1,4 +1,4 @@
-package com.nighthawk.csa.mvc.StringOps;
+package com.nighthawk.csa.mvc.stringOps;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -126,7 +126,7 @@ public class StringSeqModel {
         }
     }
 
-    // StringOps object reference will return value of sequence attribute
+    // stringOps object reference will return value of sequence attribute
     @Override
     public String toString() {
         return this.stringSeq;
@@ -149,7 +149,7 @@ public class StringSeqModel {
         // Test 0 construct gradShow object
         StringSeqModel gradShow = new StringSeqModel();
         gradShow.addEvent("Test (a): construct gradShow object");
-        gradShow.newStringSeq("StringOps FRQ 2 gradShow LightSequence");
+        gradShow.newStringSeq("stringOps FRQ 2 gradShow LightSequence");
 
         // Test1 set light sequence
         gradShow.addEvent("Test (b): set light sequence");
@@ -178,7 +178,7 @@ public class StringSeqModel {
 
     // Class tester
     public static void main(String[] args) {
-        // FRQ2 result simulation using StringOps Class
+        // FRQ2 result simulation using stringOps Class
         StringSeqModel gradShow = StringSeqModel.frg2Simulation();
 
         // History of events

@@ -1,9 +1,9 @@
 package com.nighthawk.csa.utility.LinkedLists2;
 
-import com.nighthawk.csa.mvc.DataOps.genericDataModel.Alphabet;
-import com.nighthawk.csa.mvc.DataOps.genericDataModel.Animal;
-import com.nighthawk.csa.mvc.DataOps.genericDataModel.Cupcakes;
-import com.nighthawk.csa.mvc.DataOps.genericDataModel.Generics;
+import com.nighthawk.csa.mvc.dataOps.genericDataModel.Alphabet;
+import com.nighthawk.csa.mvc.dataOps.genericDataModel.Animal;
+import com.nighthawk.csa.mvc.dataOps.genericDataModel.Cupcakes;
+import com.nighthawk.csa.mvc.dataOps.genericDataModel.Generics;
 
 import java.util.Iterator;
 

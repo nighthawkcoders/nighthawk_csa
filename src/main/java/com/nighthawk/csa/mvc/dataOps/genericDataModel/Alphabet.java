@@ -1,7 +1,4 @@
-package com.nighthawk.csa.mvc.DataOps.genericDataModel;
-import com.nighthawk.csa.utility.ConsoleMethods;
-
-import java.util.Arrays;
+package com.nighthawk.csa.mvc.dataOps.genericDataModel;
 
 public class Alphabet extends Generics {
 	// Class data

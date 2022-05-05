@@ -60,7 +60,7 @@
                                 2. animalKey is the result of radio button selection
                                 3. each radio option is provided a unique id, review rendered code to see expansion
                                 -->
-                                <div th:each="option : ${T(com.nighthawk.csa.mvc.DataOps.genericDataModel.Animal.KeyType).values()}">
+                                <div th:each="option : ${T(com.nighthawk.csa.mvc.dataOps.genericDataModel.Animal.KeyType).values()}">
                                     <div class="custom-control custom-radio custom-control-inline">
                                         <input type="radio" th:field="*{animalKey}" th:value="${option}" class="custom-control-input">
                                         <label class="custom-control-label" th:for="${#ids.prev('animalKey')}" th:text="${option}">option</label>
@@ -74,7 +74,7 @@
                             <label for="cake">Cup Cakes</label>
                             <div class="form-group">
                                 <label>Sort by</label>
-                                <div th:each="option : ${T(com.nighthawk.csa.mvc.DataOps.genericDataModel.Cupcakes.KeyType).values()}">
+                                <div th:each="option : ${T(com.nighthawk.csa.mvc.dataOps.genericDataModel.Cupcakes.KeyType).values()}">
                                     <div class="custom-control custom-radio custom-control-inline">
                                         <input type="radio" th:field="*{cakeKey}" th:value="${option}" class="custom-control-input">
                                         <label class="custom-control-label" th:for="${#ids.prev('cakeKey')}" th:text="${option}">option</label>
@@ -88,7 +88,7 @@
                             <label for="alpha">Alphabet</label>
                             <div class="form-group">
                                 <label>Sort by</label>
-                                <div th:each="option : ${T(com.nighthawk.csa.mvc.DataOps.genericDataModel.Alphabet.KeyType).values()}">
+                                <div th:each="option : ${T(com.nighthawk.csa.mvc.dataOps.genericDataModel.Alphabet.KeyType).values()}">
                                     <div class="custom-control custom-radio custom-control-inline">
                                         <input type="radio" th:field="*{alphaKey}" th:value="${option}" class="custom-control-input">
                                         <label class="custom-control-label" th:for="${#ids.prev('alphaKey')}" th:text="${option}">option</label>

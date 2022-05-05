@@ -1,4 +1,4 @@
-package com.nighthawk.csa.mvc.Fibonacci;
+package com.nighthawk.csa.mvc.fibonacci;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +12,7 @@ import java.util.List;
 public class _FibController {
 
     public List<FibAbstractModel> fibInit(int nth) {
-        //Fibonacci objects created with different initializers
+        //fibonacci objects created with different initializers
         List<FibAbstractModel> fibList = new ArrayList<>();
         fibList.add(new FibForModel(nth));
         fibList.add(new FibWhileModel(nth));

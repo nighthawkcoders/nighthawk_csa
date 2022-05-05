@@ -1,5 +1,4 @@
-package com.nighthawk.csa.mvc.DataOps.genericDataModel;
-import com.nighthawk.csa.utility.ConsoleMethods;
+package com.nighthawk.csa.mvc.dataOps.genericDataModel;
 
 public class Cupcakes extends Generics {
 	// Class data

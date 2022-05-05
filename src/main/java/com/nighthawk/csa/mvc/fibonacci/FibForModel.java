@@ -1,4 +1,4 @@
-package com.nighthawk.csa.mvc.Fibonacci;
+package com.nighthawk.csa.mvc.fibonacci;
 
 public class FibForModel extends FibAbstractModel {
     // zero and one argument constructors, both defer to super

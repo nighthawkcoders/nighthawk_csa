@@ -1,4 +1,4 @@
-package com.nighthawk.csa.mvc.StringOps;
+package com.nighthawk.csa.mvc.stringOps;
 
 import com.nighthawk.csa.utility.FunMath;
 import org.json.simple.JSONObject;
@@ -18,7 +18,7 @@ import java.util.Objects;
 
 @Controller  // HTTP requests are handled as a controller, using the @Controller annotation
 public class StringSeqController {
-    // StringOps object
+    // stringOps object
     StringSeqModel string_ops = null;
 
     // Getter to transform string_ops object to JSON

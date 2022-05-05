@@ -1,4 +1,4 @@
-package com.nighthawk.csa.mvc.Accounts.role;
+package com.nighthawk.csa.mvc.database.role;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,6 +1,6 @@
-package com.nighthawk.csa.mvc.Accounts;
+package com.nighthawk.csa.mvc.database;
 
-import com.nighthawk.csa.mvc.Accounts.scrum.Scrum;
+import com.nighthawk.csa.mvc.database.scrum.Scrum;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +25,7 @@ public class ScrumController implements WebMvcConfigurer {
     @GetMapping("/database/scrum")
     public String scrumTeam(Model model) {
         model.addAttribute("list", modelRepository.listAllScrums());
-        return "database/scrum";
+        return "mvc/database/scrum";
     }
 
     /*  The HTML template Forms and Model attributes are bound
@@ -36,7 +36,7 @@ public class ScrumController implements WebMvcConfigurer {
     public String scrumTeamCreate(Model model) {
         model.addAttribute("scrum", new Scrum());
         model.addAttribute("listPersons", modelRepository.listAll());
-        return "database/scrum_form";
+        return "mvc/database/scrum_form";
     }
 
     @GetMapping("/database/scrum_update/{id}")
@@ -44,7 +44,7 @@ public class ScrumController implements WebMvcConfigurer {
         model.addAttribute("id", id);  //passed to support using one form
         model.addAttribute("scrum", modelRepository.getScrum(id));
         model.addAttribute("listPersons", modelRepository.listAll());
-        return "database/scrum_form";
+        return "mvc/database/scrum_form";
     }
 
     /* Gathers the attributes filled out in the form, tests for and retrieves validation error
@@ -55,7 +55,7 @@ public class ScrumController implements WebMvcConfigurer {
     public String saveData(@Valid Scrum scrum, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
         // Validation of Family attributes, validation of nested object supported
         if (bindingResult.hasErrors()) {
-            return "database/scrum_form";
+            return "mvc/database/scrum_form";
         }
         // Redirect to next step
         modelRepository.saveScrum(scrum);

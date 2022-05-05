@@ -1,9 +1,9 @@
-package com.nighthawk.csa.mvc.DataOps;
+package com.nighthawk.csa.mvc.dataOps;
 
 import com.nighthawk.csa.utility.ConsoleMethods;
-import com.nighthawk.csa.mvc.DataOps.genericDataModel.Alphabet;
-import com.nighthawk.csa.mvc.DataOps.genericDataModel.Animal;
-import com.nighthawk.csa.mvc.DataOps.genericDataModel.Cupcakes;
+import com.nighthawk.csa.mvc.dataOps.genericDataModel.Alphabet;
+import com.nighthawk.csa.mvc.dataOps.genericDataModel.Animal;
+import com.nighthawk.csa.mvc.dataOps.genericDataModel.Cupcakes;
 
 import com.nighthawk.csa.utility.LinkedLists.CircleQueue;
 import lombok.Getter;

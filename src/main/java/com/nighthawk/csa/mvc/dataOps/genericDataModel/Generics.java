@@ -1,4 +1,4 @@
-package com.nighthawk.csa.mvc.DataOps.genericDataModel;
+package com.nighthawk.csa.mvc.dataOps.genericDataModel;
 
 import com.nighthawk.csa.utility.ConsoleMethods;
 import lombok.Getter;

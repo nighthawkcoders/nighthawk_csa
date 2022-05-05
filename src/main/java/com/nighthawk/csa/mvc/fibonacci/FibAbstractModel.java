@@ -1,4 +1,4 @@
-package com.nighthawk.csa.mvc.Fibonacci;
+package com.nighthawk.csa.mvc.fibonacci;
 
 import com.nighthawk.csa.utility.ConsoleMethods;
 
@@ -10,7 +10,7 @@ import java.util.HashMap;
 import lombok.Getter;
 
 /*
- _Fibonacci class contains generalized logic to capture and analyze a Fibonacci sequence.
+ _Fibonacci class contains generalized logic to capture and analyze a fibonacci sequence.
  _Fibonacci is an "abstract" class, meaning it can't be initialized directly
  The "_" in name is used to push this "Parent" Class to top of package file listing.
  */
@@ -48,13 +48,13 @@ public abstract class FibAbstractModel {
     }
 
     /*
-     Method is abstract as init() requires extender to define their own Fibonacci mvc
+     Method is abstract as init() requires extender to define their own fibonacci mvc
      Method is protected as it is only authorized to someone who extends the class
      */
     protected abstract void init();
 
     /*
-     Number is added to Fibonacci sequence, current state of "list" is added to hash for hashID "num"
+     Number is added to fibonacci sequence, current state of "list" is added to hash for hashID "num"
      */
     public void setData(long num) {
         list.add(num);
@@ -69,14 +69,14 @@ public abstract class FibAbstractModel {
     }
 
     /*
-     Custom Getter to return last element in Fibonacci sequence
+     Custom Getter to return last element in fibonacci sequence
      */
     public long getNth() {
         return list.get(size - 1);
     }
 
     /*
-     Custom Getter to return last Fibonacci sequence in HashMap
+     Custom Getter to return last fibonacci sequence in HashMap
      */
     public Object getNthSeq(int i) {
         return hash.get(i);
@@ -88,11 +88,11 @@ public abstract class FibAbstractModel {
     public void print() {
         ConsoleMethods.println("Init method = " + this.name);
         ConsoleMethods.println("Init time = " + this.getTimeElapsed());
-        ConsoleMethods.println("Fibonacci Number " + this.size + " = " + this.getNth());
-        ConsoleMethods.println("Fibonacci List = " + this.getList());
-        ConsoleMethods.println("Fibonacci Hashmap = " + this.getHash());
+        ConsoleMethods.println("fibonacci Number " + this.size + " = " + this.getNth());
+        ConsoleMethods.println("fibonacci List = " + this.getList());
+        ConsoleMethods.println("fibonacci Hashmap = " + this.getHash());
         for (int i=0 ; i<this.size; i++ ) {
-            ConsoleMethods.println("Fibonacci Sequence " + (i+1) + " = " + this.getNthSeq(i));
+            ConsoleMethods.println("fibonacci Sequence " + (i+1) + " = " + this.getNthSeq(i));
         }
     }
 

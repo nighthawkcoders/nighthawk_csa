@@ -1,11 +1,11 @@
-package com.nighthawk.csa.mvc.Accounts;
+package com.nighthawk.csa.mvc.database;
 
-import com.nighthawk.csa.mvc.Accounts.person.Person;
-import com.nighthawk.csa.mvc.Accounts.person.PersonJpaRepository;
-import com.nighthawk.csa.mvc.Accounts.role.Role;
-import com.nighthawk.csa.mvc.Accounts.role.RoleJpaRepository;
-import com.nighthawk.csa.mvc.Accounts.scrum.Scrum;
-import com.nighthawk.csa.mvc.Accounts.scrum.ScrumJpaRepository;
+import com.nighthawk.csa.mvc.database.person.Person;
+import com.nighthawk.csa.mvc.database.person.PersonJpaRepository;
+import com.nighthawk.csa.mvc.database.role.Role;
+import com.nighthawk.csa.mvc.database.role.RoleJpaRepository;
+import com.nighthawk.csa.mvc.database.scrum.Scrum;
+import com.nighthawk.csa.mvc.database.scrum.ScrumJpaRepository;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;

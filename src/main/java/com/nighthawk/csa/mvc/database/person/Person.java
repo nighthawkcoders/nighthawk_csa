@@ -1,6 +1,6 @@
-package com.nighthawk.csa.mvc.Accounts.person;
+package com.nighthawk.csa.mvc.database.person;
 
-import com.nighthawk.csa.mvc.Accounts.role.Role;
+import com.nighthawk.csa.mvc.database.role.Role;
 import org.springframework.format.annotation.DateTimeFormat;
 import lombok.*;
 

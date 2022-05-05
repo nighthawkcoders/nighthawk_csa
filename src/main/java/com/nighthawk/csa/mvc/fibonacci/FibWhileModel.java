@@ -1,4 +1,4 @@
-package com.nighthawk.csa.mvc.Fibonacci;
+package com.nighthawk.csa.mvc.fibonacci;
 
 public class FibWhileModel extends FibAbstractModel {
     public FibWhileModel() {
