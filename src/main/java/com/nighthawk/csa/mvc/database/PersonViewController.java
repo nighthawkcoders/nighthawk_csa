@@ -78,7 +78,7 @@ public class PersonViewController {
         return "redirect:/database/person";
     }
 
-    @GetMapping("/database/person_search")
+    @GetMapping("/database/person/search")
     public String person() {
         return "mvc/database/person_search";
     }

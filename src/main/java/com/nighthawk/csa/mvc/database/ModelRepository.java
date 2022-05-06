@@ -10,11 +10,16 @@ import com.nighthawk.csa.mvc.database.scrum.ScrumJpaRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /*
@@ -25,7 +30,13 @@ This class has an instance of Java Persistence API (JPA)
 */
 @Service
 @Transactional
-public class ModelRepository {
+public class ModelRepository implements UserDetailsService {
+    // Sets up password encoding style
+    @Bean
+    PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
+
     // CommandLineRunner provides options to up preliminary data
     @Bean
     CommandLineRunner run(ModelRepository modelRepository) { // testing the database with role adds etc
@@ -43,12 +54,6 @@ public class ModelRepository {
         };
     }
 
-    // Sets up password encoding style
-    @Bean
-    PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
-    }
-
     @Autowired  // Inject PersonJpaRepository
     private PersonJpaRepository personJpaRepository;
 
@@ -60,6 +65,19 @@ public class ModelRepository {
 
     @Autowired  // Inject PasswordEncoder
     private PasswordEncoder passwordEncoder;
+
+    @Override
+    public org.springframework.security.core.userdetails.UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        Person person = personJpaRepository.findByEmail(email); // setting variable user equal to the method finding the username in the database
+        if(person==null){
+            throw new UsernameNotFoundException("User not found in database");
+        }
+        Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
+        person.getRoles().forEach(role -> { //loop through roles
+            authorities.add(new SimpleGrantedAuthority(role.getName())); //create a SimpleGrantedAuthority by passed in role, adding it all to the authorities list, list of roles gets past in for spring security
+        });
+        return new org.springframework.security.core.userdetails.User(person.getEmail(), person.getPassword(), authorities);
+    }
 
     /* Person Section */
 
@@ -87,6 +105,10 @@ public class ModelRepository {
         return (personJpaRepository.findById(id).isPresent())
                 ? personJpaRepository.findById(id).get()
                 : null;
+    }
+
+    public Person getByEmail(String email) {
+        return (personJpaRepository.findByEmail(email));
     }
 
     public void delete(long id) {
