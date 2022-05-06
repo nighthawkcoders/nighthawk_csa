@@ -27,6 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
+        // remove web resources from security rules
         web
                 .ignoring()
                 .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**", "/fonts/**", "/scss/**")
@@ -35,6 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception { //THis is going to be altered to use the JWT
+        // security rules
         http
             .authorizeRequests()
                 .antMatchers(POST, "/api/person/post/**").hasAnyAuthority("ROLE_STUDENT")
@@ -52,8 +54,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
             .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/")
+                .logoutSuccessUrl("/database/person")
                 .permitAll()
         ;
+        // Cross-Site Request Forgery needs to be disabled to allow activation of JS Fetch URI
+        http.csrf().disable();
     }
 }
