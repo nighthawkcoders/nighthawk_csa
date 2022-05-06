@@ -31,29 +31,32 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         web
-            .ignoring()
-            .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**", "/fonts/**", "/scss/**");
+                .ignoring()
+                .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**", "/fonts/**", "/scss/**")
+        ;
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception { //THis is going to be altered to use the JWT
         http
-                .authorizeRequests()
+            .authorizeRequests()
                 .antMatchers(POST, "/api/person/post/**").hasAnyAuthority("ROLE_STUDENT")
-                .antMatchers(POST,"/database/personupdate/**", "/database/persondelete/**").hasAnyAuthority("ROLE_STUDENT")
                 .antMatchers(DELETE, "/api/person/delete/**").hasAnyAuthority("ROLE_ADMIN")
+                .antMatchers(POST,"/database/personupdate/**").hasAnyAuthority("ROLE_STUDENT")
+                .antMatchers(POST,"/database/persondelete/**").hasAnyAuthority("ROLE_ADMIN")
                 .antMatchers( "/api/person/**").permitAll()
                 .antMatchers( "/api/refresh/token/**").permitAll()
-                .antMatchers("/", "/starters/**", "/frontend/**", "/mvc/**", "/database/person/**", "/database/scrum/**", "/course/**").permitAll()
-                .anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll().and()
-                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/login").permitAll();
-    }
-
-
-    @Bean
-    @Override
-    public AuthenticationManager authenticationManagerBean() throws Exception{
-        return super.authenticationManagerBean();
+                .antMatchers("/", "/starters/**", "/frontend/**", "/mvc/**", "/database/person/**", "/database/personcreate", "/database/scrum/**", "/course/**").permitAll()
+                .anyRequest().authenticated()
+                .and()
+            .formLogin()
+                .loginPage("/login")
+                .permitAll()
+                .and()
+            .logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/login")
+                .permitAll()
+        ;
     }
 }
