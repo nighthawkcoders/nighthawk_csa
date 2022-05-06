@@ -30,7 +30,8 @@ This class has an instance of Java Persistence API (JPA)
 */
 @Service
 @Transactional
-public class ModelRepository implements UserDetailsService {
+public class ModelRepository implements UserDetailsService {  // "implements" ties ModelRepo to Spring Security
+
     // Sets up password encoding style
     @Bean
     PasswordEncoder passwordEncoder(){
@@ -66,6 +67,7 @@ public class ModelRepository implements UserDetailsService {
     @Autowired  // Inject PasswordEncoder
     private PasswordEncoder passwordEncoder;
 
+    /* UserDetailsService Override maps Person & Roles POJO into Spring Security */
     @Override
     public org.springframework.security.core.userdetails.UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Person person = personJpaRepository.findByEmail(email); // setting variable user equal to the method finding the username in the database

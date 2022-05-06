@@ -57,7 +57,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/database/person")
                 .permitAll()
         ;
-        // Cross-Site Request Forgery needs to be disabled to allow activation of JS Fetch URI
+        // Cross-Site Request Forgery needs to be disabled to allow activation of JS Fetch URIs
         http.csrf().disable();
     }
 }

@@ -32,6 +32,7 @@
                         <tr th:if="${param.logout}" class="alert alert-success">
                             You have been logged out.
                         </tr>
+                        <!-- 'email' is mapped to 'username' for Spring Security -->
                         <tr><th><label for="username">Email</label></th></tr>
                         <tr><td><input type="email" id='username' name="username" size="20" required></td></tr>
                         <tr><th><label for="password">Password</label></th></tr>
