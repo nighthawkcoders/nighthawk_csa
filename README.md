@@ -105,7 +105,7 @@
     <td>March 28 - April 1</td>
     <td><a href="https://csacoders.nighthawkcodingsociety.com/2022/03/27/Week-3-Sorts.html">Sorts</a></td>
     <td>none</td>
-    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-3:-Sorts">TT3 Sorts and Analysis</a></td>
+    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-week-3:-Sorts">TT3 Sorts and Analysis</a></td>
     <td><a href="https://poway.instructure.com/courses/112339/assignments/2077454">Sorts and Analysis</a></td>
    </tr>
 
@@ -114,7 +114,7 @@
     <td>March 21 - 25</td>
     <td>Calculator</td>
     <td>none</td>
-    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-2:-Calculator">TT2 Calculator, Stacks, ArrayLists</a></td>
+    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-week-2:-Calculator">TT2 Calculator, Stacks, ArrayLists</a></td>
     <td><a href="https://poway.instructure.com/courses/112339/assignments/2063677">Data Structures Challenge 2</a></td>
    </tr>
    
@@ -123,7 +123,7 @@
     <td>March 14 - 18</td>
     <td>Custom Java and Linked Lists</td>
     <td>none</td>
-    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-1:-Linked-Lists-Part-2">TT1 Linked Lists</a></td>
+    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-week-1:-Linked-Lists-Part-2">TT1 Linked Lists</a></td>
     <td><a href="https://poway.instructure.com/courses/112339/assignments/2058316">Data Structures Challenge 1</a></td>
    </tr>
    
