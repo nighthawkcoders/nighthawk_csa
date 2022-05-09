@@ -33,7 +33,7 @@
     <td>May 23 - 27</td>
     <td>Final Project Dev 2</td>
     <td>Student Led, engineering best practices</td>
-    <td>Async API or Relational Data Presentation</td>
+    <td>Spring Boot Security APIs and Sessions</td>
     <td>Customer Project Deployment Review 2</td>
    </tr>
    
@@ -42,7 +42,7 @@
     <td>May 16 - 20</td>
     <td>Final Project Dev 1</td>
     <td>Student Led, engineering best practices</td>
-    <td>Async API or Relational Data Presentation</td>
+    <td>Spring Boot Security Intro</td>
     <td>Customer Project Deployment Review 1</td>
    </tr>
    
@@ -51,7 +51,7 @@
     <td>May 9 - 13</td>
     <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/_posts/2022-05-01-AP-Week2.md">AP Week 2, Final Project Review 2</a></td>
     <td>none</td>
-    <td>none</td>
+    <td>One-to-Many Relations Data</td>
     <td><a href="https://poway.instructure.com/courses/112339/assignments/2103848">PBL Sponsor Requirements Presentations</a></td>
    </tr>
    
