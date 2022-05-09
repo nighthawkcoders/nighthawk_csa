@@ -31,15 +31,23 @@ This class has an instance of Java Persistence API (JPA)
 @Service
 @Transactional
 public class ModelRepository implements UserDetailsService {  // "implements" ties ModelRepo to Spring Security
+    // Encapsulate many object into a single Bean (Person, Roles, and Scrum)
+    @Autowired  // Inject PersonJpaRepository
+    private PersonJpaRepository personJpaRepository;
+    @Autowired  // Inject RoleJpaRepository
+    private RoleJpaRepository roleJpaRepository;
+    @Autowired  // Inject RoleJpaRepository
+    private ScrumJpaRepository scrumJpaRepository;
 
-    // Sets up password encoding style
-    @Bean
+    // Setup Password style for Database storing and lookup
+    @Autowired  // Inject PasswordEncoder
+    private PasswordEncoder passwordEncoder;
+    @Bean  // Sets up password encoding style
     PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
 
-    // CommandLineRunner provides options to up preliminary data
-    @Bean
+    @Bean  // CommandLineRunner provides options to up preliminary data
     CommandLineRunner run(ModelRepository modelRepository) { // testing the database with role adds etc
         return args -> {
             // make sure every record added has Default encrypted password and ROLE_STUDENT
@@ -49,23 +57,11 @@ public class ModelRepository implements UserDetailsService {  // "implements" ti
             modelRepository.addRoleToPerson("jmort1021@gmail.com", "ROLE_TEACHER");
             modelRepository.addRoleToPerson("jmort1021@gmail.com", "ROLE_ADMIN");
 
-            // output to console
-            System.out.println(modelRepository.listAll());
-            System.out.println(modelRepository.listAllRoles());
+            // Validate/test by performing output to console
+            //System.out.println(modelRepository.listAll());
+            //System.out.println(modelRepository.listAllRoles());
         };
     }
-
-    @Autowired  // Inject PersonJpaRepository
-    private PersonJpaRepository personJpaRepository;
-
-    @Autowired  // Inject RoleJpaRepository
-    private RoleJpaRepository roleJpaRepository;
-
-    @Autowired  // Inject RoleJpaRepository
-    private ScrumJpaRepository scrumJpaRepository;
-
-    @Autowired  // Inject PasswordEncoder
-    private PasswordEncoder passwordEncoder;
 
     /* UserDetailsService Override maps Person & Roles POJO into Spring Security */
     @Override
@@ -80,6 +76,7 @@ public class ModelRepository implements UserDetailsService {  // "implements" ti
         });
         return new org.springframework.security.core.userdetails.User(person.getEmail(), person.getPassword(), authorities);
     }
+
 
     /* Person Section */
 

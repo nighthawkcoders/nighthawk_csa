@@ -16,7 +16,6 @@ import java.util.List;
 // or similar: https://asbnotebook.com/2020/04/11/spring-boot-thymeleaf-form-validation-example/
 @Controller
 public class PersonViewController {
-
     // Autowired enables Control to connect HTML and POJO Object to database easily for CRUD
     @Autowired
     private ModelRepository repository;
