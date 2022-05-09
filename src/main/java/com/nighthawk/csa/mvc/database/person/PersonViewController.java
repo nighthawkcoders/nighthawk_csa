@@ -1,5 +1,6 @@
-package com.nighthawk.csa.mvc.database;
+package com.nighthawk.csa.mvc.database.person;
 
+import com.nighthawk.csa.mvc.database.ModelRepository;
 import com.nighthawk.csa.mvc.database.person.Person;
 
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,5 +1,6 @@
-package com.nighthawk.csa.mvc.database;
+package com.nighthawk.csa.mvc.database.scrum;
 
+import com.nighthawk.csa.mvc.database.ModelRepository;
 import com.nighthawk.csa.mvc.database.scrum.Scrum;
 
 import org.springframework.beans.factory.annotation.Autowired;
