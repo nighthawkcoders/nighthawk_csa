@@ -7,7 +7,6 @@ import com.nighthawk.csa.mvc.database.role.RoleJpaRepository;
 import com.nighthawk.csa.mvc.database.scrum.Scrum;
 import com.nighthawk.csa.mvc.database.scrum.ScrumJpaRepository;
 
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -47,23 +46,7 @@ public class ModelRepository implements UserDetailsService {  // "implements" ti
         return new BCryptPasswordEncoder();
     }
 
-    @Bean  // CommandLineRunner provides options to up preliminary data
-    CommandLineRunner run(ModelRepository modelRepository) { // testing the database with role adds etc
-        return args -> {
-            // make sure every record added has Default encrypted password and ROLE_STUDENT
-            modelRepository.defaults("123querty", "ROLE_STUDENT");
-
-            // add privileged roles
-            modelRepository.addRoleToPerson("jmort1021@gmail.com", "ROLE_TEACHER");
-            modelRepository.addRoleToPerson("jmort1021@gmail.com", "ROLE_ADMIN");
-
-            // Validate/test by performing output to console
-            //System.out.println(modelRepository.listAll());
-            //System.out.println(modelRepository.listAllRoles());
-        };
-    }
-
-    /* UserDetailsService Override maps Person & Roles POJO into Spring Security */
+    /* UserDetailsService Overrides and maps Person & Roles POJO into Spring Security */
     @Override
     public org.springframework.security.core.userdetails.UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Person person = personJpaRepository.findByEmail(email); // setting variable user equal to the method finding the username in the database
