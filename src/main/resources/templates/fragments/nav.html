@@ -103,7 +103,13 @@
 
             </div>
 
+
             <div class="btn-group">
+                <div class="btn btn-primary">
+                    <form th:action = "@{/logout}" method = "post">
+                        <input type="submit" value = 'Logout'>
+                    </form>
+                </div>
                 <!-- Search Box -->
                 <div class="px-3">
                     <input id="search" type="search" placeholder="Search" aria-label="Search">
