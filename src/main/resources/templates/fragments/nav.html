@@ -105,18 +105,19 @@
 
 
             <div class="btn-group">
-                <div class="btn btn-primary">
-                    <form th:action = "@{/logout}" method = "post">
-                        <input type="submit" value = 'Logout'>
-                    </form>
-                </div>
                 <!-- Search Box -->
                 <div class="px-3">
                     <input id="search" type="search" placeholder="Search" aria-label="Search">
                 </div>
                 <!-- Clock display -->
-                <div class="px-3 text-dark">
-                    <span id="clock"></span>
+<!--                <div class="px-3 text-dark">-->
+<!--                    <span id="clock"></span>-->
+<!--                </div>-->
+                <!-- Logout -->
+                <div class="px-3" style="padding-right:2rem !important">
+                    <form th:action = "@{/logout}" method = "post">
+                        <input type="submit" value = 'Logout'>
+                    </form>
                 </div>
                 <!-- Dark mode action -->
                 <div class="form-check form-switch">
