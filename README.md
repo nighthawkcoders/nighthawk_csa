@@ -33,7 +33,7 @@
     <td>May 23 - 27</td>
     <td>Final Project Dev 2</td>
     <td>Student Led, engineering best practices</td>
-    <td>Async API or Relational Data Presentation</td>
+    <td>Spring Boot Security APIs and Sessions</td>
     <td>Customer Project Deployment Review 2</td>
    </tr>
    
@@ -42,7 +42,7 @@
     <td>May 16 - 20</td>
     <td>Final Project Dev 1</td>
     <td>Student Led, engineering best practices</td>
-    <td>Async API or Relational Data Presentation</td>
+    <td>Spring Boot Security Intro</td>
     <td>Customer Project Deployment Review 1</td>
    </tr>
    
@@ -51,7 +51,7 @@
     <td>May 9 - 13</td>
     <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/_posts/2022-05-01-AP-Week2.md">AP Week 2, Final Project Review 2</a></td>
     <td>none</td>
-    <td>none</td>
+    <td>One-to-Many Relations Data</td>
     <td><a href="https://poway.instructure.com/courses/112339/assignments/2103848">PBL Sponsor Requirements Presentations</a></td>
    </tr>
    
@@ -105,7 +105,7 @@
     <td>March 28 - April 1</td>
     <td><a href="https://csacoders.nighthawkcodingsociety.com/2022/03/27/Week-3-Sorts.html">Sorts</a></td>
     <td>none</td>
-    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-3:-Sorts">TT3 Sorts and Analysis</a></td>
+    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-week-3:-Sorts">TT3 Sorts and Analysis</a></td>
     <td><a href="https://poway.instructure.com/courses/112339/assignments/2077454">Sorts and Analysis</a></td>
    </tr>
 
@@ -114,7 +114,7 @@
     <td>March 21 - 25</td>
     <td>Calculator</td>
     <td>none</td>
-    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-2:-Calculator">TT2 Calculator, Stacks, ArrayLists</a></td>
+    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-week-2:-Calculator">TT2 Calculator, Stacks, ArrayLists</a></td>
     <td><a href="https://poway.instructure.com/courses/112339/assignments/2063677">Data Structures Challenge 2</a></td>
    </tr>
    
@@ -123,7 +123,7 @@
     <td>March 14 - 18</td>
     <td>Custom Java and Linked Lists</td>
     <td>none</td>
-    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-1:-Linked-Lists-Part-2">TT1 Linked Lists</a></td>
+    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-week-1:-Linked-Lists-Part-2">TT1 Linked Lists</a></td>
     <td><a href="https://poway.instructure.com/courses/112339/assignments/2058316">Data Structures Challenge 1</a></td>
    </tr>
    
@@ -132,7 +132,7 @@
     <td>March 7 - 11</td>
     <td><a href="https://csacoders.nighthawkcodingsociety.com/2022/03/07/Week-0-Data-Structures-Objectives.html">Innovation Week Objectives</a></td>
     <td>none</td>
-    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-0---Data-Structures">TT0 Data Structures</a></td>
+    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-week-0:---Data-Structures">TT0 Data Structures</a></td>
     <td><a href="https://poway.instructure.com/courses/112339/assignments/2043641">Plans, Team, Jobs</a></td>
    </tr>
 </table>
