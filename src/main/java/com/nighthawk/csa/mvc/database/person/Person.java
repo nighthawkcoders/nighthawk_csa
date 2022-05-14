@@ -1,5 +1,6 @@
 package com.nighthawk.csa.mvc.database.person;
 
+import com.nighthawk.csa.mvc.database.note.Note;
 import com.nighthawk.csa.mvc.database.role.Role;
 import org.springframework.format.annotation.DateTimeFormat;
 import lombok.*;
@@ -12,6 +13,7 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Set;
 
 import static javax.persistence.FetchType.EAGER;
 
@@ -46,6 +48,9 @@ public class Person {
 
     @ManyToMany(fetch = EAGER)
     private Collection<Role> roles = new ArrayList<>();
+
+    @OneToMany(mappedBy = "person", fetch = EAGER)
+    private Set<Note> notes;
 
     // @NonNull: Places this in @RequiredArgsConstructor
     @NonNull

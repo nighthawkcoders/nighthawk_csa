@@ -35,6 +35,7 @@ public class ModelInit {
             // review/validate/test by performing output to console
             System.out.println(modelRepository.listAll());
             System.out.println(modelRepository.listAllRoles());
+            System.out.println(modelRepository.listAllScrums());
         };
     }
 }
