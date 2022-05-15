@@ -1,17 +1,15 @@
 package com.nighthawk.csa.mvc.database.note;
 
 import com.nighthawk.csa.mvc.database.person.Person;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
 public class Note {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
