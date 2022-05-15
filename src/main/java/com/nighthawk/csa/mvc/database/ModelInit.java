@@ -1,5 +1,6 @@
 package com.nighthawk.csa.mvc.database;
 
+import com.nighthawk.csa.mvc.database.note.NoteJpaRepository;
 import com.nighthawk.csa.mvc.database.role.Role;
 import com.nighthawk.csa.mvc.database.role.RoleJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Component;
 @Component // Scans Application for ModelInit Bean, this detects CommandLineRunner
 public class ModelInit {
     // Inject repositories
+    @Autowired NoteJpaRepository noteJpaRepository;
     @Autowired RoleJpaRepository roleJpaRepository;
     @Autowired ModelRepository modelRepository;
 
@@ -31,11 +33,6 @@ public class ModelInit {
             // make sure privileged roles exist for Teacher
             modelRepository.addRoleToPerson("jmort1021@gmail.com", "ROLE_TEACHER");
             modelRepository.addRoleToPerson("jmort1021@gmail.com", "ROLE_ADMIN");
-
-            // review/validate/test by performing output to console
-            System.out.println(modelRepository.listAll());
-            System.out.println(modelRepository.listAllRoles());
-            System.out.println(modelRepository.listAllScrums());
         };
     }
 }

@@ -4,7 +4,6 @@ import com.nighthawk.csa.mvc.database.person.Person;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -19,10 +18,10 @@ public class Note {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name="person_id", nullable=false)
+    @JoinColumn(name="person_id")
     private Person person;
 
     @NotNull
     @Column(columnDefinition="TEXT")
-    private String note;
+    private String text;
 }
