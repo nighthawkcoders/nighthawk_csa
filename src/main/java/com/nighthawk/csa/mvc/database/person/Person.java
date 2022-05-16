@@ -45,9 +45,6 @@ public class Person {
     @ManyToMany(fetch = EAGER)
     private Collection<Role> roles = new ArrayList<>();
 
-    //@OneToMany(mappedBy = "person", fetch = EAGER, cascade = CascadeType.PERSIST)
-    //private Set<Note> notes;
-
     // @NonNull: Places this in @RequiredArgsConstructor
     @NonNull
     @Size(min = 2, max = 30, message = "Name (2 to 30 chars)")
