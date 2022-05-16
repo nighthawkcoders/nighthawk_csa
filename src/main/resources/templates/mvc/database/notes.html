@@ -49,14 +49,17 @@
       </form>
       <hr>
 
-      <!--Notes output area, Jinja lines iterate through notes,
-          note.note is html converted from markdown -->
+
       <div class="table-responsive">
         <table class="table">
           <tbody>
-          <tr th:each="no : ${notes}">
-            <td><span th:text="${no.text}"> Name </span></td>
-          </tr>
+            <!--Notes output area, Jinja lines iterate through notes,
+                note.text is html converted from markdown requires th:utext
+            -->
+            <tr th:each="i : ${#numbers.sequence(notes.size() - 1, 0, -1)}"
+                th:with="n=${notes[i]}">
+              <td><span th:utext="${n.text}"></span></td>
+            </tr>
           </tbody>
         </table>
       </div>

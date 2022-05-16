@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import org.commonmark.node.Node;
+import org.commonmark.parser.Parser;
+import org.commonmark.renderer.html.HtmlRenderer;
+
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -23,12 +26,22 @@ public class NoteViewController {
     @Autowired
     private NoteJpaRepository noteRepository;
 
+    public static String convertMarkdownToHTML(String markdown) {
+        Parser parser = Parser.builder().build();
+        Node document = parser.parse(markdown);
+        HtmlRenderer htmlRenderer = HtmlRenderer.builder().build();
+        return htmlRenderer.render(document);
+    }
+
     @GetMapping("/database/notes/{id}")
     public String notes(@PathVariable("id") Long id, Model model) {
         Person person = modelRepository.get(id);
         List<Note> notes = noteRepository.findAllByPerson(person);
         Note note = new Note();
         note.setPerson(person);
+
+        for (Note n : notes)
+            n.setText(convertMarkdownToHTML(n.getText()));
 
         model.addAttribute("person", person);
         model.addAttribute("notes", notes);
