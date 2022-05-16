@@ -51,7 +51,7 @@
     <td>May 9 - 13</td>
     <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/_posts/2022-05-01-AP-Week2.md">AP Week 2, Final Project Review 2</a></td>
     <td>none</td>
-    <td>One-to-Many Relations Data</td>
+    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-week-8:-Many-to-Many-Database-Relationships">Many-to-Many Relations Data</a></td>
     <td><a href="https://poway.instructure.com/courses/112339/assignments/2103848">PBL Sponsor Requirements Presentations</a></td>
    </tr>
    
