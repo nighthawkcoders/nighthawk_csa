@@ -5,7 +5,6 @@ This is the first of the two weeks dedicated to Project Development.  Teacher ex
 *  Review Ticket required
     
 ###  Final Project Development Week 1 Schedule
-Class will start as a study hall.  As an exception, Study Hall allows for other classroom work.  
 * M May 16 - Expectations Speech, PBL Code Code Code
 * Tu May 17 - Tech Talk, PBL Code Code Code
 * W May 18 - Sponsor review, PBL Code Code Code
