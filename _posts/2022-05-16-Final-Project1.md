@@ -30,10 +30,11 @@ This is the first of the two weeks dedicated to Project Development.  Teacher ex
 * Create Live Review Ticket with Master Plan updates
    * Score of 1 point, .9 maximum
        * Meeting sponsor objectives
+   * Total score for each individual
 
 #### Teacher Review - Weekly (Thursday in class)
 * Comments on Live Review Ticket
     * Master Plan review
     * Runtime review
     * Individual scrum ticket review
-* Weekly Assesment on 3 point grade, these reviews will be factored into final
+* Weekly Assesment on individual/team grades
