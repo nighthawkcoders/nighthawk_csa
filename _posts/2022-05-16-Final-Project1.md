@@ -11,22 +11,29 @@ This is the first of the two weeks dedicated to Project Development.  Teacher ex
 * Th May 19 - Teacher review, PBL Code Code Code 
 * F May 20 - PBL Code Code Code 
 
-### Individual Expectation - Weekly (Wednesday at BOD, 8:00am)
+### Expectations
+
+#### Individual Expectation - Weekly (Wednesday at BOD, 8:00am)
 * Minimum of 5 hours of Code, Code, Code
 * A personally developed Review Ticket with Tangibles
 * Tangibles that easily help individuals visualize work in project, honest contributions!
 * In ticket, review comments with Scrum Team crossover and Scrum Master
+   * Score of 2 points, 1.8 maximum
+       * Meeting 5 hours with commit evidence
+       * Meeting team and sponsor objectives
 
-### Team Expectations - Weekly (Wednesday at EOD, 6:00pm)
+#### Team Expectations - Weekly (Wednesday at EOD, 6:00pm)
 * Minimum of 3 Scrum Team Review Tickets
     * Checkpoint with Individual progress and meeting Individual Expectations
     * Checkpoint with Scrum Master and meeting Master plan
 * Runtime of Project updated and online
-* Master Plan updates
+* Create Live Review Ticket with Master Plan updates
+   * Score of 1 point, .9 maximum
+       * Meeting sponsor objectives
 
-### Teacher Review - Weekly (Thursday in class)
-* Live Review Ticket
+#### Teacher Review - Weekly (Thursday in class)
+* Comments on Live Review Ticket
     * Master Plan review
     * Runtime review
     * Individual scrum ticket review
-* Weekly Assesment to be factored into 35 point grade
+* Weekly Assesment on 3 point grade, these reviews will be factored into final
