@@ -25,25 +25,25 @@
     <td>PBL Customer Project Due</td>
     <td>N@tM Wed 6/1 6-7:30pm</td>
     <td>none</td>
-    <td>Project Final Review</td>
+    <td><a href="https://poway.instructure.com/courses/112339/assignments/2110310">Project Final Review</a></td>
    </tr>
    
    <tr>
     <td>10</td>
     <td>May 23 - 27</td>
     <td>Final Project Dev 2</td>
-    <td>Student Led, engineering learnings</td>
+    <td>none</td>
     <td>Spring Boot Security APIs and Sessions</td>
-    <td>Customer Project Deployment Review 2</td>
+    <td>none</td>
    </tr>
    
    <tr>
     <td>9</td>
     <td>May 16 - 20</td>
-    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/_posts/2022-05-16-Final-Project1.md">PBL Sponsor Requirements Presentations</a></td>
-    <td>Student Led, engineering learnings</td>
+    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/_posts/2022-05-16-Final-Project1.md">Final Project Dev 1s</a></td>
+    <td>none</td>
     <td>Spring Boot Security and Notes</td>
-    <td>Customer Project Deployment Review 1</td>
+    <td>none</td>
    </tr>
    
    <tr>
