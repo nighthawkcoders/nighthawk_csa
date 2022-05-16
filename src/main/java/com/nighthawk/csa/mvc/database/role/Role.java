@@ -6,10 +6,10 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -11,10 +11,9 @@ import javax.validation.constraints.Size;
 /*
 Family Information Class
  */
+@Data
 @NoArgsConstructor
-@Getter
-@Setter
-@ToString
+@AllArgsConstructor
 @Entity
 public class Scrum {
     @Id

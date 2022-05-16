@@ -1,5 +1,6 @@
 package com.nighthawk.csa.mvc.database.person;
 
+import com.nighthawk.csa.mvc.database.note.Note;
 import com.nighthawk.csa.mvc.database.role.Role;
 import org.springframework.format.annotation.DateTimeFormat;
 import lombok.*;
@@ -9,11 +10,10 @@ import javax.validation.constraints.*;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
+import java.util.*;
 
 import static javax.persistence.FetchType.EAGER;
+import static javax.persistence.FetchType.LAZY;
 
 /*
 Person is a POJO, Plain Old Java Object.
@@ -22,11 +22,9 @@ First set of annotations add functionality to POJO
 The last annotation connect to database
 --- @Entity
  */
-@Setter
-@Getter
-@ToString
+@Data
 @NoArgsConstructor
-@RequiredArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Person {
     // automatic unique identifier for Person record
@@ -46,6 +44,9 @@ public class Person {
 
     @ManyToMany(fetch = EAGER)
     private Collection<Role> roles = new ArrayList<>();
+
+    //@OneToMany(mappedBy = "person", fetch = EAGER, cascade = CascadeType.PERSIST)
+    //private Set<Note> notes;
 
     // @NonNull: Places this in @RequiredArgsConstructor
     @NonNull
