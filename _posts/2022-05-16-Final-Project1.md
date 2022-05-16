@@ -21,6 +21,12 @@ This is the first of the two weeks dedicated to Project Development.  Teacher ex
 * Minimum of 3 Scrum Team Review Tickets
     * Checkpoint with Individual progress and meeting Individual Expectations
     * Checkpoint with Scrum Master and meeting Master plan
-    * Checkpoint with Teacher and honesty in participation and progress
 * Runtime of Project updated and online
 * Master Plan updates
+
+### Teacher Review - Weekly (Thursday in class)
+* Live Review Ticket
+    * Master Plan review
+    * Runtime review
+    * Individual scrum ticket review
+* Weekly Assesment to be factored into 35 point grade
