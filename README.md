@@ -40,7 +40,7 @@
    <tr>
     <td>9</td>
     <td>May 16 - 20</td>
-    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/_posts/2022-05-16-Final-Project1.md">Final Project Dev 1s</a></td>
+    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/_posts/2022-05-16-Final-Project1.md">Final Project Dev 1</a></td>
     <td>none</td>
     <td>Spring Boot Security and Notes</td>
     <td>none</td>
