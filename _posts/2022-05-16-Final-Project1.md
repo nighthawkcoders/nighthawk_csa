@@ -37,4 +37,4 @@ This is the first of the two weeks dedicated to Project Development.  Teacher ex
     * Master Plan review
     * Runtime review
     * Individual scrum ticket review
-* Weekly Assesment on individual/team grades
+* Weekly Assesment on individual/team grades (-, agree, +)
