@@ -17,7 +17,7 @@ public interface PersonJpaRepository extends JpaRepository<Person, Long> {
     List<Person> findAllByOrderByUsernameAsc();
 
     // JPA query, findBy does JPA magic with "Name", "Containing", "Or", "Email", "IgnoreCase"
-    List<Person> findByUsernameContainingIgnoreCase(String username);
+    List<Person> findByUsernameContainingIgnoreCaseOrNameContainingIgnoreCase(String username, String name);
     /* Custom JPA query articles, there are articles that show custom SQL as well
        https://springframework.guru/spring-data-jpa-query/
        https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods
@@ -25,7 +25,7 @@ public interface PersonJpaRepository extends JpaRepository<Person, Long> {
 
     // Custom JPA query
     @Query(
-            value = "SELECT * FROM Person p WHERE p.username LIKE ?1",
+            value = "SELECT * FROM Person p WHERE p.username LIKE ?1 or p.name LIKE ?2",
             nativeQuery = true)
     List<Person> findByLikeTermNative(String term);
     /*

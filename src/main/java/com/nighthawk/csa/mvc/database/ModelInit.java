@@ -30,13 +30,13 @@ public class ModelInit {
             }
 
             // make sure every record added has a Default encrypted password and ROLE_STUDENT
-            modelRepository.defaults("123querty", "ROLE_STUDENT");
+            modelRepository.defaults("123qwerty", "ROLE_STUDENT");
 
             // make sure privileged roles exist for Teacher
-            modelRepository.addRoleToPerson("jmort1021@gmail.com", "ROLE_TEACHER");
-            modelRepository.addRoleToPerson("jmort1021@gmail.com", "ROLE_ADMIN");
+            modelRepository.addRoleToPerson("TSwanson", "ROLE_TEACHER");
+            modelRepository.addRoleToPerson("TSwanson", "ROLE_ADMIN");
 
-            Person person = modelRepository.getByUsername("jmort1021@gmail.com");
+            Person person = modelRepository.getByUsername("TSwanson");
 
         };
     }

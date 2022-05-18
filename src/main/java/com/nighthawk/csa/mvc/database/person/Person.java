@@ -38,15 +38,20 @@ public class Person {
     private String username; // username should be NonEmpty and unique
 
     @NotEmpty
-    private String password; // password should be NonEmpty (introduce hashing requirements later?)
+    private String password; // password should be NonEmpty (introduce hashing requirements later? UPDATE: apparently this uses bcrypt)
+
+    @NotEmpty
+    @Column(unique=true)
+    private String name; // name should also be NonEmpty and unique...probably
 
     @ManyToMany(fetch = EAGER) // not sure if we should use this or lazy, going to use eager for now
     private Collection<Role> roles = new ArrayList<>();
 
     // Initializer used when setting database from an API
-    public Person(String username, String password, Role role) {
+    public Person(String username, String password, String name, Role role) {
         this.username = username;
         this.password = password;
+        this.name = name;
         this.roles.add(role);
     }
 }
