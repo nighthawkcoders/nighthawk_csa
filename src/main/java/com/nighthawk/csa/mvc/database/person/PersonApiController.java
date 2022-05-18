@@ -17,7 +17,7 @@ import java.util.*;
 import java.text.SimpleDateFormat;
 
 @RestController
-@RequestMapping("/api/person")
+@RequestMapping("/api/person") // IMPLEMENT SECURITY ON THIS!!!!
 public class PersonApiController {
     /*
     #### RESTful API ####
@@ -57,26 +57,18 @@ public class PersonApiController {
     POST Aa record by Requesting Parameters from URI
      */
     @PostMapping( "/post")
-    public ResponseEntity<Object> postPerson(@RequestParam("email") String email,
-                                             @RequestParam("password") String password,
-                                             @RequestParam("name") String name,
-                                             @RequestParam("dob") String dobString) {
-        Date dob;
-        try {
-            dob = new SimpleDateFormat("MM-dd-yyyy").parse(dobString);
-        } catch (Exception e) {
-            return new ResponseEntity<>(dobString +" error; try MM-dd-yyyy", HttpStatus.BAD_REQUEST);
-        }
+    public ResponseEntity<Object> postPerson(@RequestParam("username") String username,
+                                             @RequestParam("password") String password) {
         // A person object WITHOUT ID will create a new record with default roles as student
-        Person person = new Person(email, password, name, dob, repository.findRole("ROLE_STUDENT") );
+        Person person = new Person(username, password, repository.findRole("ROLE_STUDENT") );
         repository.save(person);
-        return new ResponseEntity<>(email +" is created successfully", HttpStatus.CREATED);
+        return new ResponseEntity<>(username +" is created successfully", HttpStatus.CREATED);
     }
 
     /*
     The personSearch API looks across database for partial match to term (k,v) passed by RequestEntity body
      */
-    @PostMapping(value = "/search", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/search", produces = MediaType.APPLICATION_JSON_VALUE) // update later
     public ResponseEntity<Object> personSearch(RequestEntity<Object> request) {
 
         // extract term from RequestEntity

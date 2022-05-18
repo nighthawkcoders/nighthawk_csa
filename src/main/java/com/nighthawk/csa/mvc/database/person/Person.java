@@ -32,42 +32,21 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    // email, password, roles are key to login and authentication
+    // username, password, and role handling
     @NotEmpty
-    @Size(min=5)
     @Column(unique=true)
-    @Email
-    private String email;
+    private String username; // username should be NonEmpty and unique
 
     @NotEmpty
-    private String password;
+    private String password; // password should be NonEmpty (introduce hashing requirements later?)
 
-    @ManyToMany(fetch = EAGER)
+    @ManyToMany(fetch = EAGER) // not sure if we should use this or lazy, going to use eager for now
     private Collection<Role> roles = new ArrayList<>();
 
-    // @NonNull: Places this in @RequiredArgsConstructor
-    @NonNull
-    @Size(min = 2, max = 30, message = "Name (2 to 30 chars)")
-    private String name;
-
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date dob;
-
     // Initializer used when setting database from an API
-    public Person(String email, String password, String name, Date dob, Role role) {
-        this.email = email;
+    public Person(String username, String password, Role role) {
+        this.username = username;
         this.password = password;
-        this.name = name;
-        this.dob = dob;
         this.roles.add(role);
     }
-
-    // A custom getter to return age from dob calculation
-    public int getAge() {
-        if (this.dob != null) {
-            LocalDate birthDay = this.dob.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            return Period.between(birthDay, LocalDate.now()).getYears(); }
-        return -1;
-    }
-
 }

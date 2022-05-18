@@ -23,7 +23,7 @@ public class ModelInit {
             // Fail safe data validations
 
             // make sure Role database is populated with defaults
-            String[] roles = {"ROLE_STUDENT", "ROLE_TEACHER", "ROLE_ADMIN", "ROLE_TESTER"};
+            String[] roles = {"ROLE_STUDENT", "ROLE_TEACHER", "ROLE_ADMIN"};
             for (String role : roles) {
                 if (roleJpaRepository.findByName(role) == null)
                     roleJpaRepository.save(new Role(null, role));
@@ -36,7 +36,7 @@ public class ModelInit {
             modelRepository.addRoleToPerson("jmort1021@gmail.com", "ROLE_TEACHER");
             modelRepository.addRoleToPerson("jmort1021@gmail.com", "ROLE_ADMIN");
 
-            Person person = modelRepository.getByEmail("jmort1021@gmail.com");
+            Person person = modelRepository.getByUsername("jmort1021@gmail.com");
 
         };
     }
