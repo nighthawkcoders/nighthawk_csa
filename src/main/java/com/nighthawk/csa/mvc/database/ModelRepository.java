@@ -64,12 +64,12 @@ public class ModelRepository implements UserDetailsService {  // "implements" ti
     /* Person Section */
 
     public  List<Person>listAll() {
-        return personJpaRepository.findAllByOrderByNameAsc();
+        return personJpaRepository.findAllByOrderByUsernameAsc();
     }
 
     // custom query to find anything containing term in name or email ignoring case
     public  List<Person>listLike(String term) {
-        return personJpaRepository.findByNameContainingIgnoreCaseOrEmailContainingIgnoreCase(term, term);
+        return personJpaRepository.findByUsernameContainingIgnoreCase(term);
     }
 
     // custom query to find anything containing term in name or email ignoring case

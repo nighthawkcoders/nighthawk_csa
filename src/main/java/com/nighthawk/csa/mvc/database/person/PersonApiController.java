@@ -68,7 +68,7 @@ public class PersonApiController {
     /*
     The personSearch API looks across database for partial match to term (k,v) passed by RequestEntity body
      */
-    @PostMapping(value = "/search", produces = MediaType.APPLICATION_JSON_VALUE) // update later
+    @PostMapping(value = "/search", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> personSearch(RequestEntity<Object> request) {
 
         // extract term from RequestEntity
