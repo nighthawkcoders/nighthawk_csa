@@ -2,6 +2,8 @@
 
 ## Website to upload tutorial notes for Mr. Swanson's APUSH course
 
+Sponsor: Mr. Swanson 
+
 Features
 * Database with uploaded tutorial notes
 * Passcode access only 
