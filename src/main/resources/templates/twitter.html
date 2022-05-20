@@ -1,0 +1,34 @@
+<!-- This page is illustrative and contains ideas about HTML formatting -->
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
+
+<!-- <head> -->
+<div layout:fragment="head" th:remove="tag">
+    <!-- Page specific head additions -->
+    <title>APUSH Twitter</title>
+</div>
+
+<!-- <body> -->
+<div layout:fragment="body" th:remove="tag">
+    <!-- Page specific body additions -->
+    <div class="container py-4">
+        <header class="pb-3 mb-4 border-bottom border-primary">
+            <div class="d-flex align-items-center text-dark text-decoration-none">
+                <span class="fs-4">Twitter Feed</span>
+            </div>
+        </header>
+
+        <div class="container-fluid py-1">
+
+            <h1> This will display the Twitter page </h1>
+
+
+        </div>
+    </div>
+    <!-- End of body content specific to page -->
+</div>
+
+</html>
