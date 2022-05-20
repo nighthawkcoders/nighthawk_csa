@@ -1,7 +1,7 @@
 package com.nighthawk.csa.mvc.database;
 
-import com.nighthawk.csa.mvc.database.person.Person;
-import com.nighthawk.csa.mvc.database.person.PersonJpaRepository;
+import com.nighthawk.csa.mvc.database.Chapter1.Person;
+import com.nighthawk.csa.mvc.database.Chapter1.PersonJpaRepository;
 import com.nighthawk.csa.mvc.database.role.Role;
 import com.nighthawk.csa.mvc.database.role.RoleJpaRepository;
 import com.nighthawk.csa.mvc.database.scrum.Scrum;

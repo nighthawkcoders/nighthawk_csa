@@ -1,4 +1,4 @@
-package com.nighthawk.csa.mvc.database.person;
+package com.nighthawk.csa.mvc.database.Chapter1;
 
 import com.nighthawk.csa.mvc.database.ModelRepository;
 

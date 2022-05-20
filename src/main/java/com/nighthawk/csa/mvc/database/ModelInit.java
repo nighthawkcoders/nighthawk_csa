@@ -1,8 +1,7 @@
 package com.nighthawk.csa.mvc.database;
 
-import com.nighthawk.csa.mvc.database.note.Note;
 import com.nighthawk.csa.mvc.database.note.NoteJpaRepository;
-import com.nighthawk.csa.mvc.database.person.Person;
+import com.nighthawk.csa.mvc.database.Chapter1.Person;
 import com.nighthawk.csa.mvc.database.role.Role;
 import com.nighthawk.csa.mvc.database.role.RoleJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;

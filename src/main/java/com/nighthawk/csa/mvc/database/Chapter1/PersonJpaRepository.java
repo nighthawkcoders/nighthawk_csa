@@ -1,4 +1,4 @@
-package com.nighthawk.csa.mvc.database.person;
+package com.nighthawk.csa.mvc.database.Chapter1;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

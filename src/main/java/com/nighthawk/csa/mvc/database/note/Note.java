@@ -1,6 +1,6 @@
 package com.nighthawk.csa.mvc.database.note;
 
-import com.nighthawk.csa.mvc.database.person.Person;
+import com.nighthawk.csa.mvc.database.Chapter1.Person;
 import lombok.*;
 
 import javax.persistence.*;

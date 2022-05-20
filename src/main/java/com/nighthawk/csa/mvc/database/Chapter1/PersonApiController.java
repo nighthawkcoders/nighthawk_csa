@@ -1,7 +1,6 @@
-package com.nighthawk.csa.mvc.database.person;
+package com.nighthawk.csa.mvc.database.Chapter1;
 
 import com.nighthawk.csa.mvc.database.ModelRepository;
-import com.nighthawk.csa.mvc.database.person.Person;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
