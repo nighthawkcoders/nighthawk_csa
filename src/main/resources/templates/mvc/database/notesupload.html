@@ -1,0 +1,47 @@
+<!-- This page is illustrative and contains ideas about HTML formatting -->
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
+
+<!-- <head> -->
+<div layout:fragment="head" th:remove="tag">
+    <title>Upload Notes</title>
+</div>
+
+<!-- <body> -->
+<div layout:fragment="body" th:remove="tag">
+
+    <div class="container py-4">
+        <header class="pb-3 mb-4 border-bottom border-primary text-dark">
+            <span class="fs-4">SQL Notes Page</span>
+        </header>
+    </div>
+
+    <h1> Upload your notes here by filling out the form below. </h1>
+
+    <form action="/database/notes" method="post">
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname" value="John"><br>
+
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname" value="Doe"><br><br>
+
+        <label for="class">Period:</label><br>
+        <input type="number" id="class" name="class" value="1"><br><br>
+
+        <label for="section">Which section are you uploading notes for? </label>
+        <select id="section" name="section" size="3">
+            <option value="chapter1">Chapter 1</option>
+            <option value="chapter2">Chapter 2</option>
+            <option value="chapter3">Chapter 3</option>
+            <option value="chapter4">Chapter 4</option>
+        </select>
+
+        <input type="submit" value="Submit">
+
+    </form>
+
+
+</div>
