@@ -26,4 +26,9 @@ public class FrontEndController {
         return "frontend/life";
     }
 
+    @GetMapping("/frontend/twitter")   // GET request
+    public String twitter() {
+        return "frontend/twitter";
+    }
+
 }

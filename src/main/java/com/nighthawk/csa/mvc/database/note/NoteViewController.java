@@ -33,11 +33,6 @@ public class NoteViewController {
         return htmlRenderer.render(document);
     }
 
-    @GetMapping("/twitterfeed")
-    public String twitter() {
-        return "twitterfeed";
-    }
-
     @GetMapping("/database/notes/{id}")
     public String notes(@PathVariable("id") Long id, Model model) {
         Person person = modelRepository.get(id);
