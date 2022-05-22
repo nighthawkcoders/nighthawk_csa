@@ -11,6 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -41,10 +44,27 @@ public class UploadController {
         repoFile.setSize(formFile.getSize());
 
         try {
-            // Get the file and save it somewhere
-            Path path = Paths.get(filePath + formFile.getOriginalFilename());
+            // Creating the directory to store file
+            File dir = new File( filePath );
+            if (!dir.exists())
+                dir.mkdirs();
+
+            // Create the file on server
             byte[] bytes = formFile.getBytes();
-            Files.write(path, bytes);
+
+            // File write alternatives (going with Stream for now)
+            if (false) {
+                Path path = Paths.get(filePath + formFile.getOriginalFilename());
+                Files.write(path, bytes);
+            } else {
+                String path = filePath + formFile.getOriginalFilename();
+                File serverFile = new File( path );
+                BufferedOutputStream stream = new BufferedOutputStream(
+                        new FileOutputStream(serverFile));
+                stream.write(bytes);
+                stream.close();
+            }
+
             repo.save(repoFile);
 
         } catch (IOException e) {
