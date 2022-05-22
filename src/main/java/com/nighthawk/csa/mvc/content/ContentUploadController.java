@@ -33,7 +33,7 @@ public class ContentUploadController {
     @PostMapping("/mvc/content/upload")
     public String mvcUpload(@RequestParam("filename") MultipartFile formFile, Model modelMap)  {
         Upload repoFile = new Upload();
-        String filePath = "src/main/resources/static/images/uploads/";
+        String filePath = "target/classes/static/images/uploads/";
         String webPath = "/images/uploads/";
 
         repoFile.setFile(webPath + formFile.getOriginalFilename());
