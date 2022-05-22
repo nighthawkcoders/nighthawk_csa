@@ -59,9 +59,10 @@ public class PersonApiController {
     @PostMapping( "/post")
     public ResponseEntity<Object> postPerson(@RequestParam("username") String username,
                                              @RequestParam("password") String password,
-                                             @RequestParam("name") String name) {
+                                             @RequestParam("name") String name,
+                                             @RequestParam("age") Integer age) {
         // A person object WITHOUT ID will create a new record with default roles as student
-        Person person = new Person(username, password, name, repository.findRole("ROLE_STUDENT") );
+        Person person = new Person(username, password, name, repository.findRole("ROLE_STUDENT"), age);
         repository.save(person);
         return new ResponseEntity<>(username +" is created successfully", HttpStatus.CREATED);
     }

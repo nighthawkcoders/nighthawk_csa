@@ -41,6 +41,9 @@ public class Person {
     private String password; // password should be NonEmpty (introduce hashing requirements later? UPDATE: apparently this uses bcrypt)
 
     @NotEmpty
+    private Integer age;
+
+    @NotEmpty
     @Column(unique=true)
     private String name; // name should also be NonEmpty and unique...probably
 
@@ -48,10 +51,12 @@ public class Person {
     private Collection<Role> roles = new ArrayList<>();
 
     // Initializer used when setting database from an API
-    public Person(String username, String password, String name, Role role) {
+    public Person(String username, String password, String name, Role role, Integer age) {
+
         this.username = username;
         this.password = password;
         this.name = name;
         this.roles.add(role);
+        this.age = age;
     }
 }
