@@ -1,4 +1,4 @@
-package com.nighthawk.csa.mvc.content;
+package com.nighthawk.csa.mvc.upload;
 
 
 import org.springframework.stereotype.Controller;
@@ -18,20 +18,20 @@ import java.nio.file.Path;
 import java.util.List;
 
 @Controller
-public class ContentUploadController {
+public class UploadController {
     @Autowired
     private UploadRepository repo;
 
-    @GetMapping("/mvc/content")
-    public String mvcContent(Model model) {
+    @GetMapping("/mvc/upload")
+    public String mvcUpload(Model model) {
         List<Upload> files = repo.findAll();
 
         model.addAttribute("files", files);
-        return "mvc/content";
+        return "mvc/upload";
     }
 
-    @PostMapping("/mvc/content/upload")
-    public String mvcUpload(@RequestParam("filename") MultipartFile formFile, Model modelMap)  {
+    @PostMapping("/mvc/uploader")
+    public String mvcUploader(@RequestParam("filename") MultipartFile formFile, Model modelMap)  {
         Upload repoFile = new Upload();
         String filePath = "target/classes/static/images/uploads/";
         String webPath = "/images/uploads/";
@@ -52,7 +52,7 @@ public class ContentUploadController {
         }
 
         // Redirect to next step
-        return "redirect:/mvc/content";
+        return "redirect:/mvc/upload";
     }
 
 }

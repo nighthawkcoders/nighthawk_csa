@@ -155,11 +155,11 @@ public class StringSeqModel {
         gradShow.addEvent("Test (b): set light sequence");
         gradShow.setStringSeq("0101 0101 0101");
 
-        // Test2 change content of object
+        // Test2 change upload of object
         gradShow.addEvent("Test (c): update light sequence");
         gradShow.setStringSeq("0011 0011 0011");
 
-        // Test3 insert into content of object
+        // Test3 insert into upload of object
         gradShow.addEvent("Test (d): insert segment into light sequence at position");
         gradShow.insertSegmentAt("1111 1111", 4);
 

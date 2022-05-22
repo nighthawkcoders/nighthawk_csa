@@ -1,4 +1,4 @@
-package com.nighthawk.csa.mvc.content;
+package com.nighthawk.csa.mvc.upload;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
