@@ -36,8 +36,8 @@ public class UploadController {
     @PostMapping("/mvc/uploader")
     public String mvcUploader(@RequestParam("filename") MultipartFile formFile, Model modelMap)  {
         Upload repoFile = new Upload();
-        String filePath = "target/classes/static/images/uploads/";
-        String webPath = "/images/uploads/";
+        String filePath = "uploads/";
+        String webPath = "/uploads/";
 
         repoFile.setFile(webPath + formFile.getOriginalFilename());
         repoFile.setType(formFile.getContentType());
