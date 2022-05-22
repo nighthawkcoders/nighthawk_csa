@@ -40,8 +40,7 @@ public class Person {
     @NotEmpty
     private String password; // password should be NonEmpty (introduce hashing requirements later? UPDATE: apparently this uses bcrypt)
 
-    @NotEmpty
-    private Integer age;
+    private Date dob;
 
     @NotEmpty
     @Column(unique=true)
@@ -50,13 +49,27 @@ public class Person {
     @ManyToMany(fetch = EAGER) // not sure if we should use this or lazy, going to use eager for now
     private Collection<Role> roles = new ArrayList<>();
 
+    // Kinda jank hack for DOB to age
+    public Integer getAge(Date dob){
+        if (dob == null) return 0;
+        Calendar birth = Calendar.getInstance(Locale.US);
+        Calendar current = Calendar.getInstance(Locale.US);
+        birth.setTime(dob);
+        Period age = Period.between(
+                LocalDate.ofInstant(birth.toInstant(), birth.getTimeZone().toZoneId()),
+                LocalDate.ofInstant(current.toInstant(), current.getTimeZone().toZoneId()));
+
+        return age.getYears();
+    }
+
     // Initializer used when setting database from an API
-    public Person(String username, String password, String name, Role role, Integer age) {
+    public Person(String username, String password, String name, Role role, Date dob) {
 
         this.username = username;
         this.password = password;
         this.name = name;
         this.roles.add(role);
-        this.age = age;
+        this.dob = dob;
+
     }
 }
