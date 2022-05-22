@@ -30,7 +30,7 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>EMail</th>
+                        <th>Email</th>
                         <th>Person</th>
                         <th>Age</th>
                         <th>Action</th>
@@ -39,7 +39,7 @@
                     <tbody>
                     <tr th:each="person : ${list}">
                         <td th:text="${person.id}">Person ID</td>
-                        <td th:text="${person.email}">Birth Date</td>
+                        <td th:text="${person.username}">Birth Date</td>
                         <td th:text="${person.name}">Name</td>
                         <td th:if="${person.getAge() != -1}" th:text="${person.getAge()}">Age</td>
                         <td th:unless="${person.getAge() != -1}" th:text="Unknown">Unknown Age</td>
