@@ -31,7 +31,7 @@
    <tr>
     <td>10</td>
     <td>May 23 - 27</td>
-    <td>Final Project Dev 2</td>
+    <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/_posts/2022-05-22-Final-Project2md">Final Project Dev 2</a></td>
     <td>none</td>
     <td>Spring Boot Security APIs and Sessions</td>
     <td>none</td>
