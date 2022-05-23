@@ -38,7 +38,9 @@
                     <tbody>
                     <tr th:each="i : ${#numbers.sequence(files.size() - 1, 0, -1)}"
                         th:with="file=${files[i]}">
-                        <td><image th:src="@{__${file.file}__}" width="150px"></image></td>
+
+                        <td><a href="uploads/${file.file}.pdf"> <span  th:text="${file.file}"> </span></a></td>
+
                         <td><span th:text="${file.file}"></span></td>
                         <td><span th:text="${file.type}"></span></td>
                         <td><span th:text="${file.size}"></span></td>
