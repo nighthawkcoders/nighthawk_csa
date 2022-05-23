@@ -19,8 +19,8 @@ public class MainWebAppInitializer implements WebApplicationInitializer {
 
         appServlet.setLoadOnStartup(1);
 
-        int MAX_UPLOAD_SIZE = 5 * 1024 * 1024;
-        String TMP_FOLDER = "static/upload";
+        int MAX_UPLOAD_SIZE = 5 * 1024 * 1024;  // limits image size to 5GB
+        String TMP_FOLDER = "uploads";          // not used, as it is not understood
         MultipartConfigElement multipartConfigElement = new MultipartConfigElement(TMP_FOLDER,
                 MAX_UPLOAD_SIZE, MAX_UPLOAD_SIZE * 2L, MAX_UPLOAD_SIZE / 2);
 

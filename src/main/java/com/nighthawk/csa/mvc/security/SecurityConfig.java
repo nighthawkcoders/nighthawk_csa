@@ -27,16 +27,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        // remove web resources from security rules
+        /* web resources ignored from security rules...
+            ... added "/uploads/**" as custom resource outside of other with are application standards
+            ... removed "/css/**", "/js/**", "/fonts/**" until they are used
+         */
         web
                 .ignoring()
-                .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**", "/fonts/**", "/scss/**", "/uploads/**")
+                .antMatchers("/resources/**", "/static/**",  "/images/**", "/scss/**", "/uploads/**")
         ;
     }
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception { //THis is going to be altered to use the JWT
-        // security rules
+    protected void configure(HttpSecurity http) throws Exception {
+        /* security rules ...
+            ... initial implementation is focused on protecting database information
+            ... "DELETE" is primary concern in authority rules, ADMIN only
+            ... "POST", actions desire STUDENT role
+         */
         http
             .authorizeRequests()
                 .antMatchers(POST, "/api/person/post/**").hasAnyAuthority("ROLE_STUDENT")

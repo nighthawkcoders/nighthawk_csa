@@ -12,6 +12,10 @@ public class MvcConfig implements WebMvcConfigurer {
         registry.addViewController("/login").setViewName("login");
     }
 
+    /* map path and location for "uploads" outside of application resources
+       ... creates a directory outside "static" folder, "file:uploads"
+       ... CRITICAL, without this uploaded file will not be loaded/displayed by frontend
+     */
     @Override
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/uploads/**").addResourceLocations("file:uploads/");
