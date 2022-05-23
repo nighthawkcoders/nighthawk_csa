@@ -1,19 +1,16 @@
 package com.nighthawk.csa.mvc.database.person;
 
-import com.nighthawk.csa.mvc.database.note.Note;
 import com.nighthawk.csa.mvc.database.role.Role;
-import org.springframework.format.annotation.DateTimeFormat;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
-import java.time.LocalDate;
-import java.time.Period;
-import java.time.ZoneId;
-import java.util.*;
+import javax.validation.constraints.NotEmpty;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import static javax.persistence.FetchType.EAGER;
-import static javax.persistence.FetchType.LAZY;
 
 /*
 Person is a POJO, Plain Old Java Object.
