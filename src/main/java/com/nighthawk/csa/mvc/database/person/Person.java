@@ -40,6 +40,8 @@ public class Person {
     @NotEmpty
     private String password; // password should be NonEmpty (introduce hashing requirements later? UPDATE: apparently this uses bcrypt)
 
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dob;
 
     @NotEmpty

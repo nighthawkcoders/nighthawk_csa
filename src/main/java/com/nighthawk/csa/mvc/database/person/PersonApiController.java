@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 
 import org.json.simple.JSONObject;
 
+import java.text.DateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 import java.text.SimpleDateFormat;
@@ -61,8 +63,10 @@ public class PersonApiController {
                                              @RequestParam("password") String password,
                                              @RequestParam("name") String name,
                                              @RequestParam("dob") Date dob) {
+
         // A person object WITHOUT ID will create a new record with default roles as student
         Person person = new Person(username, password, name, repository.findRole("ROLE_STUDENT"), dob);
+
         repository.save(person);
         return new ResponseEntity<>(username +" is created successfully", HttpStatus.CREATED);
     }
