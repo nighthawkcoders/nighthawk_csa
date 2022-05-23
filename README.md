@@ -33,7 +33,7 @@
     <td>May 23 - 27</td>
     <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/_posts/2022-05-22-Final-Project2md">Final Project Dev 2</a></td>
     <td>none</td>
-      <td>Spring Boot Security, Notes, <a href="[Tri 3: Tech Talk week 10: Uploads](https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-week-10:-Uploads">Uploads</a></td>
+      <td>Spring Boot Security, <a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-week-9:-Notes">Notes</a>, <a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-3:-Tech-Talk-week-10:-Uploads">Uploads</a></td>
     <td>none</td>
    </tr>
    
