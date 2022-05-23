@@ -21,7 +21,7 @@
    
    <tr>
     <td>11</td>
-    <td>May 30 - June 3</td>
+    <td>May 31 - June 3</td>
     <td>PBL Customer Project Due</td>
     <td>N@tM Wed 6/1 6-7:30pm</td>
     <td>none</td>
@@ -33,7 +33,7 @@
     <td>May 23 - 27</td>
     <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/_posts/2022-05-22-Final-Project2md">Final Project Dev 2</a></td>
     <td>none</td>
-    <td>Spring Boot Security APIs and Sessions</td>
+    <td>Spring Boot Security, Notes, Uploads</td>
     <td>none</td>
    </tr>
    
