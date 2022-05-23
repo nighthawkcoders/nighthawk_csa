@@ -1,7 +1,5 @@
 package com.nighthawk.csa.mvc.database;
 
-import com.nighthawk.csa.mvc.database.note.Note;
-import com.nighthawk.csa.mvc.database.note.NoteJpaRepository;
 import com.nighthawk.csa.mvc.database.person.Person;
 import com.nighthawk.csa.mvc.database.role.Role;
 import com.nighthawk.csa.mvc.database.role.RoleJpaRepository;
@@ -13,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component // Scans Application for ModelInit Bean, this detects CommandLineRunner
 public class ModelInit {
     // Inject repositories
-    @Autowired NoteJpaRepository noteJpaRepository;
+
     @Autowired RoleJpaRepository roleJpaRepository;
     @Autowired ModelRepository modelRepository;
 
