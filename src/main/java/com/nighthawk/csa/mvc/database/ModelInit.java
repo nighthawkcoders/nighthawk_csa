@@ -31,10 +31,10 @@ public class ModelInit {
             modelRepository.defaults("123qwerty", "ROLE_STUDENT");
 
             // make sure privileged roles exist for Teacher
-            modelRepository.addRoleToPerson("TSwanson", "ROLE_TEACHER");
-            modelRepository.addRoleToPerson("TSwanson", "ROLE_ADMIN");
+            modelRepository.addRoleToPerson("TSwanson@powayusd.com", "ROLE_TEACHER");
+            modelRepository.addRoleToPerson("TSwanson@powayusd.com", "ROLE_ADMIN");
 
-            Person person = modelRepository.getByUsername("TSwanson");
+            Person person = modelRepository.getByEmail("TSwanson@powayusd.com");
 
         };
     }
