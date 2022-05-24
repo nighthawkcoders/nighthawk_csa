@@ -16,7 +16,7 @@
 
     <div class="container py-4">
         <header class="pb-3 mb-4 border-bottom border-primary text-dark">
-            <span class="fs-4">Login Page</span>
+            <span class="fs-4">Please log in</span>
         </header>
     </div>
 
@@ -27,7 +27,7 @@
                 <form name="f" th:action="@{/login}" method="POST">
                     <table>
                         <tr th:if="${param.error}" class="alert alert-error">
-                            Invalid username and password.
+                            Invalid password.
                         </tr>
                         <tr th:if="${param.logout}" class="alert alert-success">
                             You have been logged out.
