@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.Path;
+import java.util.Arrays;
 import java.util.List;
 
 /* UploadController
@@ -45,6 +46,7 @@ public class UploadController {
     @GetMapping("/mvc/upload")
     public String mvcUpload(Model model) {
         List<Upload> files = repo.findAll();    // extract image history
+        System.out.println(Arrays.toString(files.toArray()));
 
         model.addAttribute("files", files);
         return "mvc/upload";

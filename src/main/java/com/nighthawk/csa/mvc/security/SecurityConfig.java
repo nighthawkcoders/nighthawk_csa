@@ -46,7 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/database/persondelete/**").hasAnyAuthority("ROLE_ADMIN")
                 .antMatchers( "/api/person/**").permitAll()
                 .antMatchers( "/api/refresh/token/**").permitAll()
-                .antMatchers("/", "/starters/**", "/frontend/**", "/mvc/**", "/database/person/**", "/database/personcreate", "/database/scrum/**", "/course/**").permitAll()
+                .antMatchers("/", "/starters/**", "/frontend/**", "/mvc/**", "/database/person/**", "/database/personcreate", "/database/scrum/**", "/course/**", "/uploads/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
