@@ -74,9 +74,9 @@
         </dependency>
         <dependency>
             <groupId>org.thymeleaf.extras</groupId>
-            <artifactId>thymeleaf-extras-springsecurity4</artifactId>
+            <artifactId>thymeleaf-extras-springsecurity5</artifactId>
             <!-- TODO Remove version once available in platform BOM -->
-            <version>${org.thymeleaf.extras.springsecurity4-version}</version>
+<!--            <version>${org.thymeleaf.extras.springsecurity4-version}</version>-->
         </dependency>
         <dependency>
             <groupId>nz.net.ultraq.thymeleaf</groupId>
