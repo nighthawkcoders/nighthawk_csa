@@ -12,7 +12,14 @@
 </div>
 <style>
     @font-face {
-        font-family: 'Voire';
+        font-family: Voire;
+        src: url("static/fonts/Demo_Fonts/Fontspring-DEMO-voire-black.otf") format("opentype");
+    }
+
+    @font-face {
+        font-family: Voire;
+        font-weight: bold;
+        src: url("static/fonts/Demo_Fonts/Fontspring-DEMO-voire-bold.otf") format("opentype");
     }
 </style>
 
@@ -22,7 +29,7 @@
     <div class="container py-4">
         <header class="pb-3 mb-4 border-bottom border-primary">
             <div class="d-flex align-items-center text-dark text-decoration-none">
-                <span class="fs-4">Home Page - Welcome to Swanson's Class</span>
+                <span class="fs-4" style="font-family: Voire; font-weight: bold">Home Page - Welcome to Swanson's Class</span>
             </div>
         </header>
 
@@ -40,47 +47,55 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img alt="" class="d-inline-block align-left"
+                            <div class="text-center">
+                                <img alt="" class="d-inline-block align-left"
                                  src=""
                                  th:src="@{/images/Swanson.JPG}"
-                                 height="250px"
+                                 height="400px"
                                  width="auto">
+                            </div>
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>First slide label</h5>
-                                <p>Some representative placeholder content for the first slide.</p>
+                                <br></br>
+                                <h5>Swanson Rides a Dolphin</h5>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img alt="" class="d-inline-block align-center"
+                            <div class="text-center">
+                                <img alt="" class="d-inline-block align-center"
                                  src=""
                                  th:src="@{/images/Swanson1.jpg}"
-                                 height="250px"
+                                 height="400px"
                                  width="auto">
+                            </div>
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Second slide label</h5>
-                                <p>Some representative placeholder content for the second slide.</p>
+                                <br></br>
+                                <h5>Ho Ho Ho</h5>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img alt="" class="d-inline-block align-center"
+                            <div class="text-center">
+                                <img alt="" class="d-inline-block align-center"
                                  src=""
                                  th:src="@{/images/Swanson2.jpg}"
-                                 height="250px"
+                                 height="400px"
                                  width="auto">
+                            </div>
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Third slide label</h5>
-                                <p>Some representative placeholder content for the third slide.</p>
+                                <br></br>
+                                <h5>Swanson is not Laughing</h5>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img alt="" class="d-inline-block align-center"
+                            <div class="text-center">
+                                <img alt="" class="d-inline-block align-center"
                                  src=""
                                  th:src="@{/images/Swanson3.jpg}"
-                                 height="250px"
+                                 height="400px"
                                  width="auto">
+                            </div>
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Fourth slide label</h5>
-                                <p>Some representative placeholder content for the third slide.</p>
+                                <br></br>
+                                <h5>"Tom Swanson Promo"</h5>
                             </div>
                         </div>
                     </div>
@@ -95,7 +110,9 @@
                 </div>
                 <br></br>
                 <div class="col-md-9">
-                    <ol>Welcome to Swanson's page of tutorial notes. After each tutorial, please upload your notes onto the accurate chapter. Each chapter is password access only, so you can only access everyone's notes if you were at the tutorial.</ol>
+                    <div class="text-center">
+                        <ol>Welcome to Swanson's page of tutorial notes. After each tutorial, please upload your notes onto the accurate chapter. Each chapter is password access only, so you can only access everyone's notes if you were at the tutorial.</ol>
+                    </div>
                 </div>
             </div>
         </div>
