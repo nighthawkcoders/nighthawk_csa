@@ -38,6 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception { //THis is going to be altered to use the JWT
         // security rules
         http
+
             .authorizeRequests()
                 .antMatchers(POST, "/api/person/post/**").hasAnyAuthority("ROLE_STUDENT")
                 .antMatchers(DELETE, "/api/person/delete/**").hasAnyAuthority("ROLE_ADMIN")
@@ -54,7 +55,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
             .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/database/person")
+                .logoutSuccessUrl("/")
                 .permitAll()
         ;
         // Cross-Site Request Forgery needs to be disabled to allow activation of JS Fetch URIs
