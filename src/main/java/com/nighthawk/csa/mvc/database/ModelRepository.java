@@ -2,6 +2,8 @@ package com.nighthawk.csa.mvc.database;
 
 import com.nighthawk.csa.mvc.database.person.Person;
 import com.nighthawk.csa.mvc.database.person.PersonJpaRepository;
+import com.nighthawk.csa.mvc.database.chapters.Chapter;
+import com.nighthawk.csa.mvc.database.chapters.ChapterJpaRepository;
 import com.nighthawk.csa.mvc.database.role.Role;
 import com.nighthawk.csa.mvc.database.role.RoleJpaRepository;
 
@@ -31,6 +33,8 @@ public class ModelRepository implements UserDetailsService {  // "implements" ti
     // Encapsulate many object into a single Bean (Person, Roles, and Scrum)
     @Autowired  // Inject PersonJpaRepository
     private PersonJpaRepository personJpaRepository;
+    @Autowired  // Inject PersonJpaRepository
+    private ChapterJpaRepository chapterJpaRepository;
     @Autowired  // Inject RoleJpaRepository
     private RoleJpaRepository roleJpaRepository;
 
@@ -55,13 +59,32 @@ public class ModelRepository implements UserDetailsService {  // "implements" ti
         });
         return new org.springframework.security.core.userdetails.User(person.getEmail(), person.getPassword(), authorities);
     }
+    //Chapter Section
+    public  List<Chapter>listAllChapters() {
+        return chapterJpaRepository.findAllByOrderByNameAsc();
+    }
 
+    public void saveChapter(Chapter chapter) {
+        chapter.setPassword(passwordEncoder.encode(chapter.getPassword()));
+        chapterJpaRepository.save(chapter);
+    }
+
+    public Chapter getChapter(long id) {
+        return (chapterJpaRepository.findById(id).isPresent())
+                ? chapterJpaRepository.findById(id).get()
+                : null;
+    }
+
+    public void deleteChapter(long id) {
+        chapterJpaRepository.deleteById(id);
+    }
 
     /* Person Section */
 
     public  List<Person>listAll() {
         return personJpaRepository.findAllByOrderByNameAsc();
     }
+
 
     // custom query to find anything containing term in username or name ignoring case
     public  List<Person>listLike(String term) {
@@ -78,6 +101,8 @@ public class ModelRepository implements UserDetailsService {  // "implements" ti
         person.setPassword(passwordEncoder.encode(person.getPassword()));
         personJpaRepository.save(person);
     }
+
+
 
     public Person get(long id) {
         return (personJpaRepository.findById(id).isPresent())
