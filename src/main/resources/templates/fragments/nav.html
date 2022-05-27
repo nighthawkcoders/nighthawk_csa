@@ -125,7 +125,15 @@
                         <span sec:authentication="name" class="dropdown-toggle link-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         </span>
                         <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" th:href='@{/logout}'>Logout</a></li>
+                            <li>
+                                <div class="dropdown-item">
+                                    <p style="margin-bottom:2px"><strong>ROLES:</strong></p>
+                                    <p style="font-size:0.75em;margin:1px" sec:authorize="hasRole('ADMIN')">ADMIN</p>
+                                    <p style="font-size:0.75em;margin:1px" sec:authorize="hasRole('TEACHER')">TEACHER</p>
+                                    <p style="font-size:0.75em;margin:1px" sec:authorize="hasRole('STUDENT')">STUDENT</p>
+                                </div>
+                            </li>
+                            <li><a class="dropdown-item active" th:href='@{/logout}'>Logout</a></li>
                         </ul>
                     </div>
                 </th:block>
