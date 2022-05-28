@@ -17,6 +17,8 @@ public interface NotesJpaRepository extends JpaRepository<Notes, Long> {
 
     List<Notes> findAllByOrderByNameAsc();
 
+    List<Notes> findByChapterId(long Id);
+
     // JPA query, findBy does JPA magic with "Name", "Containing", "Or", "Email", "IgnoreCase"
 //    List<Chapter> findByNameContainingIgnoreCaseOrEmailContainingIgnoreCase(String name, String email);
     /* Custom JPA query articles, there are articles that show custom SQL as well

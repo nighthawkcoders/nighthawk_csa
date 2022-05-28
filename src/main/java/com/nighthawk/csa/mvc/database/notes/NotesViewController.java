@@ -5,9 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -20,11 +18,11 @@ public class NotesViewController {
     @Autowired
     private ModelRepository repository;
 
-    @GetMapping("/notes")
-    public String notes(Model model) {
-        List<Notes> list = repository.listAllNotes();
-
+    @RequestMapping("/notes")
+    public String notes(@RequestParam("id") long id, Model model) {
+        List<Notes> list = repository.listAllNotesWithId(id);
         model.addAttribute("listNotes", list);
+        model.addAttribute("chapterId", id);
         return "/notes";
     }
 
@@ -32,10 +30,20 @@ public class NotesViewController {
         @return - template for person form
         @param - Person Class
     */
-    @GetMapping("/database/notescreate")
-    public String notesAdd(Notes notes) {
-        return "mvc/database/notescreate";
+
+    @RequestMapping(value = "/database/notescreate/{chid}", method = RequestMethod.GET)
+    public String notesAdd(@PathVariable("chid") long chid, Model model) {
+        model.addAttribute("chapterId", chid);
+        //return "mvc/database/notescreate";
+        return "/mvc/database/notescreate";
     }
+
+//    @GetMapping("/database/not")
+//    public String notesAdd(Model model) {
+//        //model.addAttribute("chapterId", chid);
+//        return "/mvc/database/notescreate";
+//    }
+
 
     /* Gathers the attributes filled out in the form, tests for and retrieves validation error
     @param - Person object with @Valid

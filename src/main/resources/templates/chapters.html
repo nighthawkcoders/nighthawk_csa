@@ -44,7 +44,7 @@
                         <td th:text="${chapter.name}">Name</td>
 <!--                        <td th:if="${person.getAge() != -1}" th:text="${person.getAge()}">Age</td>-->
 <!--                        <td th:unless="${person.getAge() != -1}" th:text="Unknown">Unknown Age</td>-->
-                        <div><td><a th:href="@{/notes/{id}(id = ${chapter.id} )}">Notes</a></td></div>
+                        <div><td><a th:href="@{/notes?id={id}(id = ${chapter.id} )}">Notes</a></td></div>
 
                         <!--                        <td>-->
 

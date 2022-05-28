@@ -25,17 +25,14 @@
         <div class="container py-4 text-light bg-success">
 
             <h2>Notes</h2>
-            <div><a th:href="@{/database/notescreate/}">Upload Notes</a></div>
+            <div><a th:href="@{/database/notescreate?chid={id}(id = ${chapterId} )}">Upload Notes</a></div>
             <div class="row align-items-md-stretch">
                 <table class="table">
                     <thead>
                     <tr>
                         <th>ID</th>
-
                         <th>Student Name</th>
-
                         <th>Notes</th>
-
                     </tr>
                     </thead>
                     <tbody>

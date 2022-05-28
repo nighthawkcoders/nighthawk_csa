@@ -85,8 +85,13 @@ public class ModelRepository implements UserDetailsService {  // "implements" ti
 
     // Notes section
 
-    public  List<Notes>listAllNotes() {
+    public List<Notes>listAllNotes() {
         return notesJpaRepository.findAllByOrderByNameAsc();
+    }
+
+    public List<Notes>listAllNotesWithId(long chapterId) {
+        List<Notes> notes = notesJpaRepository.findByChapterId(chapterId);
+        return notes;
     }
 
     public void saveNotes(Notes notes) {
@@ -94,11 +99,11 @@ public class ModelRepository implements UserDetailsService {  // "implements" ti
         notesJpaRepository.save(notes);
     }
 
-    public Notes getNotes(long id) {
-        return (notesJpaRepository.findById(id).isPresent())
-                ? notesJpaRepository.findById(id).get()
-                : null;
-    }
+//    public Notes getNotes(long id) {
+//        return (notesJpaRepository.findById(id).isPresent())
+//                ? notesJpaRepository.findById(id).get()
+//                : null;
+//    }
 
     public void deleteNotes(long id) {
         notesJpaRepository.deleteById(id);

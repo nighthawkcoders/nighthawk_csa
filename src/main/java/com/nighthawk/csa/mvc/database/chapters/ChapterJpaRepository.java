@@ -15,6 +15,8 @@ public interface ChapterJpaRepository extends JpaRepository<Chapter, Long> {
 
     List<Chapter> findAllByOrderByNameAsc();
 
+
+
     // JPA query, findBy does JPA magic with "Name", "Containing", "Or", "Email", "IgnoreCase"
 //    List<Chapter> findByNameContainingIgnoreCaseOrEmailContainingIgnoreCase(String name, String email);
     /* Custom JPA query articles, there are articles that show custom SQL as well

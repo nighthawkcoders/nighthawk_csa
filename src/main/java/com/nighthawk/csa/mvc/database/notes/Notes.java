@@ -38,8 +38,7 @@ public class Notes {
 
     @NonNull
     @NotEmpty
-    @Size(min = 1, max = 30, message = "Name (2 to 30 chars)")
-    private String chapter;
+    private long chapterId;
 
     // email, password, roles are key to login and authentication
 //    @Size(min=5)
@@ -60,11 +59,11 @@ public class Notes {
 //    private Date dob;
 
     // Initializer used when setting database from an API
-    public Notes(String name, String link, String chapter) {
+    public Notes(String name, String link, long chapterId) {
 //        this.email = email;
         this.name = name;
         this.link = link;
-        this.chapter = chapter;
+        this.chapterId = chapterId;
 //        this.dob = dob;
     }
 
