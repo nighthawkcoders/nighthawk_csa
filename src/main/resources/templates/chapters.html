@@ -24,31 +24,36 @@
 
         <div class="container py-4 text-light bg-success">
 
-            <h2>Tutorial Notes</h2>
-            <div sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/database/personcreate/}">Add A Chapter</a></div>
+            <h2>Chapters</h2>
+            <div sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/database/chaptercreate/}">Add A Chapter</a></div>
             <div class="row align-items-md-stretch">
                 <table class="table">
                     <thead>
                     <tr>
                         <th>ID</th>
 <!--                        <th>Email</th>-->
-                        <th>Person</th>
-                        <th>Notes</th>
-<!--                        <th>Action</th>-->
+                        <th>Chapter Name</th>
+<!--                        <th>Notes</th>-->
+                        <div sec:authorize="hasRole('ROLE_ADMIN')"><th>Action</th></div>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="person : ${list}">
-                        <td th:text="${person.id}">Person ID</td>
-                        <td th:text="${person.email}">Birth Date</td>
-                        <td th:text="${person.name}">Name</td>
+                    <tr th:each="chapter : ${listChapter}">
+                        <td th:text="${chapter.id}">Chapter ID</td>
+<!--                        <td th:text="${person.email}">Birth Date</td>-->
+                        <td th:text="${chapter.name}">Name</td>
 <!--                        <td th:if="${person.getAge() != -1}" th:text="${person.getAge()}">Age</td>-->
 <!--                        <td th:unless="${person.getAge() != -1}" th:text="Unknown">Unknown Age</td>-->
-<!--                        <td>-->
-<!--                            <a th:href="@{/database/notes/{id}(id = ${person.id})}">Notes</a>-->
-<!--                            <a th:href="@{/database/personupdate/{id}(id = ${person.id})}">Update</a>-->
-<!--                            <a th:href="@{/database/persondelete/{id}(id = ${person.id})}">Delete</a>-->
+                        <div><td><a th:href="@{/notes?id={id}(id = ${chapter.id} )}">Notes</a></td></div>
+
+                        <!--                        <td>-->
+
+<!--&lt;!&ndash;                            <a th:href="@{/notes/{id}(id = ${chapter.id} )}">Notes</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <a th:href="@{/database/personupdate/{id}(id = ${person.id})}">Update</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <a th:href="@{/database/persondelete/{id}(id = ${person.id})}">Delete</a>&ndash;&gt;-->
 <!--                        </td>-->
+                        <div sec:authorize="hasRole('ROLE_ADMIN')"><td> <a th:href="@{/database/delete/{id}(id = ${chapter.id})}" >Delete</a></td></div>
+
                     </tr>
                     </tbody>
                 </table>

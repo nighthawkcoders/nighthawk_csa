@@ -7,11 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
-import java.time.LocalDate;
-import java.util.Date;
+import java.text.SimpleDateFormat;
 
 @Component // Scans Application for ModelInit Bean, this detects CommandLineRunner
 public class ModelInit {
@@ -39,11 +36,12 @@ public class ModelInit {
             modelRepository.addRoleToPerson("TSwanson@powayusd.com", "ROLE_TEACHER");
             modelRepository.addRoleToPerson("TSwanson@powayusd.com", "ROLE_ADMIN");
 
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-            Person teacher = new Person("TSwanson@powayusd.com", "apush", "Tom Swanson", formatter.parse("1998-12-12"), modelRepository.findRole("ROLE_ADMIN") );
-            modelRepository.save(teacher);
-
-//            Person person = modelRepository.getByEmail("TSwanson@powayusd.com");
+            Person person = modelRepository.getByEmail("TSwanson@powayusd.com");
+            if(person == null) {
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                Person teacher = new Person("TSwanson@powayusd.com", "apush", "Tom Swanson", formatter.parse("1998-12-12"), modelRepository.findRole("ROLE_ADMIN"));
+                modelRepository.save(teacher);
+            }
 
         };
     }
