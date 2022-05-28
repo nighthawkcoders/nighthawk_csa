@@ -1,11 +1,8 @@
 package com.nighthawk.csa.mvc.dataOps;
 
-import com.nighthawk.csa.utility.ConsoleMethods;
 import com.nighthawk.csa.mvc.dataOps.genericDataModel.Alphabet;
 import com.nighthawk.csa.mvc.dataOps.genericDataModel.Animal;
 import com.nighthawk.csa.mvc.dataOps.genericDataModel.Cupcakes;
-
-import com.nighthawk.csa.utility.LinkedLists.CircleQueue;
 import lombok.Getter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <!-- Bootstrap Navigation Code -->
-<th:block xmlns:th="http://www.w3.org/1999/xhtml" th:fragment="header">
+<th:block xmlns:th="http://www.w3.org/1999/xhtml"
+          xmlns:sec="http://www.thymeleaf.org/extras/spring-security" th:fragment="header">
     <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
         <div class="container-fluid">
             <div class="btn-group">
@@ -25,7 +26,7 @@
                 <div class="collapse navbar-collapse" id="navbarHome">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link" th:href="@{https://prod.idp.collegeboard.org/}">College Board LogIn<span class="sr-only"></span></a>
+                            <a class="nav-link" th:href="@{https://prod.idp.collegeboard.org/}">College Board Login<span class="sr-only"></span></a>
                         </li>
                     </ul>
                 </div>
@@ -39,135 +40,49 @@
                     </ul>
                 </div>
 
-<!--                <div class="collapse navbar-collapse" id="navbarNavDarkDropdown0">-->
-<!--                    <ul class="navbar-nav">-->
-<!--                        <li class="nav-item dropdown">-->
-<!--                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink0" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
-<!--                                Starters-->
-<!--                            </a>-->
-<!--                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink0">-->
-<!--                                <li><a class="dropdown-item" th:href="@{/starters/greet}">Spring Greeting</a></li>-->
-<!--                                <li><a class="dropdown-item" th:href="@{/starters/covid19}">RapidAPI Covid19</a></li>-->
-<!--                                <li><a class="dropdown-item" th:href="@{/starters/image}">Images</a></li>-->
-<!--                            </ul>-->
-<!--                        </li>-->
-<!--                    </ul>-->
-<!--                </div>-->
-
-<!--                <div class="collapse navbar-collapse" id="navbarNavDarkDropdown1">-->
-<!--                    <ul class="navbar-nav">-->
-<!--                        <li class="nav-item dropdown">-->
-<!--                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink1" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
-<!--                                Front-End-->
-<!--                            </a>-->
-<!--                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink1">-->
-<!--                                <li><a class="dropdown-item" th:href="@{/frontend/binary}">Binary Math</a></li>-->
-<!--                                <li><a class="dropdown-item" th:href="@{/frontend/draw}">Draw on Canvas</a></li>-->
-<!--                                <li><a class="dropdown-item" th:href="@{/frontend/snake}">Snake Game</a></li>-->
-<!--                                <li><a class="dropdown-item" th:href="@{/frontend/life}">Life</a></li>-->
-<!--                            </ul>-->
-<!--                        </li>-->
-<!--                    </ul>-->
-<!--                </div>-->
-
-<!--                <div class="collapse navbar-collapse" id="navbarNavDarkDropdown3">-->
-<!--                    <ul class="navbar-nav">-->
-<!--                        <li class="nav-item dropdown">-->
-<!--                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink3" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
-<!--                                MVC-Labs-->
-<!--                            </a>-->
-<!--                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink3">-->
-<!--                                <li><a class="dropdown-item" th:href="@{/mvc/fibonacci}">Fibonacci</a></li>-->
-<!--                                <li><a class="dropdown-item" th:href="@{/mvc/pali}">Palindrome</a></li>-->
-<!--                                <li><a class="dropdown-item" th:href="@{/mvc/stringops}">String Ops</a></li>-->
-<!--                                <li><a class="dropdown-item" th:href="@{/mvc/dataops}">Data Ops</a></li>-->
-<!--                            </ul>-->
-<!--                        </li>-->
-<!--                    </ul>-->
-<!--                </div>-->
-
-                <div class="collapse navbar-collapse" id="navbarNavDarkDropdown2">
+                <div class="collapse navbar-collapse" id="navbarUsers">
                     <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Database
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink2">
-                                <li><a class="dropdown-item" th:href="@{/database/person}">Chapter 1</a></li>
-                                <li><a class="dropdown-item" th:href="@{/database/person/search}">Chapter 2</a></li>
-                                <li><a class="dropdown-item" th:href="@{/database/scrum}">Chapter 3</a></li>
-                            </ul>
+                        <li class="nav-item active">
+                            <a class="nav-link" th:href="@{/login}">Users<span class="sr-only"></span></a>
                         </li>
                     </ul>
                 </div>
 
 
-<!--                <div class="collapse navbar-collapse" id="navbarNavDarkDropdown4">-->
-<!--                    <ul class="navbar-nav">-->
-<!--                        <li class="nav-item dropdown">-->
-<!--                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink4" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
-<!--                                Course-materials-->
-<!--                            </a>-->
-<!--                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink3">-->
-<!--                                <li><a class="dropdown-item" href="https://csacoders.nighthawkcodingsociety.com/">Nighthawk CSA Project</a></li>-->
-<!--                                <li><a class="dropdown-item" href="https://replit.com/@jmort1021/Java-Hello-Series#Main.java">ReplIt Console Project</a></li>-->
-<!--                                <li><div class="dropdown-divider"></div></li>-->
-<!--                                <li><a class="dropdown-item" th:href="@{/course/tri1}">Tri 1</a></li>-->
-<!--                                <li><a class="dropdown-item" th:href="@{/course/tri2}">Tri 2</a></li>-->
-<!--                            </ul>-->
-<!--                        </li>-->
-<!--                    </ul>-->
-<!--                </div>-->
+                <div class="collapse navbar-collapse" id="navbarHome">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" th:href="@{/chapters}">Chapters<span class="sr-only"></span></a>
+                        </li>
+                    </ul>
+                </div>
+
+
 
             </div>
 
-<!--            <div class="btn-group">-->
-<!--                &lt;!&ndash; Search Box &ndash;&gt;-->
-<!--                <div class="px-3">-->
-<!--                    <input id="search" type="search" placeholder="Search" aria-label="Search">-->
-<!--                </div>-->
-<!--                &lt;!&ndash; Clock display &ndash;&gt;-->
-<!--                <div class="px-3 text-dark">-->
-<!--                    <span id="clock"></span>-->
-<!--                </div>-->
-<!--                &lt;!&ndash; Dark mode action &ndash;&gt;-->
-<!--                <div class="form-check form-switch">-->
-<!--                    <input type="checkbox" onclick="darkFunction()" class="form-check-input" id="darkSwitch">-->
-<!--                    <label class="custom-control-label" for="darkSwitch">Dark Mode</label>-->
-<!--                </div>-->
-<!--            </div>-->
+            <div class="btn-group">
+
+                <div class="px-3 text-dark">
+                    <span id="clock"></span>
+                </div>
+
+                <th:block sec:authorize="isAnonymous()">
+                    <div class="px-3">
+                        <a th:href='@{/login}' class="link-dark">Login</a>
+                    </div>
+                </th:block>
+                <th:block sec:authorize="isAuthenticated()">
+                    <div class="px-3">
+                        <a th:href='@{/logout}' class="link-dark">Logout</a>
+                    </div>
+                </th:block>
+
+            </div>
 
             <!-- Navigation bar JavaScript support -->
             <script>
-                const search = document.getElementById('search');
-                const google = 'https://www.google.com/search?q=site%3A+';
-                const site = 'https://nighthawkcodingsociety.com';
 
-                function submitted(event) {
-                    if (event.key === 'Enter') {
-                        // calculations to determine new window size at 66% of existing
-                        const reduction = 0.66;  // reduce by 66%
-                        const w = Math.trunc(window.innerWidth*reduction);
-                        const h = Math.trunc(window.outerHeight*reduction);
-                        const l = Math.trunc(window.top.screenX + ((window.innerWidth - w)/2));
-                        const t = Math.trunc(window.top.screenY + ((window.outerHeight - h)/2));
-                        const left = "left=" + l;
-                        const top = "top=" + t;
-                        const width = "width=" + w;
-                        const height = "height=" + h;
-                        const location = left + ", " + top + ", " + width + ", " + height
-
-                        // setup and display window
-                        event.preventDefault();
-                        const url = google
-                            + site
-                            + '+'
-                            + search.value;
-                        const win = window.open(url, "CompSci A Search", location);
-                        win.focus();
-                    }
-                }
-                search.addEventListener('keypress', submitted);
 
                 // Clock Control
                 // clockElement global element set for convenience
@@ -182,32 +97,6 @@
                 // Clock refresh timer, a reoccurring event
                 setInterval(clock, 1000);
                 // End Clock Control
-
-                // Dark Mode Control
-                // darkSwitch global element is set for convenience
-                const darkSwitch=document.getElementById("darkSwitch");
-                // establishes the initial state of darkSwitch on page load
-                if(darkSwitch) {
-                    // obtains the value of darkSwitch from localStorage
-                    const darkSwitchSelected =
-                        localStorage.getItem("darkSwitch") !== null &&
-                        localStorage.getItem("darkSwitch") === "dark";
-                    // sets the value of darkSwitch.checked to the global darkSwitch
-                    darkSwitch.checked=darkSwitchSelected;
-                    // if dark-mode, toggle the switch to dark-mode position
-                    if (darkSwitchSelected)
-                        document.body.classList.toggle("dark-mode");
-                }
-                // executes on each "dark mode" UI toggle
-                function darkFunction() {
-                    // toggles between off (standard CSS) and dark-mode (.dark-mode CSS)
-                    document.body.classList.toggle("dark-mode");
-                    // localStorage is used to manage darkSwitch status
-                    darkSwitch.checked
-                        ? localStorage.setItem("darkSwitch","dark")
-                        : localStorage.removeItem("darkSwitch");
-                }
-                // End Dark Mode Control
 
 
 

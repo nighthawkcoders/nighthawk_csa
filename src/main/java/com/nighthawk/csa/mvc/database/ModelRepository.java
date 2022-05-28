@@ -2,6 +2,10 @@ package com.nighthawk.csa.mvc.database;
 
 import com.nighthawk.csa.mvc.database.person.Person;
 import com.nighthawk.csa.mvc.database.person.PersonJpaRepository;
+import com.nighthawk.csa.mvc.database.chapters.Chapter;
+import com.nighthawk.csa.mvc.database.chapters.ChapterJpaRepository;
+import com.nighthawk.csa.mvc.database.notes.Notes;
+import com.nighthawk.csa.mvc.database.notes.NotesJpaRepository;
 import com.nighthawk.csa.mvc.database.role.Role;
 import com.nighthawk.csa.mvc.database.role.RoleJpaRepository;
 
@@ -31,6 +35,10 @@ public class ModelRepository implements UserDetailsService {  // "implements" ti
     // Encapsulate many object into a single Bean (Person, Roles, and Scrum)
     @Autowired  // Inject PersonJpaRepository
     private PersonJpaRepository personJpaRepository;
+    @Autowired  // Inject PersonJpaRepository
+    private ChapterJpaRepository chapterJpaRepository;
+    @Autowired  // Inject PersonJpaRepository
+    private NotesJpaRepository notesJpaRepository;
     @Autowired  // Inject RoleJpaRepository
     private RoleJpaRepository roleJpaRepository;
 
@@ -44,8 +52,8 @@ public class ModelRepository implements UserDetailsService {  // "implements" ti
 
     /* UserDetailsService Overrides and maps Person & Roles POJO into Spring Security */
     @Override
-    public org.springframework.security.core.userdetails.UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Person person = personJpaRepository.findByUsername(username); // setting variable user equal to the method finding the username in the database
+    public org.springframework.security.core.userdetails.UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        Person person = personJpaRepository.findByEmail(email); // setting variable user equal to the method finding the username in the database
         if(person==null){
             throw new UsernameNotFoundException("User not found in database");
         }
@@ -53,19 +61,63 @@ public class ModelRepository implements UserDetailsService {  // "implements" ti
         person.getRoles().forEach(role -> { //loop through roles
             authorities.add(new SimpleGrantedAuthority(role.getName())); //create a SimpleGrantedAuthority by passed in role, adding it all to the authorities list, list of roles gets past in for spring security
         });
-        return new org.springframework.security.core.userdetails.User(person.getUsername(), person.getPassword(), authorities);
+        return new org.springframework.security.core.userdetails.User(person.getEmail(), person.getPassword(), authorities);
+    }
+    //Chapter Section
+    public  List<Chapter>listAllChapters() {
+        return chapterJpaRepository.findAllByOrderByNameAsc();
     }
 
+    public void saveChapter(Chapter chapter) {
+        chapter.setPassword(passwordEncoder.encode(chapter.getPassword()));
+        chapterJpaRepository.save(chapter);
+    }
 
+    public Chapter getChapter(long id) {
+        return (chapterJpaRepository.findById(id).isPresent())
+                ? chapterJpaRepository.findById(id).get()
+                : null;
+    }
+
+    public void deleteChapter(long id) {
+        chapterJpaRepository.deleteById(id);
+    }
+
+    // Notes section
+
+    public List<Notes>listAllNotes() {
+        return notesJpaRepository.findAllByOrderByNameAsc();
+    }
+
+    public List<Notes>listAllNotesWithId(long chapterId) {
+        List<Notes> notes = notesJpaRepository.findByChapterId(chapterId);
+        return notes;
+    }
+
+    public void saveNotes(Notes notes) {
+//        notes.setPassword(passwordEncoder.encode(notes.getPassword()));
+        notesJpaRepository.save(notes);
+    }
+
+//    public Notes getNotes(long id) {
+//        return (notesJpaRepository.findById(id).isPresent())
+//                ? notesJpaRepository.findById(id).get()
+//                : null;
+//    }
+
+    public void deleteNotes(long id) {
+        notesJpaRepository.deleteById(id);
+    }
     /* Person Section */
 
     public  List<Person>listAll() {
-        return personJpaRepository.findAllByOrderByUsernameAsc();
+        return personJpaRepository.findAllByOrderByNameAsc();
     }
+
 
     // custom query to find anything containing term in username or name ignoring case
     public  List<Person>listLike(String term) {
-        return personJpaRepository.findByUsernameContainingIgnoreCaseOrNameContainingIgnoreCase(term, term);
+        return personJpaRepository.findByNameContainingIgnoreCaseOrEmailContainingIgnoreCase(term, term);
     }
 
     // custom query to find anything containing term in name or email ignoring case
@@ -79,14 +131,16 @@ public class ModelRepository implements UserDetailsService {  // "implements" ti
         personJpaRepository.save(person);
     }
 
+
+
     public Person get(long id) {
         return (personJpaRepository.findById(id).isPresent())
                 ? personJpaRepository.findById(id).get()
                 : null;
     }
 
-    public Person getByUsername(String username) {
-        return (personJpaRepository.findByUsername(username));
+    public Person getByEmail(String email) {
+        return (personJpaRepository.findByEmail(email));
     }
 
     public void delete(long id) {
@@ -125,8 +179,8 @@ public class ModelRepository implements UserDetailsService {  // "implements" ti
         return roleJpaRepository.findByName(roleName);
     }
 
-    public void addRoleToPerson(String username, String roleName) { // by passing in the two strings you are giving the user that certain role
-        Person person = personJpaRepository.findByUsername(username);
+    public void addRoleToPerson(String email, String roleName) { // by passing in the two strings you are giving the user that certain role
+        Person person = personJpaRepository.findByEmail(email);
         if (person != null) {   // verify person
             Role role = roleJpaRepository.findByName(roleName);
             if (role != null) { // verify role

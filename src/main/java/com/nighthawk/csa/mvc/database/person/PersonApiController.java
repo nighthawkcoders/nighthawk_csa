@@ -19,7 +19,7 @@ import java.util.*;
 import java.text.SimpleDateFormat;
 
 @RestController
-@RequestMapping("/api/person") // IMPLEMENT SECURITY ON THIS!!!!
+@RequestMapping("/api/person")
 public class PersonApiController {
     /*
     #### RESTful API ####
@@ -59,16 +59,20 @@ public class PersonApiController {
     POST Aa record by Requesting Parameters from URI
      */
     @PostMapping( "/post")
-    public ResponseEntity<Object> postPerson(@RequestParam("username") String username,
+    public ResponseEntity<Object> postPerson(@RequestParam("email") String email,
                                              @RequestParam("password") String password,
                                              @RequestParam("name") String name,
-                                             @RequestParam("dob") Date dob) {
-
+                                             @RequestParam("dob") String dobString) {
+        Date dob;
+        try {
+            dob = new SimpleDateFormat("MM-dd-yyyy").parse(dobString);
+        } catch (Exception e) {
+            return new ResponseEntity<>(dobString +" error; try MM-dd-yyyy", HttpStatus.BAD_REQUEST);
+        }
         // A person object WITHOUT ID will create a new record with default roles as student
-        Person person = new Person(username, password, name, repository.findRole("ROLE_STUDENT"), dob);
-
+        Person person = new Person(email, password, name, dob, repository.findRole("ROLE_STUDENT") );
         repository.save(person);
-        return new ResponseEntity<>(username +" is created successfully", HttpStatus.CREATED);
+        return new ResponseEntity<>(email +" is created successfully", HttpStatus.CREATED);
     }
 
     /*

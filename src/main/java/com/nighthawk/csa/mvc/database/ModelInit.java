@@ -1,7 +1,5 @@
 package com.nighthawk.csa.mvc.database;
 
-import com.nighthawk.csa.mvc.database.note.Note;
-import com.nighthawk.csa.mvc.database.note.NoteJpaRepository;
 import com.nighthawk.csa.mvc.database.person.Person;
 import com.nighthawk.csa.mvc.database.role.Role;
 import com.nighthawk.csa.mvc.database.role.RoleJpaRepository;
@@ -10,10 +8,12 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
+import java.text.SimpleDateFormat;
+
 @Component // Scans Application for ModelInit Bean, this detects CommandLineRunner
 public class ModelInit {
     // Inject repositories
-    @Autowired NoteJpaRepository noteJpaRepository;
+
     @Autowired RoleJpaRepository roleJpaRepository;
     @Autowired ModelRepository modelRepository;
 
@@ -33,10 +33,15 @@ public class ModelInit {
             modelRepository.defaults("123qwerty", "ROLE_STUDENT");
 
             // make sure privileged roles exist for Teacher
-            modelRepository.addRoleToPerson("TSwanson", "ROLE_TEACHER");
-            modelRepository.addRoleToPerson("TSwanson", "ROLE_ADMIN");
+            modelRepository.addRoleToPerson("TSwanson@powayusd.com", "ROLE_TEACHER");
+            modelRepository.addRoleToPerson("TSwanson@powayusd.com", "ROLE_ADMIN");
 
-            Person person = modelRepository.getByUsername("TSwanson");
+            Person person = modelRepository.getByEmail("TSwanson@powayusd.com");
+            if(person == null) {
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                Person teacher = new Person("TSwanson@powayusd.com", "apush", "Tom Swanson", formatter.parse("1998-12-12"), modelRepository.findRole("ROLE_ADMIN"));
+                modelRepository.save(teacher);
+            }
 
         };
     }

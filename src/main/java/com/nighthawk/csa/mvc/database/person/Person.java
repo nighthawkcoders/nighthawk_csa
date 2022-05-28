@@ -1,19 +1,24 @@
 package com.nighthawk.csa.mvc.database.person;
 
-import com.nighthawk.csa.mvc.database.note.Note;
 import com.nighthawk.csa.mvc.database.role.Role;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import org.springframework.format.annotation.DateTimeFormat;
-import lombok.*;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
 
 import static javax.persistence.FetchType.EAGER;
-import static javax.persistence.FetchType.LAZY;
 
 /*
 Person is a POJO, Plain Old Java Object.
@@ -32,46 +37,44 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    // username, password, and role handling
+    // email, password, roles are key to login and authentication
     @NotEmpty
+    @Size(min=5)
     @Column(unique=true)
-    private String username; // username should be NonEmpty and unique
+    @Email
+    private String email;
 
     @NotEmpty
-    private String password; // password should be NonEmpty (introduce hashing requirements later? UPDATE: apparently this uses bcrypt)
+    private String password;
 
+    @ManyToMany(fetch = EAGER)
+    private Collection<Role> roles = new ArrayList<>();
+
+    // @NonNull: Places this in @RequiredArgsConstructor
+    @NonNull
+    @Size(min = 2, max = 30, message = "Name (2 to 30 chars)")
+    private String name;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dob;
 
-    @NotEmpty
-    @Column(unique=true)
-    private String name; // name should also be NonEmpty and unique...probably
-
-    @ManyToMany(fetch = EAGER) // not sure if we should use this or lazy, going to use eager for now
-    private Collection<Role> roles = new ArrayList<>();
-
-    // Kinda jank hack for DOB to age
-    public Integer getAge(Date dob){
-        if (dob == null) return 0;
-        Calendar birth = Calendar.getInstance(Locale.US);
-        Calendar current = Calendar.getInstance(Locale.US);
-        birth.setTime(dob);
-        Period age = Period.between(
-                LocalDate.ofInstant(birth.toInstant(), birth.getTimeZone().toZoneId()),
-                LocalDate.ofInstant(current.toInstant(), current.getTimeZone().toZoneId()));
-
-        return age.getYears();
-    }
-
     // Initializer used when setting database from an API
-    public Person(String username, String password, String name, Role role, Date dob) {
-
-        this.username = username;
+    public Person(String email, String password, String name, Date dob, Role role) {
+        this.email = email;
         this.password = password;
         this.name = name;
+        this.dob = dob;
         this.roles.add(role);
         this.dob = dob;
 
     }
+
+    // A custom getter to return age from dob calculation
+    public int getAge() {
+        if (this.dob != null) {
+            LocalDate birthDay = this.dob.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            return Period.between(birthDay, LocalDate.now()).getYears(); }
+        return -1;
+    }
+
 }
