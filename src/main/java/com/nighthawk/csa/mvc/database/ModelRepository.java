@@ -4,6 +4,8 @@ import com.nighthawk.csa.mvc.database.person.Person;
 import com.nighthawk.csa.mvc.database.person.PersonJpaRepository;
 import com.nighthawk.csa.mvc.database.chapters.Chapter;
 import com.nighthawk.csa.mvc.database.chapters.ChapterJpaRepository;
+import com.nighthawk.csa.mvc.database.notes.Notes;
+import com.nighthawk.csa.mvc.database.notes.NotesJpaRepository;
 import com.nighthawk.csa.mvc.database.role.Role;
 import com.nighthawk.csa.mvc.database.role.RoleJpaRepository;
 
@@ -35,6 +37,8 @@ public class ModelRepository implements UserDetailsService {  // "implements" ti
     private PersonJpaRepository personJpaRepository;
     @Autowired  // Inject PersonJpaRepository
     private ChapterJpaRepository chapterJpaRepository;
+    @Autowired  // Inject PersonJpaRepository
+    private NotesJpaRepository notesJpaRepository;
     @Autowired  // Inject RoleJpaRepository
     private RoleJpaRepository roleJpaRepository;
 
@@ -79,6 +83,26 @@ public class ModelRepository implements UserDetailsService {  // "implements" ti
         chapterJpaRepository.deleteById(id);
     }
 
+    // Notes section
+
+    public  List<Notes>listAllNotes() {
+        return notesJpaRepository.findAllByOrderByNameAsc();
+    }
+
+    public void saveNotes(Notes notes) {
+//        notes.setPassword(passwordEncoder.encode(notes.getPassword()));
+        notesJpaRepository.save(notes);
+    }
+
+    public Notes getNotes(long id) {
+        return (notesJpaRepository.findById(id).isPresent())
+                ? notesJpaRepository.findById(id).get()
+                : null;
+    }
+
+    public void deleteNotes(long id) {
+        notesJpaRepository.deleteById(id);
+    }
     /* Person Section */
 
     public  List<Person>listAll() {

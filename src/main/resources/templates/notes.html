@@ -1,0 +1,63 @@
+<!-- This page is illustrative and contains ideas about HTML formatting -->
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="~{layout}" lang="en">
+
+<!-- <head> -->
+<div layout:fragment="head" th:remove="tag">
+    <!-- Page specific head additions -->
+    <title>Notes</title>
+</div>
+
+<!-- <body> -->
+<div layout:fragment="body" th:remove="tag">
+    <div class="container py-4 bg-primary">
+        <!-- Page specific body additions -->
+        <header class="pb-3 mb-4 border-bottom">
+            <a href="#" class="d-flex align-items-center text-light text-decoration-none">
+                <span class="fs-4">Notes</span>
+            </a>
+        </header>
+
+        <div class="container py-4 text-light bg-success">
+
+            <h2>Notes</h2>
+            <div><a th:href="@{/database/notescreate/}">Upload Notes</a></div>
+            <div class="row align-items-md-stretch">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+
+                        <th>Student Name</th>
+
+                        <th>Notes</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="notes : ${listNotes}">
+                        <td th:text="${notes.id}">Notes ID</td>
+<!--                        <td th:text="${person.email}">Birth Date</td>-->
+<!--                        <td th:text="${notes.chapter}">Chapter Name</td>-->
+
+                        <td th:text="${notes.name}">Name</td>
+
+                        <td><div><a th:href="${notes.link}">Notes</a></div></td>
+
+<!--                        <div sec:authorize="hasRole('ROLE_ADMIN')"><td> <a th:href="@{/database/delete/{id}(id = ${chapter.id})}" >Delete</a></td></div>&ndash;&gt;-->
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</html>

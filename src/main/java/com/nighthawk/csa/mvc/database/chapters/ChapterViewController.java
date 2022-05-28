@@ -45,7 +45,7 @@ public class ChapterViewController {
     public String chapterSave(@Valid Chapter chapter, BindingResult bindingResult) {
         // Validation of Decorated PersonForm attributes
         if (bindingResult.hasErrors()) {
-            return "mvc/database/chapterreate";
+            return "mvc/database/chaptercreate";
         }
         repository.saveChapter(chapter);
 //        repository.addRoleToPerson(person.getEmail(), "ROLE_STUDENT");

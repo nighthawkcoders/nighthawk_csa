@@ -44,10 +44,13 @@
                         <td th:text="${chapter.name}">Name</td>
 <!--                        <td th:if="${person.getAge() != -1}" th:text="${person.getAge()}">Age</td>-->
 <!--                        <td th:unless="${person.getAge() != -1}" th:text="Unknown">Unknown Age</td>-->
-<!--                        <td>-->
-<!--                            <a th:href="@{/database/notes/{id}(id = ${person.id})}">Notes</a>-->
-<!--                            <a th:href="@{/database/personupdate/{id}(id = ${person.id})}">Update</a>-->
-<!--                            <a th:href="@{/database/persondelete/{id}(id = ${person.id})}">Delete</a>-->
+                        <div><td><a th:href="@{/notes/{id}(id = ${chapter.id} )}">Notes</a></td></div>
+
+                        <!--                        <td>-->
+
+<!--&lt;!&ndash;                            <a th:href="@{/notes/{id}(id = ${chapter.id} )}">Notes</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <a th:href="@{/database/personupdate/{id}(id = ${person.id})}">Update</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <a th:href="@{/database/persondelete/{id}(id = ${person.id})}">Delete</a>&ndash;&gt;-->
 <!--                        </td>-->
                         <div sec:authorize="hasRole('ROLE_ADMIN')"><td> <a th:href="@{/database/delete/{id}(id = ${chapter.id})}" >Delete</a></td></div>
 
