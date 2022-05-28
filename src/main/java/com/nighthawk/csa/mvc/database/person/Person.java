@@ -65,6 +65,8 @@ public class Person {
         this.name = name;
         this.dob = dob;
         this.roles.add(role);
+        this.dob = dob;
+
     }
 
     // A custom getter to return age from dob calculation
