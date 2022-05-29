@@ -37,14 +37,7 @@ public class Notes {
     private String name;
 
     @NonNull
-    @NotEmpty
     private long chapterId;
-
-    // email, password, roles are key to login and authentication
-//    @Size(min=5)
-//    @Column(unique=true)
-//    @Email
-//    private String email;
 
     @NotEmpty
     private String link;
@@ -54,25 +47,12 @@ public class Notes {
 
     // @NonNull: Places this in @RequiredArgsConstructor
 
-
-//    @DateTimeFormat(pattern = "yyyy-MM-dd")
-//    private Date dob;
-
     // Initializer used when setting database from an API
     public Notes(String name, String link, long chapterId) {
-//        this.email = email;
         this.name = name;
         this.link = link;
         this.chapterId = chapterId;
-//        this.dob = dob;
     }
 
-    // A custom getter to return age from dob calculation
-//    public int getAge() {
-//        if (this.dob != null) {
-//            LocalDate birthDay = this.dob.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-//            return Period.between(birthDay, LocalDate.now()).getYears(); }
-//        return -1;
-//    }
 
 }

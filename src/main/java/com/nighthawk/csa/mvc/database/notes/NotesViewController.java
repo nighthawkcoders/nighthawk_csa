@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -18,7 +19,7 @@ public class NotesViewController {
     @Autowired
     private ModelRepository repository;
 
-    @RequestMapping("/notes")
+    @GetMapping("/notes")
     public String notes(@RequestParam("id") long id, Model model) {
         List<Notes> list = repository.listAllNotesWithId(id);
         model.addAttribute("listNotes", list);
@@ -26,21 +27,28 @@ public class NotesViewController {
         return "/notes";
     }
 
+    @GetMapping("/addnote")
+    public String addNoteForm(@RequestParam("chid") long chid, Model model){
+        model.addAttribute("newPlaceholderNote", new Notes("", "", chid));
+        return "/addnote";
+    }
+
+    @PostMapping("/addnote")
+    public String addNoteSubmit(@ModelAttribute Notes note, RedirectAttributes redirectAttributes){
+        redirectAttributes.addAttribute("id", note.getChapterId());
+        repository.saveNotes(note);
+        return "redirect:/notes";
+    }
+
     /*  The HTML template Forms and PersonForm attributes are bound
         @return - template for person form
         @param - Person Class
     */
 
-    @RequestMapping(value = "/database/notescreate/{chid}", method = RequestMethod.GET)
-    public String notesAdd(@PathVariable("chid") long chid, Model model) {
-        model.addAttribute("chapterId", chid);
-        //return "mvc/database/notescreate";
-        return "/mvc/database/notescreate";
-    }
-
-//    @GetMapping("/database/not")
-//    public String notesAdd(Model model) {
-//        //model.addAttribute("chapterId", chid);
+//    @RequestMapping(value = "/database/notescreate/{chid}", method = RequestMethod.GET)
+//    public String notesAdd(@PathVariable("chid") long chid, Model model) {
+//        model.addAttribute("chapterId", chid);
+//        //return "mvc/database/notescreate";
 //        return "/mvc/database/notescreate";
 //    }
 
@@ -49,17 +57,17 @@ public class NotesViewController {
     @param - Person object with @Valid
     @param - BindingResult object
      */
-    @PostMapping("/database/notescreate")
-    public String notesSave(@Valid Notes notes, BindingResult bindingResult) {
-        // Validation of Decorated PersonForm attributes
-        if (bindingResult.hasErrors()) {
-            return "mvc/database/notescreate";
-        }
-        repository.saveNotes(notes);
-//        repository.addRoleToPerson(person.getEmail(), "ROLE_STUDENT");
-        // Redirect to next step
-        return "redirect:/notes";
-    }
+//    @PostMapping("/database/notescreate")
+//    public String notesSave(@Valid Notes notes, BindingResult bindingResult) {
+//        // Validation of Decorated PersonForm attributes
+//        if (bindingResult.hasErrors()) {
+//            return "mvc/database/notescreate";
+//        }
+//        repository.saveNotes(notes);
+////        repository.addRoleToPerson(person.getEmail(), "ROLE_STUDENT");
+//        // Redirect to next step
+//        return "redirect:/notes";
+//    }
 
 //    @GetMapping("/database/chapterupdate/{id}")
 //    public String personUpdate(@PathVariable("id") int id, Model model) {
@@ -67,28 +75,14 @@ public class NotesViewController {
 //        return "mvc/database/personupdate";
 //    }
 //
-//    @PostMapping("/database/personupdate")
-//    public String personUpdateSave(@Valid Person person, BindingResult bindingResult) {
-//        // Validation of Decorated PersonForm attributes
-//        if (bindingResult.hasErrors()) {
-//            return "mvc/database/personupdate";
-//        }
-//        repository.save(person);
-//        repository.addRoleToPerson(person.getEmail(), "ROLE_STUDENT");
+
 //
-//        // Redirect to next step
-//        return "redirect:/database/person";
+//    @GetMapping("/database/notesdelete/{id}")
+//    public String notesDelete(@PathVariable("id") long id) {
+//        repository.deleteNotes(id);
+//        return "redirect:/notes";
 //    }
 
-    @GetMapping("/database/notesdelete/{id}")
-    public String notesDelete(@PathVariable("id") long id) {
-        repository.deleteNotes(id);
-        return "redirect:/notes";
-    }
 
-//    @GetMapping("/database/person/search")
-//    public String person() {
-//        return "mvc/database/person_search";
-//    }
 
 }
