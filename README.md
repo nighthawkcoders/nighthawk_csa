@@ -9,12 +9,12 @@
 * login authentication so students have to be present during the actual tutorial 
 * allows Mr. Swanson to see who attends tutorial and award participation points
 
-# Features
+## Features
 * Database with uploaded tutorial notes (multiple tables with notes from each chapter)
 * Administrator authorization for special access (adding chapters) 
 * Login/logout for APUSH students only
 
-# Team
+## Team
 
 <table>
   <tr>
