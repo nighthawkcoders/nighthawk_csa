@@ -20,8 +20,11 @@ public class NotesViewController {
     private ModelRepository repository;
 
     @GetMapping("/notes")
-    public String notes(@RequestParam("id") long id, Model model) {
-        List<Notes> list = repository.listAllNotesWithId(id);
+    public String notes(@RequestParam(name = "id", defaultValue = "-1") long id, Model model) {
+        if (id == -1) {
+			return "/notes_none";
+		}
+		List<Notes> list = repository.listAllNotesWithId(id);
         model.addAttribute("listNotes", list);
         model.addAttribute("chapterId", id);
         return "/notes";

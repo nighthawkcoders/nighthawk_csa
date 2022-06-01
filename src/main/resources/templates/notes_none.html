@@ -1,0 +1,34 @@
+<!-- This page is illustrative and contains ideas about HTML formatting -->
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="~{layout}" lang="en">
+
+<!-- <head> -->
+<div layout:fragment="head" th:remove="tag">
+    <!-- Page specific head additions -->
+    <title>Notes</title>
+</div>
+
+<!-- <body> -->
+<div layout:fragment="body" th:remove="tag">
+    <div class="container py-4 bg-primary">
+        <!-- Page specific body additions -->
+        <header class="pb-3 mb-4 border-bottom">
+            <a href="#" class="d-flex align-items-center text-light text-decoration-none">
+                <span class="fs-4">Notes</span>
+            </a>
+        </header>
+
+        <div class="container py-4 text-light bg-danger">
+
+			<p>Note ID not supplied</p>
+
+        </div>
+    </div>
+
+</div>
+
+</html>
