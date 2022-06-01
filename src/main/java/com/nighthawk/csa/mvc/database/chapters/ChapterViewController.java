@@ -25,7 +25,7 @@ public class ChapterViewController {
         List<Chapter> list = repository.listAllChapters();
 
         model.addAttribute("listChapter", list);
-        return "/chapters";
+        return "chapters";
     }
 
     /*  The HTML template Forms and PersonForm attributes are bound
