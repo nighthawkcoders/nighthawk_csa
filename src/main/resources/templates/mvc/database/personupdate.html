@@ -62,7 +62,7 @@
                             <input type="email" th:field="*{email}" id="email" >
                             <small th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</small>
                         </div>
-                        <div class="form-group mb-2 mr-sm-2">
+                        <div sec:authorize="hasRole('ADMIN')" class="form-group mb-2 mr-sm-2">
                             <label for="password">Password:</label>
                             <input type="password" th:field="*{password}" id="password">
                             <small th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</small>

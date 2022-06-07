@@ -106,7 +106,7 @@
 
             <div class="btn-group">
                 <!-- Search Box -->
-                <div class="px-3">
+                <div class="px-3" style="height:30px;">
                     <input id="search" type="search" placeholder="Search" aria-label="Search">
                 </div>
                 <!-- Clock display -->
@@ -117,11 +117,24 @@
                 <th:block sec:authorize="isAnonymous()">
                     <div class="px-3">
                         <a th:href='@{/login}' class="link-dark">Login</a>
+
                     </div>
                 </th:block>
                 <th:block sec:authorize="isAuthenticated()">
-                    <div class="px-3">
-                        <a th:href='@{/logout}' class="link-dark">Logout</a>
+                    <div class="dropdown px-3">
+                        <span sec:authentication="name" class="dropdown-toggle link-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        </span>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li>
+                                <div class="dropdown-item">
+                                    <p style="margin-bottom:2px"><strong>ROLES:</strong></p>
+                                    <p style="font-size:0.75em;margin:1px" sec:authorize="hasRole('ADMIN')">ADMIN</p>
+                                    <p style="font-size:0.75em;margin:1px" sec:authorize="hasRole('TEACHER')">TEACHER</p>
+                                    <p style="font-size:0.75em;margin:1px" sec:authorize="hasRole('STUDENT')">STUDENT</p>
+                                </div>
+                            </li>
+                            <li><a class="dropdown-item active" th:href='@{/logout}'>Logout</a></li>
+                        </ul>
                     </div>
                 </th:block>
 
