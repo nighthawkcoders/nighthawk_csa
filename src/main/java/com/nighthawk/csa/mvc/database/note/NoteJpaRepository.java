@@ -1,7 +1,6 @@
 package com.nighthawk.csa.mvc.database.note;
 
 import com.nighthawk.csa.mvc.database.person.Person;
-import com.nighthawk.csa.mvc.database.role.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

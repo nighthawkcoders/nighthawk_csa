@@ -1,6 +1,5 @@
 package com.nighthawk.csa.utility.LinkedLists;
 
-import java.util.*;
 
 /**
  *  Implementation of Stack, using LinkedList (previous only).

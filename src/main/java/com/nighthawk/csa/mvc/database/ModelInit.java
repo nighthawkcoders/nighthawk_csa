@@ -1,8 +1,6 @@
 package com.nighthawk.csa.mvc.database;
 
-import com.nighthawk.csa.mvc.database.note.Note;
 import com.nighthawk.csa.mvc.database.note.NoteJpaRepository;
-import com.nighthawk.csa.mvc.database.person.Person;
 import com.nighthawk.csa.mvc.database.role.Role;
 import com.nighthawk.csa.mvc.database.role.RoleJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +34,6 @@ public class ModelInit {
             modelRepository.addRoleToPerson("jmort1021@gmail.com", "ROLE_TEACHER");
             modelRepository.addRoleToPerson("jmort1021@gmail.com", "ROLE_ADMIN");
 
-            Person person = modelRepository.getByEmail("jmort1021@gmail.com");
 
         };
     }
