@@ -104,6 +104,9 @@ class Main {
 
         // Menu construction
         Menu menu = new Menu(rows);
+        // Setup scanner
+        Scanner sc = new Scanner(System.in);
+
 
         // Run menu forever, exit condition contained in loop
         while (true) {
@@ -113,7 +116,6 @@ class Main {
 
             // Scan for input
             try {
-                Scanner sc = new Scanner(System.in);
                 int selection = sc.nextInt();
 
                 // menu action
@@ -121,7 +123,7 @@ class Main {
                     MenuRow row = menu.get(selection);
                     // stop menu condition
                     if (row.getTitle().equals("Exit"))
-                        return;
+                        break;
                     // run option
                     row.run();
                 } catch (Exception e) {
@@ -131,6 +133,7 @@ class Main {
                 System.out.println("Not a number");
             }
         }
+        sc.close();
     }
 }
 
