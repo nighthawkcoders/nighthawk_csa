@@ -11,14 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.BufferedOutputStream;
+import java.util.List;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.BufferedOutputStream;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.Path;
-import java.util.List;
 
 /* UploadController
 To upload dynamic image there are many considerations.  Here are highlights:
@@ -75,17 +72,12 @@ public class UploadController {
             byte[] bytes = formFile.getBytes();
 
             // File write alternatives (going with Stream for now as in theory it would be non-blocking)
-            if (false) {
-                Path path = Paths.get(filePath + formFile.getOriginalFilename());
-                Files.write(path, bytes);
-            } else {
-                String path = filePath + formFile.getOriginalFilename();
-                File serverFile = new File( path );
-                BufferedOutputStream stream = new BufferedOutputStream(
-                        new FileOutputStream(serverFile));
-                stream.write(bytes);
-                stream.close();
-            }
+            String path = filePath + formFile.getOriginalFilename();
+            File serverFile = new File( path );
+            BufferedOutputStream stream = new BufferedOutputStream(
+                    new FileOutputStream(serverFile));
+            stream.write(bytes);
+            stream.close();
 
             // JPA save
             repo.save(repoFile);
