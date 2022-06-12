@@ -76,11 +76,9 @@ public class PersonApiController {
     The personSearch API looks across database for partial match to term (k,v) passed by RequestEntity body
      */
     @PostMapping(value = "/search", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Object> personSearch(RequestEntity<Object> request) {
-
+    public ResponseEntity<Object> personSearch(@RequestBody final Map<String,String> map) {
         // extract term from RequestEntity
-        JSONObject json = new JSONObject((Map) Objects.requireNonNull(request.getBody()));
-        String term = (String) json.get("term");
+        String term = (String) map.get("term");
 
         // custom JPA query to filter on term
         List<Person> list = repository.listLikeNative(term);
