@@ -13,12 +13,12 @@ public class MvcConfig implements WebMvcConfigurer {
     }
 
     /* map path and location for "uploads" outside of application resources
-       ... creates a directory outside "static" folder, "file:uploads"
+       ... creates a directory outside "static" folder, "file:volumes/uploads"
        ... CRITICAL, without this uploaded file will not be loaded/displayed by frontend
      */
     @Override
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/uploads/**").addResourceLocations("file:uploads/");
+        registry.addResourceHandler("/volumes/uploads/**").addResourceLocations("file:volumes/uploads/");
     }
 
 }

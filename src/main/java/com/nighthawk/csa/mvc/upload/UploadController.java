@@ -52,7 +52,7 @@ public class UploadController {
     public String mvcUploader(@RequestParam("filename") MultipartFile formFile, Model modelMap)  {
         /* The static directory is loaded at startup. UploadING images or makING changes to any files or
          folders under the static folder will not reflect as ApplicationContext is already initialized. */
-        String filePath = "uploads/";       // thus, uploads defined outside of static
+        String filePath = "volumes/uploads/";  // thus, uploads defined outside of static for dynamic updates
         String webPath = "/" + filePath;    // webPath
 
         // A database table, using Upload POJO, is remembers location of upload and associated metadata

@@ -28,12 +28,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         /* web resources ignored from security rules...
-            ... added "/uploads/**" as custom resource outside of other with are application standards
+            ... added "/volumes/uploads/**" as custom resource
             ... removed "/css/**", "/js/**", "/fonts/**" until they are used
          */
         web
                 .ignoring()
-                .antMatchers("/resources/**", "/static/**",  "/images/**", "/scss/**", "/uploads/**")
+                .antMatchers("/resources/**", "/static/**",  "/images/**", "/scss/**", "/volumes/uploads/**")
         ;
     }
 

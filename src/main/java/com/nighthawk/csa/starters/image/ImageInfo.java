@@ -181,13 +181,6 @@ public class ImageInfo {
                 String.format("%8s", Integer.toBinaryString(rgb_matrix[h][w][2])).replace(' ', '0') ;
     }
 
-    public String[] convert_to_ascii(){
-        int[][] gs = this.to_grayscale();
-        int[][] scaled_gs = this.scale(gs);
-        //return  this.to_ascii_array(scaled_gs);
-        return new String[1];
-    }
-
     public int[][] to_grayscale(){
         // grey scale is calculated to average of pixel
         int[][] gs = new int[height][width];
