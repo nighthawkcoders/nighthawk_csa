@@ -26,18 +26,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    public void configure(WebSecurity web) throws Exception {
-        /* web resources ignored from security rules...
-            ... added "/volumes/uploads/**" as custom resource
-            ... removed "/css/**", "/js/**", "/fonts/**" until they are used
-         */
-        web
-                .ignoring()
-                .antMatchers("/resources/**", "/static/**",  "/images/**", "/scss/**", "/volumes/uploads/**")
-        ;
-    }
-
-    @Override
     protected void configure(HttpSecurity http) throws Exception {
         /* security rules ...
             ... initial implementation is focused on protecting database information
@@ -53,6 +41,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers( "/api/person/**").permitAll()
                 .antMatchers( "/api/refresh/token/**").permitAll()
                 .antMatchers("/", "/starters/**", "/frontend/**", "/mvc/**", "/database/person/**", "/database/personcreate", "/database/scrum/**", "/course/**").permitAll()
+                .antMatchers("/resources/**", "/static/**",  "/images/**", "/scss/**").permitAll()
+                .antMatchers("/volumes/uploads/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
