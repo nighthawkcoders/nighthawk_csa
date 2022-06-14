@@ -1,8 +1,8 @@
 <ul>
-  {% for notebooks in site.notebooks %}
+  {% for notebook in site.notebooks %}
     <li>
-      <a href="{{ notebooks.url }}">{{ notebooks.title }}</a>
-      {{ notebooks.excerpt }}
+      <a href="{{ notebook.url }}">{{ notebook.title }}</a>
+      {{ notebook.excerpt }}
     </li>
   {% endfor %}
 </ul>
