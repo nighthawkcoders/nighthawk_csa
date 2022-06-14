@@ -1,10 +1,8 @@
-# Units
-### General: <a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki">Wiki</a>, <a href="https://twitter.com/NighthawkCoding">Twitter</a>
-### Procedures: <a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Deployment">Deployment</a>
-
-### Anatomy of a Java Class
-{% include_relative anatomy.ipynb %}
-
-### Looking at Primitives
-{% include_relative primitive.ipynb %}
-
+<ul>
+  {% for notebooks in site.notebooks %}
+    <li>
+      <a href="{{ notebooks.url }}">{{ notebooks.title }}</a>
+      {{ notebooks.excerpt }}
+    </li>
+  {% endfor %}
+</ul>
