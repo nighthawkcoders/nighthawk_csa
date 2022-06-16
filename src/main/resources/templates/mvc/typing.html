@@ -1,0 +1,289 @@
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml" layout:decorate="~{layout}"
+	lang="en">
+
+<!-- <head> page additions -->
+<th:block layout:fragment="head" th:remove="tag">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<title>code typer</title>
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			background-color: #f2f2f2;
+		}
+
+		#words {
+			font-size: 20px;
+			color: #000;
+			/* text-align: center; */
+			margin-top: 10px;
+		}
+
+		.word {
+			display: inline-block;
+			margin: 0;
+			font-size: 20px;
+			color: #000;
+		}
+
+		.word.active {
+			color: #f00;
+		}
+
+		.word .correct {
+			color: #0f0;
+		}
+
+		.word .incorrect {
+			color: #f00;
+		}
+
+		.new-line {
+			display: inherit;
+			margin: 0;
+			font-size: 20px;
+			color: #000;
+		}
+
+		.tab {
+			display: inline-block;
+			margin: 0 10px;
+			font-size: 20px;
+			color: #000;
+		}
+
+		.space {
+			display: inline-block;
+			margin: 0 10px;
+			font-size: 20px;
+			color: #000;
+			opacity: 0.2;
+		}
+		
+		.cursor {
+			display: block;
+			background: #000;
+			height: 30px;
+			width: 2px;
+			position: absolute;
+		}
+	</style>
+
+</th:block>
+
+<!-- <body> -->
+<th:block layout:fragment="body" th:remove="tag">
+	<div class="container py-4">
+		<header class="pb-3 mb-4 border-bottom border-primary">
+			<div class="d-flex align-items-center text-dark text-decoration-none">
+				<span class="fs-4">Data Ops Lab</span>
+			</div>
+		</header>
+		<h1>Typing Game</h1>
+		<div tabindex="0" id="game">
+			<button id="restart">new game</button>
+		</div>
+
+
+		<script>
+			(async function () {
+				let Game = function (name, text) {
+					this.text = text;
+					this.letters = [];
+
+					this.game = document.getElementById(name);
+				}
+
+				Game.prototype.createLayout = function () {
+					this.typingArea = document.getElementById("typing-area");
+					if(this.typingArea) {
+						this.typingArea.innerHTML = "";
+					} else {
+						this.typingArea = document.createElement("div");
+						this.typingArea.id = "typing-area";
+						this.game.prepend(this.typingArea);
+					}
+
+					this.words = document.createElement("div");
+					this.words.id = "words";
+					this.typingArea.appendChild(this.words);
+
+					this.cursor = document.createElement("div");
+					this.cursor.classList.add("cursor");
+					this.typingArea.appendChild(this.cursor);
+				}
+
+				Game.prototype.buildWords = function () {
+					let create = e => document.createElement(e);
+
+					let createLetter = e => {
+						let temp = create(e);
+						this.letters.push(temp);
+						return temp;
+					};
+
+					const tabChar = "<i class=\"fas fa-long-arrow-alt-right\"></i>";
+					const newLineChar = "<i class=\"fas fa-arrow-down\"></i>";
+					// const spaceChar = "&#x25cf;";
+					const spaceChar = "&bull;"; // smaller bullet
+
+					let words = document.getElementById("words");
+					let word = null;
+					// loop through each character in the text
+					for (let i = 0; i < this.text.length; i++) {
+						if (word == null) {
+							word = create("div");
+							word.classList.add("word");
+						}
+
+						// this parses the text
+
+						// only new line and space ends a word
+						// every character in text is a letter
+						switch (this.text[i]) {
+							case '\n': // new line
+								let newLineLetter = createLetter("letter");
+								newLineLetter.innerHTML = newLineChar;
+								word.appendChild(newLineLetter);
+
+								words.appendChild(word);
+								word = null;
+
+								let newLineEle = create("div");
+								newLineEle.classList.add("new-line");
+								words.appendChild(newLineEle);
+								continue;
+
+							case ' ': // space
+								let space = createLetter("div");
+								space.classList.add("space");
+								space.innerHTML = spaceChar;
+								word.appendChild(space);
+
+								words.appendChild(word);
+								word = null;
+								continue;
+
+							case '\t': // tab
+								let tab = createLetter("div");
+								tab.classList.add("tab");
+								tab.innerHTML = tabChar;
+								word.appendChild(tab);
+								continue;
+						}
+
+						let letter = createLetter("letter");
+
+						// letter.textConent = text[i];
+						letter.innerHTML = this.text[i];
+
+						// add the span to the words div
+						word.appendChild(letter);
+					}
+
+					words.appendChild(word);
+				}
+
+				function* iter(text) {
+					for (let i = 0; i < text.length; i++)
+						yield text[i];
+				}
+
+				Game.prototype.addEventListeners = function () {
+					let game = document.getElementById("game");
+					let iterLetterEle = iter(this.letters);
+					let curLetterEle = iterLetterEle.next().value;
+
+					let iterLetter = iter(this.text);
+					let curLetter = iterLetter.next().value;
+
+					let cursor = this.cursor;
+					cursor.style.left = curLetterEle.offsetLeft + "px";
+					cursor.style.top = curLetterEle.offsetTop + "px";
+
+					function nextLetter() {
+						curLetterEle.classList.add("correct");
+						curLetterEle.classList.remove("incorrect");
+
+						cursor.style.left = curLetterEle.offsetLeft + curLetterEle.offsetWidth + "px";
+						cursor.style.top = curLetterEle.offsetTop + "px";
+
+						curLetterEle = iterLetterEle.next().value;
+						curLetter = iterLetter.next().value;
+
+						if (typeof curLetter === "undefined") {
+							game.removeEventListener("keydown", nextLetter);
+							alert("game over");
+						}
+
+						console.log("correct");
+					}
+
+					game.addEventListener("keydown", function (e) {
+						let pressedKey = e.key;
+
+						switch (pressedKey) {
+							case "Backspace":
+							case "Shift":
+							case "Alt":
+							case "Ctrl":
+							case "Meta":
+							case "Windows":
+							case "Command":
+							case "Apple":
+							case "CapsLock":
+							case "NumLock":
+							case "Esc":
+								return;
+
+							case "Enter":
+								if (curLetter === '\n') {
+									nextLetter();
+								}
+								break;
+
+							case "Tab":
+								e.preventDefault();
+								if (curLetter === '\t') {
+									nextLetter();
+								}
+								break;
+
+							case curLetter:
+								e.preventDefault();
+								nextLetter();
+								break;
+
+							default:
+								e.preventDefault();
+								curLetterEle.classList.add("incorrect");
+								console.log("incorrect");
+								return;
+						}
+					});
+				}
+
+				Game.prototype.start = function () {
+					this.createLayout();
+					this.buildWords();
+					this.addEventListeners();
+				}
+
+				async function main() {
+					let text = await (await fetch("/mvc/gettext")).text();
+					let game = new Game("game", text);
+					game.start();
+				}
+
+				await main();
+				document.getElementById("restart").onclick = async function() { await main() };
+
+			})();
+		</script>
+	</div>
+</th:block>
+</html>
