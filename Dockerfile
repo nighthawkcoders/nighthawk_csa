@@ -6,4 +6,4 @@ RUN apk update && apk upgrade && \
 RUN git clone https://github.com/nighthawkcoders/nighthawk_csa.git /app
 RUN ./mvnw package
 CMD ["java", "-jar", "target/csa-0.0.1-SNAPSHOT.jar"]
-EXPOSE 8080
+EXPOSE 8081
