@@ -38,3 +38,6 @@ node_modules
 ### Remove persistent data from version control ###
 volumes/uploads/**
 volumes/sqlite.db
+images/tmp/MonaLisa.gif
+images/tmp/MonaLisa.png
+images/tmp/MonaLisa.txt
