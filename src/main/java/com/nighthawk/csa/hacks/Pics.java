@@ -2,6 +2,8 @@ package com.nighthawk.csa.hacks;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
+import java.awt.Image;
+import java.awt.Graphics2D;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -24,67 +26,82 @@ import javax.imageio.ImageTypeSpecifier;
 public class Pics {
     private final String inDir = System.getProperty("user.dir")+ "/images/"; // location of images
     private final String outDir = System.getProperty("user.dir") + "/images/tmp/";  // location of created files
-    private String name;  // name of file
-    private String ext;   // extension of file
     private String inFile;
-    private String compressFile;
+    private String resizedFile;
     private String asciiFile;
+    private String ext;   // extension of file
+    private long bytes;
+    private int width;
+    private int height;
 
     // Constructor obtains attributes of picture
     public Pics(String name, String ext) {
-        this.name = name;
         this.ext = ext;
         this.inFile = this.inDir + name + "." + ext;
-        this.compressFile = this.outDir + name + "." + ext;
+        this.resizedFile = this.outDir + name + "." + ext;
         this.asciiFile = this.outDir + name + ".txt";
+        this.setStats();
+    }
+
+    public void printStats(String msg) {
+        System.out.println(msg + ": " + this.bytes + " " + this.width + "x" + this.height + "  " + this.inFile);
     }
 
     // Buffered image contains attributes, namely width and height
-    public void imageStats(String msg) {
+    public void setStats() {
         BufferedImage img;
         try {
             Path path = Paths.get(this.inFile);
-            long bytes = Files.size(path);
+            this.bytes = Files.size(path);
             img = ImageIO.read(new File(this.inFile));
-            System.out.println(msg + ": " + bytes + " " + img.getWidth() + "x" + img.getHeight());
+            this.width = img.getWidth();
+            this.height = img.getHeight();
         } catch (IOException e) {
         }
     }
     
-    // Compress the Image
-    public void compress() {
+    public static BufferedImage convertToBufferedImage(Image img) {
+
+        if (img instanceof BufferedImage) {
+            return (BufferedImage) img;
+        }
+
+        // Create a buffered image with transparency
+        BufferedImage bi = new BufferedImage(
+                img.getWidth(null), img.getHeight(null),
+                BufferedImage.TYPE_INT_ARGB);
+
+        Graphics2D graphics2D = bi.createGraphics();
+        graphics2D.drawImage(img, 0, 0, null);
+        graphics2D.dispose();
+
+        return bi;
+    }
+    
+    public void resize(int scale) {
         BufferedImage img = null;
-        IIOMetadata metadata = null;
+        Image resizedImg = null;  
 
-        try (ImageInputStream in = ImageIO.createImageInputStream(Files.newInputStream(Paths.get(this.inFile)))) {
-            ImageReader reader = ImageIO.getImageReadersByFormatName(this.ext).next();
-            reader.setInput(in, true, false);
-            img = reader.read(0);
-            metadata = reader.getImageMetadata(0);
-            reader.dispose();
+        int width = (int) (this.width * (scale/100.0) + 0.5);
+        int height = (int) (this.height * (scale/100.0) + 0.5);
+
+        try {
+            // read an image to BufferedImage for processing
+            img = ImageIO.read(new File(this.inFile));  // set buffer of image data
+            // create a new BufferedImage for drawing
+            resizedImg = img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
         } catch (IOException e) {
             return;
         }
 
-        try (ImageOutputStream out = ImageIO.createImageOutputStream(Files.newOutputStream(Paths.get(this.compressFile)))) {
-            ImageTypeSpecifier type = ImageTypeSpecifier.createFromRenderedImage(img);
-            ImageWriter writer = ImageIO.getImageWriters(type, this.ext).next();
-
-            ImageWriteParam param = writer.getDefaultWriteParam();
-            if (param.canWriteCompressed()) {
-                param.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
-                param.setCompressionQuality(0.0f); // an integer between 0 and 1
-                // 1 specifies minimum compression and maximum quality
-            }
-
-            writer.setOutput(out);
-            writer.write(null, new IIOImage(img, null, metadata), param);
-            writer.dispose();
+        try {
+            ImageIO.write(convertToBufferedImage(resizedImg), this.ext, new File(resizedFile));
         } catch (IOException e) {
             return;
         }
-
-        this.inFile = this.compressFile;  // use compressed file vs original file in Class
+        
+        this.inFile = this.resizedFile;  // use scaled file vs original file in Class
+        this.setStats();
     }
     
     public void convertToAscii() {
@@ -110,6 +127,7 @@ public class Pics {
         } catch (IOException e) {
         }
 
+        System.out.println();
         for (int i = 0; i < img.getHeight(); i++) {
             for (int j = 0; j < img.getWidth(); j++) {
                 Color col = new Color(img.getRGB(j, i));
@@ -121,6 +139,7 @@ public class Pics {
                     asciiWrt.flush();
                 } catch (Exception ex) {
                 }
+                System.out.print(asciiChar(pixVal));
             }
             try {
                 asciiPrt.println("");
@@ -128,6 +147,7 @@ public class Pics {
                 asciiWrt.flush();
             } catch (Exception ex) {
             }
+            System.out.println();
         }
     }
 
@@ -157,11 +177,15 @@ public class Pics {
 
     public static void main(String[] args) throws IOException {
         Pics monaLisa = new Pics("MonaLisa", "png");
-        monaLisa.imageStats("Original");
-
-        monaLisa.compress();
-        monaLisa.imageStats("Compressed");
-
+        monaLisa.printStats("Original");
+        monaLisa.resize(33);
+        monaLisa.printStats("Scaled");
         monaLisa.convertToAscii();
+
+        Pics pumpkin = new Pics("pumpkin", "png");
+        pumpkin.printStats("Original");
+        pumpkin.resize(33);
+        pumpkin.printStats("Scaled");
+        pumpkin.convertToAscii();
     }
 }
