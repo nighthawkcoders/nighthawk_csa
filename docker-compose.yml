@@ -4,7 +4,7 @@ services:
     image: java_csav2
     build: .
     ports:
-      - "8081:8081"
+      - "8081:8078"
     volumes:
       - persistent_volume:/app/volumes
     restart: unless-stopped
